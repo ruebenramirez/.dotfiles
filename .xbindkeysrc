@@ -1,0 +1,68 @@
+
+#################################
+# Toggle touchpad
+#################################
+# old config -- before I started using termite for my primary terminal
+# "/usr/bin/trackpad-toggle.sh; sh ~/.xsetroot.sh"
+#     m:0x5 + c:65
+#     Control+Shift + space
+
+"/usr/bin/trackpad-toggle.sh && sh ~/.xsetroot.sh"
+    m:0x4 + c:9
+    Control + Escape
+
+#################################
+# Screen Brightness -
+#################################
+"xbacklight -dec 9; sh ~/.xsetroot.sh"
+    m:0x5 + c:72
+    Control+Shift + F6
+
+#################################
+# Screen Brightness +
+#################################
+"xbacklight -inc 9; sh ~/.xsetroot.sh"
+    m:0x5 + c:73
+    Control+Shift + F7
+
+#################################
+# Volume Toggle Mute 
+#################################
+"amixer set Master toggle; sh ~/.xsetroot.sh"
+    m:0x5 + c:74
+    Control+Shift + F8
+
+#################################
+# Volume Down
+#################################
+"amixer set Master 5-; sh ~/.xsetroot.sh"
+    m:0x5 + c:75
+    Control+Shift + F9
+
+#################################
+# Volume Up
+#################################
+"amixer set Master 5+; sh ~/.xsetroot.sh"
+    m:0x5 + c:76
+    Control+Shift + F10
+
+#################################
+# reboot
+#################################
+"sudo reboot"
+    m:0x4 + c:124
+    Control + XF86PowerOff
+
+#################################
+# disable power button
+#################################
+""
+    c:124
+    PowerOff
+
+#################################
+# screenshot capture
+#################################
+"shutter"
+    m:0x5 + c:70
+    Control+Shift + F4
