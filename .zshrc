@@ -81,4 +81,5 @@ alias iv='sxiv'
 
 alias dkr='sudo docker'
 alias docker='sudo docker'
+alias x='startx'
 
