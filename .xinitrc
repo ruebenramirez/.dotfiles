@@ -1,13 +1,6 @@
 # autoload disk and thumb drives
 udiskie &
 
-# TODO: get the xmapmod working so that external mac keyboards are more usable!
-# load the key remapping to make the left super key the same as the left Alt key
-#xmodmap .xmodmaprc
-
-# Load .Xresources file
-#xrdb -merge ~/.Xresources &
-
 export BROWSER=google-chrome-stable &
 
 # 1280x720 = 720p X220
@@ -44,10 +37,6 @@ done &
 # restart xbindkeys for the key mappings to start working
 pkill -f xbindkeys
 xbindkeys
-
-# documentation on this line https://wiki.archlinux.org/index.php/Touchpad_Synaptics
-# use this when disabling trackpad while typing -- set before the exec runs
-#syndaemon -t -k -i 5 -d & # re-enables after soft-disable key combo
 
 # speed up the keybaord
 xset r rate 250 60
