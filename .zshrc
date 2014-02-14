@@ -30,8 +30,7 @@ ZSH_THEME="eastwood"
 # yyyy-mm-dd
 HIST_STAMPS="mm/dd/yyyy"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
@@ -53,5 +52,6 @@ alias iv='sxiv'
 
 alias dkr='sudo docker'
 alias docker='sudo docker'
-alias x='startx'
+
+alias x='sh ~/bin/xWindowStart.sh'
 
