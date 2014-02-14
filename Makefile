@@ -1,8 +1,9 @@
 DIR=/home/rramirez/.dotfiles
 
-all: symlinks
+all: dotFileSymlinks archCustomBins
 
-symlinks:
+dotFileSymlinks:
+
 	@ln -sf $(DIR)/.ctags ~/.ctags
 	@ln -sf $(DIR)/.gitconfig ~/.gitconfig
 	@ln -sf $(DIR)/.tmux.conf ~/.tmux.conf
@@ -12,3 +13,17 @@ symlinks:
 	@ln -sf $(DIR)/.Xresources ~/.Xresources
 	@ln -sf $(DIR)/.xsetroot.sh ~/.xsetroot.sh
 	@ln -sf $(DIR)/.zshrc ~/.zshrc
+
+archCustomBins:
+
+	if [[ ! -d ~/bin/ ]]; then
+		mkdir ~/bin/
+	fi;
+
+	@ln -sf $(DIR)/bin/cellwifi.sh ~/bin/cellwifi.sh
+	@ln -sf $(DIR)/bin/cleanupOrphans.sh ~/bin/cleanupOrphans.sh
+	@ln -sf $(DIR)/bin/disablewifi.sh ~/bin/disablewifi.sh
+	@ln -sf $(DIR)/bin/homessh.sh ~/bin/homessh.sh
+	@ln -sf $(DIR)/bin/pingGoogle.sh ~/bin/pingGoogle.sh
+	@ln -sf $(DIR)/bin/workwifi.sh ~/bin/workwifi.sh
+	@ln -sf $(DIR)/bin/xWindowStart.sh ~/bin/xWindowStart.sh
