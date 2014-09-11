@@ -38,20 +38,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/rramirez/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
+export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
-alias pwr="sudo acpi -b"
-alias redwm='cd ~/dwm; updpkgsums; makepkg -efi --noconfirm; killall dwm'
-
-alias gk='geeknote'
-
-alias wifi='sudo wifi-menu'
-alias iv='sxiv'
-
-alias dkr='sudo docker'
 alias docker='sudo docker'
+alias d='sudo docker'
+alias dps='sudo docker ps -a'
+alias di='sudo docker images' 
+alias dat='sudo docker attach --sig-proxy=true'
 
-alias x='sh ~/bin/xWindowStart.sh'
-
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

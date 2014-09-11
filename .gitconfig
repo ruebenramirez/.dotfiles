@@ -1,3 +1,5 @@
 [user]
 	email = ruebenramirez@gmail.com
 	name = Rueben Ramirez
+[color]
+	ui = true

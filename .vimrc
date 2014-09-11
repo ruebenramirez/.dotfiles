@@ -1,11 +1,8 @@
-set nu
-syn on
-
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
@@ -17,6 +14,7 @@ Bundle 'gmarik/vundle'
 Bundle 'commentary.vim'
 Bundle 'ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
@@ -43,10 +41,14 @@ filetype plugin indent on     " required!
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
+set nu
+syn on
 set cursorline
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set ignorecase
-set nu
+
+" read *.md as markdown files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
