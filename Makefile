@@ -16,8 +16,9 @@ dotFileSymlinks:
 	@ln -sf $(DIR)/.xsetroot.sh ~/.xsetroot.sh
 	@ln -sf $(DIR)/.zshrc ~/.zshrc
 
-linux:
+vim:
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	vim +PluginInstall +qall
 
 archCustomBins:
 	if [[ ! -d ~/bin/ ]]; then
