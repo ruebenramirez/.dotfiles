@@ -51,3 +51,5 @@ alias dat='sudo docker attach --sig-proxy=true'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias sl="ls"
+
+weather 78212
