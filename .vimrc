@@ -18,15 +18,11 @@ Bundle 'tpope/vim-markdown'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-" non-GitHub repos
 Bundle 'git://git.wincent.com/command-t.git'
-" TODO does the github link work?
-" Bundle 'crooloos/nerdtree'
-Bundle 'git://github.com/scrooloose/nerdtree.git'
-
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'klen/python-mode'
 
 " Git repos on your local machine (i.e. when working on your own plugin)
@@ -44,12 +40,8 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-" F2 for nerdtree
-map <F2> :NERDTreeToggle<CR>
-
+" my default vim stuffs
 set nu
 syn on
 set cursorline
@@ -58,6 +50,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set ignorecase
+set showtabline=2
 
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -70,8 +63,18 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
 augroup vimrc_autocmds
     autocmd!
-    " highlight characters past column 80 
+    " highlight characters past column 80
     autocmd FileType python highlight OverLength ctermfg=white ctermbg=red guibg=#592929
     autocmd FileType python match OverLength /\%81v.\+/
     autocmd FileType python set nowrap
     augroup END
+
+" my key mappings
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+" F-keys for nerdtree source: http://bit.ly/1udysIl
+silent! nmap <F2> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"
