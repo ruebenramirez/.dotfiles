@@ -42,6 +42,7 @@ export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
+alias sl="ls"
 alias docker='sudo docker'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
@@ -50,6 +51,6 @@ alias dat='sudo docker attach --sig-proxy=true'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-alias sl="ls"
 
-weather 78212
+weather 78154
+
