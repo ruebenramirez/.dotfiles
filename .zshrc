@@ -49,6 +49,7 @@ alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
+alias logitechNaturalScroll='xinput set-button-map "Logitech Unifying Device. Wireless PID:4101" 1 3 1 5 4 7 6'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
