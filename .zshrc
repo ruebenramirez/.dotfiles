@@ -48,6 +48,7 @@ alias d='sudo docker'
 alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
+alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
