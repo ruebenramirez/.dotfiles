@@ -2,8 +2,8 @@ DIR=/home/rramirez/.dotfiles
 
 all: dotFileSymlinks 
 	
-arch:
-	archCustomBins
+linux:
+	customBins
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -23,10 +23,11 @@ vim:
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
 
-archCustomBins:
+customBins:
 	if [[ ! -d ~/bin/ ]]; then
 		mkdir ~/bin/
 	fi;
+	# TODO iterate through executable files in ~/.dotfiles/
 	@ln -sf $(DIR)/bin/cellwifi.sh ~/bin/cellwifi.sh
 	@ln -sf $(DIR)/bin/cleanupOrphans.sh ~/bin/cleanupOrphans.sh
 	@ln -sf $(DIR)/bin/disablewifi.sh ~/bin/disablewifi.sh
@@ -34,4 +35,5 @@ archCustomBins:
 	@ln -sf $(DIR)/bin/pingGoogle.sh ~/bin/pingGoogle.sh
 	@ln -sf $(DIR)/bin/workwifi.sh ~/bin/workwifi.sh
 	@ln -sf $(DIR)/bin/xWindowStart.sh ~/bin/xWindowStart.sh
+	@ln -sf $(DIR)/bin/logitech-t650-config.sh ~/bin/logitech-t650-config.sh
 

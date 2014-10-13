@@ -42,15 +42,22 @@ export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
+# docker related
 alias sl="ls"
 alias docker='sudo docker'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
+
+# rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
-alias logitechNaturalScroll='xinput set-button-map "Logitech Unifying Device. Wireless PID:4101" 1 3 1 5 4 7 6'
+alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
+alias bigscreen='xrandr --output eDP1 --mode 1680x1050'
+alias rackmonitors='bigscreen; xrandr --output HDMI3 --primary'
+
 alias saweather='weather 78154'
+alias saw='saweather'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
