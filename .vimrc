@@ -35,6 +35,7 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set showtabline=2
+set hlsearch
 
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
