@@ -49,6 +49,9 @@ alias gbr='git branch'
 alias gbra='git branch -a'
 alias gr='git remote -v'
 alias ghist='git log -p'
+alias gp='git push'
+alias gs='git status'
+alias ga='git add'
 
 # docker related
 alias sl='ls'
