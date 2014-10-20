@@ -45,13 +45,17 @@ export PAGER=less
 # git related
 alias gc='git checkout'
 alias gcom='git commit'
-alias gbr='git branch'
-alias gbra='git branch -a'
+alias gcommit='git commit'
+alias gbranch='git branch'
+alias gbrancha='git branch -a'
 alias gr='git remote -v'
+alias gremote='git remote -v'
 alias ghist='git log -p'
-alias gp='git push'
+alias gpull='git pull'
+alias gpush='git push'
 alias gs='git status'
-alias ga='git add'
+alias gstat='git status'
+alias gadd='git add'
 
 # docker related
 alias sl='ls'
