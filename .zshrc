@@ -42,8 +42,12 @@ export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
+# git related
+alias gc='git checkout'
+alias gcom='git commit'
+
 # docker related
-alias sl="ls"
+alias sl='ls'
 alias docker='sudo docker'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
