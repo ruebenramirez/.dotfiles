@@ -2,7 +2,7 @@ DIR=/home/rramirez/.dotfiles
 
 all: dotFileSymlinks 
 	
-linuxworkstation: customBins
+linuxworkstation: customBins 
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -38,4 +38,8 @@ customBins:
 	@ln -sf $(DIR)/bin/logitech-t650-config.sh ~/bin/logitech-t650-config.sh
 	@ln -sf $(DIR)/bin/trackpad-toggle.sh ~/bin/trackpad-toggle.sh
 	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
+	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
+
+installBrotherPrinter:
+	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
 
