@@ -42,8 +42,23 @@ export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
+# git related
+alias gc='git checkout'
+alias gcom='git commit'
+alias gcommit='git commit'
+alias gbranch='git branch'
+alias gbrancha='git branch -a'
+alias gr='git remote -v'
+alias gremote='git remote -v'
+alias ghist='git log -p'
+alias gpull='git pull'
+alias gpush='git push'
+alias gs='git status'
+alias gstat='git status'
+alias gadd='git add'
+
 # docker related
-alias sl="ls"
+alias sl='ls'
 alias docker='sudo docker'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
