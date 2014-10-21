@@ -2,8 +2,7 @@ DIR=/home/rramirez/.dotfiles
 
 all: dotFileSymlinks 
 	
-linux:
-	customBins
+linuxworkstation: customBins
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -24,8 +23,9 @@ vim:
 	vim +PluginInstall +qall
 
 customBins:
-	if [[ ! -d ~/bin/ ]]; then
-		mkdir ~/bin/
+	if [ ! -d ~/bin/ ]; \
+	then \
+		mkdir ~/bin/; \
 	fi;
 	# TODO iterate through executable files in ~/.dotfiles/
 	@ln -sf $(DIR)/bin/cellwifi.sh ~/bin/cellwifi.sh
@@ -36,4 +36,6 @@ customBins:
 	@ln -sf $(DIR)/bin/workwifi.sh ~/bin/workwifi.sh
 	@ln -sf $(DIR)/bin/xWindowStart.sh ~/bin/xWindowStart.sh
 	@ln -sf $(DIR)/bin/logitech-t650-config.sh ~/bin/logitech-t650-config.sh
+	@ln -sf $(DIR)/bin/trackpad-toggle.sh ~/bin/trackpad-toggle.sh
+	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
