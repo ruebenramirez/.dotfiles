@@ -2,7 +2,9 @@ DIR=/home/rramirez/.dotfiles
 
 all: dotFileSymlinks 
 	
-linuxworkstation: customBins 
+linux:
+	customBins
+	installApps
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -42,4 +44,7 @@ customBins:
 
 installBrotherPrinter:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
+
+installApps:
+	sudo apt-get install xbindkeys
 
