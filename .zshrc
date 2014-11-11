@@ -45,6 +45,7 @@ export PAGER=less
 # general purpose aliases
 alias sl='ls'
 alias tmuxa='tmux a'
+alias celar='clear'
 
 # git related
 alias gc='git checkout'
