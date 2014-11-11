@@ -42,6 +42,10 @@ export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
+# general purpose aliases
+alias sl='ls'
+alias tmuxa='tmux a'
+
 # git related
 alias gc='git checkout'
 alias gcom='git commit'
@@ -56,9 +60,9 @@ alias gpush='git push'
 alias gs='git status'
 alias gstat='git status'
 alias gadd='git add'
+alias gdiff='git diff'
 
 # docker related
-alias sl='ls'
 alias docker='sudo docker'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
