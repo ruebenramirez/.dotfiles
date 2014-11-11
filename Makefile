@@ -51,4 +51,6 @@ installBrotherPrinter:
 
 installApps:
 	sudo apt-get install xbindkeys
+	sudo apt-get install vim vim-common
+	sudo apt-get install git tig subversion git-svn
 
