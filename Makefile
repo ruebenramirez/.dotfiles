@@ -20,6 +20,10 @@ dotFileSymlinks:
 tmux:
 	sudo killall tmux
 
+omz:
+	curl -L http://install.ohmyz.sh | sh
+	chsh -s /bin/zsh
+
 vim:
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
