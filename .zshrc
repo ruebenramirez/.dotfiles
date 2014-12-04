@@ -73,11 +73,13 @@ alias dat='sudo docker attach --sig-proxy=true'
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
+
+
+# laptop configs
 alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
 alias bigscreen='xrandr --output eDP1 --mode 1680x1050'
-alias rackmonitors='bigscreen; xrandr --output HDMI3 --primary'
-alias rackset='rackmonitors; touchpad-setup; rackvpn'
-
+alias officemonitors='bigscreen; xrandr --output HDMI3 --primary'
+alias setoffice='officemonitors; touchpad-setup'
 alias saweather='weather 78154'
 alias saw='saweather'
 
@@ -85,5 +87,5 @@ alias saw='saweather'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-
+# Ruby dev stuffs
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

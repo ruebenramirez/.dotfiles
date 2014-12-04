@@ -64,5 +64,5 @@
 # screenshot capture
 #################################
 "shutter"
-    m:0x5 + c:70
-    Control+Shift + F4
+    m:0x9 + c:14
+    Shift+Alt + 5
