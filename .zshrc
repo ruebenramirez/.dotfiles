@@ -47,8 +47,7 @@ alias sl='ls'
 alias tmuxa='tmux a'
 alias celar='clear'
 alias os='cat /etc/*release*'
-alias x=exit
-
+alias x='xit'
 
 # git related
 alias gc='git checkout'
