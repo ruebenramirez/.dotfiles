@@ -37,10 +37,10 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export PATH="/home/rramirez/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
+
 
 # general purpose aliases
 alias sl='ls'
@@ -48,6 +48,7 @@ alias tmuxa='tmux a'
 alias celar='clear'
 alias os='cat /etc/*release*'
 alias xit='exit'
+
 
 # git related
 alias gc='git checkout'
@@ -65,12 +66,14 @@ alias gstat='git status'
 alias gadd='git add'
 alias gdiff='git diff'
 
+
 # docker related
 alias docker='sudo docker'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
+
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
@@ -83,6 +86,10 @@ alias officemonitors='bigscreen; xrandr --output HDMI3 --primary'
 alias setoffice='officemonitors; touchpad-setup'
 alias saweather='weather 78154'
 alias saw='saweather'
+
+
+### Vim related
+alias vundle_run="vim +PluginInstall +qall"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
