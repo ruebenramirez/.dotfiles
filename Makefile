@@ -1,6 +1,6 @@
 DIR=/home/rramirez/.dotfiles
 
-all: dotFileSymlinks 
+all: dotFileSymlinks tmux omz vim
 	
 linux:
 	customBins
@@ -49,7 +49,7 @@ customBins:
 installBrotherPrinter:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
 
-installApps:
+debDevPackages:
 	sudo apt-get install xbindkeys
 	sudo apt-get install vim vim-common
 	sudo apt-get install git tig subversion git-svn
