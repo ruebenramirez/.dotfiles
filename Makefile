@@ -18,15 +18,15 @@ dotFileSymlinks:
 	@ln -sf $(DIR)/.zshrc ~/.zshrc
 
 tmux:
-	sudo killall tmux
+	- sudo killall tmux
 
 omz:
-	curl -L http://install.ohmyz.sh | sh
-	chsh -s /bin/zsh
+	- curl -L http://install.ohmyz.sh | sh
+	- chsh -s /bin/zsh
 
 vim:
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	vim +PluginInstall +qall
+	- vim +PluginInstall +qall
 
 customBins:
 	if [ ! -d ~/bin/ ]; \
