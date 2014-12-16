@@ -77,6 +77,7 @@ alias dat='sudo docker attach --sig-proxy=true'
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
+alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 
 
 # laptop configs
