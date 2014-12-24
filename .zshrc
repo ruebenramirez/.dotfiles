@@ -87,6 +87,7 @@ alias officemonitors='bigscreen; xrandr --output HDMI3 --primary'
 alias setoffice='officemonitors; touchpad-setup'
 alias saweather='weather 78154'
 alias saw='saweather'
+alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr rdev 0/0'
 
 
 ### Vim related
