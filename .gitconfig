@@ -3,3 +3,5 @@
 	name = Rueben Ramirez
 [color]
 	ui = true
+[core]
+	editor = vim
