@@ -30,6 +30,7 @@ vim:
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
 git:
+	- sudo apt-get install -y git tig
 	- git config --global user.name "Rueben Ramirez"
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
