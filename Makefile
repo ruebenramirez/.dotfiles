@@ -1,9 +1,16 @@
 DIR=/home/rramirez/.dotfiles
 
-all: dotFileSymlinks tmux git omz vim
+all: dotFileSymlinks
 	
-linux:
+ubuntu:
+	dotFileSymlinks
+	tmux
+	git
+	omz
+	vim
 	customBins
+	debDevPackages
+	installBrotherPrinter
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -53,9 +60,8 @@ customBins:
 	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
 
-installBrotherPrinter:
-	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
-
 debDevPackages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
 
+installBrotherPrinter:
+	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
