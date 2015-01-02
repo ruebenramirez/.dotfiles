@@ -4,7 +4,6 @@ all: dotFileSymlinks tmux git omz vim
 	
 linux:
 	customBins
-	installApps
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -58,5 +57,5 @@ installBrotherPrinter:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
 
 debDevPackages:
-	sudo apt-get install -y xbindkeys vim vim-common git tig subversion git-svn
+	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
 
