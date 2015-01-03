@@ -69,6 +69,7 @@ alias gdiff='git diff'
 
 # docker related
 alias docker='sudo docker'
+alias fig='sudo fig'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
@@ -87,6 +88,7 @@ alias officemonitors='bigscreen; xrandr --output HDMI3 --primary'
 alias setoffice='officemonitors; touchpad-setup'
 alias saweather='weather 78154'
 alias saw='saweather'
+alias htop='sudo htop'
 
 
 ### Vim related
