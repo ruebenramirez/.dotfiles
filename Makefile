@@ -1,10 +1,16 @@
 DIR=/home/rramirez/.dotfiles
 
-all: dotFileSymlinks tmux omz vim
+all: dotFileSymlinks
 	
-linux:
+ubuntu:
+	dotFileSymlinks
+	tmux
+	git
+	omz
+	vim
 	customBins
-	installApps
+	debDevPackages
+	installBrotherPrinter
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -18,15 +24,23 @@ dotFileSymlinks:
 	@ln -sf $(DIR)/.zshrc ~/.zshrc
 
 tmux:
+	- sudo apt-get install -y tmux
 	- sudo killall tmux
 
 omz:
+	- sudo apt-get install -y zsh
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /bin/zsh
 
 vim:
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
+git:
+	- sudo apt-get install -y git tig
+	- git config --global user.name "Rueben Ramirez"
+	- git config --global user.email ruebenramirez@gmail.com
+	- git config --global core.editor vim
+	- git config --global color.ui true
 
 customBins:
 	if [ ! -d ~/bin/ ]; \
@@ -46,11 +60,8 @@ customBins:
 	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
 
+debDevPackages:
+	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
+
 installBrotherPrinter:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
-
-debDevPackages:
-	sudo apt-get install xbindkeys
-	sudo apt-get install vim vim-common
-	sudo apt-get install git tig subversion git-svn
-
