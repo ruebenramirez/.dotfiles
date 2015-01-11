@@ -66,6 +66,8 @@ alias gs='echo "git status" && git status'
 alias gstat='echo "git status" && git status'
 alias gadd='echo "git add" && git add'
 alias gdiff='echo "git diff" && git diff'
+alias gd='echo "git diff" && git diff'
+alias gdc='echo "git diff --cache" && git diff --cache'
 
 
 # docker related
