@@ -13,6 +13,7 @@ Plugin 'commentary.vim'
 Plugin 'ctrlp.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'mhinz/vim-signify'
+Plugin 'ekalinin/Dockerfile.vim'
 call vundle#end()
 filetype plugin indent on     " required!
 "
