@@ -43,6 +43,9 @@ git:
 	- git config --global core.editor vim
 	- git config --global color.ui true
 
+shutter:
+	- sudo apt-get install libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+
 customBins:
 	if [ ! -d ~/bin/ ]; \
 	then \
