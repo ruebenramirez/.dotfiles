@@ -77,7 +77,7 @@ alias d='sudo docker'
 alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
-
+alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
