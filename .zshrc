@@ -68,6 +68,7 @@ alias gadd='echo "git add" && git add'
 alias gdiff='echo "git diff" && git diff'
 alias gd='echo "git diff" && git diff'
 alias gdc='echo "git diff --cache" && git diff --cache'
+alias gpom='echo "git pull origin master" && git pull origin master'
 
 
 # docker related
@@ -78,6 +79,7 @@ alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
 alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
+
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
@@ -98,6 +100,7 @@ alias ports='sudo netstat -netpul'
 
 ### Vim related
 alias vundle_run="vim +PluginInstall +qall"
+
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
