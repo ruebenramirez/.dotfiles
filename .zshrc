@@ -93,6 +93,7 @@ alias saweather='weather 78154'
 alias saw='saweather'
 alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr rdev 0/0'
 alias htop='sudo htop'
+alias ports='sudo netstat -netpul'
 
 
 ### Vim related
