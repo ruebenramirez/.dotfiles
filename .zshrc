@@ -83,6 +83,7 @@ alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
+alias rackoff='sudo killall openconnect'
 alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 
 
