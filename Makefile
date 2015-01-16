@@ -60,8 +60,8 @@ customBins:
 	@ln -sf $(DIR)/bin/workwifi.sh ~/bin/workwifi.sh
 	@ln -sf $(DIR)/bin/xWindowStart.sh ~/bin/xWindowStart.sh
 	@ln -sf $(DIR)/bin/logitech-t650-config.sh ~/bin/logitech-t650-config.sh
-	@ln -sf $(DIR)/bin/trackpad-toggle.sh ~/bin/trackpad-toggle.sh
 	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
+	@sudo ln -sf $(DIR)/bin/configure-mouse-palm-detection.sh ~/bin/configure-mouse-palm-detection.sh
 	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
 
 debDevPackages:
