@@ -80,6 +80,7 @@ alias dps='sudo docker ps -a'
 alias di='sudo docker images' 
 alias dat='sudo docker attach --sig-proxy=true'
 alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
+alias dc="docker rm -f \$(docker ps -q -a)"
 
 
 # rackspace machine configs
