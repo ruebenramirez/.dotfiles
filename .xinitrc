@@ -5,7 +5,6 @@ while true
 do
     # update dwm status bar
 	sudo sh .xsetroot.sh
-
 	sleep 10s
 done &
 
@@ -14,7 +13,7 @@ pkill -f xbindkeys
 xbindkeys
 
 # setup trackpad config
-~/bin/configure-mouse-palm-detection.sh
+~/bin/configure-trackpad-palm-detection.sh
 /usr/bin/trackpad-toggle.sh
 
 # speed up the keybaord
