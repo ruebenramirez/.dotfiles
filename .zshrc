@@ -66,8 +66,9 @@ alias gs='echo "git status" && git status'
 alias gstat='echo "git status" && git status'
 alias gadd='echo "git add" && git add'
 alias gdiff='echo "git diff" && git diff'
-alias gd='echo "git diff" && git diff'
-alias gdc='echo "git diff --cache" && git diff --cache'
+alias gdif='gdiff'
+alias gd='gdiff'
+alias gdc='echo "git diff --cached" && git diff --cached'
 alias gpom='echo "git pull origin master" && git pull origin master'
 
 
