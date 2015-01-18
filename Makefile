@@ -1,6 +1,6 @@
 DIR=/home/rramirez/.dotfiles
 
-all: dotFileSymlinks
+all: dotFileSymlinks tmux omz vim git
 	
 ubuntu:
 	dotFileSymlinks
@@ -8,6 +8,7 @@ ubuntu:
 	git
 	omz
 	vim
+	shutter
 	customBins
 	debDevPackages
 	installBrotherPrinter
