@@ -102,7 +102,7 @@ alias ports='sudo netstat -netpul'
 
 
 ### Vim related
-alias vundle_run="vim +PluginInstall +qall"
+alias vimup="cd ~/.dotfiles; make vim"
 
 
 ### Added by the Heroku Toolbelt
