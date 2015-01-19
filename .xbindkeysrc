@@ -40,6 +40,10 @@
     m:0x5 + c:74
     Control+Shift + F8
 
+"amixer set Master toggle"
+    m:0x0 + c:121
+    XF86AudioMute
+
 #################################
 # Volume Down
 #################################
@@ -47,12 +51,20 @@
     m:0x5 + c:75
     Control+Shift + F9
 
+"amixer set Master 10%-"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+
 #################################
 # Volume Up
 #################################
 "amixer set Master 5+; sh ~/.xsetroot.sh"
     m:0x5 + c:76
     Control+Shift + F10
+
+"amixer set Master 10%+"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
 
 #################################
 # reboot
