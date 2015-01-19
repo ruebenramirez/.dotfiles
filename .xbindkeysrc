@@ -18,12 +18,20 @@
     m:0x5 + c:72
     Control+Shift + F6
 
+"brightness down"
+    m:0x0 + c:232
+    XF86MonBrightnessDown
+
 #################################
 # Screen Brightness +
 #################################
 "xbacklight -inc 9; sh ~/.xsetroot.sh"
     m:0x5 + c:73
     Control+Shift + F7
+
+"brightness up"
+    m:0x0 + c:233
+    XF86MonBrightnessUp
 
 #################################
 # Volume Toggle Mute 
