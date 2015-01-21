@@ -91,7 +91,7 @@ alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 
 # laptop configs
 alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
-alias lower_res='xrandr --output eDP1 --mode 1680x1050'
+alias lower_res='xrandr --output eDP1 --mode 1920x1200'
 alias officemonitors='lower_res; xrandr --output HDMI3 --primary'
 alias setoffice='officemonitors; touchpad-setup'
 alias saweather='weather 78154'
