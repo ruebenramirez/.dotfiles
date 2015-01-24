@@ -71,3 +71,12 @@ debDevPackages:
 
 installBrotherPrinter:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
+
+adobeSourceCodeProFont:
+	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
+		&& unzip 1.017R.zip \
+		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
+		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
+		&& rm 1.017R.zip \
+		&& rm -fr source-code-pro-1.017R
+
