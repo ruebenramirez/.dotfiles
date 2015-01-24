@@ -20,6 +20,7 @@ dotFileSymlinks:
 	@ln -sf $(DIR)/.vimrc ~/.vimrc
 	@ln -sf $(DIR)/.xbindkeysrc ~/.xbindkeysrc
 	@ln -sf $(DIR)/.xinitrc ~/.xinitrc
+	@ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 	@ln -sf $(DIR)/.Xresources ~/.Xresources
 	@ln -sf $(DIR)/.xsetroot.sh ~/.xsetroot.sh
 	@ln -sf $(DIR)/.zshrc ~/.zshrc
