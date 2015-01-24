@@ -14,62 +14,48 @@
 #################################
 # Screen Brightness -
 #################################
-"xbacklight -dec 9; sh ~/.xsetroot.sh"
-    m:0x5 + c:72
-    Control+Shift + F6
-
-# chromebook
-"xbacklight down; sh ~/.xsetroot.sh"
+"xbacklight -10%; sh ~/.xsetroot.sh"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
 #################################
 # Screen Brightness +
 #################################
-"xbacklight -inc 9; sh ~/.xsetroot.sh"
-    m:0x5 + c:73
-    Control+Shift + F7
-
-# chromebook
-"xbacklight up; sh ~/.xsetroot.sh"
+"xbacklight +10%; sh ~/.xsetroot.sh"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
 #################################
 # Volume Toggle Mute 
 #################################
-"amixer set Master toggle; sh ~/.xsetroot.sh"
-    m:0x5 + c:74
-    Control+Shift + F8
-
-# chromebook
-"amixer set Master toggle; sh ~/.xsetroot.sh"
+"amixer -D pulse sset Master toggle; sh ~/.xsetroot.sh"
     m:0x0 + c:121
     XF86AudioMute
 
 #################################
 # Volume Down
 #################################
-"amixer set Master 5-; sh ~/.xsetroot.sh"
-    m:0x5 + c:75
-    Control+Shift + F9
-
-# chromebook
-"amixer set Master 10%-; sh ~/.xsetroot.sh"
+"amixer -D pulse sset Master 5%-; sh ~/.xsetroot.sh"
     m:0x0 + c:122
     XF86AudioLowerVolume
+
+# chromebook - TODO - does this work for chromebook?
+# "amixer set Master 10%-; sh ~/.xsetroot.sh"
+#     m:0x0 + c:122
+#     XF86AudioLowerVolume
 
 #################################
 # Volume Up
 #################################
-"amixer set Master 5+; sh ~/.xsetroot.sh"
-    m:0x5 + c:76
-    Control+Shift + F10
-
-# chromebook
-"amixer set Master 10%+; sh ~/.xsetroot.sh"
+"amixer -D pulse sset Master 5%+; sh ~/.xsetroot.sh"
     m:0x0 + c:123
     XF86AudioRaiseVolume
+
+
+# chromebook - TODO - does this work for chromebook?
+# "amixer set Master 10%+; sh ~/.xsetroot.sh"
+#     m:0x0 + c:123
+#     XF86AudioRaiseVolume
 
 #################################
 # reboot
