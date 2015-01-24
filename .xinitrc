@@ -1,3 +1,5 @@
+xbacklight -set 11
+
 export BROWSER=google-chrome-stable &
 
 # "THE loop"
