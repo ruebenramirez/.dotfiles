@@ -1,4 +1,3 @@
-xbacklight -set 11
 
 export BROWSER=google-chrome-stable &
 
@@ -11,13 +10,17 @@ do
 done &
 
 # restart xbindkeys for the key mappings to start working
-pkill -f xbindkeys
+killall xbindkeys
 xbindkeys
 
 # setup trackpad config
-~/bin/configure-trackpad-palm-detection.sh
+/bin/configure-trackpad-palm-detection.sh
 /usr/bin/trackpad-toggle.sh
 
 # speed up the keybaord
 xset r rate 250 60
+
+xbacklight -set 11
+lower_res
+
 exec dwm
