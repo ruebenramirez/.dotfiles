@@ -92,16 +92,19 @@ alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 # laptop configs
 alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
 alias lower_res='xrandr --output eDP1 --mode 1920x1200'
-alias officemonitors='lower_res; xrandr --output HDMI3 --primary'
-alias setoffice='officemonitors; touchpad-setup'
+alias set_primary_displays='xrandr --output DP-0 --primary; xrandr --output HDMI3 --primary'
+alias home_display_rearrange='xrandr --output DP-0 --left-of LVDS-0'
+# TODO: configure 3/4 screens in square
+# TODO: does the displaylink adapter play more nicely with my setup under DWM?
+alias work_display_rearrange=''
+alias display_config='lower_res; set_primary_displays; home_display_rearrange; work_display_rearrange'
 alias saweather='weather 78154'
 alias saw='saweather'
 alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr rdev 0/0'
 alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
 alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
-alias keyoff='killall xbindkeys'
-alias spotoff='killall spotify'
+alias redwm='cd /usr/local/src/dwm-6.0; updpkgsums; makepkg -efi --noconfirm; killall dwm'
 
 
 ### Vim related

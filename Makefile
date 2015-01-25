@@ -80,3 +80,9 @@ adobeSourceCodeProFont:
 		&& rm 1.017R.zip \
 		&& rm -fr source-code-pro-1.017R
 
+screensaver:
+	sudo apt-get purge gnome-screensaver
+	sudo apt-get install xscreensaver
+
+weather:
+	sudo apt-get install weather
