@@ -22,5 +22,6 @@ xset r rate 250 60
 
 xbacklight -set 11
 lower_res
+xscreensaver -nosplash
 
 exec dwm
