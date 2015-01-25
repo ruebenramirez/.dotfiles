@@ -20,8 +20,7 @@ xbindkeys
 # speed up the keybaord
 xset r rate 250 60
 
+xscreensaver &
+display_config
 xbacklight -set 11
-lower_res
-xscreensaver -nosplash
-
 exec dwm
