@@ -77,3 +77,11 @@
 "shutter"
     m:0x9 + c:14
     Shift+Alt + 5
+
+
+#################################
+# lock screen
+##################################
+"lock"
+    m:0x1d + c:46
+    Control+Shift+Alt+Mod2 + l
