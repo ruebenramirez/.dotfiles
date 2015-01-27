@@ -1,12 +1,22 @@
+#################################
+## Move mouse to left screen
+##################################
+# THIS IS A BAD KEY COMBO
+# "move-mouse-left.sh && reset-mouse-top-left-of-screen.sh"
+#     m:0x5 + c:113
+#     Control+Shift + Left
+
+#################################
+## Move mouse to right screen
+##################################
+# THIS IS A BAD KEY COMBO
+# "move-mouse-right.sh && reset-mouse-top-left-of-screen.sh"
+#     m:0x5 + c:114
+#     Control+Shift + Right
 
 #################################
 # Toggle touchpad
 #################################
-# old config -- before I started using termite for my primary terminal
-# "/usr/bin/trackpad-toggle.sh; sh ~/.xsetroot.sh"
-#     m:0x5 + c:65
-#     Control+Shift + space
-
 "/usr/bin/trackpad-toggle.sh && sh ~/.xsetroot.sh"
     m:0x4 + c:9
     Control + Escape
