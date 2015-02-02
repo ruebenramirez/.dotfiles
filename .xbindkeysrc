@@ -95,3 +95,10 @@
 "lock"
     m:0x1d + c:46
     Control+Shift+Alt+Mod2 + l
+
+#################################
+# rescreen
+##################################
+"rescreen"
+    m:0x0 + c:128
+    XF86LaunchA

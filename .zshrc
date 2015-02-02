@@ -93,13 +93,14 @@ alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 
 # laptop configs
 alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
-alias lower_res='xrandr --output eDP1 --mode 1920x1200'
-alias set_primary_displays='xrandr --output DP-0 --primary'
-alias home_display_rearrange='xrandr --output DP-0 --left-of LVDS-0'
+alias lower_res='xrandr --auto; xrandr --output eDP1 --mode 1920x1200'
+alias work_primary_display='xrandr --output DP-0 --primary'
+alias display_external_left='xrandr --output DP-0 --left-of LVDS-0; xrandr --output HDMI1 --left-of eDP1'
+alias rescreen='xrandr --auto; display_external_left'
 # TODO: configure 3/4 screens in square
 # TODO: does the displaylink adapter play more nicely with my setup under DWM?
-alias work_display_rearrange=''
-alias display_config='lower_res; set_primary_displays; home_display_rearrange; work_display_rearrange'
+alias work_display_config='lower_res; work_primary_display; work_display_rearrange'
+
 alias saweather='weather 78154'
 alias saw='saweather'
 alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr rdev 0/0'
