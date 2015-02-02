@@ -5,7 +5,7 @@
 
 synclient PalmDetect=1
 synclient PalmMinWidth=12
-synclient PalmMinZ=200
+synclient PalmMinZ=100
 
 # disable tap clicks
 synclient TapButton1=0
