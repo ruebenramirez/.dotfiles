@@ -65,6 +65,7 @@ customBins:
 	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 	@ln -sf $(DIR)/bin/configure-trackpad-palm-detection.sh ~/bin/configure-trackpad-palm-detection.sh
 	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
+	@ln -sf $(DIR)/bin/init-display.sh ~/bin/init-display.sh
 
 debDevPackages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
