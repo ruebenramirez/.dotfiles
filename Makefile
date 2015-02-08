@@ -8,10 +8,11 @@ ubuntu:
 	git
 	omz
 	vim
-	shutter
+	desktopAppConfigs
 	customBins
 	debDevPackages
 	installBrotherPrinter
+
 
 dotFileSymlinks:
 	@ln -sf $(DIR)/.ctags ~/.ctags
@@ -46,7 +47,13 @@ git:
 	- git config --global color.ui true
 
 shutter:
-	- sudo apt-get install libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+	- sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+
+xdotool:
+	- sudo apt-get install -y xdotool
+desktopAppConfigs:
+	shutter
+	xdotool
 
 customBins:
 	if [ ! -d ~/bin/ ]; \
@@ -66,6 +73,9 @@ customBins:
 	@ln -sf $(DIR)/bin/configure-trackpad-palm-detection.sh ~/bin/configure-trackpad-palm-detection.sh
 	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
 	@ln -sf $(DIR)/bin/init-display.sh ~/bin/init-display.sh
+	@ln -sf $(DIR)/bin/move-mouse-left.sh ~/bin/move-mouse-left.sh
+	@ln -sf $(DIR)/bin/move-mouse-right.sh ~/bin/move-mouse-right.sh
+	@ln -sf $(DIR)/bin/reset-mouse-top-left-of-screen.sh ~/bin/reset-mouse-top-left-of-screen.sh
 
 debDevPackages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
