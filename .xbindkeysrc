@@ -23,14 +23,14 @@
 #################################
 # Screen Brightness -
 #################################
-"xbacklight -10%; sh ~/.xsetroot.sh"
+"light -U 10; sh ~/.xsetroot.sh"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
 #################################
 # Screen Brightness +
 #################################
-"xbacklight +10%; sh ~/.xsetroot.sh"
+"light -A 10; sh ~/.xsetroot.sh"
     m:0x0 + c:233
     XF86MonBrightnessUp
 

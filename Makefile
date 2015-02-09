@@ -51,9 +51,14 @@ shutter:
 
 xdotool:
 	- sudo apt-get install -y xdotool
+
+light:
+	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
+
 desktopAppConfigs:
 	shutter
 	xdotool
+	light
 
 customBins:
 	if [ ! -d ~/bin/ ]; \
