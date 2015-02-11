@@ -44,6 +44,7 @@ export PAGER=less
 
 # general purpose aliases
 alias sl='ls'
+alias lt='ls -lat'
 alias tmuxa='tmux a'
 alias celar='clear'
 alias os='cat /etc/*release*'
