@@ -25,4 +25,6 @@ xscreensaver &
 # init display config
 /home/rramirez/bin/init-display.sh
 
+dropbox start &
+
 exec dwm
