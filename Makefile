@@ -55,10 +55,14 @@ xdotool:
 light:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 
+dropboxCli:
+	- sudo dpkg -i ~/.dotfiles/pkgs/dropbox_1.6.2_amd64.deb
+
 desktopAppConfigs:
 	shutter
 	xdotool
 	light
+	dropboxCli
 
 customBins:
 	if [ ! -d ~/bin/ ]; \
