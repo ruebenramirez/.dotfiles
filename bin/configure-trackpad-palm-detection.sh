@@ -13,5 +13,6 @@ synclient TapButton2=0
 synclient TapButton3=0
 
 # Natural scrolling
+synclient HorizTwoFingerScroll=1
 synclient VertScrollDelta=-111
 synclient HorizScrollDelta=-111
