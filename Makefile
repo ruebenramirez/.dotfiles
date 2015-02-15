@@ -15,7 +15,7 @@ ubuntu:
 
 
 dotFileSymlinks:
-	@ln -sf $(DIR)/.* ~/
+	for f in .*; do test -f $$f && ln -sf $(DIR)/$$f ~/$$f; done
 	@ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 
 tmux:
