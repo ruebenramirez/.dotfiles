@@ -15,16 +15,8 @@ ubuntu:
 
 
 dotFileSymlinks:
-	@ln -sf $(DIR)/.ctags ~/.ctags
-	@ln -sf $(DIR)/.gitconfig ~/.gitconfig
-	@ln -sf $(DIR)/.tmux.conf ~/.tmux.conf
-	@ln -sf $(DIR)/.vimrc ~/.vimrc
-	@ln -sf $(DIR)/.xbindkeysrc ~/.xbindkeysrc
-	@ln -sf $(DIR)/.xinitrc ~/.xinitrc
+	@ln -sf $(DIR)/.* ~/
 	@ln -sf $(DIR)/.xinitrc ~/.xsessionrc
-	@ln -sf $(DIR)/.Xresources ~/.Xresources
-	@ln -sf $(DIR)/.xsetroot.sh ~/.xsetroot.sh
-	@ln -sf $(DIR)/.zshrc ~/.zshrc
 
 tmux:
 	- sudo apt-get install -y tmux
@@ -69,22 +61,8 @@ customBins:
 	then \
 		mkdir ~/bin/; \
 	fi;
-	# TODO iterate through executable files in ~/.dotfiles/
-	@ln -sf $(DIR)/bin/cellwifi.sh ~/bin/cellwifi.sh
-	@ln -sf $(DIR)/bin/cleanupOrphans.sh ~/bin/cleanupOrphans.sh
-	@ln -sf $(DIR)/bin/disablewifi.sh ~/bin/disablewifi.sh
-	@ln -sf $(DIR)/bin/homessh.sh ~/bin/homessh.sh
-	@ln -sf $(DIR)/bin/pingGoogle.sh ~/bin/pingGoogle.sh
-	@ln -sf $(DIR)/bin/workwifi.sh ~/bin/workwifi.sh
-	@ln -sf $(DIR)/bin/xWindowStart.sh ~/bin/xWindowStart.sh
-	@ln -sf $(DIR)/bin/logitech-t650-config.sh ~/bin/logitech-t650-config.sh
+	@ln -sf $(DIR)/bin/* ~/bin/
 	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
-	@ln -sf $(DIR)/bin/configure-trackpad-palm-detection.sh ~/bin/configure-trackpad-palm-detection.sh
-	@ln -sf $(DIR)/bin/linux-brprinter-installer-2.0.0-1 ~/bin/linux-brprinter-installer-2.0.0-1
-	@ln -sf $(DIR)/bin/init-display.sh ~/bin/init-display.sh
-	@ln -sf $(DIR)/bin/move-mouse-left.sh ~/bin/move-mouse-left.sh
-	@ln -sf $(DIR)/bin/move-mouse-right.sh ~/bin/move-mouse-right.sh
-	@ln -sf $(DIR)/bin/reset-mouse-top-left-of-screen.sh ~/bin/reset-mouse-top-left-of-screen.sh
 
 debDevPackages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
