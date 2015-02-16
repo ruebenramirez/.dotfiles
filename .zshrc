@@ -88,8 +88,9 @@ alias dc="docker rm \$(docker ps -q -a)"
 
 # rackspace machine configs
 alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
-alias vpnoff='sudo killall openconnect; sudo killall openconnect; \
-    sudo vpnc-disconnect; sudo vpnc-disconnect'
+alias ntvpn='sudo vpnc nt.conf'
+alias vpnoff='seq 2 | xargs -Iz sudo killall openconnect; \
+    seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 
 
