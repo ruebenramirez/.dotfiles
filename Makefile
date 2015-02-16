@@ -89,3 +89,8 @@ sshConfig:
 	@ln -sf $(DIR)/ssh/* ~/.ssh/
 	chmod 600 ~/.ssh/id_rsa
 	chmod 600 ~/.ssh/id_rsa.pub
+
+vpnConfig:
+	sudo apt-get update
+	sudo apt-get install openconnect
+	sudo apt-get install vpnc
