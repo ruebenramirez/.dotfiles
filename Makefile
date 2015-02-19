@@ -37,7 +37,8 @@ git:
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
-
+update:
+	sudo apt-get update -y
 shutter:
 	- sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
 
@@ -50,7 +51,12 @@ light:
 dropboxCli:
 	- sudo dpkg -i ~/.dotfiles/pkgs/dropbox_1.6.2_amd64.deb
 
+trayer:
+	sudo apt-get install -y trayer
+
 desktopAppConfigs:
+	update
+	trayer
 	shutter
 	xdotool
 	light
@@ -91,6 +97,6 @@ sshConfig:
 	chmod 600 ~/.ssh/id_rsa.pub
 
 vpnConfig:
-	sudo apt-get update
+	update
 	sudo apt-get install openconnect
 	sudo apt-get install vpnc
