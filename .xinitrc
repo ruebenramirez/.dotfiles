@@ -5,7 +5,7 @@ export BROWSER=google-chrome-stable &
 while true
 do
     # update dwm status bar
-	sudo sh .xsetroot.sh
+	sh .xsetroot.sh
 	sleep 5
 done &
 
