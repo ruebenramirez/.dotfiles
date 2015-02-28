@@ -37,14 +37,14 @@
 #################################
 # Volume Toggle Mute 
 #################################
-"amixer -D pulse sset Master toggle; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-mute-toggle.sh; sh ~/.xsetroot.sh"
     m:0x0 + c:121
     XF86AudioMute
 
 #################################
 # Volume Down
 #################################
-"amixer -D pulse sset Master 5%-; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-down.sh; sh ~/.xsetroot.sh"
     m:0x0 + c:122
     XF86AudioLowerVolume
 
@@ -56,7 +56,7 @@
 #################################
 # Volume Up
 #################################
-"amixer -D pulse sset Master 5%+; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-up.sh; sh ~/.xsetroot.sh"
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
