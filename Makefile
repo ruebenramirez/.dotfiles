@@ -37,8 +37,7 @@ git:
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
-update:
-	sudo apt-get update -y
+
 shutter:
 	- sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
 
@@ -55,7 +54,7 @@ trayer:
 	sudo apt-get install -y trayer
 
 desktopAppConfigs:
-	update
+	sudo apt-get update -y
 	trayer
 	shutter
 	xdotool
@@ -97,15 +96,16 @@ sshConfig:
 	chmod 600 ~/.ssh/id_rsa.pub
 
 vpnConfig:
-	update
+	sudo apt-get update -y
 	sudo apt-get install openconnect
 	sudo apt-get install vpnc
 
 dockerSetup:
+	sudo apt-get update -y
 	sudo apt-get purge -y docker.io
 	sudo apt-get install -y apt-transport-https
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 	sudo sh -c "echo deb https://get.docker.com/ubuntu docker main \
 		> /etc/apt/sources.list.d/docker.list"
-	update
-	sudo apt-get install lxc-docker
+	sudo apt-get update -y
+	sudo apt-get install -y lxc-docker
