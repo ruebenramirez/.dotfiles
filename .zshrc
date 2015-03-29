@@ -37,7 +37,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/home/rramirez/bin:$PATH"
+export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
@@ -60,6 +60,8 @@ alias gcommit='echo "git commit" && git commit'
 alias gbranch='echo "git branch" && git branch'
 alias gbrancha='echo "git branch -a" && git branch -a'
 alias gbra='echo "git branch -a" && git branch -a'
+alias gbd='echo "git branch -D" && git branch -D'
+alias gbrd='echo "git branch -D" && git branch -D'
 alias gr='echo "git remote -v" && git remote -v'
 alias gremote='echo "git remote -v" && git remote -v'
 alias ghist='echo "git log -p" && git log -p'
@@ -127,6 +129,9 @@ alias vimup="cd ~/.dotfiles; make vim"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# mongo aliases for OR gui stuffs
+alias start_mongo="pushd ~/mongo && bin/start.sh && popd"
+alias stop_mongo="pushd ~/mongo && bin/stop.sh && popd"
 
 # Ruby dev stuffs
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
