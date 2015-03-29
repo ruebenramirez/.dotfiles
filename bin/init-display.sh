@@ -5,6 +5,9 @@ then
     xrandr --auto
     xrandr --output DP-0 --left-of LVDS-0
     xrandr --output DP-1 --left-of LVDS-0
+elif [[ $(hostname -f) = "rramirez-dev-vm" ]]
+then
+    xrandr --output Virtual1 --mode 1360x768
 else
     # work machine
     xrandr --auto
