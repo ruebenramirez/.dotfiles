@@ -91,7 +91,7 @@ weather:
 	sudo apt-get install weather
 
 sshConfig:
-	@ln -sf $(DIR)/ssh/* ~/.ssh/
+	for f in ./ssh/*; do @ln -sf $(DIR)/ssh/$$f ~/.ssh/$$f; done
 	chmod 600 ~/.ssh/id_rsa
 	chmod 600 ~/.ssh/id_rsa.pub
 
