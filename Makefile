@@ -1,9 +1,9 @@
-DIR=/home/rramirez/.dotfiles
+DIR=$(pwd)
 
-all: dotFileSymlinks tmux omz vim git
+all: dotFiles tmux omz vim git
 	
 ubuntu:
-	dotFileSymlinks
+	dotFiles
 	tmux
 	git
 	omz
@@ -14,9 +14,9 @@ ubuntu:
 	installBrotherPrinter
 
 
-dotFileSymlinks:
-	for f in .*; do test -f $$f && ln -sf $(DIR)/$$f ~/$$f; done
-	@ln -sf $(DIR)/.xinitrc ~/.xsessionrc
+dotFiles:
+	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
+	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 
 tmux:
 	- sudo apt-get install -y tmux
