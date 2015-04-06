@@ -2,7 +2,7 @@
 set +e
 
 BAT="Bat. $(acpi -b | awk '{ print $4 " " $5 }' | tr -d ',')"
-VOL="vol. $(sh /home/rramirez/bin/volume-get.sh)"
+VOL="$(sh /home/rramirez/bin/volume-get.sh)"
 BRIGHT="bLight. $(light -G | cut -d . -f 1)"
 LOCALTIME=$(date +%m/%d\/%Y\ %r)
 VPN="$(test $(ps aux | grep -i 'openconnect.*rackspace' | wc -l) -gt 1 && echo '<< VPN-Rackspace ')"
