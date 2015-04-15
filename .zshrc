@@ -114,7 +114,7 @@ alias work_display_config='lower_res; work_primary_display; work_display_rearran
 
 alias saweather='weather 78154'
 alias saw='saweather'
-alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr rdev 0/0'
+alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr juanito-bastion 0/0'
 alias hophome='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
 alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
