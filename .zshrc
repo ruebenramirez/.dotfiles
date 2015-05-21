@@ -100,7 +100,7 @@ alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
 alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
 alias lower_res='xrandr --auto; xrandr --output eDP1 --mode 1920x1200'
 alias work_primary_display='xrandr --output DP-0 --primary'
-alias work_display_rearrange='xrandr --output HDMI2 --right-of eDP1; xrandr --output HDMI3 --above eDP1'
+alias work_display_rearrange='xrandr --output HDMI2 --right-of eDP1; xrandr --output HDMI3 --left-of eDP1'
 alias display_external_left='xrandr --output DisplayPort-0 --left-of LVDS-1; \
     xrandr --output DisplayPort-0 --left-of LVDS-0; \
     xrandr --output DisplayPort-1 --left-of LVDS-1; \
