@@ -39,6 +39,7 @@ set expandtab
 set ignorecase
 set showtabline=2
 set hlsearch
+set backspace=indent,eol,start
 
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
