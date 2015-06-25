@@ -109,3 +109,12 @@ dockerSetup:
 		> /etc/apt/sources.list.d/docker.list"
 	sudo apt-get update -y
 	sudo apt-get install -y lxc-docker
+virtualenvwrapper:
+	sudo apt-get remove python-pip
+	sudo easy_install pip
+	sudo pip uninstall virtualenvwrapper
+	sudo pip install virtualenvwrapper
+	echo "export WORKON_HOME=~/Envs"
+	echo "mkdir -p $WORKON_HOME"
+	echo "source /usr/local/bin/virtualenvwrapper.sh"
+	echo "mkvirtualenv env_name"
