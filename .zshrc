@@ -3,27 +3,13 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="eastwood"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to  shown in the command execution time stamp 
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
@@ -42,15 +28,17 @@ export EDITOR=vim
 export PAGER=less
 
 
-# general purpose aliases
+# helpful aliases
 alias sl='ls'
 alias lt='ls -lat'
 alias tmuxa='tmux a'
 alias celar='clear'
 alias os='cat /etc/*release*'
 alias xit='exit'
-alias todo='vim ~/Code/todos/todos.md'
-alias todos='todo'
+alias htop='sudo htop'
+alias ports='sudo netstat -netpul'
+alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
+alias redwm='cd /usr/local/src/dwm-6.0; updpkgsums; makepkg -efi --noconfirm; killall dwm'
 
 
 # git related
@@ -76,7 +64,6 @@ alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias gpom='echo "git pull origin master" && git pull origin master'
 
-
 # docker related
 alias docker='sudo docker'
 alias fig='sudo fig'
@@ -87,17 +74,12 @@ alias dat='sudo docker attach --sig-proxy=true'
 alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
 alias dc="docker rm \$(docker ps -q -a)"
 
-
-# rackspace machine configs
-alias rackvpn='sudo openconnect -b vpn1.dfw1.rackspace.com'
+# vpn stuffs
 alias ntvpn='sudo vpnc nt.conf'
-alias vpnoff='seq 2 | xargs -Iz sudo killall openconnect; \
-    seq 2 | xargs -Iz sudo vpnc-disconnect;'
-alias ts3='/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh'
+alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
+alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
 
-
-# laptop configs
-alias touchpad-setup='sh ~/bin/logitech-t650-config.sh'
+# laptop display config
 alias lower_res='xrandr --auto; xrandr --output eDP1 --mode 1920x1200'
 alias work_primary_display='xrandr --output DP-0 --primary'
 alias work_display_rearrange='xrandr --output HDMI2 --right-of eDP1; xrandr --output HDMI3 --left-of eDP1'
@@ -108,26 +90,19 @@ alias display_external_left='xrandr --output DisplayPort-0 --left-of LVDS-1; \
     xrandr --output HDMI1 --left-of eDP1; \
     xrandr --output HDMI2 --left-of eDP1'
 alias rescreen='xrandr --auto; display_external_left'
-# TODO: configure 3/4 screens in square
-# TODO: does the displaylink adapter play more nicely with my setup under DWM?
 alias work_display_config='lower_res; work_primary_display; work_display_rearrange'
 
-alias saweather='weather 78154'
-alias saw='saweather'
-alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr juanito-bastion 0/0'
-alias hophome='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
-alias htop='sudo htop'
-alias ports='sudo netstat -netpul'
-alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
-alias redwm='cd /usr/local/src/dwm-6.0; updpkgsums; makepkg -efi --noconfirm; killall dwm'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# mongo aliases for OR gui stuffs
-alias start_mongo="pushd ~/mongo && bin/start.sh && popd"
-alias stop_mongo="pushd ~/mongo && bin/stop.sh && popd"
 
-# Ruby dev stuffs
+### Ruby dev
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+### Python dev
+export WORKON_HOME=~/Envs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
