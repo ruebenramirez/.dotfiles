@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 DIR=$(pwd)
 
 all: dotFiles tmux omz vim git
@@ -93,7 +94,6 @@ weather:
 sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
-	chmod 600 ~/.ssh/id_rsa.pub
 
 vpnConfig:
 	sudo apt-get update -y
