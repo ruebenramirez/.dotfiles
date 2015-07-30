@@ -24,9 +24,9 @@ tmux:
 	- sudo killall tmux
 
 omz:
-	- sudo apt-get install -y zsh
+	- sudo apt-get install -y curl zsh
 	- curl -L http://install.ohmyz.sh | sh
-	- chsh -s /bin/zsh
+	- chsh -s /usr/bin/zsh
 
 vim:
 	- rm -fr ~/.vim/
