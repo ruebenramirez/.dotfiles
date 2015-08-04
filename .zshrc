@@ -41,6 +41,7 @@ alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
 alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
 alias redwm='cd /usr/local/src/dwm-6.0; updpkgsums; makepkg -efi --noconfirm; killall dwm'
+alias visio='pencil'
 
 # playing around with the new laptop
 alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'
