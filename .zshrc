@@ -31,6 +31,7 @@ export PAGER=less
 # helpful aliases
 alias sl='ls'
 alias lll='ls -lah'
+alias ll='ls -lah'
 alias lt='ls -lat'
 alias tmuxa='tmux a'
 alias celar='clear'
