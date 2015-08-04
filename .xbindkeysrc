@@ -92,8 +92,8 @@
 # lock screen
 ##################################
 "lock"
-    m:0xd + c:50
-    Control+Shift+Alt + Shift_L
+    m:0xd + c:46
+    Control+Shift+Alt + l
 
 #################################
 # rescreen
