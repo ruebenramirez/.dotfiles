@@ -24,29 +24,29 @@
 # Screen Brightness -
 #################################
 "light -U 10; sh ~/.xsetroot.sh"
-    m:0x0 + c:232
-    XF86MonBrightnessDown
+    m:0x4 + c:71
+    Control + F5
 
 #################################
 # Screen Brightness +
 #################################
 "light -A 10; sh ~/.xsetroot.sh"
-    m:0x0 + c:233
-    XF86MonBrightnessUp
+    m:0x4 + c:72
+    Control + F6
 
 #################################
 # Volume Toggle Mute 
 #################################
 "sh ~/bin/volume-mute-toggle.sh; sh ~/.xsetroot.sh"
-    m:0x0 + c:121
-    XF86AudioMute
+    m:0x4 + c:76
+    Control + F10
 
 #################################
 # Volume Down
 #################################
-"sh ~/bin/volume-down.sh; sh ~/.xsetroot.sh"
-    m:0x0 + c:122
-    XF86AudioLowerVolume
+"sh ~/bin/volume-downrsh; sh ~/.xsetroot.sh"
+    m:0x4 + c:95
+    Control + F11
 
 # chromebook - TODO - does this work for chromebook?
 # "amixer set Master 10%-; sh ~/.xsetroot.sh"
@@ -57,8 +57,8 @@
 # Volume Up
 #################################
 "sh ~/bin/volume-up.sh; sh ~/.xsetroot.sh"
-    m:0x0 + c:123
-    XF86AudioRaiseVolume
+    m:0x4 + c:96
+    Control + F12
 
 
 # chromebook - TODO - does this work for chromebook?
@@ -92,8 +92,8 @@
 # lock screen
 ##################################
 "lock"
-    m:0x1d + c:46
-    Control+Shift+Alt+Mod2 + l
+    m:0xd + c:50
+    Control+Shift+Alt + Shift_L
 
 #################################
 # rescreen

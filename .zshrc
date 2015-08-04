@@ -42,6 +42,11 @@ alias ports='sudo netstat -netpul'
 alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
 alias redwm='cd /usr/local/src/dwm-6.0; updpkgsums; makepkg -efi --noconfirm; killall dwm'
 
+# playing around with the new laptop
+alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'
+alias lowpower='sudo pm-powersave true'
+alias highpower='sudo pm-powersave false'
+
 
 # git related
 alias gc='echo "git checkout" && git checkout'
@@ -80,6 +85,7 @@ alias dc="docker rm \$(docker ps -q -a)"
 alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
+alias ntfort='sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
 
 # laptop display config
 alias lower_res='xrandr --auto; xrandr --output eDP1 --mode 1920x1200'

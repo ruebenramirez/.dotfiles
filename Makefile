@@ -63,12 +63,11 @@ desktopAppConfigs:
 	dropboxCli
 
 customBins:
-	if [ ! -d ~/bin/ ]; \
-	then \
+	if [ ! -d ~/bin/ ]; then \
 		mkdir ~/bin/; \
-	fi;
+	fi
 	@ln -sf $(DIR)/bin/* ~/bin/
-	@sudo ln -sf $(DIR)/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
+	@sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
 debDevPackages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
