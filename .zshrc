@@ -42,7 +42,7 @@ alias xit='exit'
 alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
 alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
-alias redwm='cd /usr/local/src/dwm-6.0; updpkgsums; makepkg -efi --noconfirm; killall dwm'
+alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
 alias visio='pencil'
 
 # playing around with the new laptop
