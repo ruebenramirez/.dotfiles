@@ -27,6 +27,8 @@ export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/p
 export EDITOR=vim
 export PAGER=less
 
+alias vi='vim'
+
 
 # helpful aliases
 alias sl='ls'
