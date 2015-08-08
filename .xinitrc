@@ -1,4 +1,3 @@
-
 export BROWSER=google-chrome-stable &
 
 # "THE loop"
@@ -18,7 +17,7 @@ xbindkeys
 /usr/bin/trackpad-toggle.sh
 
 # speed up the keyboard
-xset r rate 180 60
+xset r rate 250 60
 
 xscreensaver &
 
