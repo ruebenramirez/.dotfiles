@@ -41,12 +41,20 @@
     m:0x4 + c:76
     Control + F10
 
+"sh ~/bin/volume-mute-toggle.sh; sh ~/.xsetroot.sh"
+    m:0x0 + c:121
+    XF86AudioMute
+
 #################################
 # Volume Down
 #################################
-"sh ~/bin/volume-downrsh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-down.sh; sh ~/.xsetroot.sh"
     m:0x4 + c:95
     Control + F11
+
+"sh ~/bin/volume-down.sh; sh ~/.xsetroot.sh"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
 
 # chromebook - TODO - does this work for chromebook?
 # "amixer set Master 10%-; sh ~/.xsetroot.sh"
@@ -60,6 +68,9 @@
     m:0x4 + c:96
     Control + F12
 
+"sh ~/bin/volume-up.sh; sh ~/.xsetroot.sh"
+    m:0x0 + c:123
+    XF86AudioRaseVolume
 
 # chromebook - TODO - does this work for chromebook?
 # "amixer set Master 10%+; sh ~/.xsetroot.sh"
@@ -101,3 +112,10 @@
 "rescreen"
     m:0x0 + c:128
     XF86LaunchA
+
+#################################
+# reset wifi
+##################################
+"sh ~/bin/rewifi.sh; sh ~/.xsetroot.sh"
+    m:0x4 + c:68
+    Control + F2
