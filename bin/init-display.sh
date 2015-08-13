@@ -11,14 +11,14 @@ then
     # Dev VM 
     xrandr --auto
     xrandr --output Virtual1 --mode 1360x768
-elif [[ $(hostname -f) = "rramirez-MacBookPro" ]]
+elif [[ $(hostname -f) = "minfrank" ]]
 then
     # Work Machine
     xrandr --auto
-    xrandr --output eDP1 --mode 1920x1200
-    xrandr --output HDMI1 --right-of eDP1
-    xrandr --output HDMI2 --right-of eDP1
-    xrandr --output HDMI3 --left-of eDP1
+    xrandr --output eDP1 --mode 1920x1080
+    xrandr --output HDMI1 --mode 1920x1200 --left-of eDP1
+    # xrandr --output eDP1 --mode 1920x1080
+    # xrandr --output HDMI1 --mode 1920x1200 --above eDP1
 else
     echo "not sure what monitor config to use"
 fi
