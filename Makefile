@@ -61,6 +61,7 @@ desktopAppConfigs:
 	xdotool
 	light
 	dropboxCli
+	sudo ln -s /usr/bin/remmina /usr/bin/rdp
 
 customBins:
 	if [ ! -d ~/bin/ ]; then \
