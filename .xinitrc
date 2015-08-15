@@ -1,3 +1,4 @@
+syndaemon -t -k -i 2 &
 export BROWSER=google-chrome-stable &
 
 # "THE loop"
