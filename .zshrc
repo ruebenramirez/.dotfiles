@@ -117,3 +117,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export WORKON_HOME=~/Envs
 mkdir -p $WORKON_HOME
 source /usr/local/bin/virtualenvwrapper.sh
+
+### NewTek Dev related
+alias ns='cd ~/newtek/code/shop; ./run-local.sh'
