@@ -16,6 +16,9 @@ Plugin 'mhinz/vim-signify'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'fatih/vim-go'
 Plugin 'DirDiff.vim'
+Plugin 'joonty/vdebug.git'
+Plugin 'taglist.vim'
+
 call vundle#end()
 filetype plugin indent on     " required!
 "
