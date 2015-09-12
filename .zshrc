@@ -91,11 +91,8 @@ alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
 alias ntfort='sudo killall chrome; sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
 
 # laptop display config
-alias display_external_left='xrandr --auto; xrandr --output HDMI1 --left-of eDP1'
-alias display_external_right='xrandr --auto; xrandr --output HDMI1 --right-of eDP1'
-alias rescreen=display_external_left
-alias rescreenright=display_external_right
-
+alias rescreen='xrandr --auto; xrandr --output HDMI1 --left-of eDP1'
+alias homescreen='xrandr --auto; xrandr --output HDMI1 --mode 2560x1440 --right-of eDP1'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

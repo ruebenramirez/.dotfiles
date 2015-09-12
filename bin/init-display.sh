@@ -15,10 +15,7 @@ elif [[ $(hostname -f) = "minfrank" ]]
 then
     # Work Machine
     xrandr --auto
-    xrandr --output eDP1 --mode 1920x1080
     xrandr --output HDMI1 --mode 1920x1200 --left-of eDP1
-    # xrandr --output eDP1 --mode 1920x1080
-    # xrandr --output HDMI1 --mode 1920x1200 --above eDP1
 else
-    echo "not sure what monitor config to use"
+    Logger "~/bin/init-display: not sure what monitor config to use"
 fi
