@@ -88,7 +88,7 @@ alias dc="docker rm \$(docker ps -q -a)"
 alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
-alias ntfort='sudo killall chrome; sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
+alias ntfort='sudo killall -s 3 chrome; sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
 
 # laptop display config
 alias rescreen='xrandr --auto; xrandr --output HDMI1 --left-of eDP1'
