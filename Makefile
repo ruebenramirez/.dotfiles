@@ -100,7 +100,7 @@ vpnConfig:
 	sudo apt-get install openconnect
 	sudo apt-get install vpnc
 
-docker:
+yolodocker:
 	sudo apt-get update -y
 	sudo apt-get purge -y docker.io
 	wget -qO- https://get.docker.com/ | sh
