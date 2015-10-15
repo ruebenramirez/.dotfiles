@@ -44,6 +44,7 @@ alias ports='sudo netstat -netpul'
 alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
 alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
 alias visio='pencil'
+alias cb='xsel --clipboard'
 
 # playing around with the new laptop
 alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'
@@ -89,10 +90,10 @@ alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sh /home/rramirez/Code/sshuttle/sshuttle --dns -vvr home 0/0'
 alias ntfort='sudo killall -s 3 chrome; sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
+alias wifi='trayer &; nm-applet &'
 
 # laptop display config
 alias rescreen='xrandr --auto; xrandr --output HDMI1 --left-of eDP1'
-alias homescreen='xrandr --auto; xrandr --output HDMI1 --mode 2560x1440 --right-of eDP1'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
