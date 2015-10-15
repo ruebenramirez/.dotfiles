@@ -18,6 +18,9 @@ Plugin 'fatih/vim-go'
 Plugin 'DirDiff.vim'
 Plugin 'joonty/vdebug.git'
 Plugin 'taglist.vim'
+Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'tpope/vim-dispatch'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on     " required!
