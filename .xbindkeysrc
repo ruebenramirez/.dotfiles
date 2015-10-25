@@ -23,6 +23,12 @@
 #################################
 # Screen Brightness -
 #################################
+# macbook pro
+"light -U 10; sh ~/.xsetroot.sh"
+    m:0x0 + c:232
+    XF86MonBrightnessDown
+
+# asus laptop
 "light -U 10; sh ~/.xsetroot.sh"
     m:0x4 + c:71
     Control + F5
@@ -30,6 +36,11 @@
 #################################
 # Screen Brightness +
 #################################
+# macbook pro
+"light -A 10; sh ~/.xsetroot.sh"
+    m:0x0 + c:233
+    XF86MonBrightnessUp
+# asus laptop
 "light -A 10; sh ~/.xsetroot.sh"
     m:0x4 + c:72
     Control + F6
@@ -110,12 +121,5 @@
 # rescreen
 ##################################
 "rescreen"
-    m:0x0 + c:128
-    XF86LaunchA
-
-#################################
-# reset wifi
-##################################
-"sh ~/bin/rewifi.sh; sh ~/.xsetroot.sh"
-    m:0x4 + c:68
-    Control + F2
+    m:0x8 + c:128
+    Alt + XF86LaunchA
