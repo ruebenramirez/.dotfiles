@@ -67,7 +67,7 @@ customBins:
 	if [ ! -d ~/bin/ ]; then \
 		mkdir ~/bin/; \
 	fi
-	@ln -sf $(DIR)/bin/* ~/bin/
+	@ln -sf $$(pwd)/bin/* ~/bin/
 	@sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
 debDevPackages:
