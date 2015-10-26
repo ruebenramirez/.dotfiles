@@ -20,6 +20,10 @@ xbindkeys
 # speed up the keyboard
 xset r rate 250 60
 
+if [ $(hostname -f) = "MacBookPro" ]; then
+    xrandr --output eDP1 --mode 1920x1200;
+fi
+
 xscreensaver &
 
 # init display config
