@@ -4,8 +4,8 @@
 # https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Using_automatic_palm_detection
 
 synclient PalmDetect=1
-synclient PalmMinWidth=4
-synclient PalmMinZ=1
+synclient PalmMinWidth=10
+synclient PalmMinZ=20
 
 # disable tap clicks
 synclient TapButton1=0
@@ -18,10 +18,10 @@ synclient VertScrollDelta=-75
 synclient HorizScrollDelta=-75
 
 # higher sensitivity
-synclient FingerLow=9
-synclient FingerHigh=12
+# synclient FingerLow=0
+# synclient FingerHigh=12
 
 # speed up the mouse cursor
-synclient MinSpeed=1
-synclient MaxSpeed=1.5
-synclient AccelFactor=0.045
+# synclient MinSpeed=1
+# synclient MaxSpeed=1.5
+# synclient AccelFactor=0.045
