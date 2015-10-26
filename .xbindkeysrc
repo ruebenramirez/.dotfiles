@@ -113,6 +113,14 @@
 #################################
 # lock screen
 ##################################
+
+# macbook pro
+"lock"
+    m:0xd + c:50
+    Control+Shift+Alt + Shift_L
+
+
+# asus laptop
 "lock"
     m:0xd + c:46
     Control+Shift+Alt + l
