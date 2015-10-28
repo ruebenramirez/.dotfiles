@@ -45,6 +45,27 @@
     m:0x4 + c:72
     Control + F6
 
+
+#################################
+# spotify commands via media keys
+#################################
+# play/pause
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+    m:0x0 + c:172
+    XF86AudioPlay
+
+# previous
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+    m:0x0 + c:173
+    XF86AudioPrev
+
+# forward
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+    m:0x0 + c:171
+    XF86AudioNext
+
+
+
 #################################
 # Volume Toggle Mute 
 #################################
