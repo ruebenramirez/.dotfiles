@@ -45,6 +45,7 @@ alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc'
 alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
 alias visio='pencil'
 alias cb='xsel --clipboard'
+alias gn='geeknote'
 
 # playing around with the new laptop
 alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'
