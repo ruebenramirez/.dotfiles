@@ -126,7 +126,7 @@
 #################################
 # screenshot capture
 #################################
-"shutter"
+"gnome-screenshot && shutter"
     m:0x9 + c:14
     Shift+Alt + 5
 
