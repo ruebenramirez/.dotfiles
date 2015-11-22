@@ -21,6 +21,7 @@ Plugin 'taglist.vim'
 Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -111,3 +112,6 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
+
+" default larger NERDTree window  width
+let g:NERDTreeWinSize = 40
