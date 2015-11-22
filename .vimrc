@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/vundle'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
@@ -50,6 +50,9 @@ set backspace=indent,eol,start
 
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Remove whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 """ this is amateur hour here
 " python column count buffer red line
