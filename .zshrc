@@ -100,8 +100,8 @@ alias ntfort='sudo killall -s 3 chrome; sh /opt/forticlient-sslvpn/forticlientss
 alias wifi='trayer &; nm-applet &'
 
 # laptop display config
-alias rescreen='xrandr --auto; xrandr --output HDMI1 --left-of eDP1 && \
-    xrandr --auto; xrandr --output HDMI2 --left-of eDP1'
+alias rescreen='xrandr --auto && \
+    xrandr --output HDMI2 --left-of eDP1 --size 2560x1440'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
