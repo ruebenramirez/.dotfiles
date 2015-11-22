@@ -119,3 +119,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 ### NewTek Dev related
 alias ns='cd ~/newtek/code/shop; ./run-local.sh'
+
+# NVM related
+export NVM_DIR="/home/rramirez/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
