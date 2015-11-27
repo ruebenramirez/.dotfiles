@@ -84,7 +84,6 @@ alias gpom='echo "git pull origin master" && git pull origin master'
 
 # docker related
 alias docker='sudo docker'
-alias fig='sudo fig'
 alias d='sudo docker'
 alias dps='sudo docker ps -a'
 alias di='sudo docker images'
