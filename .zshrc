@@ -83,13 +83,14 @@ alias gdc='echo "git diff --cached" && git diff --cached'
 alias gpom='echo "git pull origin master" && git pull origin master'
 
 # docker related
-alias docker='sudo docker'
-alias d='sudo docker'
-alias dps='sudo docker ps -a'
-alias di='sudo docker images'
-alias dat='sudo docker attach --sig-proxy=true'
+#alias docker='sudo docker'
+alias d='docker'
+alias dps='docker ps -a'
+alias di='docker images'
+alias dat='docker attach --sig-proxy=true'
 alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
 alias dc="docker rm \$(docker ps -q -a)"
+eval "$(docker-machine env default)"
 
 # vpn stuffs
 alias ntvpn='sudo vpnc nt.conf'
