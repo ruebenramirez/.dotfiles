@@ -1,27 +1,66 @@
 SHELL := /bin/bash
 DIR=$(pwd)
 
-all: dotFiles tmux omz vim git
-	
-ubuntu:
-	dotFiles
-	tmux
-	git
-	omz
-	vim
-	desktopAppConfigs
-	customBins
-	debDevPackages
-	installBrotherPrinter
+ubuntu: macbookpro_keyboard dev_packages omz git vim dotFiles customBins update
+	# remmina preferred remote desktop client
+	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
+	# system tray when trying to run apps on dwm that need a tray
+	sudo apt-get install -y trayer
+	# preferred terminal emulator
+	sudo apt-get install -y terminator
+	sudo apt-get install -y xbindkeys
+	# shutter
+	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+	# xdotool - move mouse programmatically
+	sudo apt-get install -y xdotool
+	sudo apt-get install -y tmux
+	sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
+	sudo dpkg -i ~/.dotfiles/pkgs/dropbox_1.6.2_amd64.deb
+	# adobeSourceCodeProFont
+	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
+		&& unzip 1.017R.zip \
+		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
+		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
+		&& rm 1.017R.zip \
+		&& rm -fr source-code-pro-1.017R
+	# screensaver
+	sudo apt-get purge -y gnome-screensaver
+	sudo apt-get install -y xscreensaver
+	# dwm
+	sudo apt-get install build-essential libx11-dev libxinerama-dev sharutils suckless-tools
+	pushd /usr/local/src &&\
+		sudo wget http://dl.suckless.org/dwm/dwm-6.0.tar.gz &&\
+		sudo tar xvzf dwm-6.0.tar.gz &&\
+		sudo chown -R `id -u`:`id -g` dwm-6.0 &&\
+		pushd /usr/local/src/dwm-6.0 &&\
+		sudo make clean install &&\
+		popd && popd
+	sudo systemctl enable multi-user.target --force
+	sudo systemctl set-default multi-user.target
+	# dependencies for display battery and cpu temp
+	sudo apt-get install -y acpi lm-sensors
 
+spotify_ubuntu:
+	pushd ~/Downloads && \
+		curl -O http://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.19.106.gb8a7150f_amd64.deb && \
+		sudo dpkg -i ~/Downloads/spotify-client_1.0.19.106.gb8a7150f_amd64.deb && \
+		rm -f ~/Downloads/spotify-client_1.0.19.106.gb8a7150f_amd64.deb && \
+		popd
+
+update:
+	sudo apt-get update -y
+
+macbookpro_keyboard:
+	if [ $$(cat /etc/hostname) = 'MacBookPro' ]; then \
+		echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout; \
+	fi
 
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
 	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 
-tmux:
-	- sudo apt-get install -y tmux
-	- sudo killall tmux
+dev_packages:
+	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
 
 omz:
 	- sudo apt-get install -y curl zsh
@@ -29,39 +68,17 @@ omz:
 	- chsh -s /usr/bin/zsh
 
 vim:
+	- sudo apt-get install vim-nox exuberant-ctags
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
+
 git:
 	- sudo apt-get install -y git tig
 	- git config --global user.name "Rueben Ramirez"
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
-
-shutter:
-	- sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
-
-xdotool:
-	- sudo apt-get install -y xdotool
-
-light:
-	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
-
-dropboxCli:
-	- sudo dpkg -i ~/.dotfiles/pkgs/dropbox_1.6.2_amd64.deb
-
-trayer:
-	sudo apt-get install -y trayer
-
-desktopAppConfigs:
-	sudo apt-get update -y
-	trayer
-	shutter
-	xdotool
-	light
-	dropboxCli
-	sudo ln -s /usr/bin/remmina /usr/bin/rdp
 
 customBins:
 	if [ ! -d ~/bin/ ]; then \
@@ -70,23 +87,8 @@ customBins:
 	@ln -sf $$(pwd)/bin/* ~/bin/
 	@sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
-debDevPackages:
-	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
-
 installBrotherPrinter:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
-
-adobeSourceCodeProFont:
-	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
-		&& unzip 1.017R.zip \
-		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
-		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
-		&& rm 1.017R.zip \
-		&& rm -fr source-code-pro-1.017R
-
-screensaver:
-	sudo apt-get purge -y gnome-screensaver
-	sudo apt-get install -y xscreensaver
 
 weather:
 	sudo apt-get install -y weather
@@ -95,17 +97,16 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
-vpnConfig:
-	sudo apt-get update -y
-	sudo apt-get install openconnect
-	sudo apt-get install vpnc
-
 yolodocker:
 	sudo apt-get update -y
 	sudo apt-get purge -y docker.io
 	wget -qO- https://get.docker.com/ | sh
 	sudo apt-get install -y python python-pip
 	sudo pip install docker-compose
+
+yolodockermachine:
+	sudo bash -c "curl -L https://github.com/docker/machine/releases/download/v0.5.4/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && \
+	  sudo chmod +x /usr/local/bin/docker-machine"
 
 virtualenvwrapper:
 	sudo apt-get remove python-pip
@@ -116,3 +117,4 @@ virtualenvwrapper:
 	echo "mkdir -p $WORKON_HOME"
 	echo "source /usr/local/bin/virtualenvwrapper.sh"
 	echo "mkvirtualenv env_name"
+
