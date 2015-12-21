@@ -101,7 +101,7 @@ alias wifi='trayer &; nm-applet &'
 
 # laptop display config
 alias rescreen='xrandr --auto && \
-    xrandr --output HDMI2 --left-of eDP1 --size 2560x1440'
+    xrandr --output DP1 --left-of eDP1 --size 2560x1440'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
