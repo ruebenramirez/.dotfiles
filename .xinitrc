@@ -5,8 +5,10 @@ export BROWSER=google-chrome-stable &
 while true
 do
     # update dwm status bar
-	sh .xsetroot.sh
-	sleep 5
+    sh .xsetroot.sh
+    # protect laptop from bad shutdown when out of battery
+    sh .auto-safe-shutdown.sh
+    sleep 5
 done &
 
 # restart xbindkeys for the key mappings to start working

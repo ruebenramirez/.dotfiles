@@ -40,6 +40,10 @@ ubuntu: macbookpro_keyboard dev_packages omz git vim dotFiles customBins update
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 
+forticlient_vpn_ubuntu: update
+	sudo apt-get install -y lib32gcc1 libc6-i386
+	sudo dpkg -i ./pkgs/forticlient-sslvpn_4.4.2323-1_amd64.deb
+
 spotify_ubuntu:
 	pushd ~/Downloads && \
 		curl -O http://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.19.106.gb8a7150f_amd64.deb && \
