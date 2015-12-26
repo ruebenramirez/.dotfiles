@@ -1,5 +1,5 @@
 syndaemon -t -k -i 2 &
-export BROWSER=google-chrome-stable &
+export BROWSER=google-chrome &
 
 # "THE loop"
 while true
@@ -17,19 +17,15 @@ xbindkeys
 
 # setup trackpad config
 /home/rramirez/bin/configure-trackpad-palm-detection.sh
-# toggle trackpad off
-#/usr/bin/trackpad-toggle.sh
 
 # speed up the keyboard
 xset r rate 250 60
 
-if [ $(hostname -f) = "MacBookPro" ]; then
-    xrandr --output eDP1 --mode 1920x1200;
-fi
-
+# launch screensaver
 xscreensaver &
 
 # init display config
 /home/rramirez/bin/init-display.sh
 
+# http://dwm.suckless.org/
 exec dwm
