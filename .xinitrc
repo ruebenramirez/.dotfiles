@@ -27,5 +27,8 @@ xscreensaver &
 # init display config
 /home/rramirez/bin/init-display.sh
 
+# setup desktop background
+feh --bg-scale /home/rramirez/.dotfiles/desktop-background/minimalism_telephone_computer_technology_99028_1600x900.jpg
+
 # http://dwm.suckless.org/
 exec dwm
