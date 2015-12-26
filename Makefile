@@ -15,7 +15,6 @@ ubuntu: macbookpro_keyboard dev_packages omz git vim dotFiles customBins update
 	sudo apt-get install -y xdotool
 	sudo apt-get install -y tmux
 	sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
-	sudo dpkg -i ~/.dotfiles/pkgs/dropbox_1.6.2_amd64.deb
 	# adobeSourceCodeProFont
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
 		&& unzip 1.017R.zip \
@@ -96,6 +95,12 @@ installBrotherPrinter:
 
 weather:
 	sudo apt-get install -y weather
+
+dropbox:
+	- sudo killall dropbox
+	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+	~/.dropbox-dist/dropboxd &
+	pushd ~/bin && wget "https://www.dropbox.com/download?dl=packages/dropbox.py" && popd
 
 sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
