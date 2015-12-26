@@ -35,7 +35,7 @@ filetype plugin indent on     " required!
 " NOTE: comments after Bundle commands are not allowed.
 
 
-" my default vim stuffs
+" vim defaults
 set nu
 syn on
 set cursorline
@@ -43,20 +43,19 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set ignorecase
 set showtabline=2
+set ignorecase
 set hlsearch
 set backspace=indent,eol,start
 
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" set 2 space tabs when appropriate
+autocmd FileType markdown,ruby,javascript setlocal shiftwidth=2 tabstop=2
+
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-""" this is amateur hour here
-" python column count buffer red line
-" set colorcolumn=81 "set cc=80 "cc for short
 
 """ This is a better way of doing this....if it actually works
 " http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
@@ -114,3 +113,4 @@ let g:pymode_folding = 0
 
 " default larger NERDTree window  width
 let g:NERDTreeWinSize = 40
+
