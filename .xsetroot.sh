@@ -9,4 +9,6 @@ VPN="$VPN$(test $(pgrep 'forticlient' | wc -l) -gt 1 && echo '<< VPN-NewTek ')"
 CPU_TEMP="CPU temp: $(sensors | grep "Physical id 0" | awk '{ print $4 }')"
 LOCALTIME=$(date +%m/%d\/%Y\ %r)
 
+feh --bg-scale ~/Pictures/minimalism_telephone_computer_technology_99028_1600x900.jpg
+
 xsetroot -name "$BAT << $VOL << $WIFI << $BRIGHT $VPN<< $CPU_TEMP << $LOCALTIME"
