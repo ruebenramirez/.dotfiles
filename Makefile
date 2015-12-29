@@ -63,7 +63,7 @@ dotFiles:
 	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 
 dev_packages:
-	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn
+	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop
 
 omz:
 	- sudo apt-get install -y curl zsh
@@ -106,11 +106,11 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
-yolodocker:
-	sudo apt-get update -y
+yolodocker: update
 	sudo apt-get purge -y docker.io
 	wget -qO- https://get.docker.com/ | sh
 	sudo apt-get install -y python python-pip
+	sudo pip install requests
 	sudo pip install docker-compose
 
 yolodockermachine:
@@ -118,9 +118,9 @@ yolodockermachine:
 	  sudo chmod +x /usr/local/bin/docker-machine"
 
 virtualenvwrapper:
-	sudo apt-get remove python-pip
+	- sudo apt-get remove python-pip
 	sudo easy_install pip
-	sudo pip uninstall virtualenvwrapper
+	- sudo pip uninstall virtualenvwrapper
 	sudo pip install virtualenvwrapper
 	echo "export WORKON_HOME=~/Envs"
 	echo "mkdir -p $WORKON_HOME"
