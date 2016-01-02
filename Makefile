@@ -38,6 +38,8 @@ ubuntu: macbookpro_keyboard dev_packages omz git vim dotFiles customBins update
 	sudo systemctl set-default multi-user.target
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
+	# thinkpad power management
+	sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms
 
 forticlient_vpn_ubuntu: update
 	sudo apt-get install -y lib32gcc1 libc6-i386
