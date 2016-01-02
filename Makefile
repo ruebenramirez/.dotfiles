@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 DIR=$(pwd)
 
-ubuntu: macbookpro_keyboard dev_packages omz git vim dotFiles customBins update
+ubuntu: update dev_packages omz git vim dotFiles customBins thinkpad-power-management
 	# remmina preferred remote desktop client
 	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
 	# system tray when trying to run apps on dwm that need a tray
@@ -38,8 +38,11 @@ ubuntu: macbookpro_keyboard dev_packages omz git vim dotFiles customBins update
 	sudo systemctl set-default multi-user.target
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
+
+thinkpad-power-management:
 	# thinkpad power management
 	sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms
+	sudo tlp start
 
 forticlient_vpn_ubuntu: update
 	sudo apt-get install -y lib32gcc1 libc6-i386
