@@ -68,7 +68,7 @@ dotFiles:
 	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 
 dev_packages:
-	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop
+	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree
 
 omz:
 	- sudo apt-get install -y curl zsh
