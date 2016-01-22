@@ -30,5 +30,9 @@ xscreensaver &
 # setup desktop background
 feh --bg-scale /home/rramirez/.dotfiles/desktop-background/minimalism_telephone_computer_technology_99028_1600x900.jpg
 
+redshift -r &
+
+tlp start
+
 # http://dwm.suckless.org/
 exec dwm

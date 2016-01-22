@@ -23,7 +23,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/packer:$PATH"
+export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/packer:/opt/rocketchat/:$PATH"
 export EDITOR=vim
 export PAGER=less
 
