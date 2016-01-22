@@ -79,10 +79,11 @@ omz:
 	- chsh -s /usr/bin/zsh
 
 vim:
-	- sudo apt-get install vim-nox exuberant-ctags
+	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
+	- python ~/.vim/bundle/YouCompleteMe/install.py
 
 git:
 	- sudo apt-get install -y git tig

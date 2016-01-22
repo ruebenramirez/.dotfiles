@@ -21,6 +21,7 @@ Plugin 'taglist.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on     " required!
