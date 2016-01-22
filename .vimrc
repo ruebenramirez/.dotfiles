@@ -49,7 +49,7 @@ set hlsearch
 set backspace=indent,eol,start
 
 " read *.md as markdown files
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 
 " set 2 space tabs when appropriate
 autocmd FileType markdown,ruby,javascript setlocal shiftwidth=2 tabstop=2
@@ -57,16 +57,16 @@ autocmd FileType markdown,ruby,javascript setlocal shiftwidth=2 tabstop=2
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-""" This is a better way of doing this....if it actually works
-" http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
-augroup vimrc_autocmds
-    autocmd!
-    " highlight characters past column 80
-    autocmd FileType python highlight OverLength ctermfg=white ctermbg=red guibg=#592929
-    autocmd FileType python match OverLength /\%81v.\+/
-    autocmd FileType python set nowrap
-    augroup END
+"""""""""""""""""""""""""""""""""""""
+" NERDtree config
+"""""""""""""""""""""""""""""""""""""
+" default larger window  width
+let g:NERDTreeWinSize = 40
 
+"""""""""""""""""""""""""""""""""""""
+" PHP linter
+"""""""""""""""""""""""""""""""""""""
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 """"""""""""""""""""""""""""""""""""""
 " Python-mode
@@ -110,7 +110,16 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
+""""""""""""""""""""""""""""""""""""""
+" end Python-mode
+""""""""""""""""""""""""""""""""""""""
 
-" default larger NERDTree window  width
-let g:NERDTreeWinSize = 40
 
+" highlight characters past column 80
+" http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType python highlight OverLength ctermfg=white ctermbg=red guibg=#592929
+    autocmd FileType python match OverLength /\%81v.\+/
+    autocmd FileType python set nowrap
+    augroup END
