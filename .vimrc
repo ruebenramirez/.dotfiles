@@ -58,6 +58,10 @@ autocmd FileType markdown,ruby,javascript setlocal shiftwidth=2 tabstop=2
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Better diff highlighting
+highlight! link DiffText MatchParen
+set background=dark
+
 """""""""""""""""""""""""""""""""""""
 " NERDtree config
 """""""""""""""""""""""""""""""""""""
