@@ -15,6 +15,7 @@ ubuntu: update dev_packages omz git vim dotFiles customBins thinkpad-power-manag
 	sudo apt-get install -y xdotool
 	sudo apt-get install -y tmux
 	sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
+	sudo apt-get install -f -y
 	# adobeSourceCodeProFont
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
 		&& unzip 1.017R.zip \
