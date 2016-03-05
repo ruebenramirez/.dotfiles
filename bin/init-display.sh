@@ -11,7 +11,7 @@ if [ $hostname = 'ThinkPad' ]; then
 elif [ $hostname = 'ThinkPad-X220' ]; then
     logger 'setting up display for x220'
     xrandr --auto
-    xrandr --output LVDS1 --size 1366x768
+    xrandr --output LVDS1 --mode 1366x768
     xrandr --output DP1 --left-of LVDS1
     xrandr --output HDMI1 --left-of LVDS1
     xrandr --output VGA1 --left-of LVDS1
