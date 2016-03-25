@@ -2,12 +2,18 @@
 
 hostname=`hostname -f`
 echo '~/bin/init-display'
+echo $hostname
 
 if [ $hostname = 'ThinkPad' ]; then
-    echo 'setting up display for newtek work thinkpad';
+    echo 'setting up display for newtek w520';
     xrandr --auto
     xrandr --output LVDS-0 --mode 1600x900
     xrandr --output DP-3 --left-of LVDS-0
+elif [ $hostname = 'my-ThinkPad' ]; then
+    logger 'setting up display for personal w520'
+    xrandr --auto
+    xrandr --output LVDS-0 --mode 1920x1080
+    xrandr --output DisplayPort-0 --left-of LVDS-0
 elif [ $hostname = 'ThinkPad-X220' ]; then
     logger 'setting up display for x220'
     xrandr --auto
