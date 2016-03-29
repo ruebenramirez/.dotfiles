@@ -7,8 +7,8 @@ echo $hostname
 if [ $hostname = 'ThinkPad' ]; then
     echo 'setting up display for newtek w520';
     xrandr --auto
-    xrandr --output LVDS-0 --mode 1600x900
-    xrandr --output DP-3 --left-of LVDS-0
+    xrandr --output LVDS2 --mode 1600x900
+    xrandr --output DP-1-1 --left-of LVDS2
 elif [ $hostname = 'my-ThinkPad' ]; then
     logger 'setting up display for personal w520'
     xrandr --auto
