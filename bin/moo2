@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd '/home/rramirez/.wine/drive_c/GOG Games/Master of Orion 1 and 2/DOSBOX' && wine DOSBox.exe -conf "../Master of Orion 2/dosboxMOO2.conf" -conf "../Master of Orion 2/dosboxMOO2_single.conf" -noconsole -c exit && popd
+
+
