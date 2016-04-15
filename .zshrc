@@ -23,7 +23,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/packer:/opt/rocketchat/:$PATH"
+export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/packer:/opt/jdk1.8.0_77/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
@@ -68,7 +68,7 @@ alias gremote='echo "git remote -v" && git remote -v'
 alias ghist='echo "git log -p" && git log -p'
 alias gpull='echo "git pull" && git pull'
 alias gpl='echo "git pull" && git pull'
-alias gplom='echo "git pull origin master" && git pull origin master'
+alias gpom='echo "git pull origin master" && git pull origin master'
 alias gpush='echo "git push" && git push'
 alias gps='echo "git push" && git push'
 alias gfa='echo git fetch --all && git fetch --all'
@@ -80,7 +80,6 @@ alias gdiff='echo "git diff" && git diff'
 alias gdif='gdiff'
 alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
-alias gpom='echo "git pull origin master" && git pull origin master'
 
 # docker related
 #alias docker='sudo docker'
