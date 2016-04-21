@@ -31,6 +31,8 @@ alias vi='vim'
 
 
 # helpful aliases
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
 alias sl='ls'
 alias lll='ls -lah'
 alias ll='ls -lah'
