@@ -82,6 +82,7 @@ alias gdiff='echo "git diff" && git diff'
 alias gdif='gdiff'
 alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
+alias grim='echo "git rebase -i master" && git rebase -i master'
 
 # docker related
 #alias docker='sudo docker'
