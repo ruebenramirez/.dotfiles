@@ -16,13 +16,6 @@ ubuntu: update dev_packages omz git vim dotFiles customBins thinkpad-power-manag
 	sudo apt-get install -y tmux
 	sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
-	# adobeSourceCodeProFont
-	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
-		&& unzip 1.017R.zip \
-		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
-		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
-		&& rm 1.017R.zip \
-		&& rm -fr source-code-pro-1.017R
 	# screensaver
 	sudo apt-get purge -y gnome-screensaver
 	sudo apt-get install -y xscreensaver
@@ -137,3 +130,10 @@ virtualenvwrapper:
 	echo "source /usr/local/bin/virtualenvwrapper.sh"
 	echo "mkvirtualenv env_name"
 
+adobeSourceCodeProFont:
+	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
+		&& unzip 1.017R.zip \
+		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
+		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
+		&& rm 1.017R.zip \
+		&& rm -fr source-code-pro-1.017R

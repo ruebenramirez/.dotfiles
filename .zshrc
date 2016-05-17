@@ -23,7 +23,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/packer:/opt/jdk1.8.0_77/bin:$PATH"
+export PATH="/home/rramirez/bin:/opt/mongodb-linux-x86_64-2.4.6/bin:/usr/local/packer:/opt/jdk1.8.0_91/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
@@ -48,7 +48,7 @@ alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
 alias visio='pencil'
 alias cb='xsel --clipboard'
 alias gn='geeknote'
-alias curl='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n"'
+alias curlperf='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n"'
 
 # playing around with the new laptop
 alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'

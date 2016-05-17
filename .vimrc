@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
+let mapleader = "\<Space>"
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -114,7 +116,7 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
-let g:pymode_folding = 0
+let g:pymode_folding = 1
 """"""""""""""""""""""""""""""""""""""
 " end Python-mode
 """"""""""""""""""""""""""""""""""""""
