@@ -130,3 +130,23 @@ augroup vimrc_autocmds
     autocmd FileType python match OverLength /\%81v.\+/
     autocmd FileType python set nowrap
     augroup END
+
+""""""""""""""""""""""""""""""""""""""
+" newtek shop dev
+""""""""""""""""""""""""""""""""""""""
+let g:vdebug_options= {
+\    "port" : 9000,
+\    "server" : '',
+\    "timeout" : 60,
+\    "on_close" : 'detach',
+\    "break_on_open" : 0,
+\    "ide_key" : 'netbeans-xdebug',
+\    "path_maps" : {"/var/www/magento": "/home/rramirez/newtek/code/shop/magento"},
+\    "debug_window_level" : 0,
+\    "debug_file_level" : 3,
+\    "debug_file" : "~/vdebug.log",
+\    "watch_window_style" : 'expanded',
+\    "marker_default" : '⬦',
+\    "marker_closed_tree" : '▸',
+\    "marker_open_tree" : '▾'
+\}
