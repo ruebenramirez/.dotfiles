@@ -17,6 +17,7 @@ xbindkeys
 
 # setup trackpad config
 /home/rramirez/bin/configure-trackpad-palm-detection.sh
+/usr/bin/trackpad-toggle.sh
 
 # speed up the keyboard
 xset r rate 250 60
