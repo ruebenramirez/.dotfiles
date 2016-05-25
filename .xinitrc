@@ -31,9 +31,15 @@ xscreensaver &
 # setup desktop background
 feh --bg-scale /home/rramirez/.dotfiles/desktop-background/minimalism_telephone_computer_technology_99028_1600x900.jpg
 
+# remove blues from screen when night time to help sleep at night
 redshift -r &
 
+# thinkpad power management
 tlp start
+
+# setup gnome-keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
 # http://dwm.suckless.org/
 exec dwm
