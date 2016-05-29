@@ -99,7 +99,7 @@ eval "$(docker-machine env default)"
 alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sshuttle --dns -vvr thinkhome 0/0'
-alias ntfort='sudo killall -s 3 chrome; sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
+alias ntfort='sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
 alias wifi='trayer &; nm-applet &'
 
 # laptop display config
