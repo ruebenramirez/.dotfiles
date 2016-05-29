@@ -1,2 +1,3 @@
 #!/bin/bash
-xscreensaver-command -lock &
+#xscreensaver-command -lock &
+i3lock
