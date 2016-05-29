@@ -100,7 +100,7 @@ alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sshuttle --dns -vvr thinkhome 0/0'
 alias ntfort='sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
-alias wifi='trayer &; nm-applet &'
+alias wifi='nm-applet &'
 
 # laptop display config
 alias rescreen='sh ~/bin/init-display.sh'

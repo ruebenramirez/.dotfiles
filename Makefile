@@ -5,7 +5,6 @@ ubuntu: update dev_packages omz git vim dotFiles customBins thinkpad-power-manag
 	# remmina preferred remote desktop client
 	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
 	# system tray when trying to run apps on dwm that need a tray
-	sudo apt-get install -y trayer
 	# preferred terminal emulator
 	sudo apt-get install -y terminator
 	sudo apt-get install -y xbindkeys
