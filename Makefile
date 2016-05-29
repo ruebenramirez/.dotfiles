@@ -63,6 +63,7 @@ macbookpro_keyboard:
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
 	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
+	ln -sf $$(pwd)/.i3 ~/.i3
 
 dev_packages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree
@@ -137,3 +138,10 @@ adobeSourceCodeProFont:
 		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
 		&& rm 1.017R.zip \
 		&& rm -fr source-code-pro-1.017R
+
+install-i3-window-manager:
+	#sudo bash -c 'echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list'
+	sudo apt-get update
+	sudo apt-get --allow-unauthenticated install sur5r-keyring
+	sudo apt-get update
+	sudo apt-get install i3

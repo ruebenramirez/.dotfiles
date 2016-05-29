@@ -1,16 +1,6 @@
 syndaemon -t -k -i 2 &
 export BROWSER=google-chrome &
 
-# "THE loop"
-while true
-do
-    # update dwm status bar
-    sh .xsetroot.sh
-    # protect laptop from bad shutdown when out of battery
-    sh .auto-safe-shutdown.sh
-    sleep 5
-done &
-
 # restart xbindkeys for the key mappings to start working
 killall xbindkeys
 xbindkeys
@@ -21,9 +11,6 @@ xbindkeys
 
 # speed up the keyboard
 xset r rate 250 60
-
-# launch screensaver
-xscreensaver &
 
 # init display config
 /home/rramirez/bin/init-display.sh
@@ -41,5 +28,4 @@ tlp start
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# http://dwm.suckless.org/
-exec dwm
+exec i3
