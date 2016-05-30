@@ -50,6 +50,7 @@ alias visio='pencil'
 alias cb='xsel --clipboard'
 alias gn='geeknote'
 alias curlperf='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n"'
+alias timestamp='date +%Y-%m-%d:%H:%M:%S'
 
 # playing around with the new laptop
 alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'
