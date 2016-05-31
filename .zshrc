@@ -23,7 +23,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/home/rramirez/bin:/usr/local/packer:/opt/jdk1.8.0_91/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_91/bin:$HOME/.rbenv/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
@@ -126,3 +126,5 @@ alias ns='cd ~/newtek/code/shop; ./run-local.sh'
 # NVM related
 export NVM_DIR="/home/rramirez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
