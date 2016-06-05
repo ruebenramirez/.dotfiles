@@ -18,7 +18,7 @@ HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git encode64 jsontools redis-cli systemd tmux vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,10 +27,8 @@ export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_91/bin:$HOME/.rbenv/bin:$
 export EDITOR=vim
 export PAGER=less
 
-alias vi='vim'
-
-
 # helpful aliases
+alias vi='vim'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 alias sl='ls'
@@ -51,14 +49,12 @@ alias cb='xsel --clipboard'
 alias gn='geeknote'
 alias curlperf='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n"'
 alias timestamp='date +%Y-%m-%d:%H:%M:%S'
-
-# playing around with the new laptop
-alias evernote='wine /home/rramirez/.wine/drive_c/Program\ Files\ \(x86\)/Evernote/Evernote/Evernote.exe'
+alias rescreen='sh ~/bin/init-display.sh'
 alias lowpower='sudo pm-powersave true'
 alias highpower='sudo pm-powersave false'
+alias wifi='nm-applet &'
 
-
-# git related
+### git aliases
 alias gc='echo "git checkout" && git checkout'
 alias gcom='echo "git commit" && git commit'
 alias gcommit='echo "git commit" && git commit'
@@ -86,45 +82,29 @@ alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias grim='echo "git rebase -i master" && git rebase -i master'
 
-# docker related
-#alias docker='sudo docker'
+### docker aliases
 alias d='docker'
 alias dps='docker ps -a'
 alias di='docker images'
 alias dat='docker attach --sig-proxy=true'
 alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
 alias dc="docker rm \$(docker ps -q -a)"
-eval "$(docker-machine env default)"
 
-# vpn stuffs
+### vpn stuffs
 alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sshuttle --dns -vvr thinkhome 0/0'
 alias ntfort='sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
-alias wifi='nm-applet &'
-
-# laptop display config
-alias rescreen='sh ~/bin/init-display.sh'
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-
-### Ruby dev
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 
 ### Python dev
 export WORKON_HOME=~/Envs
 mkdir -p $WORKON_HOME
 source /usr/local/bin/virtualenvwrapper.sh
 
-### NewTek Dev related
-alias ns='cd ~/newtek/code/shop; ./run-local.sh'
-
-# NVM related
+### Node version manager (NVM)
 export NVM_DIR="/home/rramirez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+### Ruby dev
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
