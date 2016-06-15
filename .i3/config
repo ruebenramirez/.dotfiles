@@ -165,7 +165,5 @@ bar {
 exec xautolock -time 3 -locker '~/bin/lock' &
 
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome'
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/terminator --working-directory="~/newtek/code/"'
-exec --no-startup-id i3-msg 'workspace 7; exec /usr/bin/terminator --working-directory="~/Desktop"'
 exec --no-startup-id i3-msg 'workspace 8; exec /usr/bin/xchat-gnome'
 exec --no-startup-id i3-msg 'workspace 9; exec /usr/bin/slack'
