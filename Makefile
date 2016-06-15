@@ -32,7 +32,7 @@ ubuntu: update dev_packages omz git vim dotFiles customBins thinkpad-power-manag
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 
-save-my-eyes: upgrade
+save-my-eyes: update
 	sudo apt-get install -y redshift
 
 thinkpad-power-management:
