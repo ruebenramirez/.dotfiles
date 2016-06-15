@@ -57,7 +57,8 @@ alias highpower='sudo pm-powersave false'
 alias wifi='nm-applet &'
 
 ### git aliases
-alias gc='echo "git checkout" && git checkout'
+alias gco='echo "git checkout" && git checkout'
+alias gcob='echo "git checkout -b" && git checkout -b'
 alias gcom='echo "git commit" && git commit'
 alias gcommit='echo "git commit" && git commit'
 alias gbranch='echo "git branch" && git branch'
