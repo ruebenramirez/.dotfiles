@@ -115,7 +115,6 @@ yolodocker: update
 	sudo apt-get purge -y docker.io
 	wget -qO- https://get.docker.com/ | sh
 	sudo apt-get install -y python python-pip
-	sudo pip install requests
 	sudo pip install docker-compose
 
 yolodockermachine:
