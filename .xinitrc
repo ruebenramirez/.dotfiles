@@ -6,14 +6,14 @@ killall xbindkeys
 xbindkeys
 
 # setup trackpad config
-/home/rramirez/bin/configure-trackpad-palm-detection.sh
+$HOME/bin/configure-trackpad-palm-detection.sh
 /usr/bin/trackpad-toggle.sh
 
 # speed up the keyboard
 xset r rate 250 60
 
 # init display config
-/home/rramirez/bin/init-display.sh
+$HOME/bin/init-display.sh
 
 # disable gnome window desktop background
 gsettings set org.gnome.desktop.background show-desktop-icons false
