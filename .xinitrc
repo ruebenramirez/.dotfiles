@@ -12,6 +12,9 @@ $HOME/bin/configure-trackpad-palm-detection.sh
 # speed up the keyboard
 xset r rate 250 60
 
+# natural scrolling for logitech trackpad
+$HOME/bin/logitech-t650-config.sh
+
 # init display config
 $HOME/bin/init-display.sh
 
