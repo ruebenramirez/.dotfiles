@@ -63,6 +63,7 @@ dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
 	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 	ln -sf $$(pwd)/.i3 ~/.i3
+	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 
 dev_packages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree
