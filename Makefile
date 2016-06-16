@@ -62,6 +62,7 @@ macbookpro_keyboard:
 
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
+	unlink .i3/.i3
 	ln -sf $(DIR)/.xinitrc ~/.xsessionrc
 	ln -sf $$(pwd)/.i3 ~/.i3
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
