@@ -58,7 +58,7 @@ set backspace=indent,eol,start
 autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 
 " set 2 space tabs when appropriate
-autocmd FileType markdown,ruby,javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2
 
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
