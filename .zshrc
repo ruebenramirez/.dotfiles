@@ -55,6 +55,8 @@ alias tl='todolist'
 alias lowpower='sudo pm-powersave true'
 alias highpower='sudo pm-powersave false'
 alias wifi='nm-applet &'
+alias tree='tree | less'
+alias tre='tree'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
