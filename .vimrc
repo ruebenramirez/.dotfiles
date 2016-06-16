@@ -24,7 +24,9 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'alfredodeza/coveragepy.vim'
+Plugin 'vim-ruby/vim-Ruby'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -131,6 +133,13 @@ augroup vimrc_autocmds
     autocmd FileType python match OverLength /\%81v.\+/
     autocmd FileType python set nowrap
     augroup END
+
+""""""""""""""""""""""""""""""""""""""
+" Ruby dev
+""""""""""""""""""""""""""""""""""""""
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 """"""""""""""""""""""""""""""""""""""
 " newtek shop dev
