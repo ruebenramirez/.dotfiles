@@ -6,7 +6,6 @@ ubuntu: update dev_packages omz git vim dotFiles customBins thinkpad-power-manag
 	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
 	# system tray when trying to run apps on dwm that need a tray
 	# preferred terminal emulator
-	sudo apt-get install -y terminator
 	sudo apt-get install -y xbindkeys
 	# shutter
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
