@@ -27,6 +27,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-ruby/vim-Ruby'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-endwise'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 filetype plugin indent on     " required!
