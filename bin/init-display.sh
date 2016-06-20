@@ -24,6 +24,7 @@ elif [ $hostname = 'ThinkPad-X220' ]; then
 elif [ $hostname = "frankenmac" ]; then
     echo 'setting up display for (12,1) macbook pro 13'
     xrandr --output eDP1 --mode 1920x1200
+    xrandr --output DP1 --left-of eDP1 --mode 2560x1440
     xrandr --output DP1 --left-of eDP1 --mode 3440x1440
     xrandr --output DP2 --left-of eDP1
     xrandr --output HDMI1 --left-of eDP1
