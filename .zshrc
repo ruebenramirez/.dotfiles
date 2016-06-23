@@ -57,6 +57,8 @@ alias highpower='sudo pm-powersave false'
 alias wifi='nm-applet &'
 alias tree='tree | less'
 alias tre='tree'
+alias rc='rails console'
+alias rs='rails server'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
