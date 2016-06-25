@@ -1,4 +1,4 @@
-syndaemon -t -k -i 2 &
+syndaemon -d -m 100 -t -k -i 2.0
 export BROWSER=google-chrome &
 
 # restart xbindkeys for the key mappings to start working
