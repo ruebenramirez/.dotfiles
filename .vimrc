@@ -16,7 +16,6 @@ Plugin 'ctrlp.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'mhinz/vim-signify'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'fatih/vim-go'
 Plugin 'DirDiff.vim'
 Plugin 'joonty/vdebug.git'
 Plugin 'taglist.vim'
@@ -28,6 +27,8 @@ Plugin 'vim-ruby/vim-Ruby'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-endwise'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -67,6 +68,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Better diff highlighting
 highlight! link DiffText MatchParen
 set background=dark
+
 
 """""""""""""""""""""""""""""""""""""
 " NERDtree config

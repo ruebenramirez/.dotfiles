@@ -115,3 +115,7 @@ export NVM_DIR="/home/rramirez/.nvm"
 ### Ruby dev
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+### Go dev
+export GOPATH=$HOME/gocode
+export PATH="$HOME/gocode/bin:$PATH"
