@@ -88,6 +88,7 @@ alias gdif='gdiff'
 alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias grim='echo "git rebase -i master" && git rebase -i master'
+alias psg='echo "ps auxf | grep -v grep | grep -i $* " && ps auxf | grep -v grep | grep -i $*'
 
 ### docker aliases
 alias d='docker'
