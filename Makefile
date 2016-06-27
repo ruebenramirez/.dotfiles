@@ -68,13 +68,15 @@ dotFiles:
 
 dev_packages:
 	sudo apt-get install -y curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree
+	sudo pip install virtualenvwrapper
+	sudo apt-get install -y python python-pip
 
 omz:
 	- sudo apt-get install -y curl zsh
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /usr/bin/zsh
 
-vim:
+vim: dev_packages
 	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -111,10 +113,9 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
-yolodocker: update
+yolodocker: update dev_packages yolodockermachine
 	sudo apt-get purge -y docker.io
 	wget -qO- https://get.docker.com/ | sh
-	sudo apt-get install -y python python-pip
 	sudo pip install docker-compose
 
 yolodockermachine:
