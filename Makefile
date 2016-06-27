@@ -111,13 +111,11 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
-yolodocker: update
+docker: update
 	sudo apt-get purge -y docker.io
 	wget -qO- https://get.docker.com/ | sh
 	sudo apt-get install -y python python-pip
 	sudo pip install docker-compose
-
-yolodockermachine:
 	sudo bash -c "curl -L https://github.com/docker/machine/releases/download/v0.5.4/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && \
 	  sudo chmod +x /usr/local/bin/docker-machine"
 
