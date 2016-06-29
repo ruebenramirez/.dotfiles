@@ -67,7 +67,7 @@
 
 
 #################################
-# Volume Toggle Mute 
+# Volume Toggle Mute
 #################################
 "sh ~/bin/volume-mute-toggle.sh; sh ~/.xsetroot.sh"
     m:0x4 + c:76
@@ -126,10 +126,12 @@
 #################################
 # screenshot capture
 #################################
+# "gnome-screenshot && shutter"
+#     m:0x9 + c:14
+#     Shift+Alt + 5
 "gnome-screenshot && shutter"
-    m:0x9 + c:14
-    Shift+Alt + 5
-
+    m:0x0 + c:212
+    XF86LaunchB
 
 #################################
 # lock screen
