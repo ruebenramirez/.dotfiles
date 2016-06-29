@@ -4,8 +4,8 @@
 # https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Using_automatic_palm_detection
 
 synclient PalmDetect=1
-synclient PalmMinWidth=8
-synclient PalmMinZ=25
+synclient PalmMinWidth=9
+synclient PalmMinZ=23
 
 # disable tap clicks
 synclient TapButton1=0
