@@ -144,3 +144,9 @@ install-i3-window-manager:
 	sudo apt-get --allow-unauthenticated install sur5r-keyring
 	sudo apt-get update
 	sudo apt-get install i3 -qy
+
+ruby-dev:
+	git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+	apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+	mkdir -p ~/.rbenv/plugins
+	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins
