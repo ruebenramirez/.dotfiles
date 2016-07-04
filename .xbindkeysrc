@@ -126,12 +126,14 @@
 #################################
 # screenshot capture
 #################################
-# "gnome-screenshot && shutter"
-#     m:0x9 + c:14
-#     Shift+Alt + 5
-"gnome-screenshot && shutter"
+# mac mission control button
+"sh ~/bin/screenshot"
     m:0x0 + c:212
     XF86LaunchB
+# non-mac printscreen button
+"sh ~/bin/screenshot"
+    m:0x0 + c:107
+        Print
 
 #################################
 # lock screen
