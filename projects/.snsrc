@@ -1,0 +1,6 @@
+
+alias godevsns='cd ~/newtek/code/SNS && tmux'
+alias gostagingsns='cd /opt/SNS && tmux'
+alias goprodsns='cd /opt/SNS && tmux'
+
+
