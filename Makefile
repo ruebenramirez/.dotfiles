@@ -150,3 +150,6 @@ ruby-dev:
 	apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 	mkdir -p ~/.rbenv/plugins
 	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins
+
+sysdig:
+	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
