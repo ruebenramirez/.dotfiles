@@ -1,6 +1,6 @@
 #Rueben's Dotfiles
 
-I'm mostly on thinkpads with ubuntu + DWM tiling window manager these days...
+I'm mostly on thinkpads with ubuntu + i3wm tiling window manager these days...
 
 Installing on a new machine:
 ----------------------------
