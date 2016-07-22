@@ -59,6 +59,8 @@ set backspace=indent,eol,start
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 
+autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
+
 " set 2 space tabs when appropriate
 autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2
 
