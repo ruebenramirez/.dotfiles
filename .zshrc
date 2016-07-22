@@ -60,6 +60,7 @@ alias tree='tree | less'
 alias tre='tree'
 alias rc='rails console'
 alias rs='rails server'
+alias sdig='sudo csysdig'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
