@@ -153,3 +153,8 @@ ruby-dev:
 
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
+
+install-golang:
+	sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
+	sudo apt-get update
+	sudo apt-get install golang
