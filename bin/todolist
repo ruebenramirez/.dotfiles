@@ -3,7 +3,7 @@
 SEARCH=$*
 if [ $SEARCH != '' ]; then
     echo "have a search term"
-    ls -lah ~/Desktop/ | egrep -i "$SEARCH"
+    ls -lah ~/todos/ | egrep -i "$SEARCH"
 else
-    ls -lah ~/Desktop/
+    ls -lah ~/todos/
 fi
