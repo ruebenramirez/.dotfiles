@@ -104,6 +104,7 @@ alias dc="docker rm \$(docker ps -q -a)"
 alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sshuttle --dns -vvr thinkhome 0/0'
+alias hopvultr='sshuttle --dns -vvr vultr 0/0'
 alias ntfort='sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
 
 ### Python dev
