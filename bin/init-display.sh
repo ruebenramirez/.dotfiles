@@ -15,7 +15,7 @@ elif [ $hostname = 'my-ThinkPad' ]; then
     xrandr --output LVDS-0 --mode 1920x1080
     xrandr --output DisplayPort-0 --above LVDS-0
     xrandr --output DisplayPort-2 --above LVDS-0
-elif [ $hostname = 'ThinkPad-X220' ]; then
+elif [ $hostname = 'le-laptop' ]; then
     echo 'setting up display for x220'
     xrandr --output LVDS1 --mode 1366x768
     xrandr --output DP1 --auto --above LVDS1
