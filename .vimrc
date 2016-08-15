@@ -48,9 +48,7 @@ set nu
 syn on
 set cursorline
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 set showtabline=2
 set ignorecase
 set hlsearch
