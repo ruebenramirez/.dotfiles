@@ -25,7 +25,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons false
 feh --bg-scale /home/rramirez/.dotfiles/desktop-background/minimalism_telephone_computer_technology_99028_1600x900.jpg
 
 # remove blues from screen when night time to help sleep at night
-redshift -r &
+redshift-gtk -r &
 
 # thinkpad power management
 tlp start
