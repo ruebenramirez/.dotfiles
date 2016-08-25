@@ -22,7 +22,7 @@ $HOME/bin/init-display.sh
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # setup desktop background
-feh --bg-scale /home/rramirez/.dotfiles/desktop-background/minimalism_telephone_computer_technology_99028_1600x900.jpg
+feh --bg-tile /home/rramirez/.dotfiles/desktop-background/lost-background.png
 
 # remove blues from screen when night time to help sleep at night
 redshift-gtk -r &
