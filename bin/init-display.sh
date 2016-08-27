@@ -27,7 +27,8 @@ elif [ $hostname = "frankenmac" ]; then
     xrandr --output eDP1 --mode 1920x1200
     xrandr --output DP1 --above eDP1 --mode 2560x1440
     xrandr --output DP1 --above eDP1 --mode 3440x1440
-    xrandr --output DP2 --above eDP1
+    xrandr --output DP2 --above eDP1 --mode 2560x1440
+    xrandr --output DP2 --above eDP1 --mode 3440x1440
     xrandr --output HDMI1 --above eDP1
     xrandr --output HDMI2 --above eDP1
 else
