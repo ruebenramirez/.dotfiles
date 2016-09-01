@@ -164,6 +164,9 @@ bar {
 # configure auto lock
 exec xautolock -time 3 -locker '~/bin/lock' &
 
+# set $mod Mod1
+set $mod2 Mod4
+
 mode "mouse" {
 
     # set your three speeds here
@@ -240,3 +243,5 @@ mode "mouse" {
 
     bindsym Escape mode "default"
 }
+
+bindsym $mod+$mod2+Shift+m mode "mouse"

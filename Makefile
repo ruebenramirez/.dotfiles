@@ -144,7 +144,7 @@ install-i3-window-manager:
 	sudo apt-get update
 	sudo apt-get --allow-unauthenticated install sur5r-keyring
 	sudo apt-get update
-	sudo apt-get install i3 -qy
+	sudo apt-get install i3 xautolock -qy
 
 ruby-dev:
 	rm -fr ~/.rbenv
