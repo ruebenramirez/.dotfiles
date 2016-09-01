@@ -1,6 +1,3 @@
-
 alias godevsns='cd ~/newtek/code/SNSv2 && tmux'
 alias gostagingsns='cd /opt/SNSv2 && tmux'
 alias goprodsns='cd /opt/SNSv2 && tmux'
-
-

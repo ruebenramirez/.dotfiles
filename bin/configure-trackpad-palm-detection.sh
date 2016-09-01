@@ -5,7 +5,7 @@
 
 synclient PalmDetect=1
 synclient PalmMinWidth=9
-synclient PalmMinZ=23
+synclient PalmMinZ=15
 
 # disable tap clicks
 synclient TapButton1=0
@@ -18,10 +18,10 @@ synclient VertScrollDelta=-75
 synclient HorizScrollDelta=-75
 
 # higher sensitivity
-# synclient FingerLow=0
-# synclient FingerHigh=12
+synclient FingerLow=1
+synclient FingerHigh=12
 
 # speed up the mouse cursor
-# synclient MinSpeed=1
-# synclient MaxSpeed=1.5
-# synclient AccelFactor=0.045
+synclient MinSpeed=1
+synclient MaxSpeed=1.5
+synclient AccelFactor=1.75

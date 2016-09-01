@@ -1,0 +1,4 @@
+
+alias godevbi='cd ~/newtek/code/store-bi-job && tmux'
+alias gostagingbi='cd /opt/store-bi-job && tmux'
+alias goprodbi='cd /opt/store-bi-job && tmux'

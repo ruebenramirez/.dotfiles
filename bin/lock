@@ -1,4 +1,15 @@
 #!/bin/bash
-#xscreensaver-command -lock &
-i3lock -d
-xrandr --output LVDS1 --off; read ans; xrandr --auto
+
+i3lock; exit
+
+lock () {
+    if [[ $(xrandr | grep $(echo $1) | wc -l) > 0 ]]; then
+        i3lock; xrandr --output $(echo $1) --off; read ans; sh ~/bin/init-display.sh
+    fi
+}
+
+primary_displays=( LVDS1 eDP1 )
+for i in "${primary_displays[@]}"; do
+    lock "$i"
+done
+

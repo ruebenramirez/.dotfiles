@@ -1,21 +1,20 @@
 syndaemon -d -m 100 -t -k -i 2.0
 export BROWSER=google-chrome &
 
-# restart xbindkeys for the key mappings to start working
+# customize keymappings
 killall xbindkeys
 xbindkeys
 
-# setup trackpad config
+# config trackpad
 $HOME/bin/configure-trackpad-palm-detection.sh
-/usr/bin/trackpad-toggle.sh
 
-# speed up the keyboard
+# faster key repeat
 xset r rate 250 60
 
-# natural scrolling for logitech trackpad
+# config logitech trackpad
 $HOME/bin/logitech-t650-config.sh
 
-# init display config
+# display config
 $HOME/bin/init-display.sh
 
 # disable gnome window desktop background
@@ -27,11 +26,17 @@ feh --bg-tile /home/rramirez/.dotfiles/desktop-background/lost-background.png
 # remove blues from screen when night time to help sleep at night
 redshift-gtk -r &
 
-# thinkpad power management
-tlp start
-
 # setup gnome-keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
+
+# if machine is a thinkpad
+sh ~/bin/setup-thinkpad.sh
+
+# if machine is a mac
+sh ~/bin/setup-mac.sh
+
+# start network manager applet
+nm-applet &
 
 exec i3
