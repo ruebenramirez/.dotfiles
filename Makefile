@@ -56,10 +56,9 @@ update:
 	sudo apt-get install -f -y
 
 macbookpro_keyboard:
-	if [ $$(cat /etc/hostname) = 'frankenmac' ]; then \
-		echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout; \
-		echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd; \
-	fi
+	echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout; \
+	echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd; \
+	xmodmap ~/.xmodmaprc
 
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
