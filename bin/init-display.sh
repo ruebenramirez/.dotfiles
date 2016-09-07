@@ -6,10 +6,12 @@ echo $hostname
 
 xrandr --auto
 
-if [ $hostname = 'ThinkPad' ]; then
+if [ $hostname = 'it-rueben-w520' ]; then
     echo 'setting up display for newtek w520';
     xrandr --output LVDS2 --mode 1600x900
     xrandr --output DP-1-1 --above LVDS2
+    xrandr --output DP-1-2 --above LVDS2
+    xrandr --output DP-1-3 --above LVDS2
 elif [ $hostname = 'my-ThinkPad' ]; then
     echo 'setting up display for personal w520'
     xrandr --output LVDS-0 --mode 1920x1080
