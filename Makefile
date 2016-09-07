@@ -54,8 +54,9 @@ update:
 	sudo apt-get install -f -y
 
 macbookpro_keyboard:
-	echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout; \
-	echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd; \
+	echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
+	echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout
+	echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
 	xmodmap ~/.xmodmaprc
 
 dotFiles:
