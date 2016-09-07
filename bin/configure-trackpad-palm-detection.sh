@@ -23,5 +23,5 @@ synclient FingerHigh=12
 
 # speed up the mouse cursor
 synclient MinSpeed=1
-synclient MaxSpeed=1.5
-synclient AccelFactor=1.75
+synclient MaxSpeed=1.15
+synclient AccelFactor=1
