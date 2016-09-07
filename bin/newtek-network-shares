@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo umount /mnt/rueben
+sudo umount /mnt/ruebendev
+sudo umount /mnt/rackspace
+
+sudo mount -t cifs //10.28.18.49/rueben/ /mnt/rueben/ -o uid=rramirez -o forceuid -o gid=rramirez -o file_mode=0775 -o dir_mode=0775 -o rw -o credentials=$HOME/.Smbcredentials
+sudo mount -t cifs //10.28.18.49/ruebendev/ /mnt/ruebendev/ -o uid=rramirez -o forceuid -o gid=rramirez -o file_mode=0775 -o dir_mode=0775 -o rw -o credentials=$HOME/.Smbcredentials
+sudo mount -t cifs //10.28.18.49/rackspace/ /mnt/rackspace/ -o uid=rramirez -o forceuid -o gid=rramirez -o file_mode=0775 -o dir_mode=0775 -o rw -o credentials=$HOME/.Smbcredentials

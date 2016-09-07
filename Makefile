@@ -161,3 +161,9 @@ install-golang:
 	sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 	sudo apt-get update
 	sudo apt-get install golang
+
+install-jenkins-taskbar:
+	sudo add-apt-repository ppa:thomir/indicator-jenkins
+	sudo apt-get update
+	sudo apt-get install indicator-jenkins
+
