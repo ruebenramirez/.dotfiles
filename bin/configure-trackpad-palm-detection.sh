@@ -14,8 +14,9 @@ synclient TapButton3=0
 
 # Natural scrolling
 synclient HorizTwoFingerScroll=1
-synclient VertScrollDelta=-75
-synclient HorizScrollDelta=-75
+synclient VertScrollDelta=75
+synclient HorizScrollDelta=75
+xmodmap -e "pointer = 1 2 3 5 4"
 
 # higher sensitivity
 synclient FingerLow=1

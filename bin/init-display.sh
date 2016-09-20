@@ -22,7 +22,7 @@ elif [ $hostname = 'le-laptop' ]; then
     xrandr --output LVDS1 --mode 1366x768
     xrandr --output DP1 --auto --above LVDS1
     xrandr --output DP2 --auto --above LVDS1
-    xrandr --output HDMI1 --auto --above LVDS1
+    xrandr --output HDMI1 --auto --left-of LVDS1
     xrandr --output VGA1 --auto --above LVDS1
 elif [ $hostname = "frankenmac" ]; then
     echo 'setting up display for (12,1) macbook pro 13'
