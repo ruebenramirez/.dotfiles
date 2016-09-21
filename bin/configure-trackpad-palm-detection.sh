@@ -16,6 +16,7 @@ synclient TapButton3=0
 synclient HorizTwoFingerScroll=1
 synclient VertScrollDelta=-75
 synclient HorizScrollDelta=-75
+xmodmap -e "pointer = 1 2 3 5 4 7 6"
 
 # higher sensitivity
 synclient FingerLow=1
