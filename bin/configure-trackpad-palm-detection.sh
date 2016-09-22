@@ -16,8 +16,8 @@ synclient TapButton3=0
 
 # Natural scrolling
 synclient HorizTwoFingerScroll=1
-synclient VertScrollDelta=-45
-synclient HorizScrollDelta=-45
+synclient VertScrollDelta=-85
+synclient HorizScrollDelta=-85
 xmodmap -e "pointer = 1 2 3 5 4 7 6"
 
 if [ $hostname = 'le-laptop' ]; then
