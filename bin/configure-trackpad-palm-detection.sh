@@ -18,13 +18,6 @@ synclient TapButton3=0
 synclient HorizTwoFingerScroll=1
 synclient VertScrollDelta=-85
 synclient HorizScrollDelta=-85
-xmodmap -e "pointer = 1 2 3 5 4 7 6"
-
-if [ $hostname = 'le-laptop' ]; then
-    xmodmap -e "pointer = 1 2 3 4 5 6 7"
-elif [ $hostname = 'my-ThinkPad' ]; then
-    xmodmap -e "pointer = 1 2 3 5 4 7 6"
-fi
 
 # Configuring pressure settings helps improve palm detection!
 #
