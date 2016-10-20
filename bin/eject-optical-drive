@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash -c 'eject -i off /dev/sr0 && eject /dev/sr0 && eject -i on /dev/sr0'

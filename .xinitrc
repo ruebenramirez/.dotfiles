@@ -30,6 +30,9 @@ redshift-gtk -r &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# disable optical drive eject button
+bash -c 'eject -i on /dev/sr0'
+
 # if machine is a thinkpad
 sh ~/bin/setup-thinkpad.sh
 
