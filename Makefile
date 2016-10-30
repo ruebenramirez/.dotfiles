@@ -191,5 +191,5 @@ apt-fast-setup:
 		cp /tmp/apt-fast/man/apt-fast.conf.5 /usr/share/man/man5 && \
 		gzip -f9 /usr/share/man/man5/apt-fast.conf.5"
 	# configure ubuntu apt mirrors
-	sudo sed -i.bak "s/\#\ MIRRORS\=\(\ 'none'\ \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/' )/" /etc/apt-fast.conf
+	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
