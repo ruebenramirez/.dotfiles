@@ -167,3 +167,29 @@ install-jenkins-taskbar:
 	sudo apt-get update
 	sudo apt-get install indicator-jenkins
 
+apt-fast-setup:
+	sudo bash -c "apt-get install -y aria2 git && \
+		if ! [[ -f /usr/bin/apt-fast ]]; then \
+		  git clone https://github.com/ilikenwf/apt-fast /tmp/apt-fast; \
+		  cp /tmp/apt-fast/apt-fast /usr/bin; \
+		  chmod +x /usr/bin/apt-fast; \
+		  cp /tmp/apt-fast/apt-fast.conf /etc; \
+		fi"
+	# bash autocompletion
+	sudo bash -c "cp /tmp/apt-fast/completions/bash/apt-fast /etc/bash_completion.d/ && \
+		chown root:root /etc/bash_completion.d/apt-fast"
+	. /etc/bash_completion
+	# zsh autocompletion
+	if ! [[ -f /usr/bin/zsh ]]; then \
+		sudo bash -c "cp /tmp/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/ && \
+			chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast"; \
+		source /usr/share/zsh/functions/Completion/Debian/_apt-fast; \
+	fi
+	# Man page installation
+	sudo bash -c "cp /tmp/apt-fast/man/apt-fast.8 /usr/share/man/man8 && \
+		gzip -f9 /usr/share/man/man8/apt-fast.8 && \
+		cp /tmp/apt-fast/man/apt-fast.conf.5 /usr/share/man/man5 && \
+		gzip -f9 /usr/share/man/man5/apt-fast.conf.5"
+	# configure ubuntu apt mirrors
+	sudo sed -i.bak "s/\#\ MIRRORS\=\(\ 'none'\ \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/' )/" /etc/apt-fast.conf
+
