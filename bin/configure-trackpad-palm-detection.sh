@@ -2,12 +2,21 @@
 
 hostname=`hostname -f`
 
+# for the old xps 9550 driver config
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Palm Detection" 1
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Palm Dimensions" 6, 300
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Pressure Motion" 80, 200
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Two-Finger Scrolling" 1, 1
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Tap Action" 0, 0, 0, 0, 0, 0, 0
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Scrolling Distance" -30, -30
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Finger" 32, 35, 0
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
 # source:
 # https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Using_automatic_palm_detection
-
 synclient PalmDetect=1
-synclient PalmMinWidth=6
-synclient PalmMinZ=4
+synclient PalmMinWidth=1
+# synclient PalmMinZ=40
 
 # disable tap clicks
 synclient TapButton1=0
@@ -49,10 +58,10 @@ synclient HorizScrollDelta=-85
 # * I only wanted to count anything over 45 as a touch event
 
 # higher sensitivity
-synclient FingerLow=30
-synclient FingerHigh=45
+synclient FingerLow=40
+synclient FingerHigh=50
 
 # speed up the mouse cursor
 synclient MinSpeed=1
-synclient MaxSpeed=1.15
-synclient AccelFactor=1
+synclient MaxSpeed=1.55
+synclient AccelFactor=1.3

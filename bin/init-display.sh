@@ -5,8 +5,18 @@ echo '~/bin/init-display'
 echo $hostname
 
 xrandr --auto
-
-if [ $hostname = 'it-rueben-w520' ]; then
+if [ $hostname = 'rramirez-XPS-15-9550' ]; then
+    echo 'setting up display for XPS-15-9550'
+    xrandr --dpi 180
+    xrandr --output eDP1 --scale 1.2x1.2
+    xrandr --output eDP-1 --mode 3840x2160
+    # xrandr --output DP1 --above eDP1 --mode 2560x1440
+    # xrandr --output DP1 --above eDP1 --mode 3440x1440
+    # xrandr --output DP2 --above eDP1 --mode 2560x1440
+    # xrandr --output DP2 --above eDP1 --mode 3440x1440
+    # xrandr --output HDMI1 --above eDP1
+    # xrandr --output HDMI2 --above eDP1
+elif [ $hostname = 'it-rueben-w520' ]; then
     echo 'setting up display for newtek w520';
     xrandr --output LVDS2 --mode 1600x900
     xrandr --output DP-1-1 --above LVDS2

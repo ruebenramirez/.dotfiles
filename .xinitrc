@@ -42,4 +42,14 @@ sh ~/bin/setup-mac.sh
 # start network manager applet
 nm-applet &
 
+# fix gnome terminal being able to launch on XPS 15 9550
+dbus-update-activation-environment --all
+
+# fix HiDPI on XPS 15 9550
+gsettings set org.gnome.desktop.interface scaling-factor 2
+export GDK_SCALE=1
+export GDK_DPI_SCALE=1
+export ELM_SCALE=1
+xrdb -merge ~/.Xresources
+
 exec i3
