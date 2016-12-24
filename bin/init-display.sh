@@ -8,10 +8,14 @@ xrandr --auto
 if [ $hostname = 'rramirez-XPS-15-9550' ]; then
     echo 'setting up display for XPS-15-9550'
     xrandr --dpi 180
-    xrandr --output eDP1 --scale 1.2x1.2
-    xrandr --output eDP-1 --mode 3840x2160
-    # xrandr --output DP1 --above eDP1 --mode 2560x1440
-    # xrandr --output DP1 --above eDP1 --mode 3440x1440
+    # xrandr --output DP-1 --above eDP-1 --mode 3440x1440 --scale 2x2 --fb 3840x4200 --pos 0x0
+    # xrandr --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 3840x4200
+    #xrandr --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x4200
+
+    # work with the cheap dongle
+    xrandr --output DP-1 --above eDP-1 --mode 3440x1440 --scale 2x2 --pos 0x0
+    xrandr --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x3200
+
     # xrandr --output DP2 --above eDP1 --mode 2560x1440
     # xrandr --output DP2 --above eDP1 --mode 3440x1440
     # xrandr --output HDMI1 --above eDP1

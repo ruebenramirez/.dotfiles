@@ -33,8 +33,9 @@ export SSH_AUTH_SOCK
 # disable optical drive eject button
 bash -c 'eject -i on /dev/sr0'
 
-# if machine is a thinkpad
-sh ~/bin/setup-thinkpad.sh
+# setup power saving
+sudo tlp start
+sh ~/bin/xps-15-power-saving.sh
 
 # if machine is a mac
 sh ~/bin/setup-mac.sh
