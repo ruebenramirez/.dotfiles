@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# disable proxy settings in docker config
+
+# comment the proxy line
+sudo sed -i 's/^.*Environment=/#Environment=/' /etc/systemd/system/docker.service.d/http-proxy.conf
+
+# pick up new docker config
+sudo systemctl daemon-reload
+
+# restart docker
+sudo systemctl restart docker.service
