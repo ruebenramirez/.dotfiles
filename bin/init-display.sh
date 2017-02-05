@@ -8,18 +8,13 @@ xrandr --auto
 if [ $hostname = 'rramirez-XPS-15-9550' ]; then
     echo 'setting up display for XPS-15-9550'
     xrandr --dpi 180
-    # xrandr --output DP-1 --above eDP-1 --mode 3440x1440 --scale 2x2 --fb 3840x4200 --pos 0x0
-    # xrandr --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 3840x4200
-    #xrandr --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x4200
-
-    # work with the cheap dongle
-    xrandr --output DP-1 --above eDP-1 --mode 3440x1440 --scale 2x2 --pos 0x0
-    xrandr --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x3200
-
-    # xrandr --output DP2 --above eDP1 --mode 2560x1440
-    # xrandr --output DP2 --above eDP1 --mode 3440x1440
-    # xrandr --output HDMI1 --above eDP1
-    # xrandr --output HDMI2 --above eDP1
+	# home big screen
+	xrandr \
+		--output HDMI-2 --off \
+		--output HDMI-1 --off \
+		--output DP-1 --mode 3440x1440 --pos 0x0 --rotate normal --scale 2x2 \
+		--output eDP-1 --mode 3840x2160 --pos 1336x2880 --rotate normal \
+		--output DP-2 --off
 elif [ $hostname = 'it-rueben-w520' ]; then
     echo 'setting up display for newtek w520';
     xrandr --output LVDS2 --mode 1600x900
