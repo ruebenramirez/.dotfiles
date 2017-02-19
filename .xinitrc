@@ -53,4 +53,7 @@ export GDK_DPI_SCALE=1
 export ELM_SCALE=1
 xrdb -merge ~/.Xresources
 
+# allow GTK apps to run even with wayland installed
+xhost +local:
+
 exec i3
