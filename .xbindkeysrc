@@ -16,7 +16,7 @@
 #################################
 # Toggle touchpad
 #################################
-"/usr/bin/trackpad-toggle.sh && sh ~/.xsetroot.sh"
+"~/bin/toggle-dell-trackpad.sh"
     m:0x4 + c:9
     Control + Escape
 

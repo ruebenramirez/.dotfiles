@@ -15,6 +15,11 @@ xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 
 xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Accel Speed" .95
 xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Tapping Enabled" 0
 
+# Logitech M570
+xinput set-prop "Logitech M570" "libinput Accel Speed" .75
+xinput set-prop "Logitech M570" "libinput Accel Speed" .75
+xinput set-prop "Logitech M570" "libinput Middle Emulation Enabled" 1
+
 
 # Logitech MX Anywhere 2
 xinput set-prop "Logitech MX Anywhere 2" "libinput Accel Speed" .95

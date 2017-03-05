@@ -7,6 +7,8 @@ xbindkeys
 
 # config trackpad
 $HOME/bin/configure-trackpad-palm-detection.sh
+# configure scroll speed
+killall imwheel
 
 # faster key repeat
 xset r rate 250 60
