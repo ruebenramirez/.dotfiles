@@ -2,17 +2,24 @@
 
 hostname=`hostname -f`
 
-# for the old xps 9550 driver config
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Palm Detection" 1
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Palm Dimensions" 6, 300
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Pressure Motion" 80, 200
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Two-Finger Scrolling" 1, 1
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Tap Action" 0, 0, 0, 0, 0, 0, 0
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Scrolling Distance" -30, -30
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Finger" 32, 35, 0
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Accel Speed" .95
+# xps 9550 xinput driver config
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Palm Detection" 1
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Palm Dimensions" 6, 300
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Pressure Motion" 80, 200
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Two-Finger Scrolling" 1, 1
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Tap Action" 0, 0, 0, 0, 0, 0, 0
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Scrolling Distance" -30, -30
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "Synaptics Finger" 32, 35, 0
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Accel Speed" .95
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Tapping Enabled" 0
+
+
+# Logitech MX Anywhere 2
+xinput set-prop "Logitech MX Anywhere 2" "libinput Accel Speed" .95
+
+# older thinkpad trackpad config
 # source:
 # https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Using_automatic_palm_detection
 synclient PalmDetect=1
