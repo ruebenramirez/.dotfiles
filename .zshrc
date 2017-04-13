@@ -102,6 +102,7 @@ alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi
 alias dc="docker rm \$(docker ps -q -a)"
 
 ### vpn stuffs
+alias firevpn='/opt/firefox/firefox'
 alias ntvpn='sudo vpnc nt.conf'
 alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sshuttle --dns -vvr thinkhome 0/0'

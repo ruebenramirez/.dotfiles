@@ -1,3 +1,8 @@
 #!/bin/bash
 
-sudo openvpn --config ~/nokia/client.ovpn
+set +e +x
+
+sudo killall openvpn
+pushd ~/nokia/vlab-openvpn-client-config/ && \
+    sudo openvpn --config client_vlab_133.ovpn && \
+    popd;

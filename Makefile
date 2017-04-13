@@ -2,43 +2,33 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins thinkpad-power-management
+ubuntu: update dev_packages git vim dotFiles customBins shutter
 	sudo apt-get install -y tmux
 	# remmina preferred remote desktop client
 	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
 	# system tray when trying to run apps on dwm that need a tray
 	# preferred terminal emulator
 	sudo apt-get install -y xbindkeys
-	# shutter
-	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
 	# xdotool - move mouse programmatically
 	sudo apt-get install -y xdotool
+	# screensaver
+	sudo apt-get install -q -y build-essential libx11-dev libxinerama-dev sharutils suckless-tools
+
+shutter:
+	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+
+backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
-	# screensaver
-	sudo apt-get purge -y gnome-screensaver
-	sudo apt-get install -y xscreensaver
-	# dwm
-	sudo apt-get install -q -y build-essential libx11-dev libxinerama-dev sharutils suckless-tools
-	pushd /usr/local/src &&\
-		sudo wget http://dl.suckless.org/dwm/dwm-6.0.tar.gz &&\
-		sudo tar xvzf dwm-6.0.tar.gz &&\
-		sudo chown -R `id -u`:`id -g` dwm-6.0 &&\
-		pushd /usr/local/src/dwm-6.0 &&\
-		sudo make clean install &&\
-		popd && popd
-	sudo systemctl enable multi-user.target --force
-	sudo systemctl set-default multi-user.target
-	# dependencies for display battery and cpu temp
-	sudo apt-get install -y acpi lm-sensors
 
 save-my-eyes: update
-	sudo apt-get install -y redshift
+	sudo apt-get install -y gtk-redshift
 
-thinkpad-power-management:
-	# thinkpad power management
-	sudo apt-get install -y tlp tlp-rdw tp-smapi-dkms acpi-call-dkms
-	sudo tlp start
+power-management:
+	# dependencies for display battery and cpu temp
+	sudo apt-get install -y tlp powertop acpi lm-sensors
+	sudo tlp bat
+	sudo powertop
 
 forticlient_vpn_ubuntu: update
 	sudo apt-get install -y lib32gcc1 libc6-i386
@@ -208,3 +198,9 @@ apt-fast-setup:
 	# configure ubuntu apt mirrors
 	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
+
+ubuntu-java:
+	sudo apt-get install -y python-software-properties
+	sudo add-apt-repository ppa:webupd8team/java
+	sudo apt-get update -y
+	sudo apt-get install -y oracle-java8-installer icedtea-8-plugin

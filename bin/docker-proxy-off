@@ -2,11 +2,15 @@
 
 # disable proxy settings in docker config
 
-# comment the proxy line
-sudo sed -i 's/^.*Environment=/#Environment=/' /etc/systemd/system/docker.service.d/http-proxy.conf
+# remove the symlink to remove the docker proxy config
+sudo unlink /etc/systemd/system/docker.service.d/http-proxy.conf
 
 # pick up new docker config
 sudo systemctl daemon-reload
 
 # restart docker
 sudo systemctl restart docker.service
+
+# print docker proxy config
+echo "docker proxy config:"
+docker info | grep -i proxy

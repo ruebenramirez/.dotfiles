@@ -2,11 +2,15 @@
 
 # configure docker daemon to utilize internal proxy
 
-# uncomment the line
-sudo sed -i 's/^.*Environment=/Environment=/' /etc/systemd/system/docker.service.d/http-proxy.conf
+# symlink the correct proxy file into place
+sudo ln -sf /etc/systemd/system/docker.service.d/nokia-proxy.conf /etc/systemd/system/docker.service.d/http-proxy.conf
 
 # pick up new docker config
 sudo systemctl daemon-reload
 
 # restart docker
 sudo systemctl restart docker.service
+
+# print docker proxy config
+echo "docker proxy config:"
+docker info | grep -i proxy
