@@ -70,7 +70,7 @@ dotFiles:
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 
 dev_packages: update omz
-	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree
+	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
 	sudo pip install virtualenvwrapper
 
 omz:
