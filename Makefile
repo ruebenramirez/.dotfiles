@@ -210,3 +210,20 @@ apt-fast-setup:
 	# configure ubuntu apt mirrors
 	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
+
+oracle-java:
+	sudo add-apt-repository ppa:webupd8team/java
+	sudo apt update -y
+	sudo apt install -y oracle-java8-installer
+
+java-browser-plugin:
+	sudo apt-get install icedtea-plugin
+
+firefox-with-java-client: oracle-java java-browser-plugin
+	# install Firefox v45 ESR (extended support release)
+	#   which still supports NPAPI java plugin
+	curl -O https://download.mozilla.org/?product=firefox-45.8.0esr-SSL&os=linux64&lang=en-US /tmp/firefox.tar.bz2
+	tar -xvf /tmp/firefox.tar.bz2 -C /tmp/
+	sudo mv /tmp/firefox /opt/
+	# add java browser plugin to v45 ESR Firefox
+
