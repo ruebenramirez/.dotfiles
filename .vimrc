@@ -29,6 +29,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -68,6 +69,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Better diff highlighting
 highlight! link DiffText MatchParen
 set background=dark
+
+" pane navigation with control keys
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
 """""""""""""""""""""""""""""""""""""
