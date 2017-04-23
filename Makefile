@@ -31,6 +31,8 @@ ubuntu: update dev_packages git vim dotFiles customBins thinkpad-power-managemen
 	sudo systemctl set-default multi-user.target
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
+	sudo apt purge notify-osd
+	sudo apt install -y i3 dunst
 
 save-my-eyes: update
 	sudo apt-get install -y redshift
