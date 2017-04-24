@@ -91,7 +91,7 @@ customBins:
 	@ln -sf $$(pwd)/bin/* ~/bin/
 	@sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
-installBrotherPrinter:
+BrotherPrinterInstall:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
 
 weather:
