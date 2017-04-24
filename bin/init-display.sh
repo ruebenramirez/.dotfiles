@@ -7,14 +7,21 @@ echo $hostname
 xrandr --auto
 if [ $hostname = 'XPS-15-9550' ]; then
     echo 'setting up display for XPS-15-9550'
-    # xrandr --dpi 96
-    xrandr --dpi 180
+    xrandr --dpi 96
+    #xrandr --dpi 180
 	# home big screen
+	# xrandr \
+	# 	--output HDMI-2 --off \
+	# 	--output HDMI-1 --off \
+	# 	--output DP-1 --mode 3440x1440 --pos 0x0 --rotate normal --scale 2x2 \
+	# 	--output eDP-1 --mode 3840x2160 --pos 1336x2880 --rotate normal --scale 2x2 \
+	# 	--output eDP-1 --mode 1920x1080 --pos 1336x2880 --rotate normal --scale 2x2 \
+	# 	--output DP-2 --off
 	xrandr \
 		--output HDMI-2 --off \
 		--output HDMI-1 --off \
-		--output DP-1 --mode 3440x1440 --pos 0x0 --rotate normal --scale 2x2 \
-		--output eDP-1 --mode 3840x2160 --pos 1336x2880 --rotate normal --scale 1x1 \
+        --output eDP-1 --mode 1920x1080 --rotate normal \
+		--output DP-1 --off
 		--output DP-2 --off
 elif [ $hostname = 'it-rueben-w520' ]; then
     echo 'setting up display for newtek w520';
