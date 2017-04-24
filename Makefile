@@ -13,6 +13,10 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter
 	sudo apt-get install -y xdotool
 	# screensaver
 	sudo apt-get install -q -y build-essential libx11-dev libxinerama-dev sharutils suckless-tools
+	# dependencies for display battery and cpu temp
+	sudo apt-get install -y acpi lm-sensors
+	sudo apt purge notify-osd
+	sudo apt install -y i3 dunst
 
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
@@ -58,7 +62,7 @@ dotFiles:
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 
 dev_packages: update omz
-	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree
+	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
 	sudo pip install virtualenvwrapper
 
 omz:
@@ -199,8 +203,19 @@ apt-fast-setup:
 	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
 
-ubuntu-java:
+oracle-java:
 	sudo apt-get install -y python-software-properties
 	sudo add-apt-repository ppa:webupd8team/java
-	sudo apt-get update -y
+	sudo apt update -y
 	sudo apt-get install -y oracle-java8-installer icedtea-8-plugin
+
+java-browser-plugin:
+	sudo apt-get install icedtea-plugin
+
+firefox-with-java-client: oracle-java java-browser-plugin
+	# install Firefox v45 ESR (extended support release)
+	#   which still supports NPAPI java plugin
+	curl -O https://download.mozilla.org/?product=firefox-45.8.0esr-SSL&os=linux64&lang=en-US /tmp/firefox.tar.bz2
+	tar -xvf /tmp/firefox.tar.bz2 -C /tmp/
+	sudo mv /tmp/firefox /opt/
+	# add java browser plugin to v45 ESR Firefox

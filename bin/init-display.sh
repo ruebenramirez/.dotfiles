@@ -22,9 +22,9 @@ elif [ $hostname = 'it-rueben-w520' ]; then
     xrandr --output DP-1-1 --above LVDS2
     xrandr --output DP-1-2 --above LVDS2
     xrandr --output DP-1-3 --above LVDS2
-elif [ $hostname = 'my-ThinkPad' ]; then
+elif [ $hostname = 'thinkpad-t420' ]; then
     echo 'setting up display for personal w520'
-    xrandr --output LVDS-0 --mode 1920x1080
+    xrandr --output LVDS-0 --mode 1600x900
     xrandr --output DisplayPort-0 --above LVDS-0
     xrandr --output DisplayPort-2 --above LVDS-0
     xrandr --output LVDS1 --mode 1920x1080
