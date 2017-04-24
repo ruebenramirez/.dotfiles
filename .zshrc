@@ -62,12 +62,14 @@ alias tre='tree'
 alias rc='rails console'
 alias rs='rails server'
 alias sdig='sudo csysdig'
+alias pidgin='pidgin & pidgin &' # pidgin doesn't always reload the UI in i3
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
 alias gcob='echo "git checkout -b" && git checkout -b'
 alias gcom='echo "git commit" && git commit'
 alias gcommit='echo "git commit" && git commit'
+alias gb='echo "git branch" && git branch'
 alias gbranch='echo "git branch" && git branch'
 alias gbrancha='echo "git branch -a" && git branch -a'
 alias gbra='echo "git branch -a" && git branch -a'
@@ -92,6 +94,7 @@ alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias grim='echo "git rebase -i master" && git rebase -i master'
 alias psg='echo "ps auxf | grep -v grep | grep -i $* " && ps auxf | grep -v grep | grep -i $*'
+alias gci='google-chrome --incognito'
 
 ### docker aliases
 alias d='docker'
