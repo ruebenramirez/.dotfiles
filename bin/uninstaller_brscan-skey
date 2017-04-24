@@ -1,0 +1,4 @@
+#! /bin/bash
+dpkg  -P       brscan-skey
+
+exit 0
