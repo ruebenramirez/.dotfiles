@@ -1,0 +1,33 @@
+#!/bin/sh
+# From patchwork.freedesktop.org/.../
+# and en.community.dell.com/.../19985320
+# Suspend Resume fails to restore PWM_GRANUALITY
+# Based on script by Tony.Jewell@Cregganna.Com
+
+
+INTEL_REG=/usr/bin/intel_reg
+ADDR="0x000c2000"
+SAVE_FILE=/var/lib/systemd/save_intel_reg_pwm_granuality
+
+
+[ -x "$INTEL_REG" ] || exit 0
+
+
+case "$1" in
+        pre)
+        echo "$0: Saving Intel Register PWM_GRANUALITY"
+        "$INTEL_REG" read "$ADDR" \
+            | (read addr value && echo "$value") \
+            >"$SAVE_FILE"
+    sync
+    ;;
+    post)
+        value=`cat "$SAVE_FILE" 2>/dev/null`
+        if [ -n "$value" ]
+        then
+            echo "$0: Restoring Intel Register PWM_GRANUALITY $value"
+            "$INTEL_REG" write "$ADDR" "$value"
+            rm "$SAVE_FILE"
+        fi
+    ;;
+esac
