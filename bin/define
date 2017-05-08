@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -e -x
+curl dict://dict.org/d:$1

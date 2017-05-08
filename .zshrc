@@ -63,6 +63,7 @@ alias rc='rails console'
 alias rs='rails server'
 alias sdig='sudo csysdig'
 alias pidgin='pidgin & pidgin &' # pidgin doesn't always reload the UI in i3
+alias def='define'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
