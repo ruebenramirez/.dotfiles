@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins shutter
+ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt-get install -y tmux
 	# remmina preferred remote desktop client
 	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
@@ -61,7 +61,7 @@ dotFiles:
 	- unlink .i3/.i3
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 
-dev_packages: update omz
+dev_packages: update
 	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
 	sudo pip install virtualenvwrapper
 
