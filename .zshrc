@@ -100,10 +100,10 @@ alias gci='google-chrome --incognito'
 ### docker aliases
 alias d='docker'
 alias dps='docker ps -a'
-alias di='docker images'
-alias dat='docker attach --sig-proxy=true'
-alias dci="docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
-alias dc="docker rm \$(docker ps -q -a)"
+alias di='echo "docker images" && docker images'
+alias dat='echo "docker attach" && docker attach --sig-proxy=true'
+alias dci="echo 'docker clean images' docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
+alias dc='echo "docker clean zombie containers" docker rm \$(docker ps -q -a)'
 
 ### vpn stuffs
 alias firevpn='/opt/firefox/firefox'
