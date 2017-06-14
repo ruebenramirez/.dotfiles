@@ -1,6 +1,0 @@
-#!/bin/bash
-
-#google-chrome --proxy-server=global.proxy.alcatel-lucent.com:8000
-#google-chrome --proxy-server=135.245.48.34:8000
-
-google-chrome --proxy-pac-url=http://pac.lbs.alcatel-lucent.com/proxy.pac
