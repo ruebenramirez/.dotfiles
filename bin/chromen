@@ -1,0 +1,3 @@
+#!/bin/bash
+
+google-chrome --proxy-pac-url=http://proxyconf.glb.nokia.com/proxy.pac

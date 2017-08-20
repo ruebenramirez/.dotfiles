@@ -8,5 +8,6 @@ cd ~/nokia/vlab-openvpn-client-config/
 sudo openvpn --config client_vlab_133.ovpn &
 
 # poland config
-cd ~/nokia/OpenVPN-profiles/
-sudo openvpn --config rramirez_135_248_248_113_autologin_p1345.ovpn &
+# cd ~/nokia/OpenVPN-profiles/
+# sudo openvpn --config rramirez_135_248_248_113_autologin_p1345.ovpn &
+# sudo openvpn --config rramirez_135_248_248_113_autologin_p1345.ovpn
