@@ -1,0 +1,57 @@
+#!  /bin/bash
+#RM_SELINUX_RULE=enable
+#
+#  PRNL=mfcj615wlpr-1.1.3-1a.i386.deb
+#  PRNC=mfcj615wcupswrapper-1.1.3-1a.i386.deb
+#  SCAN=brscan3-0.2.13-1.amd64.deb
+#  SKEY=brscan-skey-0.2.4-1.amd64.deb
+#
+if ! [ -f /etc/init.d/cupsys ];then
+ DUMMYCUPSYS=1
+ ln -s /bin/true  /etc/init.d/cupsys
+fi
+if ! [ -f /etc/init.d/cups ];then
+ DUMMYCUPS=1
+ ln -s /bin/true  /etc/init.d/cups
+fi
+if ! [ -f /etc/init.d/lpd ];then
+ DUMMYLPD=1
+ ln -s /bin/true  /etc/init.d/lpd
+fi
+if ! [ -f /etc/init.d/lprng ];then
+ DUMMYLPRNG=1
+ ln -s /bin/true  /etc/init.d/lprng
+fi
+dpkg  -x mfcj615wcupswrapper-1.1.3-1.i386.deb /
+dpkg  -P    mfcj615wcupswrapper:i386
+dpkg  -x mfcj615wlpr-1.1.3-1.i386.deb /
+dpkg  -P    mfcj615wlpr:i386
+if [ "$DUMMYCUPS" = 1 ];then
+  lsc=$(ls -al /etc/init.d/cups  2> /dev/null| grep ^l)
+  if [ "$lsc" != "" ];then
+    rm -f /etc/init.d/cups
+  fi
+fi
+
+if [ "$DUMMYCUPSYS" = 1 ];then
+  lsc=$(ls -al /etc/init.d/cupsys  2> /dev/null| grep ^l)
+  if [ "$lsc" != "" ];then
+    rm -f /etc/init.d/cupsys
+  fi
+fi
+
+if [ "$DUMMYLPD" = 1 ];then
+  lsc=$(ls -al /etc/init.d/lpd  2> /dev/null | grep ^l)
+  if [ "$lsc" != "" ];then
+    rm -f /etc/init.d/lpd
+  fi
+fi
+
+if [ "$DUMMYLPRNG" = 1 ];then
+  lsc=$(ls -al /etc/init.d/lprng | grep ^l)
+  if [ "$lsc" != "" ];then
+    rm -f /etc/init.d/lprng
+  fi
+fi
+
+

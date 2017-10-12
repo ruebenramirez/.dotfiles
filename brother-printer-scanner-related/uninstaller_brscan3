@@ -1,0 +1,4 @@
+#! /bin/bash
+dpkg  -P       brscan3
+
+exit 0
