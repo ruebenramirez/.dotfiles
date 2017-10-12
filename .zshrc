@@ -66,6 +66,9 @@ alias rs='rails server'
 alias sdig='sudo csysdig'
 alias pidgin='pidgin & pidgin &' # pidgin doesn't always reload the UI in i3
 alias def='define'
+alias psg='echo "ps auxf | grep -v grep | grep -i $* " && ps auxf | grep -v grep | grep -i $*'
+alias gci='google-chrome --incognito'
+alias sound-config='pavucontrol &'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
@@ -96,8 +99,8 @@ alias gdif='gdiff'
 alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias grim='echo "git rebase -i master" && git rebase -i master'
-alias psg='echo "ps auxf | grep -v grep | grep -i $* " && ps auxf | grep -v grep | grep -i $*'
-alias gci='google-chrome --incognito'
+
+
 
 ### docker aliases
 alias d='docker'
