@@ -20,7 +20,7 @@ elif [ $hostname = 'it-rueben-w520' ]; then
     xrandr --output DP-1-1 --above LVDS2
     xrandr --output DP-1-2 --above LVDS2
     xrandr --output DP-1-3 --above LVDS2
-elif [ $hostname = 'thinkpad-t420' ]; then
+elif [ $hostname = 'ThinkPad-W520' ]; then
     echo 'setting up display for personal w520'
     xrandr --output LVDS-0 --mode 1600x900
     xrandr --output DisplayPort-0 --above LVDS-0
@@ -30,14 +30,16 @@ elif [ $hostname = 'thinkpad-t420' ]; then
     xrandr --output DP-1-2 --above LVDS2
     xrandr --output DP-1-3 --above LVDS1
     xrandr --output DP-1-3 --above LVDS2
-elif [ $hostname = 'le-laptop' ]; then
-    echo 'setting up display for x220'
-    xrandr --output LVDS1 --mode 1600x900
-    xrandr --output DP1 --auto --above LVDS1
-    xrandr --output DP2 --auto --above LVDS1
-    xrandr --output HDMI1 --auto --left-of LVDS1
-    xrandr --output HDMI2 --auto --left-of LVDS1
-    xrandr --output VGA1 --auto --above LVDS1
+elif [ $hostname = 'thinkpad-t420' ]; then
+    echo 'setting up display for personal T420'
+    xrandr --output LVDS-0 --mode 1600x900
+    xrandr --output DisplayPort-0 --above LVDS-0
+    xrandr --output DisplayPort-2 --above LVDS-0
+    xrandr --output LVDS1 --mode 1920x1080
+    xrandr --output DP-1-2 --above LVDS1
+    xrandr --output DP-1-2 --above LVDS2
+    xrandr --output DP-1-3 --above LVDS1
+    xrandr --output DP-1-3 --above LVDS2
 elif [ $hostname = "frankenmac" ]; then
     echo 'setting up display for (12,1) macbook pro 13'
     xrandr --output eDP1 --mode 1920x1200
