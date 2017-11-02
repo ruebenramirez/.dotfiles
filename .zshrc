@@ -24,12 +24,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:$HOME/.rbenv/bin:/opt/franz:$PATH"
-export EDITOR=vim
+export EDITOR=~/bin/nvim.appimage
 export PAGER=less
 
 # helpful aliases
 alias hf='echo "hostname -f" && hostname -f'
-alias vi='vim'
+alias vi='~/bin/nvim.appimage'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 alias sl='ls'
