@@ -72,8 +72,11 @@ omz:
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /usr/bin/zsh
 
-vim: dev_packages
-	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev
+vim: dotFiles customBins dev_packages
+	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev fuse
+	- sudo modprobe fuse
+	- sudo usermod -aG fuse $$(whoami)
+	- sudo pip install --upgrade neovim
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
