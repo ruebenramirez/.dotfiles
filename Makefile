@@ -60,6 +60,8 @@ dotFiles:
 	ln -sf $$(pwd)/.i3 ~/.i3
 	- unlink .i3/.i3
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
+	mkdir -p ~/.config/nvim
+	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
 dev_packages: update
 	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
