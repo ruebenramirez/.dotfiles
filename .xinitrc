@@ -17,7 +17,11 @@ xset r rate 250 60
 $HOME/bin/logitech-t650-config.sh
 
 # display config
-$HOME/bin/init-display.sh
+if [[ $(hostname -f) == "XPS-15-9550" ]]; then
+    sh ~/.screenlayout/external-monitor-only.sh
+else
+    sh $HOME/bin/init-display.sh
+fi
 
 # disable gnome window desktop background
 gsettings set org.gnome.desktop.background show-desktop-icons false
