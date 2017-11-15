@@ -4,16 +4,22 @@ hostname=`hostname -f`
 echo '~/bin/init-display'
 echo $hostname
 
+HOME_MONITOR=$(xrandr | egrep -i 'DP-1 connected' | grep -v 'eDP' | wc -l)
+
 xrandr --auto
 if [ $hostname = 'XPS-15-9550' ]; then
-    echo 'setting up display for XPS-15-9550'
-    xrandr \
-        --dpi 96 \
-        --output HDMI-2 --off \
-        --output HDMI-1 --off \
-        --output eDP-1 --mode 1920x1080 --rotate normal \
-        --output DP-1 --off
-        --output DP-2 --off
+    if [[ $HOME_MONITOR == 1 ]]; then
+        sh ~/.screenlayout/home.sh
+    else
+        echo 'setting up display for XPS-15-9550'
+        xrandr \
+            --dpi 96 \
+            --output HDMI-2 --off \
+            --output HDMI-1 --off \
+            --output eDP-1 --mode 1920x1080 --rotate normal \
+            --output DP-1 --off
+            --output DP-2 --off
+    fi
 elif [ $hostname = 'it-rueben-w520' ]; then
     echo 'setting up display for newtek w520';
     xrandr --output LVDS2 --mode 1600x900
