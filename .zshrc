@@ -69,6 +69,10 @@ alias def='define'
 alias psg='echo "ps auxf | grep -v grep | grep -i $* " && ps auxf | grep -v grep | grep -i $*'
 alias gci='google-chrome --incognito'
 alias sound-config='pavucontrol &'
+alias t='tmux'
+alias tls='tmux ls'
+alias ta='tmux a'
+alias tad='tmux a -d'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
