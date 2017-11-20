@@ -4,10 +4,22 @@ hostname=`hostname -f`
 echo '~/bin/init-display'
 echo $hostname
 
-HOME_MONITOR=$(xrandr | egrep -i 'DP-1 connected' | grep -v 'eDP' | wc -l)
+HOME_MONITOR=$(xrandr | egrep -i 'DP.*connected' | grep -v 'eDP' | wc -l)
 
 xrandr --auto
-if [ $hostname = 'XPS-15-9550' ]; then
+if [ $hostname = 'chromebook' ]; then
+    if [[ $HOME_MONITOR == 1 ]]; then
+        sh ~/.screenlayout/home.sh
+    else
+        xrandr \
+            --dpi 96 \
+            --output eDP-1 --mode 1920x1080 --rotate normal \
+            --output DP-1 --off
+            --output DP-2 --off
+            --output HDMI2 --off \
+            --output HDMI1 --off \
+    fi
+elif [ $hostname = 'XPS-15-9550' ]; then
     if [[ $HOME_MONITOR == 1 ]]; then
         sh ~/.screenlayout/home.sh
     else
