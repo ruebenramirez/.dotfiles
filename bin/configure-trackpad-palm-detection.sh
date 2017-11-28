@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Logitech MX Anywhere 2
+xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
 if [[ $(hostname -f) == "chromebook" ]]; then
     # disable chromebook touchpad
     xinput set-prop "Elan Touchpad" "Device Enabled" 0
@@ -9,9 +11,9 @@ elif [[ $(hostname -f) == "XPS-15-9550" ]]; then
     xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
     xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Accel Speed" .55
     xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Tapping Enabled" 0
-
-    # Logitech MX Anywhere 2
-    xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
+elif [[ $(hostname -f) == "le-laptop" ]]; then
+    # ThinkPad T420 daily driver
+    xinput --disable "SynPS/2 Synaptics TouchPad"
 else
     # older thinkpad trackpad config
     # source:
