@@ -28,6 +28,7 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
+alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
 alias vi='vim'
 alias setclip='xclip -selection c'
