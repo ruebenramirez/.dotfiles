@@ -30,6 +30,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-db'
 
 call vundle#end()
 filetype plugin indent on     " required!
