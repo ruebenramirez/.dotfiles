@@ -1,4 +1,8 @@
 #! /bin/bash
 dpkg  -P       brscan3
 
+rm -f /usr/lib/libbrscandec3.so.1.0.0
+rm -f /usr/lib/libbrscandec3.so
+rm -f /usr/lib/libbrscandec3.so.1
+
 exit 0
