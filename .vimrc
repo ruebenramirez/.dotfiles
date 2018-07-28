@@ -11,6 +11,7 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/vundle'
 Plugin 'klen/python-mode'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'commentary.vim'
 Plugin 'ctrlp.vim'

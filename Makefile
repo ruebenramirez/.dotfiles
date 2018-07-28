@@ -65,7 +65,7 @@ dotFiles:
 
 dev_packages: update
 	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
-	sudo pip install virtualenvwrapper
+	sudo pip install virtualenvwrapper autopep8
 
 omz:
 	- sudo apt-get install -y curl zsh
@@ -88,6 +88,7 @@ git:
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
+	- git config --global --replace-all core.pager "less -F -X"
 
 customBins:
 	if [ ! -d ~/bin/ ]; then \
