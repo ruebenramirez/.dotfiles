@@ -58,4 +58,6 @@ xrdb -merge ~/.Xresources
 # allow GTK apps to run even with wayland installed
 xhost +local:
 
+sh $HOME/bin/pixelbook-set-res.sh
+
 exec i3
