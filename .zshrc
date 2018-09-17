@@ -144,3 +144,4 @@ export PATH="$HOME/gocode/bin:$PATH"
 
 ### import project specific configs
 . ~/.dotfiles/projects/.*rc
+export PATH="/usr/local/opt/gettext/bin:$PATH"
