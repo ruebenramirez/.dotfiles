@@ -4,4 +4,4 @@
 [color]
 	ui = true
 [core]
-    editor = ~/bin/nvim.appimage
+    editor = vim
