@@ -45,8 +45,8 @@ spotify_ubuntu:
 	sudo apt-get install spotify-client
 
 update:
-	sudo apt-get update -y
-	sudo apt-get install -f -y
+	- sudo apt-get update -y
+	- sudo apt-get install -f -y
 
 macbookpro_keyboard:
 	echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
@@ -64,8 +64,8 @@ dotFiles:
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
 dev_packages: update
-	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
-	sudo pip install virtualenvwrapper autopep8
+	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
+	- sudo pip install virtualenvwrapper autopep8
 
 omz:
 	- sudo apt-get install -y curl zsh
@@ -95,7 +95,7 @@ customBins:
 		mkdir ~/bin/; \
 	fi
 	@ln -sf $$(pwd)/bin/* ~/bin/
-	@sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
+	- @sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
 BrotherPrinterInstall:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
