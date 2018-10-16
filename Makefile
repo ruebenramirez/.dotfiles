@@ -80,7 +80,7 @@ vim: dotFiles customBins dev_packages
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
-	- python ~/.vim/bundle/YouCompleteMe/install.py
+	#- python ~/.vim/bundle/YouCompleteMe/install.py
 
 git:
 	- sudo apt-get install -y git tig
