@@ -1,15 +1,8 @@
 #!/bin/bash
 
-
-
-hostname=`hostname -f`
-if [ ! $hostname = 'XPS-15-9550' ]; then
-    synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
-
+TOUCHPAD_STATE="$(gsettings get org.gnome.desktop.peripherals.touchpad send-events)"
+if [[ $(echo "$TOUCHPAD_STATE" | grep -i enabled | wc -l) > 0 ]]; then
+    gsettings set org.gnome.desktop.peripherals.touchpad send-events 'disabled'
 else
-    if [[ $(xinput --list "DLL06E4:01 06CB:7A13 Touchpad" | grep -i disabled | wc -l) > 0 ]]; then
-        xinput --enable "DLL06E4:01 06CB:7A13 Touchpad"
-    else
-        xinput --disable "DLL06E4:01 06CB:7A13 Touchpad"
-    fi;
+    gsettings set org.gnome.desktop.peripherals.touchpad send-events 'enabled'
 fi;
