@@ -1,6 +1,3 @@
 [submodule "ssh"]
 	path = ssh
 	url = git@git.ruebenramirez.com:ruebenramirez/ssh.git
-[submodule "xchat-config"]
-	path = xchat-config
-	url = git@git.ruebenramirez.com:ruebenramirez/xchat-config.git
