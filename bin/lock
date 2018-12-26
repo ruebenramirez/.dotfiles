@@ -1,5 +1,4 @@
 #!/bin/bash
-gnome-screensaver-command --lock; exit
 
 i3lock; exit
 
