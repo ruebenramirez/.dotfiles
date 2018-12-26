@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins omz
+ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management
 	sudo apt-get install -y tmux
 	# remmina preferred remote desktop client
 	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
