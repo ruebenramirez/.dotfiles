@@ -17,7 +17,7 @@
 # Toggle touchpad
 #################################
 "~/bin/trackpad-toggle.sh"
-    m:0x4 + c:9
+    m:0x4 + c:66
     Control + Escape
 
 #################################

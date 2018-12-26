@@ -9,7 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+# use alt key for mod
+#set $mod Mod1
+# use windows key for mod
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -42,11 +45,6 @@ bindsym $mod+Shift+c kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 bindsym $mod+p exec dmenu_run # alt + p (dwm dmenu shortcut)
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -94,9 +92,6 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -247,3 +242,8 @@ mode "mouse" {
 }
 
 bindsym $mod+$mod2+Shift+m mode "mouse"
+
+# startup apps
+exec --no-startup-id flameshot
+exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
+exec_always --no-startup-id setxkbmap -option caps:swapescape
