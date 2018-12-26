@@ -145,7 +145,7 @@
     Control+Shift+Alt + Shift_L
 
 
-# asus laptop
+# non-mac laptops
 "lock"
     m:0xd + c:46
     Control+Shift+Alt + l
