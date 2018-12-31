@@ -61,7 +61,7 @@ dotFiles:
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
 dev_packages: update
-	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
+	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
 	- sudo pip install virtualenvwrapper autopep8
 
 omz:
