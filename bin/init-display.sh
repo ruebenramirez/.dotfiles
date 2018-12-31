@@ -21,19 +21,6 @@ if [[ $hostname == 'chromebook' ]]; then
             --output HDMI2 --off \
             --output HDMI1 --off
     fi
-elif [[ $hostname == 'XPS-15-9550' ]]; then
-    if [[ $HOME_MONITOR == 1 ]]; then
-        sh ~/.screenlayout/home.sh
-    else
-        echo 'setting up display for XPS-15-9550'
-        xrandr \
-            --dpi 96 \
-            --output HDMI-2 --off \
-            --output HDMI-1 --off \
-            --output eDP-1 --mode 1920x1080 --rotate normal \
-            --output DP-1 --off \
-            --output DP-2 --off
-    fi
 elif [[ $hostname == 'it-rueben-w520' ]]; then
     echo 'setting up display for newtek w520';
     xrandr --output LVDS2 --mode 1600x900
@@ -64,15 +51,6 @@ elif [[ $hostname == 'le-laptop' ]]; then
         xrandr --output HDMI-2 --above LVDS-1
         xrandr --output VGA-1 --above LVDS-1
     fi
-elif [[ $hostname == "frankenmac" ]]; then
-    echo 'setting up display for (12,1) macbook pro 13'
-    xrandr --output eDP1 --mode 1920x1200
-    xrandr --output DP1 --above eDP1 --mode 2560x1440
-    xrandr --output DP1 --above eDP1 --mode 3440x1440
-    xrandr --output DP2 --above eDP1 --mode 2560x1440
-    xrandr --output DP2 --above eDP1 --mode 3440x1440
-    xrandr --output HDMI1 --above eDP1
-    xrandr --output HDMI2 --above eDP1
 else
     echo 'not sure what monitor config to use';
 fi
