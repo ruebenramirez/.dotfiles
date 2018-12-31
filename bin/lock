@@ -1,10 +1,10 @@
 #!/bin/bash
 
-i3lock; exit
+/usr/bin/i3lock -c 000000; exit
 
 lock () {
     if [[ $(xrandr | grep $(echo $1) | wc -l) > 0 ]]; then
-        i3lock; xrandr --output $(echo $1) --off; read ans; sh ~/bin/init-display.sh
+        i3lock-c 000000; xrandr --output $(echo $1) --off; read ans; sh ~/bin/init-display.sh
     fi
 }
 
