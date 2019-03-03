@@ -22,8 +22,8 @@ backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
 
-save-my-eyes: update
-	sudo apt-get install -y gtk-redshift
+save-my-eyes: customBins update
+	redshift-config.sh
 
 power-management:
 	# dependencies for display battery and cpu temp
