@@ -22,6 +22,11 @@ plugins=(git encode64 jsontools redis-cli systemd vagrant rails ruby debian dock
 
 source $ZSH/oh-my-zsh.sh
 
+export SSH_AUTH_SOCK=~/.ssh/ykpiv-sock
+ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so
+ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so
+
+
 # User configuration
 export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:$HOME/.rbenv/bin:/opt/franz:$HOME/.local/bin:$PATH"
 export EDITOR=vim

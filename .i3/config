@@ -246,5 +246,6 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 
 # startup apps
 exec --no-startup-id flameshot
+exec --no-startup-id blueman-applet
 exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
 exec_always --no-startup-id setxkbmap -option caps:swapescape
