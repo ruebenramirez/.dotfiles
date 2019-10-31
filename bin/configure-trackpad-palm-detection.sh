@@ -15,6 +15,11 @@ if [[ $(hostname -f) == "tpx1c6" ]]; then
     xinput --disable "$TOUCHPAD"
     TRACKPOINT="TPPS/2 Elan TrackPoint"
     xinput set-prop "$TRACKPOINT" "libinput Accel Speed" -.4
+elif [[ $(hostname -f) == "rramirez-ThinkPad-W520" ]]; then
+    TOUCHPAD="SynPS/2 Synaptics TouchPad"
+    xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" 1
+    #xinput set-prop "$TOUCHPAD" "libinput Click Method Enabled" {0 1}
 elif [[ $(hostname -f) == "chromebook" ]]; then
     # disable chromebook touchpad
     xinput set-prop "Elan Touchpad" "Device Enabled" 0
