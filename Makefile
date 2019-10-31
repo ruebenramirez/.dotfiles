@@ -16,7 +16,7 @@ ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-mana
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	sudo apt purge notify-osd
-	sudo apt install -y i3 dunst xautolock
+	sudo apt install -y i3 dunst xautolock arandr
 
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
