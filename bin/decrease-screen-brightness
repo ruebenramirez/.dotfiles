@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import subprocess
+
+DEBUG = True
+
+
+def getBright():
+    return float(subprocess.run(["light"], stdout=subprocess.PIPE).stdout)
+
+
+if DEBUG:
+    print(getBright())
+
+if getBright() <= 1:
+    subprocess.run(["light", "-S", ".1"])
+    if DEBUG:
+        print(getBright())
+    exit()
+
+res = subprocess.run(["light", "-U", "5"])
+if DEBUG:
+    print(getBright())
