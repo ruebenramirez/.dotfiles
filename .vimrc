@@ -66,6 +66,9 @@ autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 " set 2 space tabs when appropriate
 autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2
 
+" set 4 space tabs when appropriate
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
+
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
