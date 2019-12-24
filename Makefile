@@ -142,12 +142,19 @@ install-i3-window-manager:
 	sudo apt-get install i3 xautolock gnome-screensaver -qy
 
 ruby-dev:
+	cat "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list
+	sudo apt-get update -qy
+	sudo apt-cache policy libssl1.0-dev
+	sudo apt-get install -qy libssl1.0-dev
 	rm -fr ~/.rbenv
 	git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-	sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+	#sudo apt-get install -y rbenv libssl-dev libreadline-dev zlib1g-dev
+	sudo apt-get install -y rbenv libreadline-dev zlib1g-dev
 	mkdir -p ~/.rbenv/plugins
-	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins
-	git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+	rbenv rehash
+	sudo apt-get install -qy gcc-6 g++-6
+	CC=/usr/bin/gcc-6 CONFIGURE_OPTS="--with-openssl-dir=/usr/lib/ssl" rbenv install 2.3.1
 
 
 sysdig:
