@@ -3,20 +3,13 @@ SHELL := /bin/bash
 DIR=$(pwd)
 
 ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management
-	sudo apt-get install -y tmux
-	# remmina preferred remote desktop client
-	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
-	# system tray when trying to run apps on dwm that need a tray
-	# preferred terminal emulator
-	sudo apt-get install -y xbindkeys
-	# xdotool - move mouse programmatically
-	sudo apt-get install -y xdotool
-	# screensaver
-	sudo apt-get install -q -y build-essential libx11-dev libxinerama-dev sharutils suckless-tools
+	sudo apt-get install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst xautolock arandr
+	sudo systemctl enable multi-user.target
+	sudo systemctl set-default multi-user.target
 
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
@@ -60,8 +53,8 @@ dotFiles:
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
-dev_packages: update
-	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
+dev_packages: update ruby-dev
+	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
 	- sudo pip install virtualenvwrapper autopep8
 
 omz:
