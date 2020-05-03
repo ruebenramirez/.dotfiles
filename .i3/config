@@ -253,3 +253,7 @@ exec_always --no-startup-id setxkbmap -option caps:swapescape
 # startup apps
 exec --no-startup-id flameshot
 exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
+# start teams
+exec_always --no-startup-id /usr/bin/teams
+# start slack
+exec_always --no-startup-id /usr/bin/slack
