@@ -7,14 +7,9 @@ xbindkeys
 
 # config trackpad
 $HOME/bin/configure-trackpad-palm-detection.sh
-# configure scroll speed
-killall imwheel
 
 # faster key repeat
 xset r rate 250 60
-
-# config logitech trackpad
-$HOME/bin/logitech-t650-config.sh
 
 # display config
 sh $HOME/bin/init-display.sh
@@ -58,6 +53,6 @@ xrdb -merge ~/.Xresources
 # allow GTK apps to run even with wayland installed
 xhost +local:
 
-sh $HOME/bin/pixelbook-set-res.sh
+#sh $HOME/bin/pixelbook-set-res.sh
 
 exec i3

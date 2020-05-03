@@ -3,6 +3,7 @@ SHELL := /bin/bash
 DIR=$(pwd)
 
 ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management
+	sudo apt install -f -qy feh
 	sudo apt-get install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors

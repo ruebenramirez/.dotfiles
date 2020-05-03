@@ -9,7 +9,7 @@
 # fi;
 
 
-TOUCHPAD="SynPS/2 Synaptics TouchPad"
+TOUCHPAD="Synaptics TM3289-021"
 if [[ $(xinput --list "$TOUCHPAD" | grep -i disabled | wc -l) > 0 ]]; then
     xinput --enable "$TOUCHPAD"
 else

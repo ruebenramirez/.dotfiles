@@ -245,7 +245,7 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 
 
 # swap capslock and escape keys
-#exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id setxkbmap -option caps:swapescape
 
 # auto lock machine after 3 minutes
 #exec xautolock -time 3 -locker '~/bin/lock' &

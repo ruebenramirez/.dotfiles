@@ -1,12 +1,12 @@
 #!/bin/bash
 
-set +e -x
+set +e +x
 
 # Logitech MX Anywhere 2
 #xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
 
 if [[ $(hostname -f) == "tpx1c6" ]]; then
-    TOUCHPAD="SynPS/2 Synaptics TouchPad"
+    TOUCHPAD="Synaptics TM3289-021"
     xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
     xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" 1
     xinput set-prop "$TOUCHPAD" "libinput Click Method Enabled" {0 1}
