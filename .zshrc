@@ -124,6 +124,7 @@ alias hop='sshuttle --dns -vvr home-prod 0/0'
 alias hopvultr='sshuttle --dns -vvr vultr 0/0'
 alias hoplinode='sshuttle --dns -vvr linode 0/0'
 alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
+alias vpn='export TERM=xterm; barracudavpn'
 
 ### Python dev
 export WORKON_HOME=~/Envs
@@ -145,3 +146,6 @@ export PATH="$HOME/gocode/bin:$PATH"
 ### import project specific configs
 . ~/.dotfiles/projects/.*rc
 export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# authy installed via snap package
+alias authy='/snap/authy/current/authy'

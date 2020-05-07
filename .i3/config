@@ -253,3 +253,4 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 # startup apps
 exec --no-startup-id flameshot
 exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
+exec_always --no-startup-id /usr/bin/VBoxClient --clipboard
