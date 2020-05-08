@@ -13,13 +13,9 @@ def setup_keyboard():
 
 def configure_apple_keyboard():
     os.system("""
-              echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
-            """)
-    os.system("""
-              echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout
-              """)
-    os.system("""
-              echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
+              echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode;
+              echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout;
+              echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd;
               """)
 
 
