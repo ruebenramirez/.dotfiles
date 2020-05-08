@@ -4,13 +4,14 @@ DIR=$(pwd)
 
 ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management
 	sudo apt install -f -qy feh
+	sudo apt install -f -qy bluez-tools blueman
 	sudo apt-get install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst xautolock arandr
-	sudo systemctl enable multi-user.target
-	sudo systemctl set-default multi-user.target
+	#sudo systemctl enable multi-user.target
+	#sudo systemctl set-default multi-user.target
 
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
@@ -40,10 +41,7 @@ update:
 	- sudo apt-get install -f -y
 
 macbookpro_keyboard:
-	echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
-	echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout
-	echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
-	xmodmap ~/.xmodmaprc
+	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
 
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
