@@ -2,16 +2,19 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management
+ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management save-my-eyes BrotherPrinterInstall weather dropbox adobeSourceCodeProFont
 	sudo apt install -f -qy feh
 	sudo apt install -f -qy bluez-tools blueman
 	sudo apt-get install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
+	# remove default ubuntu desktop notifications
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst xautolock arandr
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
+
+cli-setup: update dev_packages vim dotFiles customBins omz
 
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
@@ -25,10 +28,6 @@ power-management:
 	sudo apt-get install -y tlp powertop acpi lm-sensors
 	sudo tlp bat
 	sudo powertop
-
-forticlient_vpn_ubuntu: update
-	sudo apt-get install -y lib32gcc1 libc6-i386
-	sudo dpkg -i ./pkgs/forticlient-sslvpn_4.4.2323-1_amd64.deb
 
 spotify_ubuntu:
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
@@ -52,8 +51,8 @@ dotFiles:
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
-dev_packages: update ruby-dev
-	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
+dev_packages: update ruby-dev git virtualenvwrapper sysdig
+	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
 	- sudo pip install virtualenvwrapper autopep8
 
 omz:
