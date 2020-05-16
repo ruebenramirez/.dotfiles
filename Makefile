@@ -36,8 +36,11 @@ spotify_ubuntu:
 	sudo apt-get install spotify-client
 
 update:
-	- sudo apt-get update -y
-	- sudo apt-get install -f -y
+	sudo apt-get update && \
+		sudo apt-get install -fy && \
+		sudo apt-get autoremove -y && \
+		sudo apt-get autoclean -y && \
+		sudo sync && sudo sync
 
 macbookpro_keyboard:
 	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
