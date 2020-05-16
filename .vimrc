@@ -10,29 +10,29 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required!
 Plugin 'gmarik/vundle'
-Plugin 'klen/python-mode'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'klen/python-mode'
+"Plugin 'tell-k/vim-autopep8'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'commentary.vim'
 Plugin 'ctrlp.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'mhinz/vim-signify'
-Plugin 'ekalinin/Dockerfile.vim'
+"Plugin 'mhinz/vim-signify'
+"Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'DirDiff.vim'
 "Plugin 'joonty/vdebug.git'
-Plugin 'taglist.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'taglist.vim'
+"Plugin 'tpope/vim-dispatch'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-ruby/vim-Ruby'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-endwise'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'fatih/vim-go'
-Plugin 'majutsushi/tagbar'
+"Plugin 'vim-ruby/vim-Ruby'
+"Plugin 'tpope/vim-bundler'
+"Plugin 'tpope/vim-endwise'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'fatih/vim-go'
+"Plugin 'majutsushi/tagbar'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-db'
+"Plugin 'tpope/vim-db'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -52,8 +52,7 @@ set nu
 syn on
 set cursorline
 set smartindent
-set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-set showtabline=2
+set tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
 set ignorecase
 set hlsearch
 set backspace=indent,eol,start
@@ -64,7 +63,7 @@ autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 
 " set 2 space tabs when appropriate
-autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
 
 " set 4 space tabs when appropriate
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
