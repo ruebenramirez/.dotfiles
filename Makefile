@@ -14,7 +14,11 @@ ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-mana
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 
-cli-setup: update dev_packages vim dotFiles customBins omz
+cli-setup: update dev_packages vim dotFiles customBins omz keychain
+
+keychain: update
+	sudo apt install -y keychain
+
 
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
