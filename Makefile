@@ -208,3 +208,9 @@ firefox-with-java-client: oracle-java java-browser-plugin
 xps-9550-backlight-sleep-bug-fix:
 	sudo cp ./bin/97fixbacklight /lib/systemd/system-sleep/
 	sudo chmod 755 /lib/systemd/system-sleep/97fixbacklight
+
+install-ansible:
+	sudo apt update
+	sudo apt install software-properties-common
+	sudo apt-add-repository --yes --update ppa:ansible/ansible
+	sudo apt install ansible
