@@ -253,6 +253,7 @@ exec_always --no-startup-id setxkbmap -option caps:swapescape
 # startup apps
 exec --no-startup-id flameshot
 exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
+exec_always --no-startup-id /usr/bin/redshift
 exec_always --no-startup-id /usr/bin/blueman-applet
 exec_always --no-startup-id /home/rramirez/startup-jenkins-tunnel.sh
 exec_always --no-startup-id /usr/bin/teams
