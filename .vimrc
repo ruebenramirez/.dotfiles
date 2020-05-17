@@ -9,16 +9,16 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
-"Plugin 'klen/python-mode'
-"Plugin 'tell-k/vim-autopep8'
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'commentary.vim'
+Plugin 'gmarik/vundle' " vim package management
+Plugin 'python-mode/python-mode'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'ctrlp.vim'
-Plugin 'tpope/vim-markdown'
-"Plugin 'mhinz/vim-signify'
+Plugin 'DirDiff.vim' " diff entire directories of files
+Plugin 'commentary.vim' " easily comment stuff out
+"Plugin 'mhinz/vim-signify' " show version control diffs
+"Plugin 'davidhalter/jedi-vim' " syntax autocompletion
+"Plugin 'tpope/vim-markdown'
 "Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'DirDiff.vim'
 "Plugin 'joonty/vdebug.git'
 "Plugin 'taglist.vim'
 "Plugin 'tpope/vim-dispatch'
@@ -31,8 +31,8 @@ Plugin 'DirDiff.vim'
 "Plugin 'easymotion/vim-easymotion'
 "Plugin 'fatih/vim-go'
 "Plugin 'majutsushi/tagbar'
-Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'tpope/vim-db'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on     " required!
