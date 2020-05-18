@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 DIR=$(pwd)
+HOSTNAME=$(hostname -f)
 
 ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt-get install -y tmux
@@ -62,6 +63,11 @@ dotFiles:
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
+	echo $$HOSTNAME
+	if [[ $$HOSTNAME == 'rueben-cloud' ]]; then \
+		ln -sf $$HOME/.dotfiles/.xinitrc-do-nt-cloud-dev $$HOME/.xinitrc; \
+		fi
+
 
 dev_packages: update
 	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
