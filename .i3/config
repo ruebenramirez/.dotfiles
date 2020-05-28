@@ -243,10 +243,6 @@ mode "mouse" {
 
 bindsym $mod+$mod2+Shift+m mode "mouse"
 
-
-# swap capslock and escape keys
-exec_always --no-startup-id setxkbmap -option caps:swapescape
-
 # auto lock machine after 3 minutes
 #exec xautolock -time 3 -locker '~/bin/lock' &
 
@@ -256,4 +252,3 @@ exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection
 exec_always --no-startup-id /usr/bin/redshift
 exec_always --no-startup-id /usr/bin/blueman-applet
 exec_always --no-startup-id /home/rramirez/startup-jenkins-tunnel.sh
-#exec_always --no-startup-id /usr/bin/evolution
