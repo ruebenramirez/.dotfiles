@@ -126,9 +126,9 @@ alias hoplinode='sshuttle --dns -vvr linode 0/0'
 alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
 
 ### Python dev
-export WORKON_HOME=~/Envs
-mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=~/Envs
+#mkdir -p $WORKON_HOME
+#source /usr/local/bin/virtualenvwrapper.sh
 
 ### Node version manager (NVM)
 export NVM_DIR="/home/rramirez/.nvm"
