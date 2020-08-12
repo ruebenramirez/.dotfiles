@@ -1,0 +1,53 @@
+#!/usr/bin/python3
+
+import click
+import subprocess
+
+DEBUG = True
+
+
+def get_bright():
+    return float(subprocess.run(["light"], stdout=subprocess.PIPE).stdout)
+
+
+def debug_print_brightness():
+    if DEBUG:
+        click.echo(get_bright())
+
+
+def raise_brightness(degrees):
+    if DEBUG:
+        click.echo("raising brightness {d} degrees".format(d=degrees))
+    subprocess.run(["light", "-A", str(degrees)])
+
+
+def lower_brightness(degrees):
+    if DEBUG:
+        click.echo("lowering brightness {d} degrees".format(d=degrees))
+    prepped_degrees = str(abs(degrees))
+    subprocess.run(["light", "-U", prepped_degrees])
+
+
+def set_min_brightness():
+    click.echo("checking minimum brightness")
+    debug_print_brightness()
+    if get_bright() <= 1:
+        click.echo("not allowing <= 1 brightness")
+        subprocess.run(["light", "-S", ".1"])
+        debug_print_brightness()
+
+
+@click.command()
+@click.argument('degrees', type=int)
+def change_brightness(degrees):
+    debug_print_brightness()
+    if degrees > 0:
+        raise_brightness(degrees)
+    else:
+        lower_brightness(degrees)
+    debug_print_brightness()
+    set_min_brightness()
+
+
+if __name__ == "__main__":
+    change_brightness()

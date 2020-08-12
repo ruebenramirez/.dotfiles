@@ -23,28 +23,42 @@
 #################################
 # Screen Brightness -
 #################################
-# macbook pro
-"~/bin/decrease-screen-brightness"
+"~/bin/change-screen-brightness -- -5"
     m:0x0 + c:232
     XF86MonBrightnessDown
-
-# asus laptop
-"~/bin/decrease-screen-brightness"
+"~/bin/change-screen-brightness -- -5"
     m:0x4 + c:71
     Control + F5
+"~/bin/change-screen-brightness -- -1"
+    m:0x5 + c:232
+    Control+Shift + XF86MonBrightnessDown
+"~/bin/change-screen-brightness -- -1"
+    m:0x1 + c:232
+    Shift + XF86MonBrightnessDown
+"~/bin/change-screen-brightness -- -1"
+    m:0x4 + c:232
+    Control + XF86MonBrightnessDown
+
+
 
 #################################
 # Screen Brightness +
 #################################
-# macbook pro
-"~/bin/increase-screen-brightness"
+"~/bin/change-screen-brightness 5"
     m:0x0 + c:233
     XF86MonBrightnessUp
-# asus laptop
-"~/bin/increase-screen-brightness"
+"~/bin/-screen-brightness 5"
     m:0x4 + c:72
     Control + F6
-
+"~/bin/change-screen-brightness 1"
+    m:0x5 + c:233
+    Control+Shift + XF86MonBrightnessUp
+"~/bin/change-screen-brightness 1"
+    m:0x1 + c:233
+    Shift + XF86MonBrightnessUp
+"~/bin/change-screen-brightness 1"
+    m:0x4 + c:233
+    Control + XF86MonBrightnessUp
 
 #################################
 # spotify commands via media keys

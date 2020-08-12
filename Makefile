@@ -61,7 +61,8 @@ dotFiles:
 
 dev_packages: update ruby-dev git virtualenvwrapper sysdig
 	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
-	- sudo pip install virtualenvwrapper autopep8
+	- sudo ln -sf /usr/bin/pip3 ~/bin/pip
+	- sudo pip install virtualenvwrapper autopep8 click
 
 omz:
 	- sudo apt-get install -y curl zsh
