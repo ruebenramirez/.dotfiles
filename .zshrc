@@ -75,6 +75,7 @@ alias t='tmux'
 alias tls='tmux ls'
 alias ta='tmux a'
 alias tad='tmux a -d'
+alias lynx='lynx -vikeys -accept_all_cookies'
 alias update='pushd ~/.dotfiles/ && make update && popd'
 
 ### git aliases
