@@ -75,6 +75,7 @@ alias t='tmux'
 alias tls='tmux ls'
 alias ta='tmux a'
 alias tad='tmux a -d'
+alias update='pushd ~/.dotfiles/ && make update && popd'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
