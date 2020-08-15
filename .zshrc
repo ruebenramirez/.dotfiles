@@ -77,6 +77,7 @@ alias ta='tmux a'
 alias tad='tmux a -d'
 alias lynx='lynx -vikeys -accept_all_cookies'
 alias update='pushd ~/.dotfiles/ && make update && popd'
+alias powertop='sudo powertop'
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
