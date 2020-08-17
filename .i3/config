@@ -253,4 +253,3 @@ exec_always --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome'
 exec --no-startup-id i3-msg 'workspace 10; exec /usr/bin/slack'
 exec_always --no-startup-id /home/rramirez/bin/rekey
-exec_always --no-startup-id /bin/insync start
