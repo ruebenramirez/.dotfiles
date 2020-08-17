@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nmcli connection modify "$1" connection.autoconnect-priority 10

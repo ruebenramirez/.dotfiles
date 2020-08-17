@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nmcli -f autoconnect-priority,name c | tail -n +2 | sort -nr
