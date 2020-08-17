@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd ~/.wine/drive_c/Program\ Files\ \(x86\)/EA\ Games/Command\ \&\ Conquer\ Generals\ Zero\ Hour && \
+    wine generals.exe &&\
+    popd;
