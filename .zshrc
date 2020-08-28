@@ -153,3 +153,4 @@ export PATH="$HOME/gocode/bin:$PATH"
 . ~/.dotfiles/projects/.*rc
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 eval `keychain -q --eval ~/.ssh/id_rsa`
+alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'
