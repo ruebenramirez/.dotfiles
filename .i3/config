@@ -246,10 +246,11 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 #exec xautolock -time 3 -locker '~/bin/lock' &
 
 # startup apps
-exec --no-startup-id flameshot
-exec_always --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
-exec_always --no-startup-id /usr/bin/redshift
-exec_always --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /home/rramirez/bin/rekey
+exec --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
+exec --no-startup-id /usr/bin/flameshot
+exec --no-startup-id /usr/bin/redshift
+exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome'
 exec --no-startup-id i3-msg 'workspace 10; exec /usr/bin/slack'
-exec_always --no-startup-id /home/rramirez/bin/rekey
+exec --no-startup-id '/usr/bin/insync start'
