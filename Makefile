@@ -207,10 +207,6 @@ firefox-with-java-client: oracle-java java-browser-plugin
 	sudo mv /tmp/firefox /opt/
 	# add java browser plugin to v45 ESR Firefox
 
-xps-9550-backlight-sleep-bug-fix:
-	sudo cp ./bin/97fixbacklight /lib/systemd/system-sleep/
-	sudo chmod 755 /lib/systemd/system-sleep/97fixbacklight
-
 install-ansible:
 	sudo apt update
 	sudo apt install software-properties-common
