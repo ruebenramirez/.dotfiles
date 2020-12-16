@@ -59,7 +59,7 @@ dotFiles:
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
-dev_packages: update ruby-dev git virtualenvwrapper sysdig
+dev_packages: update ruby-dev git sysdig
 	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
 	- sudo ln -sf /usr/bin/pip3 ~/bin/pip
 	- sudo pip install virtualenvwrapper autopep8 click
@@ -115,16 +115,6 @@ docker: update
 	sudo pip install docker-compose
 	sudo bash -c "curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && \
 	  sudo chmod +x /usr/local/bin/docker-machine"
-
-virtualenvwrapper:
-	- sudo apt-get remove python-pip
-	sudo easy_install pip
-	- sudo pip uninstall virtualenvwrapper
-	sudo pip install virtualenvwrapper
-	echo "export WORKON_HOME=~/Envs"
-	echo "mkdir -p $WORKON_HOME"
-	echo "source /usr/local/bin/virtualenvwrapper.sh"
-	echo "mkvirtualenv env_name"
 
 adobeSourceCodeProFont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
