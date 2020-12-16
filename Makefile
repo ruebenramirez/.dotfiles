@@ -110,11 +110,21 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
-docker: update
-	sudo apt install -qy docker.io
-	sudo pip install docker-compose
-	sudo bash -c "curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && \
-	  sudo chmod +x /usr/local/bin/docker-machine"
+docker:
+	- sudo apt-get remove docker docker-engine docker.io containerd runc
+	sudo apt-get update
+	sudo apt-get install -qy \
+		apt-transport-https \
+		ca-certificates \
+		curl \
+		gnupg-agent \
+		software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo apt-key fingerprint 0EBFCD88
+	sudo add-apt-repository \
+	   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
+	sudo apt-get update
+	sudo apt-get install -qy docker-ce docker-ce-cli containerd.io
 
 adobeSourceCodeProFont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
