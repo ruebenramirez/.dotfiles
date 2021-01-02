@@ -40,6 +40,7 @@ alias lt='ls -lat'
 alias lth='ls -lat | head'
 alias tmuxa='tmux a'
 alias celar='clear'
+alias cleawr='clear'
 alias os='cat /etc/*release*'
 alias xit='exit'
 alias htop='sudo htop'
@@ -112,8 +113,6 @@ alias gdif='gdiff'
 alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias grim='echo "git rebase -i master" && git rebase -i master'
-
-
 
 ### docker aliases
 alias d='docker'
