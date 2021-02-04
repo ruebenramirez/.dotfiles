@@ -15,7 +15,7 @@ if [[ $(hostname -f | grep tpx1c6 | wc -l) -ge 1 ]]; then
     xinput --disable "$TOUCHPAD"
     TRACKPOINT="TPPS/2 Elan TrackPoint"
     #xinput set-prop "$TRACKPOINT" "libinput Accel Speed" -.1
-    xinput set-prop "$TRACKPOINT" "libinput Accel Speed" .8
+    xinput set-prop "$TRACKPOINT" "libinput Accel Speed" 1
 elif [[ $(hostname -f) == "rramirez-ThinkPad-W520" ]]; then
     TOUCHPAD="SynPS/2 Synaptics TouchPad"
     xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
