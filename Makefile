@@ -59,7 +59,7 @@ dotFiles:
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
-dev_packages: update ruby-dev git virtualenvwrapper sysdig
+dev_packages: update ruby-dev git sysdig
 	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
 	- sudo ln -sf /usr/bin/pip3 ~/bin/pip
 	- sudo pip install virtualenvwrapper autopep8 click
@@ -110,21 +110,21 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
-docker: update
-	sudo apt install -qy docker.io
-	sudo pip install docker-compose
-	sudo bash -c "curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && \
-	  sudo chmod +x /usr/local/bin/docker-machine"
-
-virtualenvwrapper:
-	- sudo apt-get remove python-pip
-	sudo easy_install pip
-	- sudo pip uninstall virtualenvwrapper
-	sudo pip install virtualenvwrapper
-	echo "export WORKON_HOME=~/Envs"
-	echo "mkdir -p $WORKON_HOME"
-	echo "source /usr/local/bin/virtualenvwrapper.sh"
-	echo "mkvirtualenv env_name"
+docker:
+	- sudo apt-get remove docker docker-engine docker.io containerd runc
+	sudo apt-get update
+	sudo apt-get install -qy \
+		apt-transport-https \
+		ca-certificates \
+		curl \
+		gnupg-agent \
+		software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo apt-key fingerprint 0EBFCD88
+	sudo add-apt-repository \
+	   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
+	sudo apt-get update
+	sudo apt-get install -qy docker-ce docker-ce-cli containerd.io
 
 adobeSourceCodeProFont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
@@ -206,10 +206,6 @@ firefox-with-java-client: oracle-java java-browser-plugin
 	tar -xvf /tmp/firefox.tar.bz2 -C /tmp/
 	sudo mv /tmp/firefox /opt/
 	# add java browser plugin to v45 ESR Firefox
-
-xps-9550-backlight-sleep-bug-fix:
-	sudo cp ./bin/97fixbacklight /lib/systemd/system-sleep/
-	sudo chmod 755 /lib/systemd/system-sleep/97fixbacklight
 
 install-ansible:
 	sudo apt update
