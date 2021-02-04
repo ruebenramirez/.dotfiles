@@ -18,13 +18,12 @@ HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git encode64 jsontools redis-cli systemd vagrant rails ruby debian docker kubectl)
 plugins=(git encode64 jsontools redis-cli systemd vagrant debian docker kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:$HOME/.rbenv/bin:/opt/franz:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:/opt/franz:$HOME/.local/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
@@ -62,7 +61,6 @@ alias tl='todolist'
 alias lowpower='sudo pm-powersave true'
 alias highpower='sudo pm-powersave false'
 alias wifi='sudo systemctl restart networking NetworkManager && nm-applet &'
-alias tree='tree | less'
 alias tre='tree'
 alias rc='rails console'
 alias rs='rails server'
@@ -121,8 +119,9 @@ alias d='docker'
 alias dps='docker ps -a'
 alias di='echo "docker images" && docker images'
 alias dat='echo "docker attach" && docker attach --sig-proxy=true'
-alias dci="echo 'docker clean images' docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
-alias dc='echo "docker clean zombie containers" docker rm \$(docker ps -q -a)'
+alias dci="echo 'docker clean images' && docker images | grep none | awk '{print \$3}' | xargs sudo docker rmi -f"
+alias dc='echo "docker clean zombie containers" && docker rm \$(docker ps -q -a)'
+alias dcs='echo "docker-compose" && docker-compose'
 
 ### vpn stuffs
 alias firevpn='/opt/firefox/firefox'
@@ -137,14 +136,11 @@ alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
 #export WORKON_HOME=~/Envs
 #mkdir -p $WORKON_HOME
 #source /usr/local/bin/virtualenvwrapper.sh
+alias py='python3'
 
 ### Node version manager (NVM)
 export NVM_DIR="/home/rramirez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-### Ruby dev
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 ### Go dev
 export GOPATH=$HOME/gocode
@@ -153,5 +149,15 @@ export PATH="$HOME/gocode/bin:$PATH"
 ### import project specific configs
 . ~/.dotfiles/projects/.*rc
 export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# keychain used to store ssh session across local terminal shells
 eval `keychain -q --eval ~/.ssh/id_rsa`
+
+# GTA2 PC game launcher
 alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'
+
+# Rust dev
+source $HOME/.cargo/env
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
