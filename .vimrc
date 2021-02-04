@@ -1,5 +1,6 @@
 set encoding=utf-8
 set nocompatible              " be iMproved
+set wrap
 filetype off                  " required!
 
 let mapleader = "\<Space>"
@@ -11,28 +12,30 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/vundle' " vim package management
 Plugin 'python-mode/python-mode'
-Plugin 'tell-k/vim-autopep8'
+"Plugin 'tell-k/vim-autopep8'
+Plugin 'nvie/vim-flake8'
 Plugin 'ctrlp.vim'
 Plugin 'DirDiff.vim' " diff entire directories of files
 Plugin 'commentary.vim' " easily comment stuff out
-"Plugin 'mhinz/vim-signify' " show version control diffs
+Plugin 'mhinz/vim-signify' " show version control diffs
 "Plugin 'davidhalter/jedi-vim' " syntax autocompletion
-"Plugin 'tpope/vim-markdown'
-"Plugin 'ekalinin/Dockerfile.vim'
-"Plugin 'joonty/vdebug.git'
-"Plugin 'taglist.vim'
-"Plugin 'tpope/vim-dispatch'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-markdown'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'joonty/vdebug.git'
+Plugin 'taglist.vim'
+Plugin 'tpope/vim-dispatch'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'vim-ruby/vim-Ruby'
-"Plugin 'tpope/vim-bundler'
-"Plugin 'tpope/vim-endwise'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'fatih/vim-go'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'tpope/vim-db'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-db'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -66,7 +69,7 @@ autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
 
 " set 4 space tabs when appropriate
-autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
 
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
