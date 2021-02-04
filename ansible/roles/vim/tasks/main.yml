@@ -1,0 +1,14 @@
+- name: install vim
+  apt:
+    name: vim-nox
+    state: latest
+  tags:
+    - vim
+
+- name: install .vimrc
+  template:
+    src: vimrc.j2
+    dest: ~/.vimrc
+    mode: 0644
+  tags:
+    - vim
