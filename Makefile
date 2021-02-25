@@ -2,17 +2,18 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management save-my-eyes BrotherPrinterInstall weather dropbox adobeSourceCodeProFont
-	sudo apt install -f -qy feh
-	sudo apt install -f -qy bluez-tools blueman
-	sudo apt-get install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools
+ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain
+	sudo apt install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
-	# remove default ubuntu desktop notifications
+	# replace default ubuntu desktop notifications with dunst for i3
 	sudo apt purge notify-osd
-	sudo apt install -y i3 dunst xautolock arandr
+	sudo apt install -y i3 dunst xautolock arandr feh
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
+
+keychain:
+	sudo apt install keychain
 
 cli-setup: update dev_packages vim dotFiles customBins omz keychain
 
@@ -125,6 +126,8 @@ docker:
 	   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
 	sudo apt-get update
 	sudo apt-get install -qy docker-ce docker-ce-cli containerd.io
+	sudo apt install python3-pip -qy
+	sudo pip3 install docker-compose
 
 adobeSourceCodeProFont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
