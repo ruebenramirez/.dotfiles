@@ -219,3 +219,17 @@ install-ansible:
 remove-gnome-header-bar:
 	sudo apt install -qy gnome-tweaks
 	gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
+
+pyenv:
+	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+	cd ~/.pyenv && src/configure && make -C src
+	echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+	echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+	echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+
+kubectl:
+	curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+	curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+	echo "$(<kubectl.sha256) kubectl" | sha256sum --check
+	sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+	kubectl version --client
