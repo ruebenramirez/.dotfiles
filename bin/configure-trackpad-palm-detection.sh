@@ -15,5 +15,5 @@ xinput --enable "$TOUCHPAD"
 
 #TRACKPOINT="TPPS/2 Elan TrackPoint"
 TRACKPOINT="Elan TrackPoint"
-#xinput set-prop "$TRACKPOINT" "libinput Accel Speed" -.1
-xinput set-prop "$TRACKPOINT" "libinput Accel Speed" 1
+xinput set-prop "$TRACKPOINT" "libinput Accel Speed" -.1
+#xinput set-prop "$TRACKPOINT" "libinput Accel Speed" 1

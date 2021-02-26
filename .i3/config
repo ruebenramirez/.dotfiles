@@ -246,7 +246,7 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 #exec xautolock -time 3 -locker '~/bin/lock' &
 
 # startup apps
-exec_always --no-startup-id i3bar -b `i3-msg -t get_bar_config | jq -r ". | first"` &
+#exec_always --no-startup-id i3bar -b `i3-msg -t get_bar_config | jq -r ". | first"` &
 exec --no-startup-id /home/rramirez/bin/rekey
 #exec --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
 exec --no-startup-id /usr/bin/flameshot
