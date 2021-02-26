@@ -61,9 +61,8 @@ dotFiles:
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
 dev_packages: update ruby-dev git sysdig
-	- sudo apt-get install -qy git python python-pip python-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
-	- sudo ln -sf /usr/bin/pip3 ~/bin/pip
-	- sudo pip install virtualenvwrapper autopep8 click
+	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
+	- sudo pip3 install virtualenvwrapper autopep8 click
 
 omz:
 	- sudo apt-get install -y curl zsh
