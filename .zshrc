@@ -142,6 +142,7 @@ export NVM_DIR="/home/rramirez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ### Go dev
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export PATH="$HOME/gocode/bin:$PATH"
 
@@ -168,3 +169,7 @@ if [ -f '/home/rramirez/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/hom
 if [ -f '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+# screen color
+alias reset-display-color='sudo killall redshift; xrandr --output eDP-1 --gamma 0.90:1.0:1.1'
+alias night-light='redshift -o -b .8 -t 1000:1000 &'
