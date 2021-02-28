@@ -232,3 +232,8 @@ kubectl:
 	echo "$(<kubectl.sha256) kubectl" | sha256sum --check
 	sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 	kubectl version --client
+
+unetbootin-install:
+	sudo add-apt-repository ppa:gezakovacs/ppa
+	sudo apt-get update
+	sudo apt-get install unetbootin
