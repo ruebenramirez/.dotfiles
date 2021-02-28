@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOUCHPAD="$(xinput --list --name-only | grep -i touchpad)"
+TOUCHPAD=$(sh ~/bin/touchpad-name)
 if [[ $(xinput --list "$TOUCHPAD" | grep -i disabled | wc -l) > 0 ]]; then
     xinput --enable "$TOUCHPAD"
 else

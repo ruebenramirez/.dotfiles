@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xinput --list --name-only | egrep -i 'touchpad|Synaptics'
