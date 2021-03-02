@@ -23,7 +23,7 @@ plugins=(git encode64 jsontools redis-cli systemd vagrant debian docker kubectl)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:/opt/franz:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:/opt/franz:$HOME/.local/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
