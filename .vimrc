@@ -37,6 +37,10 @@ Plugin 'tpope/vim-db'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'posva/vim-vue'
 
+" Color schemes
+Plugin 'stillwwater/vim-nebula'
+Plugin 'reedes/vim-colors-pencil'
+
 call vundle#end()
 filetype plugin indent on     " required!
 "
@@ -48,6 +52,28 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
+"
+"#################################
+" pencil light color scheme
+
+:colorscheme pencil
+" :set background=dark
+:set background=light
+
+
+
+"#################################
+" Nebula light color scheme
+" set background=light
+" " set background=dark
+" colorscheme nebula
+"#################################
+
+
+" more accurate colors
+if has('termguicolors')
+  set termguicolors
+endif
 
 
 " vim defaults
@@ -76,7 +102,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Better diff highlighting
 highlight! link DiffText MatchParen
-set background=dark
 
 " pane navigation with control keys
 nnoremap <C-J> <C-W><C-J>
@@ -178,3 +203,4 @@ let g:vdebug_options= {
 \    "marker_closed_tree" : '▸',
 \    "marker_open_tree" : '▾'
 \}
+
