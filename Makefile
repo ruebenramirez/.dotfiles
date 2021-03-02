@@ -26,7 +26,7 @@ backlight:
 	sudo apt-get install -f -y
 
 save-my-eyes: customBins update
-	redshift-config.sh
+	~/bin/redshift-config.sh
 
 power-management:
 	# dependencies for display battery and cpu temp
