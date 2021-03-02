@@ -11,7 +11,7 @@ $HOME/bin/keyboard-setup.sh
 $HOME/bin/configure-trackpad-palm-detection.sh
 
 # faster key repeat
-xset r rate 250 60
+xset r rate 150 80
 
 # display config
 sh $HOME/bin/init-display.sh
