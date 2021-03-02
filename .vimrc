@@ -37,7 +37,7 @@ Plugin 'tpope/vim-db'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'posva/vim-vue'
 
-" Color schemes
+" Color schemes (more at https://vimcolors.com/)
 Plugin 'stillwwater/vim-nebula'
 Plugin 'reedes/vim-colors-pencil'
 
