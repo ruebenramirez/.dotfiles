@@ -36,12 +36,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-db'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'posva/vim-vue'
-
-" Color schemes (more at https://vimcolors.com/)
-Plugin 'stillwwater/vim-nebula'
-Plugin 'reedes/vim-colors-pencil'
-
 call vundle#end()
+
 filetype plugin indent on     " required!
 "
 " Brief help
@@ -52,28 +48,6 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
-"
-"#################################
-" pencil light color scheme
-
-:colorscheme pencil
-" :set background=dark
-:set background=light
-
-
-
-"#################################
-" Nebula light color scheme
-" set background=light
-" " set background=dark
-" colorscheme nebula
-"#################################
-
-
-" more accurate colors
-if has('termguicolors')
-  set termguicolors
-endif
 
 
 " vim defaults
