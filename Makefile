@@ -244,6 +244,7 @@ install-nix:
 	gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE
 	gpg2 --verify ./install-nix-2.3.10.asc
 	sh ./install-nix-2.3.10
+	rm ./install-nix-2.3.10
 
 tfenv-install:
 	git clone https://github.com/tfutils/tfenv.git ~/.tfenv
