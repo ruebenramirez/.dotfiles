@@ -61,7 +61,7 @@ dotFiles:
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
 dev_packages: update ruby-dev git sysdig
-	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools
+	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2
 	- sudo pip3 install virtualenvwrapper autopep8 click
 
 omz:
@@ -237,3 +237,10 @@ unetbootin-install:
 	sudo add-apt-repository ppa:gezakovacs/ppa
 	sudo apt-get update
 	sudo apt-get install unetbootin
+
+install-nix:
+	curl -o install-nix-2.3.10 https://releases.nixos.org/nix/nix-2.3.10/install
+	curl -o install-nix-2.3.10.asc https://releases.nixos.org/nix/nix-2.3.10/install.asc
+	gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE
+	gpg2 --verify ./install-nix-2.3.10.asc
+	sh ./install-nix-2.3.10
