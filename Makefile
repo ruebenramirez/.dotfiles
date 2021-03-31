@@ -256,3 +256,9 @@ aws-iam-k8s-auth:
 	chmod +x aws-iam-authenticator
 	mv aws-iam-authenticator ~/bin/
 	rm aws-iam-authenticator.sha256
+
+helm-install:
+	curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+	chmod 700 get_helm.sh
+	./get_helm.sh
+	rm get_helm.sh
