@@ -44,19 +44,19 @@
 #################################
 # Screen Brightness +
 #################################
-"~/bin/change-screen-brightness 5"
+"~/bin/change-screen-brightness -- 5"
     m:0x0 + c:233
     XF86MonBrightnessUp
-"~/bin/-screen-brightness 5"
+"~/bin/change-screen-brightness -- 5"
     m:0x4 + c:72
     Control + F6
-"~/bin/change-screen-brightness 1"
+"~/bin/change-screen-brightness -- 1"
     m:0x5 + c:233
     Control+Shift + XF86MonBrightnessUp
-"~/bin/change-screen-brightness 1"
+"~/bin/change-screen-brightness -- 1"
     m:0x1 + c:233
     Shift + XF86MonBrightnessUp
-"~/bin/change-screen-brightness 1"
+"~/bin/change-screen-brightness -- 1"
     m:0x4 + c:233
     Control + XF86MonBrightnessUp
 
