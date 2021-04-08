@@ -24,7 +24,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'joonty/vdebug.git'
 Plugin 'taglist.vim'
 Plugin 'tpope/vim-dispatch'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'vim-ruby/vim-Ruby'
@@ -36,21 +36,13 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-db'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'posva/vim-vue'
+Plugin 'hashivim/vim-terraform'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'juliosueiras/vim-terraform-completion'
 call vundle#end()
 
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-
-
-" vim defaults
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 set nu
 syn on
 set cursorline
@@ -59,6 +51,7 @@ set tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
 set ignorecase
 set hlsearch
 set backspace=indent,eol,start
+
 
 " read *.md as markdown files
 autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
@@ -159,7 +152,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 """"""""""""""""""""""""""""""""""""""
-" newtek shop dev
+" vim xdebug (PHP dev)
 """"""""""""""""""""""""""""""""""""""
 let g:vdebug_options= {
 \    "port" : 9000,
@@ -178,3 +171,46 @@ let g:vdebug_options= {
 \    "marker_open_tree" : '▾'
 \}
 
+""""""""""""""""""""""""""""""""""""""
+" Terraform formatting
+""""""""""""""""""""""""""""""""""""""
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+
+""""""""""""""""""""""""""""""""""""""
+" Syntastic Config
+""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""""""""""""""""""""""""""""""
+" (Optional)Remove Info(Preview) window
+""""""""""""""""""""""""""""""""""""""
+set completeopt-=preview
+
+""""""""""""""""""""""""""""""""""""""
+" (Optional)Hide Info(Preview) window after completions
+""""""""""""""""""""""""""""""""""""""
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+""""""""""""""""""""""""""""""""""""""
+" (Optional) Enable terraform plan to be include in filter
+""""""""""""""""""""""""""""""""""""""
+let g:syntastic_terraform_tffilter_plan = 1
+
+""""""""""""""""""""""""""""""""""""""
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+""""""""""""""""""""""""""""""""""""""
+let g:terraform_completion_keys = 1
+
+""""""""""""""""""""""""""""""""""""""
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+""""""""""""""""""""""""""""""""""""""
+let g:terraform_registry_module_completion = 0
