@@ -5,9 +5,6 @@ export BROWSER=google-chrome &
 killall xbindkeys
 xbindkeys
 
-$HOME/bin/keyboard-setup.sh
-
-# config trackpad
 $HOME/bin/configure-trackpad-palm-detection.sh
 
 # faster key repeat

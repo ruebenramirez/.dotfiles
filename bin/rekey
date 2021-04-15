@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+killall xbindkeys
+xbindkeys -f ~/.xbindkeysrc
+
+if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
+    setxkbmap -option caps:swapescape
+    $(grep xset ~/.xinitrc)
+fi
+
