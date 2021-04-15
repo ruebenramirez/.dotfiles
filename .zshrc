@@ -28,6 +28,9 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
+alias gg='echo "git grep" && git grep'
+alias tf='echo "terraform" && terraform'
+alias tfp='echo "terraform plan" && terraform plan'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
 alias vi='vim'
@@ -176,3 +179,10 @@ alias night-light='redshift -o -b .8 -t 1000:1000 &'
 
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+# python poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# better virtual background for zoom
+alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/code/ubuntu-zoom-virtual-background; docker-compose up &;'
+alias stopcam='cd ~/code/ubuntu-zoom-virtual-background; docker-compose down &;'
