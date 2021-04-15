@@ -17,10 +17,6 @@ keychain:
 
 cli-setup: update dev_packages vim dotFiles customBins omz keychain
 
-keychain: update
-	sudo apt install -y keychain
-
-
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
