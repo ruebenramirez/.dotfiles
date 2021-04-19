@@ -28,6 +28,7 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
+alias k='echo "kubectl" && kubectl'
 alias gg='echo "git grep" && git grep'
 alias tf='echo "terraform" && terraform'
 alias tfp='echo "terraform plan" && terraform plan'
@@ -50,7 +51,7 @@ alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
 alias portsg='sudo netstat -netpul | grep $*'
 alias macports='sudo lsof -n -i4TCP | grep LISTEN'
-alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc; setxkbmap -option caps:swapescape; $(grep xset ~/.xinitrc)'
+alias rekey='killall xbindkeys; xbindkeys -f ~/.xbindkeysrc; setxkbmap -option caps:swapescape; $(grep xset ~/.xinitrc); ~/bin/setup-mac.sh'
 alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
 alias visio='pencil'
 alias cb='xsel --clipboard'
