@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DIR=$(pwd)
 
 ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain
-	sudo apt install -qy mosh tmux flameshot xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman
+	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	# replace default ubuntu desktop notifications with dunst for i3
@@ -11,6 +11,8 @@ ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-mana
 	sudo apt install -y i3 dunst xautolock arandr feh
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
+	# extra desktop apps
+	sudo apt install -y rtorrent
 
 keychain:
 	sudo apt install keychain
@@ -266,3 +268,21 @@ azure-cli-install:
 	AZ_REPO=$$(lsb_release -cs); echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $$AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
 	sudo apt-get update
 	sudo apt-get install azure-cli
+
+opa-install:
+	# instructions: https://www.openpolicyagent.org/docs/latest/#running-opa
+	curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
+	chmod 755 opa
+	sudo mv opa /usr/local/bin/
+
+opa-conftest-install:
+	# instructions: https://www.conftest.dev/install/
+	wget https://github.com/open-policy-agent/conftest/releases/download/v0.24.0/conftest_0.24.0_Linux_x86_64.tar.gz
+	tar xzf conftest_0.24.0_Linux_x86_64.tar.gz
+	sudo mv conftest /usr/local/bin
+
+go-install:
+	wget https://golang.org/dl/go1.16.3.linux-amd64.tar.gz
+	sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.3.linux-amd64.tar.gz
+	rm go1.16.3.linux-amd64.tar.gz
+
