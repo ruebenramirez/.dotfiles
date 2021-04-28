@@ -39,6 +39,7 @@ Plugin 'posva/vim-vue'
 Plugin 'hashivim/vim-terraform'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'juliosueiras/vim-terraform-completion'
+Plugin 'tsandall/vim-rego'
 call vundle#end()
 
 filetype plugin indent on
@@ -52,10 +53,8 @@ set ignorecase
 set hlsearch
 set backspace=indent,eol,start
 
-
-" read *.md as markdown files
+" file type associations
 autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
-
 autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 
 " " set 2 space tabs when appropriate
