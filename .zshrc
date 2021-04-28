@@ -30,8 +30,6 @@ export PAGER=less
 # helpful aliases
 alias k='echo "kubectl" && kubectl'
 alias gg='echo "git grep" && git grep'
-alias tf='echo "terraform" && terraform'
-alias tfp='echo "terraform plan" && terraform plan'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
 alias vi='vim'
@@ -86,6 +84,14 @@ alias nethogs='sudo nethogs'
 alias writer='libreoffice --writer'
 alias sheets='libreoffice --calc'
 alias calc='sheets'
+alias pbcopy='xclip -se c -i'
+
+### terraform aliases
+alias tf='echo "terraform" && terraform'
+alias tfp='echo "terraform plan -out tfplan" && terraform plan -out tfplan'
+alias tfa='echo "terraform apply tfplan" && terraform apply tfplan'
+alias tfd='echo "terraform destroy" && terraform destroy'
+
 
 ### git aliases
 alias gco='echo "git checkout" && git checkout'
