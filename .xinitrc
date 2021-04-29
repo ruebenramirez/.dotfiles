@@ -1,5 +1,5 @@
 syndaemon -d -m 100 -t -k -i 2.0
-export BROWSER=google-chrome &
+export BROWSER=firefox &
 
 # customize keymappings
 killall xbindkeys
