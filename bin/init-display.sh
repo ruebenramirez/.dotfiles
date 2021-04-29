@@ -24,4 +24,5 @@ else
         --output HDMI1 --off
 fi
 
-
+# update display background now that displays are updated
+$(grep feh ~/.xinitrc)
