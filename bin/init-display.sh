@@ -9,7 +9,7 @@ HOME_MONITOR=$(xrandr | egrep -i 'DP.*connected' | egrep -v 'disconnected|eDP' |
 xrandr --auto
 if [[ $HOME_MONITOR == 1 ]]; then
     echo "FOUND external display"
-    sh ~/.screenlayout/default.sh
+    ~/.screenlayout/default.sh
 
     # max out external monitor screen brightness
     sudo ddcutil setvcp 0x10 75

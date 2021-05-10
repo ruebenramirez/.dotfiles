@@ -58,7 +58,6 @@ alias curlperf='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttra
 alias timestamp='date +%Y-%m-%d:%H:%M:%S'
 alias timestamp-hyphenated='date +%Y-%m-%d-%H-%M-%S'
 alias datestamp='date +%Y-%m-%d'
-alias rescreen='~/bin/init-display.sh'
 alias t='todo'
 alias tl='todolist'
 alias lowpower='sudo pm-powersave true'

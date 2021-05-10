@@ -17,7 +17,7 @@ sh $HOME/bin/init-display.sh
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # setup desktop background
-feh --bg-max /home/rramirez/.dotfiles/desktop-background/guadalupe-river.jpg
+feh --bg-max /home/rramirez/.dotfiles/desktop-background/oaxaca-te-amo.jpg
 
 # remove blues from screen when night time to help sleep at night
 redshift-gtk -r &

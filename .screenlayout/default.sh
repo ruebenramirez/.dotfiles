@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
+xrandr --auto
 
 # I don't know why, but x11 requires resetting the scale to 1x1 before changing to another value.
 # If I don't do this, I end up missing half of my display on by laptops internal display.
