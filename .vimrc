@@ -48,7 +48,8 @@ set nu
 syn on
 set cursorline
 set smartindent
-set tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
+"set tabstop=4  shiftwidth=4 softtabstop=4 showtabline=4 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 set ignorecase
 set hlsearch
 set backspace=indent,eol,start
