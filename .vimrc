@@ -24,7 +24,6 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'joonty/vdebug.git'
 Plugin 'taglist.vim'
 Plugin 'tpope/vim-dispatch'
-"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'vim-ruby/vim-Ruby'
@@ -37,6 +36,7 @@ Plugin 'tpope/vim-db'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'posva/vim-vue'
 Plugin 'hashivim/vim-terraform'
+"Plugin 'scrooloose/syntastic'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'juliosueiras/vim-terraform-completion'
 Plugin 'tsandall/vim-rego'
@@ -44,25 +44,43 @@ call vundle#end()
 
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
-set nu
-syn on
+
+" display relative line numbers
+set number
+set relativenumber
+set numberwidth=3
+
+" enable syntax highlighting
+syntax on
+
+" underline the current line
 set cursorline
-set smartindent
-"set tabstop=4  shiftwidth=4 softtabstop=4 showtabline=4 expandtab
-set tabstop=4 shiftwidth=4 expandtab
+
+" case insensitive search
 set ignorecase
+
+" highlight searches
 set hlsearch
+set vi+=n
+
 set backspace=indent,eol,start
 
 " file type associations
 autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 
-" " set 2 space tabs when appropriate
-autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
 
-" " set 4 space tabs when appropriate
-" autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
+" indentation: use spaces instead of tabs
+set smartindent
+set tabstop=4  shiftwidth=4 softtabstop=4 showtabline=4 expandtab
+" set tabstop=4 shiftwidth=4 expandtab
+" set tabstop=2 shiftwidth=2 expandtab
+
+" set 2 space tabs when appropriate
+autocmd FileType yml,yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
+
+" set 4 space tabs when appropriate
+autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
 
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -188,6 +206,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+
+"let g:syntastic_check_on_wq = 0
+let g:syntastic_yaml_checkers = [ "yamllint" ]
+let g:syntastic_quiet_messages = { "type": "style" }
 
 """"""""""""""""""""""""""""""""""""""
 " (Optional)Remove Info(Preview) window

@@ -71,11 +71,10 @@ vim: dotFiles customBins dev_packages
 	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev fuse
 	- sudo modprobe fuse
 	- sudo usermod -aG fuse $$(whoami)
-	- sudo pip install --upgrade neovim
+	- pip3 install --upgrade yamllint
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
-	#- python ~/.vim/bundle/YouCompleteMe/install.py
 
 git:
 	- sudo apt-get install -y git tig
