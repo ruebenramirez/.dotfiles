@@ -8,7 +8,7 @@ xbindkeys
 $HOME/bin/configure-trackpad-palm-detection.sh
 
 # faster key repeat
-xset r rate 180 70
+xset r rate 220 60
 
 # display config
 sh $HOME/bin/init-display.sh
