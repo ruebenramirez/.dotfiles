@@ -12,7 +12,7 @@ ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-mana
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 	# extra desktop apps
-	sudo apt install -y rtorrent
+	sudo apt install -y rtorrent mupdf
 
 keychain:
 	sudo apt install keychain
