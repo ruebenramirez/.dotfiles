@@ -121,6 +121,7 @@ alias gdif='gdiff'
 alias gd='gdiff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias grim='echo "git rebase -i master" && git rebase -i master'
+alias gsd='git diff | git-split-diffs --color | less'
 
 ### docker aliases
 alias d='docker'

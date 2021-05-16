@@ -5,4 +5,9 @@
 	ui = true
 [core]
 	editor = vim
-	pager = less -F -X
+    #pager = less -F -X
+    pager = "npx git-split-diffs --color | less -RFX"
+[split-diffs]
+    min-line-width = 40
+    theme-name = github-light
+

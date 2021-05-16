@@ -290,3 +290,10 @@ github-cli-install:
 	sudo apt-add-repository https://cli.github.com/packages
 	sudo apt update
 	sudo apt install gh
+
+git-split-diffs:
+	sudo apt install nodejs
+	sudo npm install -g git-split-diffs
+	git config core.pager "npx git-split-diffs --color | less -RFX"
+	git config split-diffs.min-line-width 40
+	git config split-diffs.theme-name github-light
