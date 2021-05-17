@@ -292,7 +292,7 @@ github-cli-install:
 	sudo apt install gh
 
 git-split-diffs:
-	sudo apt install nodejs
+	sudo apt install -qy nodejs npm
 	sudo npm install -g git-split-diffs
 	git config core.pager "npx git-split-diffs --color | less -RFX"
 	git config split-diffs.min-line-width 40
