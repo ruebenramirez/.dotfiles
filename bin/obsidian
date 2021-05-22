@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
 
-/usr/local/bin/Obsidian-0.12.3.AppImage
+APP="/usr/local/bin/Obsidian*.AppImage"
+
+if [[ $(ls $APP | wc -l) -lt 2 ]]; then
+    $APP
+fi

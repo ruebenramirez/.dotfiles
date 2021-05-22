@@ -297,3 +297,17 @@ git-split-diffs:
 	git config core.pager "npx git-split-diffs --color | less -RFX"
 	git config split-diffs.min-line-width 40
 	git config split-diffs.theme-name github-light
+
+obsidian_setup:
+	# remove old obsidian app
+	sudo rm /usr/local/bin/Obsidian*.AppImage
+	# download + install new obsidian app
+	URL=$$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url][0]') && \
+		FILE=$$(basename "$$URL") && \
+		wget $$URL && \
+		sudo chmod +x $$FILE && \
+		sudo mv $$FILE /usr/local/bin/$$FILE
+	# download notes
+	NOTES="$$HOME/Documents/notes" && \
+		if test ! -d $$NOTES; then git clone git@gitlab.com:ruebenramirez/notes.git $$NOTES; fi
+
