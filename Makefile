@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain
+ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar slack_install authy_install
 	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
@@ -12,12 +12,21 @@ ubuntu: update dev_packages git vim dotFiles customBins omz backlight power-mana
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 	# extra desktop apps
-	sudo apt install -y rtorrent mupdf
+	sudo apt install -qy rtorrent mupdf mupdf-tools
+
+snap_setup:
+	sudo apt install -qy snap
+
+slack-install: snap_setup
+	sudo snap install slack --classic
+
+authy-install: snap_setup
+	sudo snap install --beta authy
 
 keychain:
 	sudo apt install keychain
 
-cli-setup: update dev_packages vim dotFiles customBins omz keychain
+cli-setup: update dev_setup vim dotFiles customBins omz keychain
 
 backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
@@ -58,9 +67,13 @@ dotFiles:
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
-dev_packages: update ruby-dev git sysdig
+dev_packages: update ruby-dev git pyenv go-install github-cli-install git-split-diffs  oracle-java
 	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2
 	- sudo pip3 install virtualenvwrapper autopep8 click
+
+dev_setup: dev_packages sre_stuffs
+
+sre_stuffs: sysdig kubectl helm-install nix-install tfenv-install aws-iam-k8s-auth helm-install azure-cli-install opa-install opa-conftest-install ansible_install
 
 omz:
 	- sudo apt-get install -y curl zsh
@@ -152,11 +165,6 @@ ruby-dev:
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 
-install-golang:
-	sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
-	sudo apt-get update
-	sudo apt-get install golang
-
 install-jenkins-taskbar:
 	sudo add-apt-repository ppa:thomir/indicator-jenkins
 	sudo apt-get update
@@ -206,7 +214,7 @@ firefox-with-java-client: oracle-java java-browser-plugin
 	sudo mv /tmp/firefox /opt/
 	# add java browser plugin to v45 ESR Firefox
 
-install-ansible:
+ansible_install:
 	sudo apt update
 	sudo apt install software-properties-common
 	sudo apt-add-repository --yes --update ppa:ansible/ansible
@@ -235,7 +243,7 @@ unetbootin-install:
 	sudo apt-get update
 	sudo apt-get install unetbootin
 
-install-nix:
+nix-install:
 	curl -o install-nix-2.3.10 https://releases.nixos.org/nix/nix-2.3.10/install
 	curl -o install-nix-2.3.10.asc https://releases.nixos.org/nix/nix-2.3.10/install.asc
 	gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE
