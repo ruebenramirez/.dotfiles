@@ -137,6 +137,7 @@ docker:
 	sudo apt-get install -qy docker-ce docker-ce-cli containerd.io
 	sudo apt install python3-pip -qy
 	sudo pip3 install docker-compose
+	sudo usermod -aG docker rramirez
 
 adobeSourceCodeProFont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
