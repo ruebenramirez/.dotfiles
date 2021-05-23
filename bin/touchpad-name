@@ -1,3 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-xinput --list --name-only | egrep -i 'touchpad|Synaptics'
+set -e
+
+TOUCHPAD=$(xinput --list --name-only | egrep -i 'touchpad|Synaptics')
+
+if [[ $(echo "$TOUCHPAD" | wc -l) -gt 1 ]]; then
+    # default to Dell listing if multiple touchpad inputs found
+    echo "$TOUCHPAD" | grep 'DLL'
+else
+    echo "$TOUCHPAD"
+fi
+

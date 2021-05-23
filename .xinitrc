@@ -5,7 +5,7 @@ export BROWSER=google-chrome &
 killall xbindkeys
 xbindkeys
 
-$HOME/bin/configure-trackpad-palm-detection.sh
+$HOME/bin/configure-trackpad.sh
 
 # faster key repeat
 xset r rate 220 60
