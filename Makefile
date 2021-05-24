@@ -88,6 +88,8 @@ vim: dotFiles customBins dev_packages
 	- rm -fr ~/.vim/
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
+	- mkdir -p ~/.config/yamllint
+	- cp yamllint_config.yml ~/.config/yamllint/config
 
 git:
 	- sudo apt-get install -y git tig
