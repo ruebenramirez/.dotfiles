@@ -19,15 +19,9 @@ gsettings set org.gnome.desktop.background show-desktop-icons false
 # setup desktop background
 feh --bg-max /home/rramirez/.dotfiles/desktop-background/oaxaca-te-amo.jpg
 
-# remove blues from screen when night time to help sleep at night
-redshift-gtk -r &
-
 # setup gnome-keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
-
-# disable optical drive eject button
-bash -c 'eject -i on /dev/sr0'
 
 # setup power saving
 sudo tlp start
