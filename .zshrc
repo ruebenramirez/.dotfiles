@@ -190,6 +190,7 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 # python poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 
+# source: https://github.com/leftsidemonitor/ubuntu-zoom-virtual-background
 # better virtual background for zoom
-alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/code/ubuntu-zoom-virtual-background; docker-compose up &;'
-alias stopcam='cd ~/code/ubuntu-zoom-virtual-background; docker-compose down &;'
+alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/ubuntu-zoom-virtual-background; docker-compose up &;'
+alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
