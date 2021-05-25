@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DIR=$(pwd)
 
 ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar slack_install authy_install
-	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman
+	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	# replace default ubuntu desktop notifications with dunst for i3
