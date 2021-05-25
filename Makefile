@@ -256,6 +256,8 @@ nix-install:
 
 tfenv-install:
 	git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+	tfenv install 0.15.0
+	tfenv use 0.15.0
 
 aws-iam-k8s-auth:
 	curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/aws-iam-authenticator
