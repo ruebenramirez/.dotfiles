@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+
+set -e
+
+aria2c -x 16 -s 16 $*
