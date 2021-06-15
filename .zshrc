@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
+# Set name of the theme to load.  # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="eastwood"
 
 # Uncomment following line if you want to disable command autocorrection
@@ -84,6 +82,8 @@ alias writer='libreoffice --writer'
 alias sheets='libreoffice --calc'
 alias calc='sheets'
 alias pbcopy='xclip -se c -i'
+alias discord='Discord'
+alias vido='cd ~/.dotfiles/ && vi Makefile'
 
 ### terraform aliases
 alias tf='echo "terraform" && terraform'
@@ -117,7 +117,7 @@ alias gap='echo git add -p && git add -p'
 alias gd='echo "git diff" && git diff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias gri='echo "git rebase -i" && git rebase -i'
-alias grim='git branch | egrep "master|main" | xargs -I"{}" git rebase -i {}'
+#alias grim='git branch | egrep "master|main" | xargs -I"{}" git rebase -i {}'
 
 ### docker aliases
 alias d='docker'
@@ -190,3 +190,8 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # better virtual background for zoom
 alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/ubuntu-zoom-virtual-background; docker-compose up &;'
 alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
+
+
+# Nix
+export NIXPKGS_ALLOW_UNFREE=1
+export PATH="$HOME/.nix-profile/bin:$PATH"
