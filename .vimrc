@@ -12,6 +12,7 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/vundle' " vim package management
 Plugin 'python-mode/python-mode'
+Plugin 'ambv/black'
 "Plugin 'tell-k/vim-autopep8'
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlp.vim'
@@ -68,7 +69,7 @@ set backspace=indent,eol,start
 " file type associations
 autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
-
+autocmd BufNewFile,BufReadPost *.py.tpl set filetype=python
 
 " indentation: use spaces instead of tabs
 set smartindent
@@ -80,7 +81,7 @@ set tabstop=4  shiftwidth=4 softtabstop=4 showtabline=4 expandtab
 autocmd FileType yml,yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
 
 " set 4 space tabs when appropriate
-autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
+autocmd FileType python,*.py.tpl setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4
 
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
