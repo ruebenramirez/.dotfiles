@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DIR=$(pwd)
 
 ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar slack_install authy_install
-	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc
+	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc ddcutil aria2
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	# replace default ubuntu desktop notifications with dunst for i3
@@ -92,12 +92,16 @@ vim: dotFiles customBins dev_packages
 	- cp yamllint_config.yml ~/.config/yamllint/config
 
 git:
-	- sudo apt-get install -y git tig
+	- sudo apt-get install -y git tig nodejs npm
+	- sudo npm install -g git-split-diffs
 	- git config --global user.name "Rueben Ramirez"
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
-	- git config --global --replace-all core.pager "less -F -X"
+	#- git config --global --replace-all core.pager "less -F -X"
+	- git config --global --replace-all core.pager "npx git-split-diffs --color | less -RFX"
+	- git config --global --replace-all split-diffs.min-line-width 40
+	- git config --global --replace-all split-diffs.theme-name github-light
 
 customBins:
 	if [ ! -d ~/bin/ ]; then \
@@ -304,13 +308,6 @@ github-cli-install:
 	sudo apt update
 	sudo apt install gh
 
-git-split-diffs:
-	sudo apt install -qy nodejs npm
-	sudo npm install -g git-split-diffs
-	git config core.pager "npx git-split-diffs --color | less -RFX"
-	git config split-diffs.min-line-width 40
-	git config split-diffs.theme-name github-light
-
 obsidian_setup:
 	# remove old obsidian app
 	sudo rm /usr/local/bin/Obsidian*.AppImage
@@ -345,3 +342,8 @@ better-zoom-background:
 		cp docker_defaults.env .env && \
 		docker-compose up &;
 
+
+vagrant-install:
+	curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+	sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+	sudo apt-get update && sudo apt-get install vagrant
