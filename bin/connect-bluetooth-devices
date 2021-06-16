@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+
+# EXAMPLE bluetooth device list
+# $ bt-device -l
+# a keyboard (70:F0:87:1A:D8:3E)
+# Magic Trackpad 2 (A0:78:17:E3:2A:D2)
+# WH-1000XM4 (14:3F:A6:50:7D:BD)
+# WH-1000XM2 (70:26:05:60:98:0C)
+# MX Anywhere 2S (E9:AA:EB:47:D1:4D)
+
+set -e
+
+echo "connecting to keyboard"
+bluetoothctl connect 70:F0:87:1A:D8:3E
+
+echo "connecting to trackpad"
+bluetoothctl connect A0:78:17:E3:2A:D2
+
+echo "connecting to headphones
+bluetoothctl connect 14:3F:A6:50:7D:BD
+
+
+sleep 1
+
+echo "configuring trackpad"
+configure-trackpad.sh
+
+echo "configuring keyboard"
+rekey
+
