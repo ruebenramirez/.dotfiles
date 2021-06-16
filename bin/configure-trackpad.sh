@@ -6,6 +6,17 @@ set -e
 #xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
 
 # configure trackpad
+APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
+if [[ $(xinput list | grep "$APPLE_TRACKPAD" | wc -l) > 0 ]]; then
+    echo "$APPLE_TRACKPAD found!"
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Click Method Enabled" {0 1}
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .4
+    xinput --enable "$APPLE_TRACKPAD"
+fi;
+
+# configure trackpad
 if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
     TOUCHPAD=$(~/bin/touchpad-name)
     xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
