@@ -117,7 +117,7 @@ alias gap='echo git add -p && git add -p'
 alias gd='echo "git diff" && git diff'
 alias gdc='echo "git diff --cached" && git diff --cached'
 alias gri='echo "git rebase -i" && git rebase -i'
-#alias grim='git branch | egrep "master|main" | xargs -I"{}" git rebase -i {}'
+alias grim="git rebase -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
 
 ### docker aliases
 alias d='docker'
