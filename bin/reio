@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+rekey
+configure-trackpad.sh
