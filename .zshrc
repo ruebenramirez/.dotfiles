@@ -27,7 +27,6 @@ export PAGER=less
 
 # helpful aliases
 alias k='echo "kubectl" && kubectl'
-alias gg='echo "git grep" && git grep'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
 alias vi='vim'
@@ -93,6 +92,7 @@ alias tfd='echo "terraform destroy" && terraform destroy'
 
 
 ### git aliases
+alias gg='echo "git grep" && git grep'
 alias gco='echo "git checkout" && git checkout'
 alias gcob='echo "git checkout -b" && git checkout -b'
 alias gcom='echo "git commit" && git commit'
