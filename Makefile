@@ -205,7 +205,8 @@ apt-fast-setup:
 
 
 oracle-java:
-	sudo apt-get install -y python-software-properties
+	#sudo apt-get install -y python-software-properties
+	sudo apt-get install -y software-properties-common
 	sudo add-apt-repository ppa:webupd8team/java
 	sudo apt update -y
 	sudo apt-get install -y oracle-java8-installer icedtea-8-plugin
