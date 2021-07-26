@@ -2,6 +2,8 @@
 
 set -e
 
+echo "STARTING mouse/trackpad setup"
+
 # Logitech MX Anywhere 2
 #xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
 
@@ -41,3 +43,5 @@ if [[ $(~/bin/trackpoint-name | wc -l) -gt 0 ]]; then
         xinput set-prop "$TRACKPOINT" "libinput Accel Speed" 1
     fi
 fi
+
+echo "FINISHED mouse/trackpad setup"

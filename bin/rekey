@@ -2,11 +2,15 @@
 
 set -e
 
+echo "STARTING keyboard setup"
+
 killall xbindkeys
 xbindkeys -f ~/.xbindkeysrc
 
 if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
+    echo "not in a VM"
     setxkbmap -option caps:swapescape
     $(grep xset ~/.xinitrc)
 fi
 
+echo "FINISHED keyboard setup"
