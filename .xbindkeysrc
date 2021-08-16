@@ -1,20 +1,5 @@
-################################
-# Move mouse to left screen
-################################
-"move-mouse-left.sh; reset-mouse-top-left-of-screen.sh"
-    m:0xd + c:113
-    Control+Shift+Alt + Left
-
 #################################
-# Move mouse to right screen
-#################################
-"move-mouse-right.sh; reset-mouse-top-left-of-screen.sh"
-    m:0xd + c:114
-    Control+Shift+Alt + Right
-
-
-#################################
-# Toggle touchpad
+# Toggle touchpad on/off
 #################################
 "~/bin/trackpad-toggle.sh"
     m:0x4 + c:66
@@ -170,3 +155,12 @@
 "rescreen"
     m:0x8 + c:128
     Alt + XF86LaunchA
+
+#################################
+# insert datestamp + day
+# e.g. 2021-08-12 Thursday
+##################################
+"sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
+    m:0x40 + c:33
+    Mod4 + p
+
