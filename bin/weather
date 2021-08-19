@@ -76,9 +76,7 @@ country = data["country"]
 if DEBUG:
     print("Your IP detail\n ")
     dbg = "IP : %s \nState : %s \nCity : %s \nCountry : %s"
-    print(
-        dbg.format(IP, state_abbreviation, city, country)
-    )
+    print(dbg.format(IP, state_abbreviation, city, country))
 
 weather_url = "https://www.wunderground.com/forecast/us/{state}/{city}".format(
     state=state_abbreviation, city=city)
