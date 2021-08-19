@@ -1,17 +1,12 @@
 syndaemon -d -m 100 -t -k -i 2.0
 export BROWSER=google-chrome &
 
-# customize keymappings
-killall xbindkeys
-xbindkeys
+$HOME/bin/reio
 
-$HOME/bin/configure-trackpad.sh
-
-# faster key repeat
-xset r rate 220 60
+$HOME/bin/rekey
 
 # display config
-sh $HOME/bin/init-display.sh
+$HOME/bin/resreen
 
 # disable gnome window desktop background
 gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -25,13 +20,7 @@ export SSH_AUTH_SOCK
 
 # setup power saving
 sudo tlp start
-sh ~/bin/xps-15-power-saving.sh
-
-# if machine is a mac
-sh ~/bin/setup-mac.sh
-
-# start network manager applet
-nm-applet &
+sh ~/bin/configure-power-saving.sh
 
 # fix gnome terminal being able to launch on XPS 15 9550
 dbus-update-activation-environment --all
@@ -45,7 +34,5 @@ xrdb -merge ~/.Xresources
 
 # allow GTK apps to run even with wayland installed
 xhost +local:
-
-#sh $HOME/bin/pixelbook-set-res.sh
 
 exec i3

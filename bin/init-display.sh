@@ -1,7 +1,6 @@
 #!/bin/bash
 
 hostname=$(hostname -f)
-echo '~/bin/init-display'
 echo $hostname
 
 HOME_MONITOR=$(xrandr | egrep -i 'DP.*connected' | egrep -v 'disconnected|eDP' | wc -l)
@@ -24,5 +23,5 @@ else
         --output HDMI1 --off
 fi
 
-# update display background now that displays are updated
+# refresh display background now that displays are updated
 $(grep feh ~/.xinitrc)

@@ -164,3 +164,10 @@
     m:0x40 + c:33
     Mod4 + p
 
+#################################
+# rekey based on ctrl + display toggle key
+# (XPS 13: f8 + fn mod)
+##################################
+"rekey && reio"
+    m:0x44 + c:33
+    Control+Mod4 + p
