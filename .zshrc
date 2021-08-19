@@ -195,3 +195,8 @@ alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
 # Nix
 export NIXPKGS_ALLOW_UNFREE=1
 export PATH="$HOME/.nix-profile/bin:$PATH"
+
+# work dir aliases
+alias internal='cd ~/nebulaworks/internal/'
+alias sap='cd ~/nebulaworks/cust/SAP/'
+
