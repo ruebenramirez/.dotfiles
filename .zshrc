@@ -26,7 +26,7 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
-alias k='echo "kubectl" && kubectl'
+alias k='kubectl'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
 alias vi='vim'
