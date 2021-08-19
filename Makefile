@@ -343,8 +343,11 @@ better-zoom-background:
 		cp docker_defaults.env .env && \
 		docker-compose up &;
 
-
 vagrant-install:
 	curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 	sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 	sudo apt-get update && sudo apt-get install vagrant
+
+alacritty-install:
+	sudo apt install -qy cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+	cargo install alacritty
