@@ -202,3 +202,5 @@ export PATH="$HOME/.nix-profile/bin:$PATH"
 alias internal='cd ~/nebulaworks/internal/'
 alias sap='cd ~/nebulaworks/cust/SAP/'
 
+# new npm path
+export PATH="/usr/local/bin:$PATH"
