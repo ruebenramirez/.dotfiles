@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-set -e
+set -e+x
 
 echo "STARTING keyboard setup"
 
 killall xbindkeys
 xbindkeys -f ~/.xbindkeysrc
+
+echo "faster key repeat"
+xset r rate 220 60
 
 # swap escape and capslock if not in a VM (if in a VM, we have likely already swapped these keys)
 if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
@@ -13,10 +16,6 @@ if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
     setxkbmap -option caps:swapescape
     $(grep xset ~/.xinitrc)
 fi
-
-# faster key repeat
-xset r rate 220 60
-
 
 
 echo "FINISHED keyboard setup"
