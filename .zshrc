@@ -178,7 +178,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # screen color
-alias reset-display-color='sudo killall redshift; xrandr --output eDP-1 --gamma 0.90:1.0:1.1'
+#alias reset-display-color='sudo killall redshift; xrandr --output eDP-1 --gamma 0.90:1.0:1.1'
+alias reset-display-color='sudo killall redshift; xrandr --output eDP-1 --gamma 0.90:1.0:1.1; xrandr --output DP-1 --gamma 0.90:1.0:1.1;'
 alias night-light='reset-display-color; killall redshift; redshift -o -b .8 -t 1000:1000 &'
 
 # tfenv
