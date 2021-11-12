@@ -377,3 +377,11 @@ ipad-external-monitor-setup:
 # export XKL_XMODMAP_DISABLE=1
 # /etc/X11/Xsession
 # EOF
+
+
+waydroid-install:
+	export DISTRO="bullseye" && \
+		sudo curl https://repo.waydro.id/waydroid.gpg > /usr/share/keyrings/waydroid.gpg && \
+		echo "deb [signed-by=/usr/share/keyrings/waydroid.gpg] https://repo.waydro.id/ $$DISTRO main" > /etc/apt/sources.list.d/waydroid.list && \
+		sudo apt update
+	sudo apt install waydroid
