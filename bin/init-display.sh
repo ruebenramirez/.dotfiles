@@ -9,9 +9,9 @@ xrandr --auto
 if [[ $HOME_MONITOR == 1 ]]; then
     echo "FOUND external display"
     ~/.screenlayout/default.sh
+    #~/.screenlayout/sidebyside.sh
 
-    # max out external monitor screen brightness
-    sudo ddcutil setvcp 0x10 75
+    ~/bin/max-brightness-lepow.sh
 else
     echo "no external display"
     xrandr \
