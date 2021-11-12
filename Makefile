@@ -353,3 +353,27 @@ vagrant-install:
 alacritty-install:
 	sudo apt install -qy cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 	cargo install alacritty
+
+ipad-external-monitor-setup:
+	# TODO: do I  want to use the gnome-session-fallback for my secondary i3wm display
+	# sudo apt-get install -y tightvncserver x2x gnome-session-fallback xsel
+	sudo apt install -qy tightvncserver x2x xsel gnome-session-fallback
+	# password already locally set
+	#vncpasswd
+	# REMOVE: ipad_charge is not necessary for my setup
+	# sudo apt-get install -y build-essential libusb-1.0-0 libusb-1.0-0-dev git
+	# git clone https://github.com/mkorenkov/ipad_charge.git
+	# cd ./ipad_charge
+	# make
+	# sudo make install
+	# cat << EOF > ~/.vnc/xstartup
+# #!/bin/sh
+# xrdb $HOME/.Xresources
+# xsetroot -solid grey
+# #Open a terminal window in the new X display. Comment the following line if unnecessary
+# x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+# x-window-manager &
+# # Fix to make GNOME work
+# export XKL_XMODMAP_DISABLE=1
+# /etc/X11/Xsession
+# EOF
