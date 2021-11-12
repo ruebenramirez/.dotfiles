@@ -54,6 +54,8 @@ update:
 		sudo apt-get autoremove -y && \
 		sudo apt-get autoclean -y && \
 		sudo sync && sudo sync
+	sudo pip install -U pip
+	pip install -U pip
 
 macbookpro_keyboard:
 	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
