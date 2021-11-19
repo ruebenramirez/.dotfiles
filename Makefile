@@ -69,6 +69,7 @@ dotFiles:
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
+	ln -sf $$(pwd)/sway ~/.config
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
