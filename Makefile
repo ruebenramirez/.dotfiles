@@ -91,8 +91,8 @@ dotFiles:
 	ln -sf $$(pwd)/sway ~/.config
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
-#dev_packages: update ruby-dev git go-install github-cli-install
-dev_packages: update ruby-dev git pyenv go-install github-cli-install
+#dev_packages: update ruby-dev git pyenv go-install github-cli-install
+dev_packages: update ruby-dev git go-install github-cli-install
 	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2
 	- sudo pip3 install virtualenvwrapper autopep8 click
 
@@ -260,13 +260,12 @@ remove-gnome-header-bar:
 	gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
 
 pyenv:
-	if [[ ! -d ~/.pyenv ]]; then \
-		git clone https://github.com/pyenv/pyenv.git ~/.pyenv; \
-		cd ~/.pyenv && src/configure && make -C src; \
-		echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc; \
-		echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc; \
-		echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc; \
-	fi;
+	rm -fr ~/.pyenv
+	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+	cd ~/.pyenv && src/configure && make -C src
+	# echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
+	# echo 'export PATH=$PYENV_ROOT/bin:\$PATH' >> ~/.zshrc
+	# echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
 kubectl:
 	curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -422,27 +421,3 @@ waydroid-install:
 helmsman-install:
 	curl -L https://github.com/Praqma/helmsman/releases/download/v3.7.7/helmsman_3.7.7_linux_amd64.tar.gz | tar zx
 	sudo mv helmsman /usr/local/bin/helmsman
-
-ipad-external-monitor-setup:
-	# TODO: do I  want to use the gnome-session-fallback for my secondary i3wm display
-	# sudo apt-get install -y tightvncserver x2x gnome-session-fallback xsel
-	sudo apt install -qy tightvncserver x2x xsel gnome-session-fallback
-	# password already locally set
-	#vncpasswd
-	# REMOVE: ipad_charge is not necessary for my setup
-	# sudo apt-get install -y build-essential libusb-1.0-0 libusb-1.0-0-dev git
-	# git clone https://github.com/mkorenkov/ipad_charge.git
-	# cd ./ipad_charge
-	# make
-	# sudo make install
-	# cat << EOF > ~/.vnc/xstartup
-# #!/bin/sh
-# xrdb $HOME/.Xresources
-# xsetroot -solid grey
-# #Open a terminal window in the new X display. Comment the following line if unnecessary
-# x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
-# x-window-manager &
-# # Fix to make GNOME work
-# export XKL_XMODMAP_DISABLE=1
-# /etc/X11/Xsession
-# EOF
