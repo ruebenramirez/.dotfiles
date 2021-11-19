@@ -1,47 +1,49 @@
 #!/usr/bin/env bash
 
-set -e
+set -e +x
+
+
+TOUCHPAD=$(~/bin/touchpad-name)
 
 echo "STARTING mouse/trackpad setup"
 
 # Logitech MX Anywhere 2
-#xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
+xinput set-prop "MX Anywhere 2S Mouse" "libinput Accel Speed" .9
 
 # configure trackpad
-APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
-if [[ $(xinput list | grep "$APPLE_TRACKPAD" | wc -l) > 0 ]]; then
-    echo "$APPLE_TRACKPAD found!"
-    xinput set-prop "$APPLE_TRACKPAD" "libinput Tapping Enabled" 0
-    xinput set-prop "$APPLE_TRACKPAD" "libinput Natural Scrolling Enabled" 1
-    xinput set-prop "$APPLE_TRACKPAD" "libinput Click Method Enabled" {0 1}
-    xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .4
-    xinput --enable "$APPLE_TRACKPAD"
-fi;
+# APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
+# if [[ $(xinput list | grep "$APPLE_TRACKPAD" | wc -l) > 0 ]]; then
+#     echo "touchpad found: $APPLE_TRACKPAD"
+#     xinput set-prop "$APPLE_TRACKPAD" "libinput Tapping Enabled" 0
+#     xinput set-prop "$APPLE_TRACKPAD" "libinput Natural Scrolling Enabled" 1
+#     xinput set-prop "$APPLE_TRACKPAD" "libinput Click Method Enabled" {0 1}
+#     xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" $TRACKPAD_SPEED
+#     xinput --enable "$APPLE_TRACKPAD"
+# fi;
 
 # configure trackpad
 if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
-    TOUCHPAD=$(~/bin/touchpad-name)
+    echo "touchpad found: $TOUCHPAD"
+
+    # disable tap to click
     xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
+    # xinput set-prop 14 336 0
+
+    # enable natural scrolling
     xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" 1
+    # xinput set-prop 14 316 1
+
+    # set click method
     xinput set-prop "$TOUCHPAD" "libinput Click Method Enabled" {0 1}
-    xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .4
-    # default to using the trackpoint
-    xinput --enable "$TOUCHPAD"
-fi
+    # xinput set-prop 14 347 {0 1}
 
-# configure trackpoint
-if [[ $(~/bin/trackpoint-name | wc -l) -gt 0 ]]; then
-    #TRACKPOINT="TPPS/2 Elan TrackPoint"
-    #TRACKPOINT="Elan TrackPoint"
-    TRACKPOINT=$(sh ~/bin/trackpoint-name)
+    # set accel speed
+    xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .7
+    # xinput set-prop 14 325 .85
 
-    # default trackpoint speed
-    xinput set-prop "$TRACKPOINT" "libinput Accel Speed" -.1
-
-    # configure trackpoint speed on x1c6
-    if [[ $TRACKPOINT == "TPPS/2 Elan TrackPoint" ]]; then
-        xinput set-prop "$TRACKPOINT" "libinput Accel Speed" 1
-    fi
+    # enable touchpad
+    # xinput --enable "$TOUCHPAD"
+    xinput --enable 14
 fi
 
 echo "FINISHED mouse/trackpad setup"
