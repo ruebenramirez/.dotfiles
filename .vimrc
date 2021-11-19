@@ -48,7 +48,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " display relative line numbers
 set number
-set relativenumber
+" set relativenumber
 set numberwidth=3
 
 " enable syntax highlighting
