@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+
+HEADSET_CONNECTED=$(bluetoothctl info 14:3F:A6:50:7D:BD | grep "Connected: yes" | wc -l)
+
+if [[ HEADSET_CONNECTED -eq 1 ]]; then
+    echo "BT Headphones Connected"
+fi

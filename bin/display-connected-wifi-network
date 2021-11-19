@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Which wifi network are we connected to currently?
+#nmcli connection show
+
+# display the current connected network
+nmcli -g name connection show | head -1
