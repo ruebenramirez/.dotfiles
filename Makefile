@@ -2,7 +2,8 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar slack_install authy_install
+#ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
+ubuntu: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
 	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc ddcutil aria2
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
@@ -39,7 +40,7 @@ power-management:
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y tlp powertop acpi lm-sensors
 	sudo tlp bat
-	sudo powertop
+	#sudo powertop
 
 spotify_ubuntu:
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
@@ -69,13 +70,16 @@ dotFiles:
 	mkdir -p ~/.config/nvim
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
-dev_packages: update ruby-dev git pyenv go-install github-cli-install git-split-diffs  oracle-java
+#dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
+#dev_packages: update ruby-dev git pyenv go-install github-cli-install
+dev_packages: update ruby-dev git go-install github-cli-install
 	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2
 	- sudo pip3 install virtualenvwrapper autopep8 click
 
 dev_setup: dev_packages sre_stuffs
 
-sre_stuffs: sysdig kubectl helm-install nix-install tfenv-install aws-iam-k8s-auth helm-install azure-cli-install opa-install opa-conftest-install ansible_install
+#sre_stuffs: sysdig kubectl helm-install tfenv-install aws-iam-k8s-auth helm-install azure-cli-install opa-install opa-conftest-install ansible_install
+sre_stuffs: sysdig kubectl helm-install tfenv-install aws-iam-k8s-auth helm-install opa-install opa-conftest-install ansible_install
 
 omz:
 	- sudo apt-get install -y curl zsh
@@ -235,11 +239,12 @@ remove-gnome-header-bar:
 	gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
 
 pyenv:
+	rm -fr ~/.pyenv
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 	cd ~/.pyenv && src/configure && make -C src
-	echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-	echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-	echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+	# echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
+	# echo 'export PATH=$PYENV_ROOT/bin:\$PATH' >> ~/.zshrc
+	# echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
 kubectl:
 	curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -262,6 +267,7 @@ nix-install:
 	rm ./install-nix-2.3.10
 
 tfenv-install:
+	rm -fr ~/.tfenv
 	git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 	tfenv install 0.15.0
 	tfenv use 0.15.0
@@ -313,7 +319,7 @@ github-cli-install:
 
 obsidian_setup:
 	# remove old obsidian app
-	sudo rm /usr/local/bin/Obsidian*.AppImage
+	sudo rm -f /usr/local/bin/Obsidian*.AppImage
 	# download + install new obsidian app
 	URL=$$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url][0]') && \
 		FILE=$$(basename "$$URL") && \
