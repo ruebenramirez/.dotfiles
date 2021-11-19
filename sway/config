@@ -65,6 +65,7 @@ input "type:keyboard" {
 input "type:touchpad" {
     natural_scroll enabled
     click_method clickfinger
+    pointer_accel .4
 }
 
 ### Key bindings
