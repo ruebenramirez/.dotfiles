@@ -24,6 +24,6 @@ current_load=$(~/bin/display-current-load)
 
 bt_headphones=$(~/bin/display-bluetooth-headset-connected)
 
-# Emojis and characters for the status bar
-# 💎 💻 💡 🔌 ⚡ 📁 \|
-echo $bt_headphones "|" disk used: $disk_space_used "|" wifi $wifi_network "|" uptime: $uptime_formatted ↑ "|" kernel v$linux_version 🐧 "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $date_formatted
+volume=$(~/bin/volume-get.sh)
+
+echo $bt_headphones "|" disk used: $disk_space_used "|" wifi $wifi_network "|" uptime: $uptime_formatted ↑ "|" kernel v$linux_version 🐧 "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $volume "|" $date_formatted
