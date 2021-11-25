@@ -8,7 +8,7 @@ TOUCHPAD=$(~/bin/touchpad-name)
 echo "STARTING mouse/trackpad setup"
 
 # Logitech MX Anywhere 2
-xinput set-prop "MX Anywhere 2S Mouse" "libinput Accel Speed" .9
+#xinput set-prop "MX Anywhere 2S Mouse" "libinput Accel Speed" .9
 
 # configure trackpad
 # APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
@@ -27,23 +27,18 @@ if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
 
     # disable tap to click
     xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
-    # xinput set-prop 14 336 0
 
     # enable natural scrolling
     xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" 1
-    # xinput set-prop 14 316 1
 
     # set click method
     xinput set-prop "$TOUCHPAD" "libinput Click Method Enabled" {0 1}
-    # xinput set-prop 14 347 {0 1}
 
     # set accel speed
-    xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .7
-    # xinput set-prop 14 325 .85
+    xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .4
 
     # enable touchpad
-    # xinput --enable "$TOUCHPAD"
-    xinput --enable 14
+    xinput --enable "$TOUCHPAD"
 fi
 
 echo "FINISHED mouse/trackpad setup"
