@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-FILENAME="screenshot-`date +%F-%T`"
-grim -g "$(slurp)" ~/Pictures/$FILENAME.png
-
-wl-copy < ~/Pictures/$FILENAME.png
+flameshot gui
