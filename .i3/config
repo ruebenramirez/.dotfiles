@@ -8,7 +8,6 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 # use alt key for mod
 set $mod Mod1
 # use windows key for mod
@@ -260,6 +259,7 @@ exec --no-startup-id /home/rramirez/bin/reio
 exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id '/usr/bin/insync start'
 
 # launch apps on specific workspaces
