@@ -2,6 +2,7 @@
 
 set -e +x
 
+XPS17=$(sudo dmidecode | grep -i -A3 'system information' | grep -i 'product name: XPS 17 9710' | wc -l)
 
 TOUCHPAD=$(~/bin/touchpad-name)
 
@@ -36,6 +37,11 @@ if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
 
     # set accel speed
     xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .4
+
+    if [[ $XPS17 -eq 1 ]]; then
+        echo "speeding up cursor accel for XPS 17"
+        xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .7
+    fi
 
     # enable touchpad
     xinput --enable "$TOUCHPAD"
