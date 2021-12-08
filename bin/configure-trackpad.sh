@@ -2,25 +2,28 @@
 
 set -e +x
 
-XPS17=$(sudo dmidecode | grep -i -A3 'system information' | grep -i 'product name: XPS 17 9710' | wc -l)
-
 TOUCHPAD=$(~/bin/touchpad-name)
 
 echo "STARTING mouse/trackpad setup"
 
-# Logitech MX Anywhere 2
-#xinput set-prop "MX Anywhere 2S Mouse" "libinput Accel Speed" .9
-
 # configure trackpad
-# APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
-# if [[ $(xinput list | grep "$APPLE_TRACKPAD" | wc -l) > 0 ]]; then
-#     echo "touchpad found: $APPLE_TRACKPAD"
-#     xinput set-prop "$APPLE_TRACKPAD" "libinput Tapping Enabled" 0
-#     xinput set-prop "$APPLE_TRACKPAD" "libinput Natural Scrolling Enabled" 1
-#     xinput set-prop "$APPLE_TRACKPAD" "libinput Click Method Enabled" {0 1}
-#     xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" $TRACKPAD_SPEED
-#     xinput --enable "$APPLE_TRACKPAD"
-# fi;
+APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
+if [[ $(xinput list | grep "$APPLE_TRACKPAD" | wc -l) > 0 ]]; then
+    echo "touchpad found: $APPLE_TRACKPAD"
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Click Method Enabled" {0 1}
+
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .4
+    if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
+        echo "speeding up cursor accel for XPS 17"
+        xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .8
+    fi
+    xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Profile Enabled" 1, 0
+
+    xinput --enable "$APPLE_TRACKPAD"
+    xinput list-props "$APPLE_TRACKPAD"
+fi;
 
 # configure trackpad
 if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
@@ -38,13 +41,15 @@ if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
     # set accel speed
     xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .4
 
-    if [[ $XPS17 -eq 1 ]]; then
+    if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
         echo "speeding up cursor accel for XPS 17"
-        xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .7
+        xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .8
     fi
+    xinput set-prop "$TOUCHPAD" "libinput Accel Profile Enabled" 1, 0
 
     # enable touchpad
     xinput --enable "$TOUCHPAD"
+    xinput list-props "$TOUCHPAD"
 fi
 
 echo "FINISHED mouse/trackpad setup"

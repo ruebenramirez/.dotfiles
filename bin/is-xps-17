@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# IS_XPS_SEVENTEEN=$(sudo dmidecode | grep -i -A3 'system information' | grep -i 'product name: XPS 17 9710' | wc -l)
+# if [[ $(echo $IS_XPS_SEVENTEEN) -gt 0]]; then
+#     echo True
+#     exit 0
+# fi
+
+sudo dmidecode | grep -i -A3 'system information' | grep -i 'product name: XPS 17 9710' | wc -l

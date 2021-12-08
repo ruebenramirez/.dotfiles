@@ -63,6 +63,16 @@ macbookpro_keyboard:
 
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
+
+	- unlink ~/.Xresources
+	if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
+			ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
+		else \
+			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
+		fi;
+
+
+
 	ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
 	ln -sf $$(pwd)/.i3 ~/.i3
 	- unlink .i3/.i3
