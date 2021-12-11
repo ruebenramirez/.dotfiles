@@ -4,7 +4,7 @@ set -e +x
 
 TOUCHPAD=$(~/bin/touchpad-name)
 
-echo "STARTING mouse/trackpad setup"
+echo "STARTING trackpad setup"
 
 # configure trackpad
 APPLE_TRACKPAD="Apple Inc. Magic Trackpad 2"
