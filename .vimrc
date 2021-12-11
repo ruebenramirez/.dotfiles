@@ -41,6 +41,7 @@ Plugin 'hashivim/vim-terraform'
 "Plugin 'vim-syntastic/syntastic'
 "Plugin 'juliosueiras/vim-terraform-completion'
 Plugin 'tsandall/vim-rego'
+Plugin 'LnL7/vim-nix'
 call vundle#end()
 
 filetype plugin indent on
