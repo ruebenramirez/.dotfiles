@@ -70,9 +70,7 @@ dotFiles:
 		else \
 			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
 		fi;
-
-
-
+	ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
 	ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
 	ln -sf $$(pwd)/.i3 ~/.i3
 	- unlink .i3/.i3
