@@ -17,7 +17,7 @@ if [[ $(xinput list | grep "$APPLE_TRACKPAD" | wc -l) > 0 ]]; then
     xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .4
     if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
         echo "speeding up cursor accel for XPS 17"
-        xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .8
+        xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Speed" .85
     fi
     xinput set-prop "$APPLE_TRACKPAD" "libinput Accel Profile Enabled" 1, 0
 
@@ -43,7 +43,7 @@ if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
 
     if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
         echo "speeding up cursor accel for XPS 17"
-        xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .8
+        xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .85
     fi
     xinput set-prop "$TOUCHPAD" "libinput Accel Profile Enabled" 1, 0
 
