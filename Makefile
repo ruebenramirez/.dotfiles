@@ -57,6 +57,7 @@ update:
 		sudo sync && sudo sync
 	sudo pip install -U pip
 	pip install -U pip
+	- omz update
 
 macbookpro_keyboard:
 	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
