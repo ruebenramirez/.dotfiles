@@ -57,6 +57,12 @@ update:
 		sudo sync && sudo sync
 	sudo pip install -U pip
 	pip install -U pip
+	nix-channel --update
+	nix-env -u "*"
+	fwupdmgr get-devices
+	fwupdmgr refresh
+	fwupdmgr get-updates
+	fwupdmgr update
 
 macbookpro_keyboard:
 	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
