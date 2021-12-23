@@ -63,6 +63,7 @@ update:
 	fwupdmgr refresh
 	fwupdmgr get-updates
 	fwupdmgr update
+	- omz update
 
 macbookpro_keyboard:
 	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
