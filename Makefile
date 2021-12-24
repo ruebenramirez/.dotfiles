@@ -38,8 +38,12 @@ save-my-eyes: customBins update
 
 power-management:
 	# dependencies for display battery and cpu temp
-	sudo apt-get install -y tlp powertop acpi lm-sensors
-	sudo tlp bat
+	sudo apt-get install -y tlp tlp-rdw powertop acpi lm-sensors cpufrequtils smartmontools
+	sudo cpufreq-set -g powersave
+	sudo cpufreq-info
+	sudo systemctl enable tlp
+	sudo systemctl start tlp
+	sudo systemctl status tlp
 	#sudo powertop
 
 spotify_ubuntu:

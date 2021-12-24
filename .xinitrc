@@ -2,11 +2,9 @@ syndaemon -d -m 100 -t -k -i 2.0
 export BROWSER=google-chrome &
 
 $HOME/bin/reio
-
 $HOME/bin/rekey
-
-# display config
 $HOME/bin/resreen
+$HOME/bin/power-save-configs.sh
 
 # disable gnome window desktop background
 gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -18,14 +16,8 @@ feh --bg-max /home/rramirez/.dotfiles/desktop-background/oaxaca-te-amo.jpg
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# setup power saving
-sudo tlp start
-sh ~/bin/configure-power-saving.sh
 
-# fix gnome terminal being able to launch on XPS 15 9550
-dbus-update-activation-environment --all
-
-# fix HiDPI on XPS 15 9550
+# fix HiDPI
 gsettings set org.gnome.desktop.interface scaling-factor 1
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1
