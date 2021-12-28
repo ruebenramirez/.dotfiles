@@ -91,8 +91,8 @@ dotFiles:
 	ln -sf $$(pwd)/sway ~/.config
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
-#dev_packages: update ruby-dev git pyenv go-install github-cli-install
-dev_packages: update ruby-dev git go-install github-cli-install
+#dev_packages: update ruby-dev git go-install github-cli-install
+dev_packages: update ruby-dev git pyenv go-install github-cli-install
 	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2
 	- sudo pip3 install virtualenvwrapper autopep8 click
 
@@ -111,7 +111,8 @@ vim: dotFiles customBins dev_packages
 	- sudo modprobe fuse
 	- sudo usermod -aG fuse $$(whoami)
 	- pip3 install --upgrade yamllint
-	- rm -fr ~/.vim/
+	- rm -fr ~/.vim
+	- rm -fr ~/.pyenv
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	- vim +PluginInstall +qall
 	- mkdir -p ~/.config/yamllint
@@ -259,12 +260,13 @@ remove-gnome-header-bar:
 	gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
 
 pyenv:
-	rm -fr ~/.pyenv
-	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-	cd ~/.pyenv && src/configure && make -C src
-	# echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
-	# echo 'export PATH=$PYENV_ROOT/bin:\$PATH' >> ~/.zshrc
-	# echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+	if [[ ! -d ~/.pyenv ]]; then \
+		git clone https://github.com/pyenv/pyenv.git ~/.pyenv; \
+		cd ~/.pyenv && src/configure && make -C src; \
+		echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc; \
+		echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc; \
+		echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc; \
+	fi;
 
 kubectl:
 	curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -325,10 +327,12 @@ opa-conftest-install:
 	wget https://github.com/open-policy-agent/conftest/releases/download/v0.24.0/conftest_0.24.0_Linux_x86_64.tar.gz
 	tar xzf conftest_0.24.0_Linux_x86_64.tar.gz
 	sudo mv conftest /usr/local/bin
+	rm -f conftest_0.24.0_Linux_x86_64.tar.gz
 
 go-install:
 	wget https://golang.org/dl/go1.16.3.linux-amd64.tar.gz
 	sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.3.linux-amd64.tar.gz
+
 	rm go1.16.3.linux-amd64.tar.gz
 
 github-cli-install:
@@ -337,11 +341,14 @@ github-cli-install:
 	sudo apt update
 	sudo apt install gh
 
+test_obsidian_url:
+	curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url]' | grep -v 'arm64' | jq -r '.[0]'
+
 obsidian_setup:
 	# remove old obsidian app
 	sudo rm -f /usr/local/bin/Obsidian*.AppImage
 	# download + install new obsidian app
-	URL=$$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url][0]') && \
+	URL=$$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url]' | grep -v 'arm64' | jq -r '.[0]') && \
 		FILE=$$(basename "$$URL") && \
 		wget $$URL && \
 		sudo chmod +x $$FILE && \
@@ -411,3 +418,7 @@ waydroid-install:
 		echo "deb [signed-by=/usr/share/keyrings/waydroid.gpg] https://repo.waydro.id/ $$DISTRO main" > /etc/apt/sources.list.d/waydroid.list && \
 		sudo apt update
 	sudo apt install waydroid
+
+helmsman-install:
+	curl -L https://github.com/Praqma/helmsman/releases/download/v3.7.7/helmsman_3.7.7_linux_amd64.tar.gz | tar zx
+	sudo mv helmsman /usr/local/bin/helmsman
