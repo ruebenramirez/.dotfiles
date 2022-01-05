@@ -119,7 +119,7 @@ vim: dotFiles customBins dev_packages
 	- cp yamllint_config.yml ~/.config/yamllint/config
 
 git:
-	- sudo apt-get install -y git tig nodejs npm
+	- sudo apt-get install -y git git-lfs tig nodejs npm
 	- sudo npm install -g git-split-diffs
 	- git config --global user.name "Rueben Ramirez"
 	- git config --global user.email ruebenramirez@gmail.com
