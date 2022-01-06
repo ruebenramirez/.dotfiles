@@ -93,7 +93,7 @@ dotFiles:
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
 dev_packages: update ruby-dev git go-install github-cli-install
-	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2
+	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2 whois
 	- sudo pip3 install virtualenvwrapper autopep8 click
 
 dev_setup: dev_packages sre_stuffs
