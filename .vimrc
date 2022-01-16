@@ -22,7 +22,7 @@ Plugin 'mhinz/vim-signify' " show version control diffs
 "Plugin 'davidhalter/jedi-vim' " syntax autocompletion
 Plugin 'tpope/vim-markdown'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'joonty/vdebug.git'
+"Plugin 'joonty/vdebug.git'
 Plugin 'taglist.vim'
 Plugin 'tpope/vim-dispatch'
 "Plugin 'scrooloose/nerdtree'
