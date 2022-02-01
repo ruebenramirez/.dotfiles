@@ -193,11 +193,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/ubuntu-zoom-virtual-background; docker-compose up &;'
 alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
 
-
-# Nix
-export NIXPKGS_ALLOW_UNFREE=1
-export PATH="$HOME/.nix-profile/bin:$PATH"
-
 # work dir aliases
 alias internal='cd ~/nebulaworks/internal/'
 alias sap='cd ~/nebulaworks/cust/SAP/'
@@ -209,3 +204,8 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval ""
 fi
+
+# Nix
+export NIXPKGS_ALLOW_UNFREE=1
+export PATH="$HOME/.nix-profile/bin:$PATH"
+if [ -e /home/rramirez/.nix-profile/etc/profile.d/nix.sh ]; then . /home/rramirez/.nix-profile/etc/profile.d/nix.sh; fi

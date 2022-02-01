@@ -63,11 +63,11 @@ update:
 	pip install -U pip
 	nix-channel --update
 	nix-env -u "*"
-	fwupdmgr get-devices
-	fwupdmgr refresh
-	fwupdmgr get-updates
-	fwupdmgr update
 	- omz update
+	- fwupdmgr get-devices
+	- fwupdmgr refresh --force
+	- fwupdmgr get-updates --force
+	- fwupdmgr update
 
 macbookpro_keyboard:
 	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
@@ -83,7 +83,7 @@ dotFiles:
 		fi;
 	ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
 	ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
-	ln -sf $$(pwd)/.i3 ~/.i3
+	ln -sf $$(pwd)/.i3 ~/.config/i3
 	- unlink .i3/.i3
 	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
 	mkdir -p ~/.config/nvim
@@ -92,7 +92,9 @@ dotFiles:
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
-dev_packages: update ruby-dev git go-install github-cli-install
+dev_packages: update dev_packages_base ruby-dev git go-install github-cli-install
+
+dev_packages_base: update ruby-dev git go-install github-cli-install
 	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2 whois
 	- sudo pip3 install virtualenvwrapper autopep8 click
 
