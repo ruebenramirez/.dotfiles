@@ -422,3 +422,7 @@ waydroid-install:
 helmsman-install:
 	curl -L https://github.com/Praqma/helmsman/releases/download/v3.7.7/helmsman_3.7.7_linux_amd64.tar.gz | tar zx
 	sudo mv helmsman /usr/local/bin/helmsman
+
+zoom-flatpak-install:
+	wget https://dl.flathub.org/repo/appstream/us.zoom.Zoom.flatpakref
+	sudo flatpak install ./us.zoom.Zoom.flatpakref
