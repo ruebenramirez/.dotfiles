@@ -331,10 +331,9 @@ opa-conftest-install:
 	rm -f conftest_0.24.0_Linux_x86_64.tar.gz
 
 go-install:
-	wget https://golang.org/dl/go1.16.3.linux-amd64.tar.gz
-	sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.3.linux-amd64.tar.gz
-
-	rm go1.16.3.linux-amd64.tar.gz
+	wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
+	sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
+	rm go1.18.1.linux-amd64.tar.gz
 
 github-cli-install:
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
