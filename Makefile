@@ -426,3 +426,11 @@ helmsman-install:
 zoom-flatpak-install:
 	wget https://dl.flathub.org/repo/appstream/us.zoom.Zoom.flatpakref
 	sudo flatpak install ./us.zoom.Zoom.flatpakref
+
+uninstall-nix:
+	sudo rm -fr /nix
+	seq 1 32 | xargs -I{} bash -c 'sudo deluser "nixbld{}"'
+	sudo delgroup nixbld
+	rm -fr /etc/nix/
+	rm -fr ~/.nix*
+	rm -fr ~/.config/nix*
