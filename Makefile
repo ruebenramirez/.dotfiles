@@ -420,7 +420,7 @@ waydroid-install:
 	sudo apt install waydroid
 
 helmsman-install:
-	curl -L https://github.com/Praqma/helmsman/releases/download/v3.7.7/helmsman_3.7.7_linux_amd64.tar.gz | tar zx
+	curl -L https://github.com/Praqma/helmsman/releases/download/v3.8.1/helmsman_3.8.1_linux_amd64.tar.gz | tar zx
 	sudo mv helmsman /usr/local/bin/helmsman
 
 zoom-flatpak-install:
