@@ -39,7 +39,7 @@ if [[ $(~/bin/touchpad-name | wc -l) -gt 0 ]]; then
     xinput set-prop "$TOUCHPAD" "libinput Click Method Enabled" {0 1}
 
     # set accel speed
-    xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .4
+    xinput set-prop "$TOUCHPAD" "libinput Accel Speed" .3
 
     if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
         echo "speeding up cursor accel for XPS 17"

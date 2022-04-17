@@ -17,5 +17,7 @@ if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
     $(grep xset ~/.xinitrc)
 fi
 
+setup-mac.sh
+
 
 echo "FINISHED keyboard setup"
