@@ -10,6 +10,8 @@ ubuntu: backlight power-management adobeSourceCodeProFont keychain remove-gnome-
 	# replace default ubuntu desktop notifications with dunst for i3
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst xautolock arandr feh pasystray
+	# sway (i3 for wayland)
+	sudo apt install sway waybar
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 	# extra desktop apps
