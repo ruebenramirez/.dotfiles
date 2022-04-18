@@ -246,7 +246,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     #status_command while nmcli -g name connection show | head -1 && date +'%A %Y-%m-%d %H:%M:%S'; do sleep 5; done
-    status_command while ~/.config/sway/status.sh; do sleep 3; done
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
 
 
     # colors {
