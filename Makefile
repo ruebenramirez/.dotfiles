@@ -61,6 +61,7 @@ update:
 		sudo apt-get autoremove -y && \
 		sudo apt-get autoclean -y && \
 		sudo sync && sudo sync
+	sudo flatpak update
 	sudo pip install -U pip
 	pip install -U pip
 	nix-channel --update
