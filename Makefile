@@ -285,12 +285,12 @@ unetbootin-install:
 	sudo apt-get install unetbootin
 
 nix-install:
-	curl -o install-nix-2.3.10 https://releases.nixos.org/nix/nix-2.3.10/install
-	curl -o install-nix-2.3.10.asc https://releases.nixos.org/nix/nix-2.3.10/install.asc
-	gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE
-	gpg2 --verify ./install-nix-2.3.10.asc
-	sh ./install-nix-2.3.10
-	rm ./install-nix-2.3.10
+	curl -o install-nix-2.8.0 https://releases.nixos.org/nix/nix-2.8.0/install
+	curl -o install-nix-2.8.0.asc https://releases.nixos.org/nix/nix-2.8.0/install.asc
+	gpg2 --keyserver hkps://keyserver.ubuntu.com --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE
+	gpg2 --verify ./install-nix-2.8.0.asc
+	sh ./install-nix-2.8.0
+	rm ./install-nix-2.8.0 ./install-nix-2.8.0.asc
 
 tfenv-install:
 	rm -fr ~/.tfenv
