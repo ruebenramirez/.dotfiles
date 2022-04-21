@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# configure screen, and keyboard + mouse IO
+
+
+~/bin/rescreen
+~/bin/rekey
+~/bin/configure-trackpad.sh
