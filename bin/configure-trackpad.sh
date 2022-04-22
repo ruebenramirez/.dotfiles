@@ -9,56 +9,48 @@ echo "STARTING trackball setup"
 
 # xinput --list | grep -i ergo m575
 # ERGO M575 Mouse                           id=25   [slave  pointer  (2)]
-TRACKBALL_DEVICE="ERGO M575 Mouse"
+
+
+TRACKBALL_DEVICE=$(xinput --list | grep "MX Ergo" | cut -d '=' -f 2 | cut -f 1)
 if [[ $(xinput list | grep "$TRACKBALL_DEVICE" | wc -l) > 0 ]]; then
-    echo "trackball found: $TRACKBALL_DEVICE"
-
-    # configurable trackball properties
-    #$ xinput list-props "ERGO M575 Mouse"
-    #Device 'ERGO M575 Mouse':
-    #        Device Enabled (177):   1
-    #        Coordinate Transformation Matrix (179): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
-    #        libinput Natural Scrolling Enabled (316):       0
-    #        libinput Natural Scrolling Enabled Default (317):       0
-    #        libinput Scroll Methods Available (318):        0, 0, 1
-    #        libinput Scroll Method Enabled (319):   0, 0, 0
-    #        libinput Scroll Method Enabled Default (320):   0, 0, 0
-    #        libinput Button Scrolling Button (321): 2
-    #        libinput Button Scrolling Button Default (322): 2
-    #        libinput Button Scrolling Button Lock Enabled (323):    0
-    #        libinput Button Scrolling Button Lock Enabled Default (324):    0
-    #        libinput Middle Emulation Enabled (349):        0
-    #        libinput Middle Emulation Enabled Default (350):        0
-    #        libinput Accel Speed (325):     0.000000
-    #        libinput Accel Speed Default (326):     0.000000
-    #        libinput Accel Profiles Available (327):        1, 1
-    #        libinput Accel Profile Enabled (328):   1, 0
-    #        libinput Accel Profile Enabled Default (329):   1, 0
-    #        libinput Left Handed Enabled (330):     0
-    #        libinput Left Handed Enabled Default (331):     0
-    #        libinput Send Events Modes Available (297):     1, 0
-    #        libinput Send Events Mode Enabled (298):        0, 0
-    #        libinput Send Events Mode Enabled Default (299):        0, 0
-    #        Device Node (300):      "/dev/input/event258"
-    #        Device Product ID (301):        1133, 45095
-    #        libinput Drag Lock Buttons (332):       <no items>
-    #        libinput Horizontal Scroll Enabled (333):       1
-    #        libinput Scrolling Pixel Distance (334):        15
-    #        libinput Scrolling Pixel Distance Default (335):        15
+    echo "trackball found: Logitech MX Ergo Trackball"
 
 
-    # libinput Natural Scrolling Enabled
-    #  1 boolean value (8 bit, 0 or 1). 1 enables natural scrolling
-    xinput set-prop "$TRACKBALL_DEVICE" "libinput Natural Scrolling Enabled" 0
+#   [~]$ xinput list-props 17
+#Device 'Logitech MX Ergo Multi-Device Trackball ':
+#        Device Enabled (187):   1
+#        Coordinate Transformation Matrix (189): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+#        libinput Natural Scrolling Enabled (322):       0
+#        libinput Natural Scrolling Enabled Default (323):       0
+#        libinput Scroll Methods Available (324):        0, 0, 1
+#        libinput Scroll Method Enabled (325):   0, 0, 1
+#        libinput Scroll Method Enabled Default (326):   0, 0, 0
+#        libinput Button Scrolling Button (327): 2
+#        libinput Button Scrolling Button Default (328): 2
+#        libinput Button Scrolling Button Lock Enabled (329):    1
+#        libinput Button Scrolling Button Lock Enabled Default (330):    0
+#        libinput Middle Emulation Enabled (353):        0
+#        libinput Middle Emulation Enabled Default (354):        0
+#        libinput Rotation Angle (628):  0.000000
+#        libinput Rotation Angle Default (629):  0.000000
+#        libinput Accel Speed (331):     0.000000
+#        libinput Accel Speed Default (332):     0.000000
+#        libinput Accel Profiles Available (333):        1, 1
+#        libinput Accel Profile Enabled (334):   1, 0
+#        libinput Accel Profile Enabled Default (335):   1, 0
+#        libinput Left Handed Enabled (336):     0
+#        libinput Left Handed Enabled Default (337):     0
+#        libinput Send Events Modes Available (307):     1, 0
+#        libinput Send Events Mode Enabled (308):        0, 0
+#        libinput Send Events Mode Enabled Default (309):        0, 0
+#        Device Node (310):      "/dev/input/event17"
+#        Device Product ID (311):        1133, 45085
+#        libinput Drag Lock Buttons (338):       <no items>
+#        libinput Horizontal Scroll Enabled (339):       1
 
-    # libinput Scroll Pixel Distance
-    #   1 32-bit value (nonzero, with additional implementation-defined range checks).
-    #   Changes the movement distance required to trigger one logical wheel click.
-    xinput set-prop "$TRACKBALL_DEVICE" "libinput Scrolling Pixel Distance" 10
 
-    # libinput Accel Speed
-    #   1 32-bit float value, defines the pointer speed. Value range -1, 1
-    xinput set-prop "$TRACKBALL_DEVICE" "libinput Accel Speed" 0.990000
+    xinput set-prop "$TRACKBALL_DEVICE" "libinput Scroll Method Enabled" 0, 0, 1
+    xinput set-prop "$TRACKBALL_DEVICE" "libinput Button Scrolling Button Lock Enabled" 1
 fi;
 
 
