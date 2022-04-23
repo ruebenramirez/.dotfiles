@@ -130,6 +130,7 @@ git:
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
+	- git config --global pull.rebase true
 	#- git config --global --replace-all core.pager "less -F -X"
 	- git config --global --replace-all core.pager "npx git-split-diffs --color | less -RFX"
 	- git config --global --replace-all split-diffs.min-line-width 40
