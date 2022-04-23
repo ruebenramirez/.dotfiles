@@ -292,6 +292,14 @@ nix-install:
 	sh ./install-nix-2.8.0
 	rm ./install-nix-2.8.0 ./install-nix-2.8.0.asc
 
+nix-uninstall:
+	sudo rm -fr /nix
+	- seq 1 32 | xargs -I{} bash -c 'sudo deluser "nixbld{}"'
+	- sudo delgroup nixbld
+	sudo rm -fr /etc/nix/
+	sudo rm -fr ~/.nix*
+	sudo rm -fr ~/.config/nix*
+
 tfenv-install:
 	rm -fr ~/.tfenv
 	git clone https://github.com/tfutils/tfenv.git ~/.tfenv
@@ -429,14 +437,6 @@ helmsman-install:
 zoom-flatpak-install:
 	wget https://dl.flathub.org/repo/appstream/us.zoom.Zoom.flatpakref
 	sudo flatpak install ./us.zoom.Zoom.flatpakref
-
-uninstall-nix:
-	sudo rm -fr /nix
-	seq 1 32 | xargs -I{} bash -c 'sudo deluser "nixbld{}"'
-	sudo delgroup nixbld
-	rm -fr /etc/nix/
-	rm -fr ~/.nix*
-	rm -fr ~/.config/nix*
 
 signal-private-messenger-install:
 	# NOTE: These instructions only work for 64 bit Debian-based
