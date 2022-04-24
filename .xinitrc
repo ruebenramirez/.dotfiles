@@ -16,7 +16,6 @@ feh --bg-max /home/rramirez/.dotfiles/desktop-background/oaxaca-te-amo.jpg
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-
 # fix HiDPI
 gsettings set org.gnome.desktop.interface scaling-factor 1
 export GDK_SCALE=1

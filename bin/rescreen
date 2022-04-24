@@ -1,1 +1,19 @@
-init-display.sh
+#!/bin/bash
+
+hostname=$(hostname -f)
+echo $hostname
+
+HOME_MONITOR=$(xrandr | egrep -i 'DP.*connected' | egrep -v 'disconnected|eDP' | wc -l)
+
+xrandr --auto
+if [[ $HOME_MONITOR == 1 ]]; then
+    echo "FOUND external display"
+    ~/.screenlayout/default.sh
+    ~/bin/max-brightness-lepow.sh
+else
+    echo "no external display"
+    xrandr --auto
+fi
+
+# refresh display background now that displays are updated
+$(grep feh ~/.xinitrc)
