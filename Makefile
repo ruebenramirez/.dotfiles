@@ -353,10 +353,8 @@ github-cli-install:
 	sudo apt update
 	sudo apt install gh
 
-test_obsidian_url:
-	curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url]' | grep -v 'arm64' | jq -r '.[0]'
-
 obsidian_setup:
+	- sudo pkill obsidian
 	# remove old obsidian app
 	sudo rm -f /usr/local/bin/Obsidian*.AppImage
 	# download + install new obsidian app
