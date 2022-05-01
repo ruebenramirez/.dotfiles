@@ -26,4 +26,10 @@ xrdb -merge ~/.Xresources
 # allow GTK apps to run even with wayland installed
 xhost +local:
 
+export TERMINAL=alacritty
+HOSTNAME=$(hostname -f)
+if [[$HOSTNAME == dev.rueb.dev]]; then
+    export TERMINAL=gnome-terminal
+fi;
+
 exec i3
