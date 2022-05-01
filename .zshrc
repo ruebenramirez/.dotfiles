@@ -159,6 +159,7 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # keychain used to store ssh session across local terminal shells
 eval `keychain -q --eval ~/.ssh/id_rsa`
+eval `keychain -q --eval ~/.ssh/exelixis_github`
 
 # GTA2 PC game launcher
 alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'
@@ -195,7 +196,7 @@ alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
 
 # work dir aliases
 alias internal='cd ~/nebulaworks/internal/'
-alias sap='cd ~/nebulaworks/cust/SAP/'
+alias cust='cd ~/nebulaworks/cust/'
 
 # new pyenv path
 export PATH="/usr/local/bin:$PATH"
