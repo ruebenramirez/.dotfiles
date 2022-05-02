@@ -26,10 +26,10 @@ xrdb -merge ~/.Xresources
 # allow GTK apps to run even with wayland installed
 xhost +local:
 
-export TERMINAL=alacritty
-HOSTNAME=$(hostname -f)
-if [[$HOSTNAME == dev.rueb.dev]]; then
-    export TERMINAL=gnome-terminal
+
+# configure alacritty as default terminal emulator for non VM machines
+if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
+    export TERMINAL=alacritty
 fi;
 
 exec i3
