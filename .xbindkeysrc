@@ -1,3 +1,9 @@
+# how to grab these keycodes to bind against
+#
+# xbindkeys --key
+# xbindkeys --multikey
+
+
 #################################
 # Toggle touchpad on/off
 #################################
@@ -163,6 +169,10 @@
 "sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
     m:0x40 + c:33
     Mod4 + p
+
+"sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
+    m:0x0 + c:128
+    XF86LaunchA
 
 #################################
 # rekey based on ctrl + display toggle key
