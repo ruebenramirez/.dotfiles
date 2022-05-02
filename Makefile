@@ -433,10 +433,14 @@ helmsman-install:
 	curl -L https://github.com/Praqma/helmsman/releases/download/v3.8.1/helmsman_3.8.1_linux_amd64.tar.gz | tar zx
 	sudo mv helmsman /usr/local/bin/helmsman
 
-firefox-flatpak-install:
+flatpak-install:
+	sudo apt install flatpak
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+firefox-flatpak-install: flatpak-install
 	sudo flatpak install org.mozilla.firefox
 
-zoom-flatpak-install:
+zoom-flatpak-install: flatpak-install
 	wget https://dl.flathub.org/repo/appstream/us.zoom.Zoom.flatpakref
 	sudo flatpak install ./us.zoom.Zoom.flatpakref
 
