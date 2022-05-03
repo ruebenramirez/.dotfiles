@@ -454,3 +454,13 @@ signal-private-messenger-install:
 	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 	# 3. Update your package database and install signal
 	sudo apt update && sudo apt install signal-desktop
+
+r-install:
+	sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+	sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+	sudo apt install -y r-base r-base-dev
+	R --version
+
+r-uninstall:
+	sudo apt remove -y --purge dirmngr gnupg apt-transport-https ca-certificates software-properties-common r-base r-base-dev
