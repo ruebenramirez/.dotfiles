@@ -21,7 +21,7 @@ plugins=(git encode64 jsontools redis-cli systemd vagrant debian docker kubectl)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:/opt/franz:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:/usr/java/jre1.8.0_333/:$PATH"
 export EDITOR=vim
 export PAGER=less
 
@@ -58,6 +58,7 @@ alias datestamp='date +%Y-%m-%d'
 alias datestamp-day='date "+%Y-%m-%d %A"'
 alias t='todo'
 alias tl='todolist'
+alias lock='/usr/bin/i3lock -c 000000 && xset dpms force off'
 alias lowpower='sudo pm-powersave true'
 alias highpower='sudo pm-powersave false'
 alias wifi='sudo systemctl restart networking NetworkManager && nm-applet &'
@@ -84,6 +85,15 @@ alias calc='sheets'
 alias pbcopy='xclip -se c -i'
 alias discord='Discord'
 alias vido='cd ~/.dotfiles/ && vi Makefile'
+
+### flatpak apps
+alias brave='com.brave.Browser'
+alias firefox='flatpak run org.mozilla.firefox'
+alias remmina='flatpak run org.remmina.Remmina'
+alias slack='flatpak run com.slack.Slack'
+alias teams='flatpak run com.microsoft.Teams'
+alias ungoogled-chromium='flatpak run com.github.Eloston.UngoogledChromium'
+alias zoom='flatpak run us.zoom.Zoom'
 
 ### terraform aliases
 alias tf='echo "terraform" && terraform'
@@ -137,6 +147,7 @@ alias hop='sshuttle --dns -vvr home-prod 0/0'
 alias hopvultr='sshuttle --dns -vvr vultr 0/0'
 alias hoplinode='sshuttle --dns -vvr linode 0/0'
 alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
+
 
 ### Python dev
 #export WORKON_HOME=~/Envs
