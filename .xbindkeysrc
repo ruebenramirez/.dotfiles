@@ -138,22 +138,16 @@
 # non-mac printscreen button
 "sh ~/bin/screenshot"
     m:0x0 + c:107
-        Print
+    Print
 
 #################################
 # lock screen
 ##################################
 
-# macbook pro
 "lock"
-    m:0xd + c:50
-    Control+Shift+Alt + Shift_L
+    m:0xd + c:65
+    Control+Shift+Alt + space
 
-
-# non-mac laptops
-"lock"
-    m:0xd + c:46
-    Control+Shift+Alt + l
 
 #################################
 # rescreen
