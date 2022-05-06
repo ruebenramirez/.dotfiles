@@ -1,9 +1,7 @@
 syndaemon -d -m 100 -t -k -i 2.0
 export BROWSER=google-chrome &
 
-$HOME/bin/reio
-$HOME/bin/rekey
-$HOME/bin/resreen
+$HOME/bin/re
 $HOME/bin/power-save-configs.sh
 
 # disable gnome window desktop background
@@ -29,6 +27,8 @@ xhost +local:
 
 # configure alacritty as default terminal emulator for non VM machines
 if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
+    # FIXME: appears to not be working as expected
+    #   environment variable is NOT available after i3 loads
     export TERMINAL=alacritty
 fi;
 
