@@ -1,18 +1,8 @@
-#!/bin/bash
-
-hostname=$(hostname -f)
-echo $hostname
-
-HOME_MONITOR=$(xrandr | egrep -i 'DP.*connected' | egrep -v 'disconnected|eDP' | wc -l)
+#!/usr/bin/env bash
 
 xrandr --auto
-if [[ $HOME_MONITOR == 1 ]]; then
-    echo "FOUND external display"
+if [[ $(xrandr | grep connected | grep -v disconnected | wc -l) -gt 1 ]]; then
     ~/.screenlayout/default.sh
-    ~/bin/max-brightness-lepow.sh
-else
-    echo "no external display"
-    xrandr --auto
 fi
 
 # refresh display background now that displays are updated
