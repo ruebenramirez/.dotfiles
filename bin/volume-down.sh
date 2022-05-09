@@ -9,5 +9,8 @@ set -e +x
 #     amixer sset Master 5%-
 # fi;
 
-amixer -D pulse sset Master 5%-
-amixer sset Master 5%-
+# amixer -D pulse sset Master 5%-
+# amixer sset Master 5%-
+
+pactl set-sink-volume @DEFAULT_SINK@ -10%
+
