@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DIR=$(pwd)
 
 #ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
-ubuntu: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
+dev-laptop: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
 	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc ddcutil aria2
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
@@ -480,3 +480,27 @@ r-install:
 
 r-uninstall:
 	sudo apt remove -y --purge dirmngr gnupg apt-transport-https ca-certificates software-properties-common r-base r-base-dev
+
+
+
+# TODO: test this rule works
+#
+# Goal: when I connect/disconnect my bluetooth headphones, I script runs to change my PulseAudio default sink to the headphones sink
+# my script is located at: ./bin/audio-config.sh
+#
+# udev rules directory
+# /etc/udev/rules.d
+#
+# Current issue:
+# 	- PulseAudio runs as rramirez user
+# 	- udev triggers script from root user context
+# 	- need to find a way to properly interface with the PulseAudio session (maybe via dbus launch?)
+#
+# Research on the issue:
+# 	- XDG_RUNTIME_DIR env var needed: https://unix.stackexchange.com/a/602706
+#	- dbus launch might help: https://askubuntu.com/questions/1322032/pactl-comands-in-sh-file-as-root#comment2252965_1322032
+udev-bluetooth-headphone-audio-config:
+	sudo cp udev_rules/50-bluetooth_headphones_rule.rules /etc/udev/rules.d
+	sudo chown root:root /etc/udev/rules.d/50-bluetooth_headphones_rule.rules
+	sudo udevadm control --reload
+

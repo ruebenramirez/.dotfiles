@@ -1,0 +1,1 @@
+ACTION=="add|change|move|remove" , SUBSYSTEM=="bluetooth", ATTR{idVendor}=="13032", ATTR{idProduct}=="3777578", RUN+="/home/rramirez/bin/audio-config.sh"
