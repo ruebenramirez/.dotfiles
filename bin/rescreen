@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 xrandr --auto
+xcalib -clear
+
 if [[ $(xrandr | grep connected | grep -v disconnected | wc -l) -gt 1 ]]; then
     ~/.screenlayout/default.sh
 fi
