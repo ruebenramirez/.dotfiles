@@ -165,13 +165,13 @@
     Mod4 + p
 
 "sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
-    m:0x0 + c:128
-    XF86LaunchA
+    m:0x4 + c:69
+    Control + F3
 
 #################################
 # rekey based on ctrl + display toggle key
 # (XPS 13: f8 + fn mod)
 ##################################
-"rekey && reio"
+"re"
     m:0x44 + c:33
     Control+Mod4 + p
