@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
 
 
-APP="/usr/local/bin/Obsidian*.AppImage"
-
-if [[ $(ls $APP | wc -l) -lt 2 ]]; then
-    $APP
-fi
+flatpak run md.obsidian.Obsidian

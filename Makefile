@@ -369,20 +369,6 @@ github-cli-install:
 	sudo apt update
 	sudo apt install gh
 
-obsidian_setup:
-	- sudo pkill obsidian
-	# remove old obsidian app
-	sudo rm -f /usr/local/bin/Obsidian*.AppImage
-	# download + install new obsidian app
-	URL=$$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases | jq -r '[.[] | .assets[] | select(.name|test("AppImage")) | .browser_download_url]' | grep -v 'arm64' | jq -r '.[0]') && \
-		FILE=$$(basename "$$URL") && \
-		wget $$URL && \
-		sudo chmod +x $$FILE && \
-		sudo mv $$FILE /usr/local/bin/$$FILE
-	# download notes
-	NOTES="$$HOME/Documents/notes" && \
-		if test ! -d $$NOTES; then git clone git@gitlab.com:ruebenramirez/notes.git $$NOTES; fi
-
 better-zoom-background:
 	# source: https://github.com/leftsidemonitor/ubuntu-zoom-virtual-background
 	# install dependencies
