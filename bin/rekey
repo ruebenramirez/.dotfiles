@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-set -e +x
+set +e -x
 
 echo "STARTING keyboard setup"
 
-killall xbindkeys
+echo "configuring keyboard shortcuts"
+killall xbindkeys || true
 xbindkeys -f ~/.xbindkeysrc
 
 echo "faster key repeat"
