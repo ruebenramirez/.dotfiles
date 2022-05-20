@@ -490,3 +490,9 @@ udev-bluetooth-headphone-audio-config:
 	sudo chown root:root /etc/udev/rules.d/50-bluetooth_headphones_rule.rules
 	sudo udevadm control --reload
 
+
+
+nix-packages:
+	nix-env -iA nixpkgs.tesseract \
+		nixpkgs.scrot \
+		nixpkgs.xsel

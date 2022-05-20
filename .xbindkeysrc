@@ -140,6 +140,21 @@
     m:0x0 + c:107
     Print
 
+
+#################################
+# screenshot to OCR text
+#################################
+# mac mission control button
+# "sh ~/bin/screenshot"
+#     m:0x0 + c:212
+#     XF86LaunchB
+#
+# non-mac printscreen button
+"~/bin/ocr-screenshot"
+    m:0x4 + c:107
+    Control + Print
+
+
 #################################
 # lock screen
 ##################################
