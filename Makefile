@@ -493,6 +493,4 @@ udev-bluetooth-headphone-audio-config:
 
 
 nix-packages:
-	nix-env -iA nixpkgs.tesseract \
-		nixpkgs.scrot \
-		nixpkgs.xsel
+	nix-env -iA nixpkgs.tesseract nixpkgs.scrot nixpkgs.xsel nixpkgs.hugo
