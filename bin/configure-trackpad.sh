@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e +x
+set +e -x
 
 echo "STARTING trackball setup"
 TRACKBALL_DEVICE=$(xinput --list | grep "MX Ergo" | cut -d '=' -f 2 | cut -f 1)
