@@ -4,7 +4,7 @@ set -e
 
 echo "STARTING keyboard setup"
 
-killall xbindkeys
+killall xbindkeys || true
 xbindkeys -f ~/.xbindkeysrc
 
 # swap escape and capslock if not in a VM (if in a VM, we have likely already swapped these keys)
