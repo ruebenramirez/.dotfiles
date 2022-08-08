@@ -50,14 +50,7 @@ alias macports='sudo lsof -n -i4TCP | grep LISTEN'
 alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
 alias visio='pencil'
 alias cb='xsel --clipboard'
-alias gn='geeknote'
 alias curlperf='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n"'
-alias timestamp='date +%Y-%m-%d:%H:%M:%S'
-alias timestamp-hyphenated='date +%Y-%m-%d-%H-%M-%S'
-alias datestamp='date +%Y-%m-%d'
-alias datestamp-day='date "+%Y-%m-%d %A"'
-alias t='todo'
-alias tl='todolist'
 alias lowpower='sudo pm-powersave true'
 alias highpower='sudo pm-powersave false'
 alias wifi='sudo systemctl restart networking NetworkManager && nm-applet &'
@@ -176,14 +169,10 @@ if [ -f '/home/rramirez/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/hom
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 
-# python poetry
-export PATH="$HOME/.poetry/bin:$PATH"
 
 # source: https://github.com/leftsidemonitor/ubuntu-zoom-virtual-background
 # better virtual background for zoom
@@ -201,6 +190,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval ""
 fi
+
+# python poetry
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # Nix
 export NIXPKGS_ALLOW_UNFREE=1
