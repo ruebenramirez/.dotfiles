@@ -35,7 +35,7 @@ backlight:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
 
-save-my-eyes: customBins update
+save-my-eyes: customBins
 	~/bin/redshift-config.sh
 
 power-management:
@@ -111,11 +111,13 @@ omz:
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /usr/bin/zsh
 
-vim: dotFiles customBins dev_packages
+#vim: dotFiles customBins dev_packages
+vim: dotFiles customBins
 	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev fuse
 	- sudo modprobe fuse
 	- sudo usermod -aG fuse $$(whoami)
 	- pip3 install --upgrade yamllint
+	- pip3 install black
 	- rm -fr ~/.vim
 	- rm -fr ~/.pyenv
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -214,8 +216,8 @@ ruby-dev:
 	git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 	sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 	mkdir -p ~/.rbenv/plugins
-	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins
-	git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+	git clone git://github.com/rbenv/ruby-build.git ~/.rbenv/plugins
+	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 
 sysdig:
@@ -490,7 +492,10 @@ udev-bluetooth-headphone-audio-config:
 	sudo chown root:root /etc/udev/rules.d/50-bluetooth_headphones_rule.rules
 	sudo udevadm control --reload
 
-
-
 nix-packages:
-	nix-env -iA nixpkgs.tesseract nixpkgs.scrot nixpkgs.xsel nixpkgs.hugo
+	nix-env -iA nixpkgs.tesseract nixpkgs.scrot nixpkgs.xsel nixpkgs.hugo nixpkgs.youtube-dl
+
+
+
+download-rust-install:
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > "install-rust-$$(datetime).sh"
