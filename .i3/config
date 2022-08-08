@@ -266,9 +266,9 @@ exec xautolock -time 3 -locker '~/bin/lock' &
 # startup apps
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /home/rramirez/bin/re
-exec --no-startup-id /usr/bin/flameshot
+#exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/bin/redshift
-exec --no-startup-id /usr/bin/blueman-applet
+#exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id '/usr/bin/insync start'
 
