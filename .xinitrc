@@ -32,4 +32,5 @@ if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
     export TERMINAL=alacritty
 fi;
 
+#exec xfce4
 exec i3
