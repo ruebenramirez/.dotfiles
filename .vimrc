@@ -1,6 +1,6 @@
 set encoding=utf-8
 set nocompatible              " be iMproved
-set wrap
+set nowrap
 filetype off                  " required!
 
 let mapleader = "\<Space>"
@@ -11,41 +11,29 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required!
 Plugin 'gmarik/vundle' " vim package management
-"Plugin 'python-mode/python-mode'
-Plugin 'ambv/black'
-"Plugin 'tell-k/vim-autopep8'
+Plugin 'python-mode/python-mode'
+Plugin 'psf/black'
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlp.vim'
 Plugin 'DirDiff.vim' " diff entire directories of files
-Plugin 'commentary.vim' " easily comment stuff out
+Plugin 'commentary.vim' " easily comment blocks of code
 Plugin 'mhinz/vim-signify' " show version control diffs
-"Plugin 'davidhalter/jedi-vim' " syntax autocompletion
 Plugin 'tpope/vim-markdown'
 Plugin 'ekalinin/Dockerfile.vim'
-"Plugin 'joonty/vdebug.git'
-Plugin 'taglist.vim'
 Plugin 'tpope/vim-dispatch'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'vim-ruby/vim-Ruby'
+Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-endwise'
 Plugin 'easymotion/vim-easymotion'
-"Plugin 'fatih/vim-go'
-Plugin 'majutsushi/tagbar'
-"Plugin 'tpope/vim-db'
+Plugin 'preservim/tagbar'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'posva/vim-vue'
 Plugin 'hashivim/vim-terraform'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'vim-syntastic/syntastic'
-"Plugin 'juliosueiras/vim-terraform-completion'
 Plugin 'tsandall/vim-rego'
 Plugin 'LnL7/vim-nix'
+Plugin 'fisadev/vim-isort'
 call vundle#end()
 
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 
 " display relative line numbers
 set number
@@ -73,9 +61,9 @@ autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufReadPost *.py.tpl set filetype=python
 
 " indentation: use spaces instead of tabs
-set smartindent
-set tabstop=4  shiftwidth=4 softtabstop=4 showtabline=4 expandtab
-" set tabstop=4 shiftwidth=4 expandtab
+"set smartindent
+"set tabstop=4  shiftwidth=4 softtabstop=4 showtabline=4 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 " set tabstop=2 shiftwidth=2 expandtab
 
 " set 2 space tabs when appropriate
@@ -86,6 +74,7 @@ autocmd FileType python,*.py.tpl setlocal tabstop=4 expandtab shiftwidth=4 softt
 
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :Black
 
 " Better diff highlighting
 highlight! link DiffText MatchParen
@@ -161,7 +150,7 @@ augroup vimrc_autocmds
     autocmd!
     autocmd FileType python highlight OverLength ctermfg=white ctermbg=red guibg=#592929
     autocmd FileType python match OverLength /\%81v.\+/
-    autocmd FileType python set nowrap
+    "autocmd FileType python set nowrap
     augroup END
 
 """"""""""""""""""""""""""""""""""""""
