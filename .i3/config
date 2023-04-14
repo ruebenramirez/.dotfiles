@@ -34,8 +34,10 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -261,16 +263,19 @@ mode "mouse" {
 bindsym $mod+$mod2+Shift+m mode "mouse"
 
 # auto lock machine after 3 minutes
-exec xautolock -time 3 -locker '~/bin/lock' &
+#exec xautolock -time 3 -locker '/home/rramirez/.dotfiles/bin/lock' &
 
 # startup apps
-exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /home/rramirez/bin/re
-#exec --no-startup-id /usr/bin/flameshot
-exec --no-startup-id /usr/bin/redshift
+exec --no-startup-id /home/rramirez/.dotfiles/bin/configure-trackpad.sh
+exec --no-startup-id tlp start
+exec --no-startup-id flameshot
+exec --no-startup-id /home/rramirez/.dotfiles/bin/re
+
+#exec --no-startup-id /usr/bin/redshift
 #exec --no-startup-id /usr/bin/blueman-applet
-exec --no-startup-id /usr/bin/pasystray
+#exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id '/usr/bin/insync start'
+#exec --no-startup-id /usr/bin/nm-applet
 
 # launch apps on specific workspaces
 #exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome'

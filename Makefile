@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
 DIR=$(pwd)
 
@@ -78,20 +78,20 @@ macbookpro_keyboard:
 dotFiles:
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
 
-	- unlink ~/.Xresources
-	if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
-			ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
-		else \
-			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
-		fi;
-	ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
-	ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
-	ln -sf $$(pwd)/.i3 ~/.config/i3
+#	- unlink ~/.Xresources
+#	#if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
+#			ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
+#		else \
+#			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
+#		fi;
+	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
+	- ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
+	- ln -sf $$(pwd)/.i3 ~/.config/i3
 	- unlink .i3/.i3
-	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
-	mkdir -p ~/.config/nvim
-	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
-	ln -sf $$(pwd)/sway ~/.config
+#	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
+#	mkdir -p ~/.config/nvim
+#	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
+#	ln -sf $$(pwd)/sway ~/.config
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
@@ -125,6 +125,13 @@ vim: dotFiles customBins
 	- mkdir -p ~/.config/yamllint
 	- cp yamllint_config.yml ~/.config/yamllint/config
 
+
+vim-plugins:
+	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	- vim +PluginInstall +qall
+	- mkdir -p ~/.config/yamllint
+	- cp yamllint_config.yml ~/.config/yamllint/config
+
 git:
 	- sudo apt-get install -y git git-lfs tig nodejs npm
 	- sudo npm install -g git-split-diffs
@@ -137,6 +144,14 @@ git:
 	- git config --global --replace-all core.pager "npx git-split-diffs --color | less -RFX"
 	- git config --global --replace-all split-diffs.min-line-width 40
 	- git config --global --replace-all split-diffs.theme-name github-light
+
+git-config:
+	- git config --global user.name "Rueben Ramirez"
+	- git config --global user.email ruebenramirez@gmail.com
+	- git config --global core.editor vim
+	- git config --global color.ui true
+	- git config --global pull.rebase true
+	- git config --global --replace-all core.pager "less -F -X"
 
 customBins:
 	if [ ! -d ~/bin/ ]; then \

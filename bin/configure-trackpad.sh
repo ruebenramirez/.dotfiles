@@ -2,6 +2,34 @@
 
 set +e -x
 
+
+echo "STARTING Thinkpad T490 trackpad setup"
+# configure trackpad
+T490_TRACKPAD="Elan Touchpad"
+if [[ $(xinput list | grep "$T490_TRACKPAD" | wc -l) > 0 ]]; then
+    echo "touchpad found: $T490_TRACKPAD"
+    xinput set-prop "$T490_TRACKPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$T490_TRACKPAD" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "$T490_TRACKPAD" "libinput Click Method Enabled" {0 1}
+    xinput set-prop "$T490_TRACKPAD" "libinput Accel Speed" .4
+    xinput set-prop "$T490_TRACKPAD" "libinput Accel Profile Enabled" 1, 0
+
+    if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
+        echo "speeding up cursor accel for XPS 17"
+        xinput set-prop "$T490_TRACKPAD" "libinput Accel Speed" .85
+    fi
+    xinput --enable "$T490_TRACKPAD"
+    xinput list-props "$T490_TRACKPAD"
+fi;
+echo "FINISHED Thinkpad T490 trackpad setup"
+
+
+exit 1;
+############################################################
+
+
+
+
 echo "STARTING trackball setup"
 TRACKBALL_DEVICE=$(xinput --list | grep "MX Ergo" | cut -d '=' -f 2 | cut -f 1)
 if [[ $(xinput list | grep "$TRACKBALL_DEVICE" | wc -l) > 0 ]]; then
