@@ -14,105 +14,50 @@
 #################################
 # Screen Brightness -
 #################################
-"~/bin/change-screen-brightness -- -5"
-    m:0x0 + c:232
+"sudo light -U 5"
+    c:232
     XF86MonBrightnessDown
-"~/bin/change-screen-brightness -- -5"
-    m:0x4 + c:71
-    Control + F5
-"~/bin/change-screen-brightness -- -1"
-    m:0x5 + c:232
-    Control+Shift + XF86MonBrightnessDown
-"~/bin/change-screen-brightness -- -1"
-    m:0x1 + c:232
-    Shift + XF86MonBrightnessDown
-"~/bin/change-screen-brightness -- -1"
-    m:0x4 + c:232
-    Control + XF86MonBrightnessDown
-
 
 
 #################################
 # Screen Brightness +
 #################################
-"~/bin/change-screen-brightness -- 5"
+"sudo light -A 5"
     m:0x0 + c:233
     XF86MonBrightnessUp
-"~/bin/change-screen-brightness -- 5"
-    m:0x4 + c:72
-    Control + F6
-"~/bin/change-screen-brightness -- 1"
-    m:0x5 + c:233
-    Control+Shift + XF86MonBrightnessUp
-"~/bin/change-screen-brightness -- 1"
-    m:0x1 + c:233
-    Shift + XF86MonBrightnessUp
-"~/bin/change-screen-brightness -- 1"
-    m:0x4 + c:233
-    Control + XF86MonBrightnessUp
-
-#################################
-# spotify commands via media keys
-#################################
-# play/pause
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-    m:0x0 + c:172
-    XF86AudioPlay
-
-# previous
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-    m:0x0 + c:173
-    XF86AudioPrev
-
-# forward
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-    m:0x0 + c:171
-    XF86AudioNext
-
-
 
 #################################
 # Volume Toggle Mute
 #################################
-"sh ~/bin/volume-mute-toggle.sh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-mute-toggle.sh"
     m:0x4 + c:76
     Control + F10
 
-"sh ~/bin/volume-mute-toggle.sh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-mute-toggle.sh"
     m:0x0 + c:121
     XF86AudioMute
 
 #################################
 # Volume Down
 #################################
-"sh ~/bin/volume-down.sh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-down.sh"
     m:0x4 + c:95
     Control + F11
 
-"sh ~/bin/volume-down.sh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-down.sh"
     m:0x0 + c:122
     XF86AudioLowerVolume
-
-# chromebook - TODO - does this work for chromebook?
-# "amixer set Master 10%-; sh ~/.xsetroot.sh"
-#     m:0x0 + c:122
-#     XF86AudioLowerVolume
 
 #################################
 # Volume Up
 #################################
-"sh ~/bin/volume-up.sh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-up.sh"
     m:0x4 + c:96
     Control + F12
 
-"sh ~/bin/volume-up.sh; sh ~/.xsetroot.sh"
+"sh ~/bin/volume-up.sh"
     m:0x0 + c:123
     XF86AudioRaseVolume
-
-# chromebook - TODO - does this work for chromebook?
-# "amixer set Master 10%+; sh ~/.xsetroot.sh"
-#     m:0x0 + c:123
-#     XF86AudioRaiseVolume
 
 #################################
 # reboot
@@ -179,19 +124,25 @@
 # insert datestamp + day
 # e.g. 2021-08-12 Thursday
 ##################################
-"sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
-    m:0x40 + c:33
-    Mod4 + p
+# won't work since I'm using fish and defaulted my modifier key in i3 to windows key (mod4)
+# "sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
+#     m:0x40 + c:33
+#     Mod4 + p
 
-# anne pro 2 60% keyboard
-"sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
-    m:0x4 + c:69
-    Control + F3
+# FIXME: I tried using this on NixOS and it breaks the keyboard
+# "sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
+#     m:0x4 + c:75
+#     Control + F9
 
-# keychon k8 TKL keyboard
-"sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
-    m:0x0 + c:128
-    XF86LaunchA
+# # anne pro 2 60% keyboard
+# "sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
+#     m:0x4 + c:69
+#     Control + F3
+
+# # keychon k8 TKL keyboard
+# "sleep 0.2; xdotool type --clearmodifiers $(date +%Y-%m-%d); xdotool key 0xff80; xdotool type --clearmodifiers $(date +%A)"
+#     m:0x0 + c:128
+#     XF86LaunchA
 
 
 

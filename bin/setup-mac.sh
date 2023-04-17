@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ $(sudo cat /sys/devices/virtual/dmi/id/chassis_vendor | grep -i apple | wc -l) > 0 || $(sudo lsusb | egrep -i "apple.*keyboard" | wc -l) -ge 1 ]]; then
     echo "setting up apple keyboard"

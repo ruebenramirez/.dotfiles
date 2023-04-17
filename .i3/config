@@ -9,9 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # use alt key for mod
-set $mod Mod1
+#set $mod Mod1
 # use windows key for mod
-# set $mod Mod4
+ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -38,6 +38,8 @@ floating_modifier $mod
 #bindsym $mod+Shift+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty
+# bindsym $mod+Return exec kitty
+# bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -266,17 +268,24 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 #exec xautolock -time 3 -locker '/home/rramirez/.dotfiles/bin/lock' &
 
 # startup apps
-exec --no-startup-id /home/rramirez/.dotfiles/bin/configure-trackpad.sh
+exec --no-startup-id /home/rramirez/bin/configure-trackpad.sh
+exec --no-startup-id xset r rate 220 60
 exec --no-startup-id tlp start
 exec --no-startup-id flameshot
 exec --no-startup-id /home/rramirez/.dotfiles/bin/re
+exec --no-startup-id blueman-applet
+exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
+exec --no-startup-id /home/rramirez/bin/trackpad-toggle.sh
 
 #exec --no-startup-id /usr/bin/redshift
-#exec --no-startup-id /usr/bin/blueman-applet
 #exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id '/usr/bin/insync start'
 #exec --no-startup-id /usr/bin/nm-applet
 
 # launch apps on specific workspaces
-#exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome'
-#exec --no-startup-id i3-msg 'workspace 10; exec /usr/bin/slack'
+# exec --no-startup-id i3-msg 'workspace 7; exec 1password'
+# exec --no-startup-id i3-msg 'workspace 9; exec chromium-browser --profile-directory="Default"' # personal profile
+# exec --no-startup-id i3-msg 'workspace 1; exec chromium-browser --profile-directory="Profile 1"' #nebulaworks profile
+# exec --no-startup-id i3-msg 'workspace 1; exec chromium-browser --profile-directory="Profile 2"' #exelixis profile
+# exec --no-startup-id i3-msg 'workspace 10; exec slack'
+# exec --no-startup-id i3-msg 'workspace 10; exec teams'

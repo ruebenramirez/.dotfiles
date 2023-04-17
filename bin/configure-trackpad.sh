@@ -2,9 +2,24 @@
 
 set +e -x
 
+# configure trackpad
+
+echo "STARTING Dell XPS 17 trackpad setup"
+DELL_17_TRACKPAD="DELL0A5D:00 04F3:311C Touchpad"
+if [[ $(xinput list | grep "$DELL_17_TRACKPAD" | wc -l) > 0 ]]; then
+    echo "touchpad found: $DELL_17_TRACKPAD"
+    xinput set-prop "$DELL_17_TRACKPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$DELL_17_TRACKPAD" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "$DELL_17_TRACKPAD" "libinput Click Method Enabled" {0 1}
+    xinput set-prop "$DELL_17_TRACKPAD" "libinput Accel Speed" .85
+    #xinput set-prop "$DELL_17_TRACKPAD" "libinput Accel Speed" .4
+    xinput set-prop "$DELL_17_TRACKPAD" "libinput Accel Profile Enabled" 1, 0
+    xinput --enable "$DELL_17_TRACKPAD"
+    xinput list-props "$DELL_17_TRACKPAD"
+fi;
+echo "FINISHED Dell XPS 17 trackpad setup"
 
 echo "STARTING Thinkpad T490 trackpad setup"
-# configure trackpad
 T490_TRACKPAD="Elan Touchpad"
 if [[ $(xinput list | grep "$T490_TRACKPAD" | wc -l) > 0 ]]; then
     echo "touchpad found: $T490_TRACKPAD"
@@ -13,11 +28,6 @@ if [[ $(xinput list | grep "$T490_TRACKPAD" | wc -l) > 0 ]]; then
     xinput set-prop "$T490_TRACKPAD" "libinput Click Method Enabled" {0 1}
     xinput set-prop "$T490_TRACKPAD" "libinput Accel Speed" .4
     xinput set-prop "$T490_TRACKPAD" "libinput Accel Profile Enabled" 1, 0
-
-    if [[ $(~/bin/is-xps-17) -gt 0 ]]; then
-        echo "speeding up cursor accel for XPS 17"
-        xinput set-prop "$T490_TRACKPAD" "libinput Accel Speed" .85
-    fi
     xinput --enable "$T490_TRACKPAD"
     xinput list-props "$T490_TRACKPAD"
 fi;

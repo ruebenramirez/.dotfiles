@@ -6,11 +6,6 @@ import subprocess
 DEBUG = False
 
 
-def setup_keyboard():
-    if is_apple_device() or has_apple_keyboard_attached():
-        configure_apple_keyboard()
-
-
 def configure_apple_keyboard():
     os.system("""
               echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode;
@@ -22,8 +17,8 @@ def configure_apple_keyboard():
 
 def is_apple_device():
     file = '/sys/devices/virtual/dmi/id/chassis_vendor'
-    search = 'apple'
-    return find_in_file(file, search)
+    term = 'apple'
+    return file_has_term(file, term)
 
 
 def has_apple_keyboard_attached():
@@ -36,7 +31,7 @@ def has_apple_keyboard_attached():
     return True
 
 
-def find_in_file(file, search_term, case_insensitive=True):
+def file_has_term(file, search_term, case_insensitive=True):
     line = read_line_from_file(file)
     if case_insensitive:
         line = line.lower()
@@ -60,7 +55,8 @@ def main():
         print("is an apple keyboard plugged in?")
         print(has_apple_keyboard_attached())
 
-    setup_keyboard()
+    if is_apple_device() or has_apple_keyboard_attached():
+        configure_apple_keyboard()
 
 
 if __name__ == "__main__":
