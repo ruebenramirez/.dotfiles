@@ -104,13 +104,18 @@
 # lock screen
 ##################################
 
-"lock"
-    m:0xd + c:65
-    Control+Shift+Alt + space
+# "lock"
+#     m:0xd + c:65
+#     Control+Shift+Alt + space
 
-"lock"
-    m:0xc + c:37
-    Control+Alt + Control_L
+# "lock"
+#     m:0xc + c:37
+#     Control+Alt + Control_L
+
+# FIXME: doesn't seem to work with fish shell running in terminal
+# "lock"
+#     m:0xd + c:64
+#     Control+Shift+Alt + Alt_L
 
 
 #################################
