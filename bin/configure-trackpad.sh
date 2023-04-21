@@ -9,6 +9,7 @@ DELL_17_TRACKPAD="DELL0A5D:00 04F3:311C Touchpad"
 if [[ $(xinput list | grep "$DELL_17_TRACKPAD" | wc -l) > 0 ]]; then
     echo "touchpad found: $DELL_17_TRACKPAD"
     xinput set-prop "$DELL_17_TRACKPAD" "libinput Tapping Enabled" 0
+    #xinput set-prop "$DELL_17_TRACKPAD" "libinput Tapping Enabled" 1
     xinput set-prop "$DELL_17_TRACKPAD" "libinput Natural Scrolling Enabled" 1
     xinput set-prop "$DELL_17_TRACKPAD" "libinput Click Method Enabled" {0 1}
     xinput set-prop "$DELL_17_TRACKPAD" "libinput Accel Speed" .85

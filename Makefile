@@ -73,25 +73,18 @@ update:
 	- fwupdmgr update
 
 macbookpro_keyboard:
-	/usr/bin/python3 /home/rramirez/bin/setup-apple-keyboard.py
+	/usr/bin/env python3 /home/rramirez/bin/setup-apple-keyboard.py
 
 dotFiles:
-	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
-
-#	- unlink ~/.Xresources
-#	#if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
-#			ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
-#		else \
-#			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
-#		fi;
-	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
-	- ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
+	- unlink ~/.Xresources
+	if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
+			ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
+		else \
+			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
+		fi;
 	- ln -sf $$(pwd)/.i3 ~/.config/i3
-	- unlink .i3/.i3
-#	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
-#	mkdir -p ~/.config/nvim
-#	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
-#	ln -sf $$(pwd)/sway ~/.config
+	- ln -sf $$(pwd)/fish/ ~/.config/alacritty
+	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
