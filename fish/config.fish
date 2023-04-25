@@ -1,6 +1,6 @@
 if status --is-interactive
-    keychain -q --eval ~/.ssh/id_rsa | source
-    keychain -q --eval ~/.ssh/exelixis_github | source
+    keychain -q --eval ~/.ssh/id_ed25519 | source
+    keychain -q --eval ~/.ssh/exelixis_github_ed25519 | source
 end
 
 # helpful aliases
