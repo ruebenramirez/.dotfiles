@@ -179,10 +179,6 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/ubuntu-zoom-virtual-background; docker-compose up &;'
 alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
 
-# work dir aliases
-alias internal='cd ~/nebulaworks/internal/'
-alias cust='cd ~/nebulaworks/cust/'
-
 # new pyenv path
 export PATH="/usr/local/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
