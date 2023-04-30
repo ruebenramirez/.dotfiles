@@ -1,4 +1,5 @@
 if status --is-interactive
+    set -lx SHELL fish
     keychain -q --eval ~/.ssh/id_ed25519 | source
     keychain -q --eval ~/.ssh/exelixis_github_ed25519 | source
 end
@@ -19,7 +20,7 @@ alias tre="tree"
 
 # shortcuts
 alias hf="hostname -f"
-alias vi="vim"
+alias vi="nvim"
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection clipboard -o"
 alias ll="ls -lah"

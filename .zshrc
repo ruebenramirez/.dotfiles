@@ -26,10 +26,10 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
+alias vi='nvim'
 alias k='kubectl'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
-alias vi='vim'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 alias sl='ls'
@@ -152,8 +152,8 @@ export PATH="$HOME/gocode/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # keychain used to store ssh session across local terminal shells
-eval `keychain -q --eval ~/.ssh/id_rsa`
-eval `keychain -q --eval ~/.ssh/exelixis_github`
+eval `keychain -q --eval ~/.ssh/id_ed25519`
+eval `keychain -q --eval ~/.ssh/exelixis_github_ed25519`
 
 # GTA2 PC game launcher
 alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'

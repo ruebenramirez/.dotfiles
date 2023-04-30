@@ -1,0 +1,23 @@
+with import <nixpkgs> {}; [
+  calc
+  coreutils-full
+  fd
+  flameshot
+  jq
+  nasm
+  neovim
+  nodejs
+  pwgen
+  python3
+  ripgrep
+  ruby_3_1
+  shellcheck
+  socat
+  tmux
+  tree
+  universal-ctags
+  zsh-syntax-highlighting
+  cargo
+  curl
+  wget
+]
