@@ -272,6 +272,7 @@ exec --no-startup-id /home/rramirez/bin/configure-trackpad.sh
 exec --no-startup-id xset r rate 220 60
 exec --no-startup-id tlp start
 exec --no-startup-id flameshot
+exec --no-startup-id nm-applet
 exec --no-startup-id /home/rramirez/.dotfiles/bin/re
 exec --no-startup-id blueman-applet
 exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
