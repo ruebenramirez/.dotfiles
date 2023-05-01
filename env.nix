@@ -1,4 +1,5 @@
 with import <nixpkgs> {}; [
+  rtorrent
   calc
   coreutils-full
   fd
@@ -20,4 +21,9 @@ with import <nixpkgs> {}; [
   cargo
   curl
   wget
+  speedtest-cli
+  fzf
+  grc
+  unixtools.netstat
+  shellcheck
 ]
