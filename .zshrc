@@ -158,9 +158,6 @@ eval `keychain -q --eval ~/.ssh/exelixis_github_ed25519`
 # GTA2 PC game launcher
 alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'
 
-# Rust dev
-source $HOME/.cargo/env
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
