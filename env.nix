@@ -6,7 +6,6 @@ with import <nixpkgs> {}; [
   flameshot
   jq
   nasm
-  neovim
   nodejs
   pwgen
   python3
@@ -26,4 +25,9 @@ with import <nixpkgs> {}; [
   grc
   unixtools.netstat
   shellcheck
+  watch
+  tig
+  neovim
+  git
+  git-lfs
 ]
