@@ -1,5 +1,6 @@
 if status --is-interactive
     set -lx SHELL fish
+    cat /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh | source
     keychain -q --eval ~/.ssh/id_ed25519 | source
     keychain -q --eval ~/.ssh/exelixis_github_ed25519 | source
 end
