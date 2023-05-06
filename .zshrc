@@ -29,12 +29,13 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
-alias vi='vim'
+alias vi='nvim'
 alias k='kubectl'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
+alias ls='ls --color'
 alias sl='ls'
 alias lll='ls -lah'
 alias ll='ls -lah'
