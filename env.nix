@@ -30,4 +30,6 @@ with import <nixpkgs> {}; [
   neovim
   git
   git-lfs
+  nodejs
+  nodePackages.npm
 ]
