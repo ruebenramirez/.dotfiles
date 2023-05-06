@@ -16,9 +16,12 @@ HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git encode64 jsontools redis-cli systemd vagrant debian docker kubectl)
+plugins=(git jsontools systemd docker)
 
 source $ZSH/oh-my-zsh.sh
+
+# z - jump around app
+. ~/Documents/code/z/z.sh
 
 # User configuration
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:/usr/java/jre1.8.0_333/:$PATH"
@@ -26,7 +29,7 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
-alias vi='nvim'
+alias vi='vim'
 alias k='kubectl'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
@@ -37,46 +40,30 @@ alias lll='ls -lah'
 alias ll='ls -lah'
 alias lt='ls -lat'
 alias lth='ls -lat | head'
-alias tmuxa='tmux a'
 alias celar='clear'
 alias cleawr='clear'
-alias cleargs='clear && gs'
 alias os='cat /etc/*release*'
 alias xit='exit'
 alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
 alias portsg='sudo netstat -netpul | grep $*'
-alias macports='sudo lsof -n -i4TCP | grep LISTEN'
-alias redwm='cd /usr/local/src/dwm-6.0; make clean && sudo make install'
-alias visio='pencil'
-alias cb='xsel --clipboard'
 alias curlperf='curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n"'
 alias lowpower='sudo pm-powersave true'
 alias highpower='sudo pm-powersave false'
-alias wifi='sudo systemctl restart networking NetworkManager && nm-applet &'
 alias tre='tree'
-alias rc='rails console'
-alias rs='rails server'
-alias sdig='sudo csysdig'
-alias pidgin='pidgin & pidgin &' # pidgin doesn't always reload the UI in i3
 alias def='define'
 alias psg='echo "ps auxf | grep -v grep | grep -i $* " && ps auxf | grep -v grep | grep -i $*'
 alias gci='google-chrome --incognito'
-alias sound-config='pavucontrol &'
 alias t='tmux'
 alias tls='tmux ls'
+alias tmuxa='tmux a'
 alias ta='tmux a'
 alias tad='tmux a -d'
 alias lynx='lynx -vikeys -accept_all_cookies'
 alias update='pushd ~/.dotfiles/ && make update && popd && omz update'
 alias powertop='sudo powertop'
 alias nethogs='sudo nethogs'
-alias writer='libreoffice --writer'
-alias sheets='libreoffice --calc'
-alias calc='sheets'
-alias pbcopy='xclip -se c -i'
-alias discord='Discord'
-alias vido='cd ~/.dotfiles/ && vi Makefile'
+
 
 ### terraform aliases
 alias tf='echo "terraform" && terraform'
@@ -93,13 +80,9 @@ alias gcom='echo "git commit" && git commit'
 alias gcommit='echo "git commit" && git commit'
 alias gb='echo "git branch" && git --no-pager branch'
 alias gbr='echo "git branch --remote" && git branch --remote'
-alias gba='echo "git branch -a" && git branch -a'
 alias gbd='echo "git branch -D" && git branch -D'
 alias gr='echo "git remote -v" && git remote -v'
-alias gremote='echo "git remote -v" && git remote -v'
 alias ghist='echo "git log -p" && git log -p'
-alias gpull='echo "git pull" && git pull'
-alias gpl='echo "git pull" && git pull'
 alias gpom='git branch | egrep "master|main" | xargs -I"{}" git pull -r origin {}'
 alias gpush='echo "git push" && git push'
 alias gps='echo "git push" && git push'
@@ -122,53 +105,10 @@ alias dci="echo 'docker clean images' && docker images | grep none | awk '{print
 alias dc='echo "docker clean zombie containers" && docker rm \$(docker ps -q -a)'
 alias dcs='echo "docker-compose" && docker-compose'
 
-### vpn stuffs
-alias firevpn='/opt/firefox/firefox'
-alias ntvpn='sudo vpnc nt.conf'
-alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
-alias hop='sshuttle --dns -vvr home-prod 0/0'
-alias hopvultr='sshuttle --dns -vvr vultr 0/0'
-alias hoplinode='sshuttle --dns -vvr linode 0/0'
-alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
-
-
-### Python dev
-#export WORKON_HOME=~/Envs
-#mkdir -p $WORKON_HOME
-#source /usr/local/bin/virtualenvwrapper.sh
-alias py='python3'
-
-### Node version manager (NVM)
-export NVM_DIR="/home/rramirez/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-### Go dev
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gocode
-export PATH="$HOME/gocode/bin:$PATH"
-
-### import project specific configs
-. ~/.dotfiles/projects/.*rc
-export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # keychain used to store ssh session across local terminal shells
 eval `keychain -q --eval ~/.ssh/id_ed25519`
 eval `keychain -q --eval ~/.ssh/exelixis_github_ed25519`
-
-# GTA2 PC game launcher
-alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/rramirez/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/rramirez/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# tfenv
-export PATH="$HOME/.tfenv/bin:$PATH"
 
 # new pyenv path
 export PATH="/usr/local/bin:$PATH"
