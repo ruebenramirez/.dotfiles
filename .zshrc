@@ -25,7 +25,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:/usr/java/jre1.8.0_333/:$PATH"
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER=less
 
 # helpful aliases
