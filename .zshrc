@@ -24,8 +24,8 @@ source $ZSH/oh-my-zsh.sh
 . ~/Documents/code/z/z.sh
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:/usr/java/jre1.8.0_333/:$PATH"
-export EDITOR=nvim
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:/usr/java/jre1.8.0_333/:/opt/apache-maven-3.9.5/bin:$PATH"
+export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
