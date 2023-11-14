@@ -112,10 +112,66 @@ alias dci="echo 'docker clean images' && docker images | grep none | awk '{print
 alias dc='echo "docker clean zombie containers" && docker rm \$(docker ps -q -a)'
 alias dcs='echo "docker-compose" && docker-compose'
 
+### vpn stuffs
+alias firevpn='/opt/firefox/firefox'
+alias ntvpn='sudo vpnc nt.conf'
+alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
+alias hop='sshuttle --dns -vvr home-prod 0/0'
+alias hopvultr='sshuttle --dns -vvr vultr 0/0'
+alias hoplinode='sshuttle --dns -vvr linode 0/0'
+alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
+
+
+### Python dev
+#export WORKON_HOME=~/Envs
+#mkdir -p $WORKON_HOME
+#source /usr/local/bin/virtualenvwrapper.sh
+alias py='python3'
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+### Go dev
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/gocode
+export PATH="$HOME/gocode/bin:$PATH"
+
+### import project specific configs
+. ~/.dotfiles/projects/.*rc
+export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # keychain used to store ssh session across local terminal shells
 eval `keychain -q --eval ~/.ssh/id_ed25519`
-eval `keychain -q --eval ~/.ssh/exelixis_github_ed25519`
+
+# GTA2 PC game launcher
+alias gta2='WINEPREFIX="$HOME/wine-gta2" wine "/home/rramirez/wine-gta2/drive_c/games/GTA2/gh/gta2gh.exe"'
+
+# Rust dev
+source $HOME/.cargo/env
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/rramirez/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/rramirez/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rramirez/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# tfenv
+export PATH="$HOME/.tfenv/bin:$PATH"
+
+
+# source: https://github.com/leftsidemonitor/ubuntu-zoom-virtual-background
+# better virtual background for zoom
+alias fakecam='sudo modprobe -r v4l2loopback;sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;cd ~/ubuntu-zoom-virtual-background; docker-compose up &;'
+alias stopcam='cd ~/ubuntu-zoom-virtual-background; docker-compose down &;'
+
+# work dir aliases
+alias internal='cd ~/nebulaworks/internal/'
+alias cust='cd ~/nebulaworks/cust/'
 
 # new pyenv path
 export PATH="/usr/local/bin:$PATH"
@@ -132,3 +188,4 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export NIXPKGS_ALLOW_UNFREE=1
 export PATH="$HOME/.nix-profile/bin:$PATH"
 if [ -e /home/rramirez/.nix-profile/etc/profile.d/nix.sh ]; then . /home/rramirez/.nix-profile/etc/profile.d/nix.sh; fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
