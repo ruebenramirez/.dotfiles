@@ -64,7 +64,13 @@ alias lynx='lynx -vikeys -accept_all_cookies'
 alias update='pushd ~/.dotfiles/ && make update && popd && omz update'
 alias powertop='sudo powertop'
 alias nethogs='sudo nethogs'
-
+alias ncdu='sudo ncdu'
+alias writer='libreoffice --writer'
+alias sheets='libreoffice --calc'
+alias calc='sheets'
+alias pbcopy='xclip -se c -i'
+alias discord='Discord'
+alias vido='cd ~/.dotfiles/ && vi Makefile'
 
 ### terraform aliases
 alias tf='echo "terraform" && terraform'
