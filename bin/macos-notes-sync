@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+
+cd /Users/ruebenramirez/Documents/notes/ || exit
+
+echo ">>>>>>>>>>macos-notes-sync - inside $(pwd)"
+
+echo "which git: $(which git)"
+echo "whoami: $(whoami)"
+echo "$(git status 2>&1)"
+
+git pull --no-rebase
+
+NOTES_UPDATED="$(git status --porcelain | wc -l)"
+
+echo ">>>>>>>>>>macos-notes-sync - updates to push $NOTES_UPDATED"
+if [[ "$NOTES_UPDATED" -gt 0 ]]; then
+    git add .
+    git commit -q -m "Last Sync: $(date +"%Y-%m-%d %H:%M:%S") cron running from: $(hostname -f)"
+fi
+
+echo ">>>>>>>>>>macos-notes-sync - changes commited!  Remaining changes not committed $(git status --porcelain | wc -l)"
+
+git push -q

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+#set -x
+
+
+# requirements
+# brew install -y yt-dlp tor ffmpeg
+
+
+if [[ -z "$1" ]]; then
+    echo "Missing a Youtube URL"
+    exit 1
+fi
+
+
+# check if tor is running (macOS)
+if [[ $(lsof -i :9050 | wc -l) -lt 1 ]]; then
+    echo "running tor in the background";
+    tor &
+fi
+
+cd ~/Music
+
+status=1
+while [[ status -gt 0 ]]; do
+    yt-dlp -f 250 --embed-metadata --proxy socks5://localhost:9050 "$1"
+    status=$?
+done
+
+# TODO: check if other yt-dlp processes are running
+#sudo pkill tor
