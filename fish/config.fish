@@ -2,6 +2,12 @@ if status --is-interactive
     set -lx SHELL fish
     #cat /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh | source
     keychain -q --eval ~/.ssh/id_ed25519 | source
+    #test $TERM != "screen"; and exec tmux
+end
+
+if status --is-interactive
+and not set -q TMUX
+    exec tmux
 end
 
 # helpful aliases
