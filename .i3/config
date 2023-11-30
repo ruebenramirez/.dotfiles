@@ -277,16 +277,13 @@ exec --no-startup-id /home/rramirez/.dotfiles/bin/re
 exec --no-startup-id blueman-applet
 exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 exec --no-startup-id /home/rramirez/bin/trackpad-toggle.sh
+exec --no-startup-id i3-msg 'workspace 8; exec betterbird'
+exec --no-startup-id i3-msg 'workspace 9; exec brave'
+exec --no-startup-id i3-msg 'workspace 7; exec 1password'
+exec --no-startup-id i3-msg 'workspace 10; exec slack'
+exec --no-startup-id i3-msg 'workspace 10; exec signal-desktop'
+exec --no-startup-id i3-msg 'workspace 10; exec discord'
 
 #exec --no-startup-id /usr/bin/redshift
 #exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id '/usr/bin/insync start'
-#exec --no-startup-id /usr/bin/nm-applet
-
-# launch apps on specific workspaces
-# exec --no-startup-id i3-msg 'workspace 7; exec 1password'
-# exec --no-startup-id i3-msg 'workspace 9; exec chromium-browser --profile-directory="Default"' # personal profile
-# exec --no-startup-id i3-msg 'workspace 1; exec chromium-browser --profile-directory="Profile 1"' #nebulaworks profile
-# exec --no-startup-id i3-msg 'workspace 1; exec chromium-browser --profile-directory="Profile 2"' #exelixis profile
-# exec --no-startup-id i3-msg 'workspace 10; exec slack'
-# exec --no-startup-id i3-msg 'workspace 10; exec teams'

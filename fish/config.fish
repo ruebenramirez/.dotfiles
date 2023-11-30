@@ -1,8 +1,7 @@
 if status --is-interactive
     set -lx SHELL fish
-    cat /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh | source
+    #cat /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh | source
     keychain -q --eval ~/.ssh/id_ed25519 | source
-    keychain -q --eval ~/.ssh/exelixis_github_ed25519 | source
 end
 
 # helpful aliases
@@ -21,7 +20,7 @@ alias tre="tree"
 
 # shortcuts
 alias hf="hostname -f"
-alias vi="nvim"
+alias vi="vim"
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection clipboard -o"
 alias ll="ls -lah"

@@ -3,6 +3,22 @@
 set +e -x
 
 # configure trackpad
+#
+echo "STARTING P14s trackpad setup"
+P14s_TRACKPAD="SYNA8018:00 06CB:CE67 Touchpad"
+if [[ $(xinput list | grep "$P14s_TRACKPAD" | wc -l) > 0 ]]; then
+    echo "touchpad found: $DELL_17_TRACKPAD"
+    #xinput set-prop "$P14s_TRACKPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$P14s_TRACKPAD" "libinput Tapping Enabled" 1
+    xinput set-prop "$P14s_TRACKPAD" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "$P14s_TRACKPAD" "libinput Click Method Enabled" {0 1}
+    xinput set-prop "$P14s_TRACKPAD" "libinput Accel Speed" .85
+    #xinput set-prop "$P14s_TRACKPAD" "libinput Accel Speed" .4
+    xinput set-prop "$P14s_TRACKPAD" "libinput Accel Profile Enabled" 1, 0
+    xinput --enable "$P14s_TRACKPAD"
+    xinput list-props "$P14s_TRACKPAD"
+fi;
+echo "FINISHED P14s trackpad setup"
 
 echo "STARTING Dell XPS 17 trackpad setup"
 DELL_17_TRACKPAD="DELL0A5D:00 04F3:311C Touchpad"
