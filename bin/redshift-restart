@@ -2,8 +2,7 @@
 
 echo "restarting redshift service"
 systemctl --user stop redshift
-sleep 5
+sleep 2
 systemctl --user start redshift
-systemctl --user status redshift
 
 
