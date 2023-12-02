@@ -108,6 +108,9 @@
     m:0xd + c:46
     Control+Shift+Alt + l
 
+"sleepytime"
+    m:0xd + c:39
+    Control+Shift+Alt + s
 
 #################################
 # rescreen
