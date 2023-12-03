@@ -1,7 +1,8 @@
 set encoding=utf-8
 set nocompatible              " be iMproved
-set nowrap
+set wrap
 filetype off                  " required!
+set textwidth=90
 
 let mapleader = "\<Space>"
 
