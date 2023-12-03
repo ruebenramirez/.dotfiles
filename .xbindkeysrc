@@ -4,117 +4,79 @@
 # xbindkeys --multikey
 
 
-#################################
 # Toggle touchpad on/off
-#################################
 "~/bin/trackpad-toggle.sh"
     m:0x4 + c:66
     Control + Escape
 
-#################################
 # Screen Brightness -
-#################################
 "sudo light -U 5"
     c:232
     XF86MonBrightnessDown
 
-
-#################################
 # Screen Brightness +
-#################################
 "sudo light -A 5"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
-#################################
 # Volume Toggle Mute
-#################################
 "sh ~/bin/volume-mute-toggle.sh"
     m:0x4 + c:76
     Control + F10
 
+# Volume Toggle Mute
 "sh ~/bin/volume-mute-toggle.sh"
     m:0x0 + c:121
     XF86AudioMute
 
-#################################
 # Volume Down
-#################################
 "sh ~/bin/volume-down.sh"
     m:0x4 + c:95
     Control + F11
 
+# Volume Down
 "sh ~/bin/volume-down.sh"
     m:0x0 + c:122
     XF86AudioLowerVolume
 
-#################################
 # Volume Up
-#################################
 "sh ~/bin/volume-up.sh"
     m:0x4 + c:96
     Control + F12
 
+# Volume Up
 "sh ~/bin/volume-up.sh"
     m:0x0 + c:123
     XF86AudioRaseVolume
 
-#################################
 # reboot
-#################################
-"sudo reboot"
+"shutdown -fr now"
     m:0x4 + c:124
     Control + XF86PowerOff
 
-#################################
 # disable power button
-#################################
 ""
     c:124
     PowerOff
 
-#################################
-# screenshot capture
-#################################
-# mac mission control button
+# screenshot capture - mac mission control button
 "sh ~/bin/screenshot"
     m:0x0 + c:212
     XF86LaunchB
+
 # non-mac printscreen button
 "sh ~/bin/screenshot"
     m:0x0 + c:107
     Print
 
-
-#################################
-# screenshot to OCR text
-#################################
-# mac mission control button
-# "sh ~/bin/screenshot"
-#     m:0x0 + c:212
-#     XF86LaunchB
-#
-# non-mac printscreen button
-"~/bin/ocr-screenshot"
+"ocr-screenshot"
     m:0x4 + c:107
     Control + Print
-
-
-#################################
-# lock screen
-##################################
 
 "lock"
     m:0xd + c:46
     Control+Shift+Alt + l
 
-"sleepytime"
-    m:0xd + c:39
-    Control+Shift+Alt + s
-
-#################################
-# rescreen
-##################################
 "rescreen"
     m:0x8 + c:128
     Alt + XF86LaunchA
@@ -144,18 +106,14 @@
 #     XF86LaunchA
 
 
-
-#################################
-# rekey based on ctrl + display toggle key
-# (XPS 13: f8 + fn mod)
-##################################
+# configure display, keyboard, trackpad, and audio
 "re"
     m:0x44 + c:33
     Control+Mod4 + p
 
 
 
-# toggle notifications
+# toggle focus mode (notifications)
 "toggle-notifications.sh"
     m:0x0 + c:224
     XF86Messenger
