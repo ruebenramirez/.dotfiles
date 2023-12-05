@@ -4,3 +4,4 @@
 ~/bin/rekey
 ~/bin/configure-trackpad.sh
 ~/bin/audio-config.sh
+~/bin/trackpad-toggle.sh

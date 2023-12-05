@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-TOUCHPAD=$(sh ~/bin/touchpad-name)
-if [[ $(xinput --list "$TOUCHPAD" | grep -i disabled | wc -l) > 0 ]]; then
-    xinput --enable "$TOUCHPAD"
+TRACKPAD=$(sh ~/bin/trackpad-name)
+if [[ $(xinput --list "$TRACKPAD" | grep -ic disabled) > 0 ]]; then
+    xinput --enable "$TRACKPAD"
 else
-    xinput --disable "$TOUCHPAD"
+    xinput --disable "$TRACKPAD"
 fi;
 
