@@ -49,15 +49,9 @@
     m:0x0 + c:123
     XF86AudioRaseVolume
 
-# reboot
-"shutdown -fr now"
+"shutdown -f now"
     m:0x4 + c:124
     Control + XF86PowerOff
-
-# disable power button
-""
-    c:124
-    PowerOff
 
 # screenshot capture - mac mission control button
 "sh ~/bin/screenshot"
