@@ -1,0 +1,337 @@
+// vim:ts=4:sw=4:et
+
+
+terminal on 2
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "fullscreen_mode": 1,
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            // tabbed split container with 1 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "marks": [],
+            "percent": null,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 600,
+                       "width": 800,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "marks": [],
+                    "name": "Alacritty",
+                    "percent": 1,
+                    "swallows": [
+                       {
+                       // "class": "^Alacritty$",
+                       // "instance": "^Alacritty$",
+                       // "machine": "^P14s$",
+                       // "title": "^Alacritty$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+
+notes on 3
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "none",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1181,
+               "width": 1920,
+               "x": 0,
+               "y": 19
+            },
+            "marks": [],
+            "name": "2023-11-30 - notes - Obsidian v1.4.16",
+            "percent": 1,
+            "swallows": [
+               {
+               // "class": "^obsidian$",
+               // "instance": "^obsidian$",
+               // "machine": "^P14s$",
+               // "title": "^2023\\-11\\-30\\ \\-\\ notes\\ \\-\\ Obsidian\\ v1\\.4\\.16$",
+               // "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+passwords on 7
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1161,
+               "width": 1916,
+               "x": 2,
+               "y": 37
+            },
+            "marks": [],
+            "name": "Lock Screen — 1Password",
+            "percent": 1,
+            "swallows": [
+               {
+               // "class": "^1Password$",
+               // "instance": "^1password$",
+               // "machine": "^P14s$",
+               // "title": "^Lock\\ Screen\\ \\—\\ 1Password$",
+               // "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+// email on 8
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1161,
+               "width": 1916,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "🍋 RIP to a Legend - read_later - ruebenramirez@gmail.com - Betterbird",
+            "percent": 1,
+            "swallows": [
+               {
+               // "class": "^betterbird$",
+               // "instance": "^Mail$",
+               // "machine": "^P14s$",
+               // "title": "^🍋\\ RIP\\ to\\ a\\ Legend\\ \\-\\ read_later\\ \\-\\ ruebenramirez\\@gmail\\.com\\ \\-\\ Betterbird$",
+               // "window_role": "^3pane$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+// browsers on 9
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            // tabbed split container with 3 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "marks": [],
+            "percent": null,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1161,
+                       "width": 1916,
+                       "x": 2,
+                       "y": 37
+                    },
+                    "marks": [],
+                    "name": "IOS - NixOS Wiki - Brave",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                       // "class": "^Brave\\-browser$",
+                       // "instance": "^brave\\-browser$",
+                       // "machine": "^P14s$",
+                       // "title": "^IOS\\ \\-\\ NixOS\\ Wiki\\ \\-\\ Brave$",
+                       // "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+// chats on 10
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": 1,
+    "type": "workspace",
+    "nodes": [
+        {
+            // tabbed split container with 4 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "marks": [],
+            "percent": null,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1161,
+                       "width": 1916,
+                       "x": 2,
+                       "y": 37
+                    },
+                    "marks": [],
+                    "name": "_business - nomadsphere - Slack",
+                    "percent": 0.25,
+                    "swallows": [
+                       {
+                       // "class": "^Slack$",
+                       // "instance": "^slack$",
+                       // "machine": "^P14s$",
+                       // "title": "^_business\\ \\-\\ nomadsphere\\ \\-\\ Slack$",
+                       // "window_role": "^browser\\-window$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 768,
+                       "width": 1024,
+                       "x": 448,
+                       "y": 216
+                    },
+                    "marks": [],
+                    "name": "Element * | jshcmpbll",
+                    "percent": 0.25,
+                    "swallows": [
+                       {
+                       // "class": "^Element$",
+                       // "instance": "^element$",
+                       // "machine": "^P14s$",
+                       // "title": "^Element\\ \\*\\ \\|\\ jshcmpbll$",
+                       // "window_role": "^browser\\-window$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1161,
+                       "width": 1916,
+                       "x": 2,
+                       "y": 37
+                    },
+                    "marks": [],
+                    "name": "Signal",
+                    "percent": 0.25,
+                    "swallows": [
+                       {
+                       // "class": "^Signal$",
+                       // "instance": "^signal$",
+                       // "machine": "^P14s$",
+                       // "title": "^Signal$",
+                       // "window_role": "^browser\\-window$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 720,
+                       "width": 1280,
+                       "x": 320,
+                       "y": 240
+                    },
+                    "marks": [],
+                    "name": "Friends - Discord",
+                    "percent": 0.25,
+                    "swallows": [
+                       {
+                       // "class": "^discord$",
+                       // "instance": "^discord$",
+                       // "machine": "^P14s$",
+                       // "title": "^Friends\\ \\-\\ Discord$",
+                       // "window_role": "^browser\\-window$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+

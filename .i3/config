@@ -11,7 +11,7 @@
 # use alt key for mod
 #set $mod Mod1
 # use windows key for mod
- set $mod Mod4
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -186,7 +186,6 @@ bar {
 set $mod2 Mod4
 
 mode "mouse" {
-
     # set your three speeds here
 
     set $slow 1
@@ -264,26 +263,23 @@ mode "mouse" {
 
 bindsym $mod+$mod2+Shift+m mode "mouse"
 
-# auto lock machine after 3 minutes
-#exec xautolock -time 3 -locker '/home/rramirez/.dotfiles/bin/lock' &
-
 # startup apps
-exec --no-startup-id i3-msg 'workspace 3; exec obsidian'
-exec --no-startup-id i3-msg 'workspace 8; exec betterbird'
-exec --no-startup-id i3-msg 'workspace 9; exec brave'
-exec --no-startup-id i3-msg 'workspace 7; exec 1password'
-exec --no-startup-id i3-msg 'workspace 10; exec slack'
-exec --no-startup-id i3-msg 'workspace 10; exec signal-desktop'
-exec --no-startup-id i3-msg 'workspace 10; exec discord'
-exec --no-startup-id /home/rramirez/bin/configure-trackpad.sh
+exec --no-startup-id /home/rramirez/bin/re
 exec --no-startup-id xset r rate 220 60
 exec --no-startup-id tlp start
 exec --no-startup-id flameshot
-exec --no-startup-id nm-applet
-exec --no-startup-id /home/rramirez/.dotfiles/bin/re
 exec --no-startup-id blueman-applet
-exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
-exec --no-startup-id /home/rramirez/bin/trackpad-toggle.sh
+exec --no-startup-id /usr/bin/pasystray
+#exec --no-startup-id nm-applet
 
-#exec --no-startup-id /usr/bin/pasystray
-#exec --no-startup-id '/usr/bin/insync start'
+#exec --no-startup-id i3-msg append_layout
+
+# exec --no-startup-id i3-msg 'workspace 3; exec obsidian'
+# exec --no-startup-id i3-msg 'workspace 8; exec betterbird'
+# exec --no-startup-id i3-msg 'workspace 9; exec brave'
+# exec --no-startup-id i3-msg 'workspace 7; exec 1password'
+# exec --no-startup-id i3-msg 'workspace 10; exec slack'
+# exec --no-startup-id i3-msg 'workspace 10; exec signal-desktop'
+# exec --no-startup-id i3-msg 'workspace 10; exec discord'
+
+# exec --no-startup-id '/usr/bin/insync start'
