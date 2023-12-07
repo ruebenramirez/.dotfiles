@@ -270,7 +270,7 @@ font:
   italic:
     family: SourceCodePro
     style: Italic
-  size: 10
+  size: 12
 
   # Cursor colors
   #

@@ -10,6 +10,8 @@ and not set -q TMUX
     exec tmux
 end
 
+set -gx EDITOR vim
+
 # helpful aliases
 
 # typos
