@@ -104,6 +104,12 @@ omz:
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /usr/bin/zsh
 
+fish-shell:
+	- sudo apt update
+	- sudo apt install -y fish
+	- chsh -s /usr/bin/fish
+	- ln -sf ~/.dotfiles/fish
+
 #vim: dotFiles customBins dev_packages
 vim: dotFiles customBins
 	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev fuse
@@ -513,3 +519,10 @@ download-rust-install:
 macos-faster-key-repeat:
 	defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 	defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+
+brave-browser-deb-install:
+	sudo apt install curl
+	sudo curl -fsSLo /usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg https://brave-browser-apt-nightly.s3.brave.com/brave-browser-nightly-archive-keyring.gpg
+	echo "deb [signed-by=/usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg] https://brave-browser-apt-nightly.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-nightly.list
+	sudo apt update
+	sudo apt install brave-browser-nightly

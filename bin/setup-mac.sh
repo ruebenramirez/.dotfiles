@@ -9,5 +9,5 @@ if [[ $(sudo cat /sys/devices/virtual/dmi/id/chassis_vendor | grep -i apple | wc
 	echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
 	#echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_fn_leftctrl
 	echo 0 | sudo tee /sys/module/hid_apple/parameters/swap_fn_leftctrl
-	xmodmap ~/.xmodmaprc
+	# xmodmap ~/.xmodmaprc
 fi

@@ -1,6 +1,8 @@
 set encoding=utf-8
 set nocompatible              " be iMproved
-set wrap
+"set nowrap
+set paste
+set nospell
 filetype off                  " required!
 set textwidth=90
 
@@ -8,29 +10,41 @@ let mapleader = "\<Space>"
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'                   " vim package management - don't remove
-Plugin 'ctrlp.vim'                       " fuzzy find files
-Plugin 'DirDiff.vim'                     " diff entire directories of files
-Plugin 'commentary.vim'                  " easily comment blocks of code
-Plugin 'mhinz/vim-signify'               " show version control diffs
-Plugin 'scrooloose/nerdtree'             " file tree browser as a bar
-Plugin 'tpope/vim-endwise'               " end code blocks (ones that aren't paired parens, brackets, or curly braces)
-Plugin 'preservim/tagbar'                " list functions in a file as a sidebar
-Plugin 'christoomey/vim-tmux-navigator'  " maintain pane navigation with tmux keyboard shortcuts
-" language support
-Plugin 'psf/black'
-Plugin 'nvie/vim-flake8'
-Plugin 'ekalinin/Dockerfile.vim'
+
+" let Vundle manage Vundle
+" required!
+Plugin 'gmarik/vundle' " vim package management
+Plugin 'tpope/vim-bundler'
+"Plugin 'python-mode/python-mode'
+Plugin 'psf/black' " format python code
+Plugin 'nvie/vim-flake8' " lint python code
+Plugin 'ctrlp.vim' " fuzzy search through subdirectories
+Plugin 'DirDiff.vim' " diff entire directories of files
+Plugin 'commentary.vim' " easily comment blocks of code
+"Plugin 'mhinz/vim-signify' " show version control diffs
+"Plugin 'tpope/vim-dispatch'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-endwise' " easily find end of if, do, and def blocks https://github.com/tpope/vim-endwise
+"Plugin 'easymotion/vim-easymotion' "https://github.com/easymotion/vim-easymotion
+Plugin 'preservim/tagbar' " list outline of classes in file https://github.com/preservim/tagbar
+Plugin 'christoomey/vim-tmux-navigator'
+
+" syntax highlight support
 Plugin 'tpope/vim-markdown'
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'tsandall/vim-rego'
 Plugin 'LnL7/vim-nix'
 Plugin 'fisadev/vim-isort'
+Plugin 'jalvesaq/Nvim-R'
+Plugin 'kamykn/spelunker.vim'
 call vundle#end()
 
 filetype plugin indent on
 
-" display line numbers
+set paste
+
+" display relative line numbers
 set number
 set numberwidth=3
 
@@ -67,7 +81,7 @@ set tabstop=4 shiftwidth=4 expandtab
 " set tabstop=2 shiftwidth=2 expandtab
 
 " set 2 space tabs when appropriate
-autocmd FileType yml,yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
+autocmd FileType go,r,R,yml,yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 softtabstop=2 showtabline=2
 
 " set 4 space tabs when appropriate
 autocmd FileType python,*.py.tpl setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 showtabline=4

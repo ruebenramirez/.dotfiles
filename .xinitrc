@@ -1,6 +1,7 @@
 syndaemon -d -m 100 -t -k -i 2.0
 export BROWSER=google-chrome &
 
+# configure keyboard
 $HOME/bin/re
 $HOME/bin/power-save-configs.sh
 
