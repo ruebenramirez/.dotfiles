@@ -2,3 +2,4 @@
 .*.swp
 .gitconfig
 install-rust*
+fish/fish_variables
