@@ -8,10 +8,12 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-# use alt key for mod
-#set $mod Mod1
 # use windows key for mod
+#set $mod Mod1
+# use alt key for mod
 set $mod Mod4
+# use win key for mod2
+set $mod2 Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -36,10 +38,10 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Shift+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty
-# bindsym $mod+Return exec kitty
-# bindsym $mod+Shift+Return exec kitty
+#bindsym $mod+Return exec alacritty
+#bindsym $mod+Shift+Return exec alacritty
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -182,8 +184,6 @@ bar {
 }
 
 
-# set $mod Mod1
-set $mod2 Mod4
 
 bindsym $mod+$mod2+Shift+m mode "mouse"
 
