@@ -17,3 +17,7 @@ if [[ $(xinput list | grep "$TRACKPAD" | wc -l) > 0 ]]; then
     xinput list-props "$TRACKPAD"
 fi;
 echo "FINISHED trackpad setup"
+
+
+
+~/bin/trackpad-toggle.sh
