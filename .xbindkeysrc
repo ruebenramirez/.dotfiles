@@ -63,15 +63,15 @@
     m:0x0 + c:107
     Print
 
-"ocr-screenshot"
+"~/bin/ocr-screenshot"
     m:0x4 + c:107
     Control + Print
 
-"lock"
-    m:0xd + c:46
-    Control+Shift+Alt + l
+"/home/rramirez/bin/Lock"
+    m:0x45 + c:37
+    Control+Shift+Mod4 + Control_L
 
-"rescreen"
+"~/bin/rescreen"
     m:0x8 + c:128
     Alt + XF86LaunchA
 
@@ -101,13 +101,13 @@
 
 
 # configure display, keyboard, trackpad, and audio
-"re"
+"~/bin/re"
     m:0x44 + c:33
     Control+Mod4 + p
 
 
 
 # toggle focus mode (notifications)
-"toggle-notifications.sh"
+"~/bin/toggle-notifications.sh"
     m:0x0 + c:224
     XF86Messenger
