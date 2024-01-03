@@ -1,3 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-xinput --list --name-only | grep TrackPoint
+set -e
+
+xinput --list --name-only | egrep -i 'trackpoint'
