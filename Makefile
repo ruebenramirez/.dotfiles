@@ -83,7 +83,7 @@ dotFiles:
 			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
 		fi;
 	- ln -sf $$(pwd)/.i3 ~/.config/i3
-	- ln -sf $$(pwd)/fish/ ~/.config/alacritty
+	- ln -sf $$(pwd)/fish/ ~/.config/fish
 	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
@@ -140,10 +140,10 @@ git:
 	- git config --global core.editor vim
 	- git config --global color.ui true
 	- git config --global pull.rebase true
-	#- git config --global --replace-all core.pager "less -F -X"
-	- git config --global --replace-all core.pager "npx git-split-diffs --color | less -RFX"
-	- git config --global --replace-all split-diffs.min-line-width 40
-	- git config --global --replace-all split-diffs.theme-name github-light
+	- git config --global --replace-all core.pager "less -F -X"
+	#- git config --global --replace-all core.pager "npx git-split-diffs --color | less -RFX"
+	#- git config --global --replace-all split-diffs.min-line-width 40
+	#- git config --global --replace-all split-diffs.theme-name github-light
 
 git-config:
 	- git config --global user.name "Rueben Ramirez"
@@ -154,9 +154,8 @@ git-config:
 	- git config --global --replace-all core.pager "less -F -X"
 
 customBins:
-	if [ ! -d ~/bin/ ]; then \
-		mkdir ~/bin/; \
-	fi
+	sudo unlink ~/bin
+	rm -fr ~/bin
 	@ln -sf $$(pwd)/bin/* ~/bin/
 	- @sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
 
