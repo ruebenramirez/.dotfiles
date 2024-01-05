@@ -82,9 +82,10 @@ dotFiles:
 		else \
 			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
 		fi;
-	- ln -sf $$(pwd)/.i3 ~/.config/i3
+	- ln -sf $$(pwd)/i3 ~/.config/i3
 	- ln -sf $$(pwd)/fish/ ~/.config/fish
 	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
+	- ln -sf $$(pwd)/kitty/ ~/.config/kitty
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
