@@ -9,15 +9,15 @@ if [[ $(xinput list | grep "$TRACKPAD" | wc -l) > 0 ]]; then
     xinput set-prop "$TRACKPAD" "libinput Tapping Enabled" 0
     #xinput set-prop "$TRACKPAD" "libinput Tapping Enabled" 1
     xinput set-prop "$TRACKPAD" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "$TRACKPAD" "Disable While Typing Enabled" 1
     xinput set-prop "$TRACKPAD" "libinput Click Method Enabled" {0 1}
-    xinput set-prop "$TRACKPAD" "libinput Accel Speed" .85
-    #xinput set-prop "$TRACKPAD" "libinput Accel Speed" .4
+    xinput set-prop "$TRACKPAD" "libinput Accel Speed" .4
     xinput set-prop "$TRACKPAD" "libinput Accel Profile Enabled" 1, 0
     xinput --enable "$TRACKPAD"
     xinput list-props "$TRACKPAD"
 fi;
 echo "FINISHED trackpad setup"
 
-
-
 ~/bin/trackpad-toggle.sh
+
+xinput --list-props $(~/bin/trackpad-name)
