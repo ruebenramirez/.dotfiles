@@ -9,6 +9,16 @@
     m:0x4 + c:66
     Control + Escape
 
+# Min Screen Brightness
+"sudo light -S 1"
+    m:0x1 + c:232
+    Shift + XF86MonBrightnessDown
+
+# Max Screen Brightness
+"sudo light -S 100"
+    m:0x1 + c:233
+    Shift + XF86MonBrightnessUp
+
 # Screen Brightness -
 "sudo light -U 5"
     c:232
