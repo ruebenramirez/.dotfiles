@@ -76,12 +76,12 @@ macbookpro_keyboard:
 	/usr/bin/env python3 /home/rramirez/bin/setup-apple-keyboard.py
 
 dotFiles:
-	- unlink ~/.Xresources
-	if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
-			ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
-		else \
-			ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
-		fi;
+	#- unlink ~/.Xresources
+	#if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
+	#		ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
+	#	else \
+	#		ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
+	#	fi;
 	- ln -sf $$(pwd)/i3 ~/.config/i3
 	- ln -sf $$(pwd)/fish/ ~/.config/fish
 	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
