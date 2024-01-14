@@ -29,7 +29,7 @@ export EDITOR=vim
 export PAGER=less
 
 # helpful aliases
-alias vi='nvim'
+alias vi='vim'
 alias k='kubectl'
 alias eixt='exit'
 alias hf='echo "hostname -f" && hostname -f'
