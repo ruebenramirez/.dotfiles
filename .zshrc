@@ -21,10 +21,10 @@ plugins=(git jsontools systemd docker)
 source $ZSH/oh-my-zsh.sh
 
 # z - jump around app
-. ~/Documents/code/z/z.sh
+. ~/code/z/z.sh
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:/usr/java/jre1.8.0_333/:/opt/apache-maven-3.9.5/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.local/bin:/usr/java/jre1.8.0_333/:/opt/apache-maven-3.9.5/bin:$PATH"
 export EDITOR=vim
 export PAGER=less
 
