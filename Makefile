@@ -17,14 +17,14 @@ dev-laptop: backlight power-management adobeSourceCodeProFont keychain remove-gn
 	# extra desktop apps
 	sudo apt install -qy rtorrent mupdf mupdf-tools
 
-snap_setup:
-	sudo apt install -qy snap
 
-slack-install: snap_setup
-	sudo snap install slack --classic
-
-authy-install: snap_setup
-	sudo snap install --beta authy
+wsl-setup:
+	# TODO: install flatpak
+	# TODO: run .dotfiles
+	# TODO: link up bin
+	# TODO: configure nix
+	# TODO: configure i3wm
+	# TODO: configure fish shell
 
 keychain:
 	sudo apt install keychain
@@ -62,8 +62,6 @@ update:
 		sudo apt-get autoclean -y && \
 		sudo sync && sudo sync
 	sudo flatpak update -y --noninteractive
-	sudo pip install -U pip
-	pip install -U pip
 	nix-channel --update
 	nix-env -u "*"
 	- omz update
@@ -105,11 +103,16 @@ omz:
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /usr/bin/zsh
 
-fish-shell:
+fish-shell: install-fish-shell configure-fish-shell
+
+install-fish-shell:
 	- sudo apt update
 	- sudo apt install -y fish
+
+configure-fish-shell:
+	mkdir -p ~/.config/fish
+	- ln -sf ~/.dotfiles/fish ~/.config/fish
 	- chsh -s /usr/bin/fish
-	- ln -sf ~/.dotfiles/fish
 
 #vim: dotFiles customBins dev_packages
 vim: dotFiles customBins
@@ -176,40 +179,10 @@ sshConfig:
 	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
 	chmod 600 ~/.ssh/id_rsa
 
+
 docker-install-debian:
-	sudo apt-get update
-	sudo apt-get install \
-		ca-certificates \
-		curl \
-		gnupg \
-		lsb-release
-	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-	echo \
-	  "deb [arch=$$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-	$$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-	sudo apt-get update
-	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+	sh ~/.dotfiles/bin/docker-install-debian.sh
 
-
-
-docker:
-	- sudo apt-get remove docker docker-engine docker.io containerd runc
-	sudo apt-get update
-	sudo apt-get install -qy \
-		apt-transport-https \
-		ca-certificates \
-		curl \
-		gnupg-agent \
-		software-properties-common
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	sudo apt-key fingerprint 0EBFCD88
-	sudo add-apt-repository \
-	   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
-	sudo apt-get update
-	sudo apt-get install -qy docker-ce docker-ce-cli containerd.io
-	sudo apt install python3-pip -qy
-	sudo pip3 install docker-compose
-	sudo usermod -aG docker rramirez
 
 adobeSourceCodeProFont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
@@ -238,37 +211,10 @@ ruby-dev:
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 
-install-jenkins-taskbar:
+jenkins-taskbar-install:
 	sudo add-apt-repository ppa:thomir/indicator-jenkins
 	sudo apt-get update
 	sudo apt-get install indicator-jenkins
-
-apt-fast-setup:
-	sudo bash -c "apt-get install -y aria2 git && \
-		if ! [[ -f /usr/bin/apt-fast ]]; then \
-		  git clone https://github.com/ilikenwf/apt-fast /tmp/apt-fast; \
-		  cp /tmp/apt-fast/apt-fast /usr/bin; \
-		  chmod +x /usr/bin/apt-fast; \
-		  cp /tmp/apt-fast/apt-fast.conf /etc; \
-		fi"
-	# bash autocompletion
-	sudo bash -c "cp /tmp/apt-fast/completions/bash/apt-fast /etc/bash_completion.d/ && \
-		chown root:root /etc/bash_completion.d/apt-fast"
-	. /etc/bash_completion
-	# zsh autocompletion
-	if ! [[ -f /usr/bin/zsh ]]; then \
-		sudo bash -c "cp /tmp/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/ && \
-			chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast"; \
-		source /usr/share/zsh/functions/Completion/Debian/_apt-fast; \
-	fi
-	# Man page installation
-	sudo bash -c "cp /tmp/apt-fast/man/apt-fast.8 /usr/share/man/man8 && \
-		gzip -f9 /usr/share/man/man8/apt-fast.8 && \
-		cp /tmp/apt-fast/man/apt-fast.conf.5 /usr/share/man/man5 && \
-		gzip -f9 /usr/share/man/man5/apt-fast.conf.5"
-	# configure ubuntu apt mirrors
-	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
-
 
 oracle-java:
 	#sudo apt-get install -y python-software-properties
@@ -526,3 +472,7 @@ brave-browser-deb-install:
 	echo "deb [signed-by=/usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg] https://brave-browser-apt-nightly.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-nightly.list
 	sudo apt update
 	sudo apt install brave-browser-nightly
+
+install-z:
+	git clone git@github.com:rupa/z.git ~/code/z
+
