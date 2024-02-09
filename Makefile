@@ -3,19 +3,31 @@ SHELL := /usr/bin/env bash
 DIR=$(pwd)
 
 #ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
-dev-laptop: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
-	sudo apt install -qy mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc ddcutil aria2
+#dev-laptop: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
+dev-laptop: power-management adobeSourceCodeProFont keychain
+	sudo apt install -y mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc ddcutil aria2
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
 	# replace default ubuntu desktop notifications with dunst for i3
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst xautolock arandr feh pasystray
 	# sway (i3 for wayland)
-	sudo apt install sway waybar
+	sudo apt install -y sway waybar
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 	# extra desktop apps
-	sudo apt install -qy rtorrent mupdf mupdf-tools
+	sudo apt install -y rtorrent mupdf mupdf-tools kitty light chromium flatpak
+
+1password-install:
+	#sudo apt install -y flatpak
+	#flatpak install https://downloads.1password.com/linux/flatpak/1Password.flatpakref
+	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+	sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+	curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+	sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+	sudo apt update && sudo apt install 1password -y
 
 
 wsl-setup:
@@ -27,13 +39,9 @@ wsl-setup:
 	# TODO: configure fish shell
 
 keychain:
-	sudo apt install keychain
+	sudo apt install -y keychain
 
 cli-setup: update dev_setup vim dotFiles customBins omz keychain
-
-backlight:
-	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
-	sudo apt-get install -f -y
 
 save-my-eyes: customBins
 	~/bin/redshift-config.sh
@@ -158,10 +166,9 @@ git-config:
 	- git config --global --replace-all core.pager "less -F -X"
 
 customBins:
-	sudo unlink ~/bin
-	rm -fr ~/bin
-	@ln -sf $$(pwd)/bin/* ~/bin/
-	- @sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
+	- sudo unlink ~/bin
+	- rm -fr ~/bin
+	ln -sf $$(pwd)/bin ~/bin
 
 BrotherPrinterInstall:
 	sudo sh ~/bin/linux-brprinter-installer-2.0.0-1
@@ -207,7 +214,6 @@ ruby-dev:
 	git clone git://github.com/rbenv/ruby-build.git ~/.rbenv/plugins
 	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 
@@ -233,16 +239,6 @@ firefox-with-java-client: oracle-java java-browser-plugin
 	tar -xvf /tmp/firefox.tar.bz2 -C /tmp/
 	sudo mv /tmp/firefox /opt/
 	# add java browser plugin to v45 ESR Firefox
-
-ansible_install:
-	sudo apt update
-	sudo apt install software-properties-common
-	sudo apt-add-repository --yes --update ppa:ansible/ansible
-	sudo apt install ansible
-
-remove-gnome-header-bar:
-	sudo apt install -qy gnome-tweaks
-	gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
 
 pyenv:
 	rm -fr ~/.pyenv
@@ -362,30 +358,6 @@ alacritty-install:
 	sudo apt install -qy cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 	cargo install alacritty
 
-ipad-external-monitor-setup:
-	# TODO: do I  want to use the gnome-session-fallback for my secondary i3wm display
-	# sudo apt-get install -y tightvncserver x2x gnome-session-fallback xsel
-	sudo apt install -qy tightvncserver x2x xsel gnome-session-fallback
-	# password already locally set
-	#vncpasswd
-	# REMOVE: ipad_charge is not necessary for my setup
-	# sudo apt-get install -y build-essential libusb-1.0-0 libusb-1.0-0-dev git
-	# git clone https://github.com/mkorenkov/ipad_charge.git
-	# cd ./ipad_charge
-	# make
-	# sudo make install
-	# cat << EOF > ~/.vnc/xstartup
-# #!/bin/sh
-# xrdb $HOME/.Xresources
-# xsetroot -solid grey
-# #Open a terminal window in the new X display. Comment the following line if unnecessary
-# x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
-# x-window-manager &
-# # Fix to make GNOME work
-# export XKL_XMODMAP_DISABLE=1
-# /etc/X11/Xsession
-# EOF
-
 
 waydroid-install:
 	export DISTRO="bullseye" && \
@@ -456,23 +428,18 @@ udev-bluetooth-headphone-audio-config:
 nix-packages:
 	nix-env -iA nixpkgs.tesseract nixpkgs.scrot nixpkgs.xsel nixpkgs.hugo nixpkgs.youtube-dl
 
-
-
-download-rust-install:
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > "install-rust-$$(datetime).sh"
-
-
 macos-faster-key-repeat:
 	defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 	defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
-brave-browser-deb-install:
-	sudo apt install curl
-	sudo curl -fsSLo /usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg https://brave-browser-apt-nightly.s3.brave.com/brave-browser-nightly-archive-keyring.gpg
-	echo "deb [signed-by=/usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg] https://brave-browser-apt-nightly.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-nightly.list
-	sudo apt update
-	sudo apt install brave-browser-nightly
-
 install-z:
+	mkdir -p ~/code/
 	git clone git@github.com:rupa/z.git ~/code/z
+
+
+fingerprint-reader-setup:
+	sudo apt install -y fprintd libpam-fprintd
+	fprintd-enroll $$(whoami) -f right-index-finger
+	sudo pam-auth-update
+
 
