@@ -2,7 +2,7 @@
 
 set -e
 
-TOUCHPAD=$(xinput --list --name-only | egrep -i 'touchpad|Synaptics')
+TOUCHPAD=$(xinput --list --name-only | egrep -i 'touchpad|Synaptics' | sed 's/^∼ //')
 
 if [[ $(echo "$TOUCHPAD" | wc -l) -gt 1 ]]; then
     # default to Dell listing if multiple touchpad inputs found
