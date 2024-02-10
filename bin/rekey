@@ -14,7 +14,7 @@ xset r rate 220 60
 # don't configure this on a remote server (this is just a linux client configuration)
 # capslock key = escape
 # escape key = capslock
-setxkbmap -option caps:swapescape
+setxkbmap -option caps:swapescape -option altwin:swap_alt_win
 
 #setup-mac.sh
 
