@@ -16,17 +16,19 @@ dev-laptop: power-management adobeSourceCodeProFont keychain
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 	# extra desktop apps
-	sudo apt install -y rtorrent mupdf mupdf-tools kitty light chromium flatpak
+	sudo apt install -y rtorrent mupdf mupdf-tools kitty light chromium flatpak alsa-utils xcalib
+
+1password-install-flatpak:
+	sudo apt install -y flatpak
+	flatpak install https://downloads.1password.com/linux/flatpak/1Password.flatpakref
 
 1password-install:
-	#sudo apt install -y flatpak
-	#flatpak install https://downloads.1password.com/linux/flatpak/1Password.flatpakref
-	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
-	sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-	curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-	sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+	#curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+	# echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+	# sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+	# curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+	# sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+	# curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 	sudo apt update && sudo apt install 1password -y
 
 
