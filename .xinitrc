@@ -33,5 +33,8 @@ if [[ $(grep hypervisor /proc/cpuinfo | wc -l) -lt 1 ]]; then
     export TERMINAL=alacritty
 fi;
 
+export $(dbus-launch)
+export NSS_USE_SHARED_DB=ENABLED
+
 #exec xfce4
 exec i3
