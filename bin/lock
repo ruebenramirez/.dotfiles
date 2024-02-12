@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 
-i3lock -c 000000 && xset dpms force off
+# i3lock && xset dpms force off
+
+i3lock
+#slock # prevents sleep
