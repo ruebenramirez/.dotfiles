@@ -194,7 +194,6 @@ exec --no-startup-id tlp start
 exec --no-startup-id flameshot
 exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/bin/pasystray
-#exec --no-startup-id nm-applet
 
 #exec --no-startup-id i3-msg append_layout
 

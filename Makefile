@@ -2,6 +2,12 @@ SHELL := /usr/bin/env bash
 
 DIR=$(pwd)
 
+dev-cli-packages: update
+	sudo apt install -qy mosh tmux xclip build-essential sharutils keychain
+
+desktop-packages: update backlight power-management adobeSourceCodeProFont remove-gnome-header-bar
+	sudo apt install -qy flameshot xbindkeys libx11-dev libxinerama-dev suckless-tools bluez-tools blueman vlc ddcutil aria2
+
 #ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
 #dev-laptop: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
 dev-laptop: power-management adobeSourceCodeProFont keychain
@@ -57,12 +63,6 @@ power-management:
 	sudo systemctl start tlp
 	sudo systemctl status tlp
 	#sudo powertop
-
-spotify_ubuntu:
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-	sudo apt-get update
-	sudo apt-get install spotify-client
 
 update:
 	sudo apt-get update && \
@@ -443,5 +443,3 @@ fingerprint-reader-setup:
 	sudo apt install -y fprintd libpam-fprintd
 	fprintd-enroll $$(whoami) -f right-index-finger
 	sudo pam-auth-update
-
-
