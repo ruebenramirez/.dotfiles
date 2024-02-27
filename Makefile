@@ -330,27 +330,6 @@ github-cli-install:
 	sudo apt update
 	sudo apt install gh
 
-better-zoom-background:
-	# source: https://github.com/leftsidemonitor/ubuntu-zoom-virtual-background
-	# install dependencies
-	sudo apt-get update
-	sudo apt-get install \
-		apt-transport-https \
-		ca-certificates \
-		curl \
-		gnupg-agent \
-		software-properties-common
-	sudo apt install v4l2loopback-dkms;
-	sudo modprobe -r v4l2loopback;
-	sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1;
-	# Clone
-	if test ! -d $$HOME/ubuntu-zoom-virtual-background; then \
-		git clone https://github.com/leftsidemonitor/ubuntu-zoom-virtual-background.git $$HOME/ubuntu-zoom-virtual-background; \
-	fi
-	cd $$HOME/ubuntu-zoom-virtual-background && \
-		cp docker_defaults.env .env && \
-		docker-compose up &;
-
 vagrant-install:
 	curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 	sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
@@ -434,7 +413,7 @@ macos-faster-key-repeat:
 	defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 	defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
-install-z:
+z-install:
 	mkdir -p ~/code/
 	git clone git@github.com:rupa/z.git ~/code/z
 
