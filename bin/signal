@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-export $(dbus-launch)
-export NSS_USE_SHARED_DB=ENABLED
-flatpak run org.signal.Signal
