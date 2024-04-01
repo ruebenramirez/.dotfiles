@@ -22,7 +22,7 @@ dev-laptop: power-management adobeSourceCodeProFont keychain
 	#sudo systemctl enable multi-user.target
 	#sudo systemctl set-default multi-user.target
 	# extra desktop apps
-	sudo apt install -y rtorrent mupdf mupdf-tools kitty light chromium flatpak alsa-utils xcalib
+	sudo apt install -y rtorrent mupdf mupdf-tools light chromium flatpak alsa-utils xcalib
 
 1password-install-flatpak:
 	sudo apt install -y flatpak
@@ -93,7 +93,6 @@ dotFiles:
 	- ln -sf $$(pwd)/i3 ~/.config/i3
 	- ln -sf $$(pwd)/fish/ ~/.config/fish
 	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
-	- ln -sf $$(pwd)/kitty/ ~/.config/kitty
 
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
 #dev_packages: update ruby-dev git pyenv go-install github-cli-install
