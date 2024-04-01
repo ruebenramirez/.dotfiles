@@ -49,6 +49,7 @@ alias calc="sheets"
 alias pbcopy="xclip -se c -i"
 alias discord="Discord"
 alias vido="cd ~/.dotfiles/ && vi Makefile"
+alias girn="grep -irn"
 
 # make me a sandwhich
 alias wifi="sudo sh ~/bin/wifi $argv"
@@ -63,6 +64,12 @@ alias nethogs="sudo nethogs -b"
 alias lowpower="sudo pm-powersave true"
 alias highpower="sudo pm-powersave false"
 alias wifi="sudo systemctl restart networking NetworkManager && nm-applet &"
+
+# tmux aliases
+alias tls="tmux ls"
+alias tmls="tmux ls"
+alias tad="tmux a -d"
+alias tmad="tmux a -d"
 
 
 # git aliases
