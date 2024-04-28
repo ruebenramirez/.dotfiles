@@ -189,16 +189,9 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 
 # startup apps
 exec --no-startup-id /home/rramirez/bin/re
-exec --no-startup-id xset r rate 220 60
-exec --no-startup-id tlp start
 exec --no-startup-id flameshot
-exec --no-startup-id blueman-applet
-exec --no-startup-id /usr/bin/pasystray
-exec --no-startup-id nm-tray
-exec --no-startup-id barrier
 
 #exec --no-startup-id i3-msg append_layout
-
 # exec --no-startup-id i3-msg 'workspace 3; exec obsidian'
 # exec --no-startup-id i3-msg 'workspace 8; exec betterbird'
 # exec --no-startup-id i3-msg 'workspace 9; exec brave'
@@ -206,5 +199,4 @@ exec --no-startup-id barrier
 # exec --no-startup-id i3-msg 'workspace 10; exec slack'
 # exec --no-startup-id i3-msg 'workspace 10; exec signal-desktop'
 # exec --no-startup-id i3-msg 'workspace 10; exec discord'
-
 # exec --no-startup-id '/usr/bin/insync start'
