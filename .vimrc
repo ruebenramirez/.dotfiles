@@ -110,12 +110,12 @@ let g:NERDTreeWinSize = 40
 " highlight characters past column 80
 " http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
 """""""""""""""""""""""""""""""""""""
-augroup vimrc_autocmds
-    autocmd!
-    autocmd FileType python highlight OverLength ctermfg=white ctermbg=red guibg=#592929
-    autocmd FileType python match OverLength /\%81v.\+/
-    "autocmd FileType python set nowrap
-    augroup END
+" augroup vimrc_autocmds
+"     autocmd!
+"     autocmd FileType python highlight OverLength ctermfg=white ctermbg=red guibg=#592929
+"     autocmd FileType python match OverLength /\%81v.\+/
+"     "autocmd FileType python set nowrap
+"     augroup END
 
 """"""""""""""""""""""""""""""""""""""
 " Terraform formatting
