@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e -x
+
+FLAKE_DIR="$HOME/code/systems/"
+cd "$FLAKE_DIR"
+nix flake update
+sudo nixos-rebuild switch --upgrade --flake "$FLAKE_DIR#driver"

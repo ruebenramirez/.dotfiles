@@ -22,6 +22,7 @@ alias cleargs="clear && gs"
 alias tre="tree"
 
 # shortcuts
+alias nup="nix-update"
 alias hf="hostname -f"
 alias vi="vim"
 alias setclip="xclip -selection c"
