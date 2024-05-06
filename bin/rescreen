@@ -3,9 +3,6 @@
 xrandr --auto
 xcalib -clear
 
-if [[ $(xrandr | grep connected | grep -v disconnected | wc -l) -gt 1 ]]; then
+if [[ $(xrandr | grep -P "\b(?!dis)connected\b" | wc -l) -gt 1 ]]; then
     ~/.screenlayout/default.sh
 fi
-
-# refresh display background now that displays are updated
-$(grep feh ~/.xinitrc)
