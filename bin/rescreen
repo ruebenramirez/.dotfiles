@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+set -ex
+
 xrandr --auto
 xcalib -clear
 
-if [[ $(xrandr | grep -P "\b(?!dis)connected\b" | wc -l) -gt 1 ]]; then
-    ~/.screenlayout/default.sh
+xrandr --auto
+connected_display=$(xrandr | grep -P "\b(?!dis)connected\b" | grep -v eDP-1 | awk '{print $1}')
+if [[ ! -z $connected_display ]]; then
+    xrandr --output eDP-1 --primary --mode 1920x1200 --pos 320x1600 --rotate normal \
+        --output $connected_display --mode 2560x1600 --pos 0x0 --rotate normal
 fi
