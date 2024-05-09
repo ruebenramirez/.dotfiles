@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+telegram-desktop &
+signal-desktop &
+slack &
+element-desktop &
