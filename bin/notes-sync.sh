@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# leverage ssh-agent session without requiring interactive passphrase entry (pull passphrase from keychain)
-#eval `keychain --noask --eval ~/.ssh/id_rsa`
-
 cd /home/rramirez/Documents/notes/
 
 #git fetch --all
