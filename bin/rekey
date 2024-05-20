@@ -9,7 +9,11 @@ killall xbindkeys || true
 xbindkeys -f ~/.xbindkeysrc
 
 echo "faster key repeat"
+# Xorg
 xset r rate 220 60
+# Wayland
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 
 # don't configure this on a remote server (this is just a linux client configuration)
 # capslock key = escape
