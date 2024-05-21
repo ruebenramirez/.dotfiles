@@ -421,3 +421,8 @@ fingerprint-reader-setup:
 	sudo apt install -y fprintd libpam-fprintd
 	fprintd-enroll $$(whoami) -f right-index-finger
 	sudo pam-auth-update
+
+
+sway-debian-setup:
+	sudo apt install -qy sway tofi waybar wdisplays wlsunset sway-notification-center grimshot swaylock swayimg
+

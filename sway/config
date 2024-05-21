@@ -74,8 +74,10 @@ input "type:touchpad" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+Return exec $term
+    #bindsym $mod+Return exec $term
+    #bindsym $mod+Shift+Return exec $term
+    bindsym $mod+Return exec "alacritty -e tmux"
+    bindsym $mod+Shift+Return exec alacritty
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -100,16 +102,20 @@ input "type:touchpad" {
     bindsym $mod+Ctrl+Shift+l exec swaylock -f -c 000000
 
     # screen Brightness controls
-    bindsym --locked XF86MonBrightnessUp exec ~/bin/change-screen-brightness -- 5
-    bindsym --locked XF86MonBrightnessDown exec ~/bin/change-screen-brightness -- -5
+    bindsym --locked XF86MonBrightnessUp exec sudo ~/bin/change-screen-brightness -- 5
+    bindsym --locked XF86MonBrightnessDown exec sudo ~/bin/change-screen-brightness -- -5
+    # min brightness
+    bindsym --locked Shift+XF86MonBrightnessDown exec sudo light -S 1
+    # max brightness
+    bindsym --locked Shift+XF86MonBrightnessUp exec sudo light -S 100
 
+
+    # VOLUME CONTROLS
     # mute
     bindsym --locked XF86AudioMute exec ~/bin/volume-mute-toggle.sh
-
     # volume up
     bindsym --locked XF86AudioRaiseVolume exec ~/bin/volume-up.sh
     #bindsym Ctrl+F12 exec ~/bin/~/bin/volume-up.sh
-
     # volume down
     bindsym --locked XF86AudioLowerVolume exec ~/bin/volume-down.sh
     #bindsym Ctrl+F11 exec ~/bin/volume-down.sh

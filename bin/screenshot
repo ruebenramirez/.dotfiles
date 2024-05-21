@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-flameshot gui
+FILENAME="screenshot-`date +%F-%T`"
+grim -g "$(slurp)" ~/Downloads/$FILENAME.png
