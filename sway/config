@@ -7,9 +7,9 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-#set $mod Mod4
-# Alt key. Use Mod4 for Logo key.
 set $mod Mod1
+# Alt key. Use Mod4 for Logo key.
+set $mod2 Mod4
 
 # Home row direction keys, like vim
 set $left h
@@ -123,11 +123,16 @@ input "type:touchpad" {
     bindsym --locked Print exec ~/bin/screenshot
     # TODO: replace flameshot with a wayland compatible screenshot utility
 
+    # toggle trackpad on/off
+    bindsym --locked Ctrl+Escape exec swaymsg input type:touchpad events toggle
+
+
     #################################
     # insert datestamp + day
     # e.g. 2021-08-12 Thursday
     ##################################
     bindsym --locked Mod4+p exec sleep 0.2 && xdotool type --clearmodifiers $(date +%Y-%m-%d) && xdotool key 0xff80 && xdotool type --clearmodifiers $(date +%A)
+
 
 
 # Moving around:
