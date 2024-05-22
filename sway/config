@@ -31,13 +31,14 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#output * bg /home/rramirez/.dotfiles/desktop-background/sky_minimalism_clouds_74438_1600x900.jpg fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 resolution 1920x1200 position 2270,1600
+output DP-2 resolution 2560x1600 position 1920,0
 
 ### Idle configuration
 #
@@ -99,7 +100,7 @@ input "type:touchpad" {
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     # lock screen
-    bindsym $mod+Ctrl+Shift+l exec swaylock -f -c 000000
+    bindsym $mod2+Ctrl+Shift+l exec swaylock -f -c 000000
 
     # screen Brightness controls
     bindsym --locked XF86MonBrightnessUp exec sudo ~/bin/change-screen-brightness -- 5
@@ -125,6 +126,9 @@ input "type:touchpad" {
 
     # toggle trackpad on/off
     bindsym --locked Ctrl+Escape exec swaymsg input type:touchpad events toggle
+
+    # toggle notifications
+    bindsym XF86Messenger exec ~/bin/toggle-notifications.sh
 
 
     #################################
@@ -158,6 +162,17 @@ input "type:touchpad" {
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    # Move the workspace
+    bindsym $mod+Shift+ctrl+$left move workspace to output left
+    bindsym $mod+Shift+ctrl+$down move workspace to output down
+    bindsym $mod+Shift+ctrl+$up move workspace to output up
+    bindsym $mod+Shift+ctrl+$right move workspace to output right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+ctrl+Left move workspace to output left
+    bindsym $mod+Shift+ctrl+Down move workspace to output down
+    bindsym $mod+Shift+ctrl+Up move workspace to output up
+    bindsym $mod+Shift+ctrl+Right move workspace to output right
 #
 # Workspaces:
 #
