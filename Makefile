@@ -72,8 +72,6 @@ update:
 		sudo apt-get autoclean -y && \
 		sudo sync && sudo sync
 	sudo flatpak update -y --noninteractive
-	nix-channel --update
-	nix-env -u "*"
 	- omz update
 	- fwupdmgr get-devices
 	- fwupdmgr refresh --force
