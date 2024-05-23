@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 cd /home/rramirez/Documents/notes/
 
 #git fetch --all
@@ -14,10 +16,9 @@ if [[ "$NOTES_UPDATED" -gt 0 ]]; then
     git commit -q -m "$msg"
     echo "$msg"
 
-    git push -v origin master
     echo "git push of local changes complete"
-else
-    echo "no changes to commit/push"
 fi
+
+git push -v origin master
 
 
