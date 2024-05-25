@@ -11,8 +11,7 @@ uptime_formatted=$(uptime | cut -d ',' -f1  | cut -d ' ' -f4,5)
 # like 2018-10-06 and the time (e.g., 14:01)
 date_formatted=$(date "+%a %F %H:%M")
 
-# Get the Linux version but remove the "-1-ARCH" part
-linux_version=$(uname -r | cut -d '-' -f1)
+linux_kernel_version=$(uname -r)
 
 # Returns the battery status: "Full", "Discharging", or "Charging".
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
@@ -22,8 +21,6 @@ disk_space_used=$(df -h / | tail -1 | awk '{print $5}')
 
 current_load=$(~/bin/display-current-load)
 
-bt_headphones=$(~/bin/display-bluetooth-headset-connected)
-
 volume=$(~/bin/volume-get.sh)
 
-echo $bt_headphones "|" disk used: $disk_space_used "|" wifi $wifi_network "|" uptime: $uptime_formatted ↑ "|" kernel v$linux_version 🐧 "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $volume "|" $date_formatted
+echo  wifi $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" kernel v$linux_kernel_version 🐧 "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $volume "|" $date_formatted
