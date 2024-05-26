@@ -14,13 +14,14 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term foot
-#set $term alacritty
+set $term alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+include /etc/sway/config-vars.d/*
 
 ### Output configuration
 #
@@ -32,11 +33,36 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 1920x1200 position 2270,1600
-output DP-2 resolution 2560x1600 position 1920,0
 
+# output eDP-1 resolution 1920x1200 position 2270,1600
+# output DP-1 resolution 2560x1600 position 1920,0
+# output DP-2 resolution 2560x1600 position 1920,0
+
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -58,9 +84,8 @@ input "type:touchpad" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
-    #bindsym $mod+Return exec "alacritty -e tmux"
-    #bindsym $mod+Shift+Return exec alacritty
+    bindsym $mod+Return exec "alacritty -e tmux"
+    bindsym $mod+Shift+Return exec alacritty
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -97,14 +122,9 @@ input "type:touchpad" {
 
 
     # VOLUME CONTROLS
-    # mute
     bindsym --locked XF86AudioMute exec ~/bin/volume-mute-toggle.sh
-    # volume up
     bindsym --locked XF86AudioRaiseVolume exec ~/bin/volume-up.sh
-    #bindsym ctrl+F12 exec ~/bin/~/bin/volume-up.sh
-    # volume down
     bindsym --locked XF86AudioLowerVolume exec ~/bin/volume-down.sh
-    #bindsym ctrl+F11 exec ~/bin/volume-down.sh
 
     # screenshot
     bindsym --locked Print exec ~/bin/screenshot
@@ -168,16 +188,16 @@ input "type:touchpad" {
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    # # Move the workspace
-    # bindsym $mod+Shift+ctrl+$left move workspace to output left
-    # bindsym $mod+Shift+ctrl+$down move workspace to output down
-    # bindsym $mod+Shift+ctrl+$up move workspace to output up
-    # bindsym $mod+Shift+ctrl+$right move workspace to output right
-    # # Ditto, with arrow keys
-    # bindsym $mod+Shift+ctrl+Left move workspace to output left
-    # bindsym $mod+Shift+ctrl+Down move workspace to output down
-    # bindsym $mod+Shift+ctrl+Up move workspace to output up
-    # bindsym $mod+Shift+ctrl+Right move workspace to output right
+    # Move the workspace
+    bindsym $mod+Shift+ctrl+$left move workspace to output left
+    bindsym $mod+Shift+ctrl+$down move workspace to output down
+    bindsym $mod+Shift+ctrl+$up move workspace to output up
+    bindsym $mod+Shift+ctrl+$right move workspace to output right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+ctrl+Left move workspace to output left
+    bindsym $mod+Shift+ctrl+Down move workspace to output down
+    bindsym $mod+Shift+ctrl+Up move workspace to output up
+    bindsym $mod+Shift+ctrl+Right move workspace to output right
 
 #
 # Layout stuff:
@@ -217,7 +237,6 @@ input "type:touchpad" {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-
 #
 # Resizing containers:
 #
@@ -243,7 +262,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
 #
 # Status Bar:
 #
@@ -253,18 +271,13 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
     status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
-
-#
-# Startup Apps:
-#
-
-# Idle configuration
- exec swayidle -w \
-           timeout 300 'swaylock -f -c 000000' \
-           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-           before-sleep 'swaylock -f -c 000000'
 
 include /etc/sway/config.d/*
