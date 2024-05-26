@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo light -S 1
+sudo ddcutil setvcp 0x10 1

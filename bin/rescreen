@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-set -ex
+set -x
 
-xrandr --auto
-xcalib -clear
+CONNECTED_DISPLAY=$(swaymsg -t get_outputs | jq '.[] | .name' | grep -v eDP-1)
 
-xrandr --auto
-connected_display=$(xrandr | grep -P "\b(?!dis)connected\b" | grep -v eDP-1 | awk '{print $1}')
-if [[ ! -z $connected_display ]]; then
-    xrandr --output eDP-1 --primary --mode 1920x1200 --pos 320x1600 --rotate normal \
-        --output $connected_display --mode 2560x1600 --pos 0x0 --rotate normal
+if [[ $CONNECTED_DISPLAY != "" ]]; then
+    swaymsg "output eDP-1 resolution 1920x1200 position 320 1600"
+    swaymsg "output $CONNECTED_DISPLAY resolution 2560x1600 position 0 0"
+    exit 0
 fi
+
+swaymsg "output eDP-1 resolution 1920x1200 position 1920 0"
+

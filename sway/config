@@ -116,9 +116,9 @@ input "type:touchpad" {
     bindsym --locked XF86MonBrightnessUp exec sudo ~/bin/change-screen-brightness -- 5
     bindsym --locked XF86MonBrightnessDown exec sudo ~/bin/change-screen-brightness -- -5
     # min brightness
-    bindsym --locked Shift+XF86MonBrightnessDown exec sudo light -S 1
+    bindsym --locked Shift+XF86MonBrightnessDown exec ~/bin/min-brightness
     # max brightness
-    bindsym --locked Shift+XF86MonBrightnessUp exec sudo light -S 100
+    bindsym --locked Shift+XF86MonBrightnessUp exec ~/bin/max-brightness
 
 
     # VOLUME CONTROLS
