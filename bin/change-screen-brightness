@@ -1,52 +1,139 @@
 #!/usr/bin/env python3
 
+from ABC import ABC, abstractmethod
 import click
 import subprocess
 
 DEBUG = True
 
+class BrightnessDriver(ABC):
+    @staticmethod
+    @abstractmethod
+    def is_available():
+        raise NotImplementedError()
 
-def get_bright():
-    return float(subprocess.run(["light"], stdout=subprocess.PIPE).stdout)
+    @staticmethod
+    @abstractmethod
+    def get_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    @abstractmethod
+    def increase_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    @abstractmethod
+    def decrease_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    @abstractmethod
+    def max_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    @abstractmethod
+    def min_brightness():
+        raise NotImplementedError()
 
 
-def debug_print_brightness():
-    if DEBUG:
-        click.echo(get_bright())
+class LightDriver(BrightnessDriver):
+    @staticmethod
+    def is_available():
+        return True
+
+    @staticmethod
+    def get_brightness():
+        degrees = float(subprocess.run(["light"], stdout=subprocess.PIPE).stdout)
+        return degrees
+
+    @staticmethod
+    def print_brightness():
+        degrees = get_brightness()
+        click.echo("current brightness {d} degrees".format(d=degrees))
+
+    @staticmethod
+    def increase_brightness():
+        if DEBUG:
+            click.echo("raising brightness {d} degrees".format(d=degrees))
+        subprocess.run(["light", "-A", str(degrees)])
+
+    @staticmethod
+    def decrease_brightness(self):
+        if DEBUG:
+            click.echo("lowering brightness {d} degrees".format(d=degrees))
+        prepped_degrees = str(abs(degrees))
+        subprocess.run(["light", "-U", prepped_degrees])
+
+        if DEBUG:
+            click.echo("checking minimum brightness")
+            print_brightness()
+        if get_bright() <= 1:
+            click.echo("not allowing <= 1 brightness")
+            subprocess.run(["light", "-S", ".1"])
+            _print_brightness()
+
+    @staticmethod
+    def max_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    def min_brightness():
+        raise NotImplementedError()
 
 
-def raise_brightness(degrees):
-    if DEBUG:
-        click.echo("raising brightness {d} degrees".format(d=degrees))
-    subprocess.run(["light", "-A", str(degrees)])
+class USB_C_DisplayDriver(BrightnessDriver):
+    @staticmethod
+    def is_available():
+        # TODO: after implementing ddcutil, find a way to see if monitor is attached
+        return False
+
+    @staticmethod
+    def get_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    def increase_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    def decrease_brightness(degrees):
+        subprocess.run(["sudo", "ddcutil", "setvcp", "0x10", degrees])
+
+    @staticmethod
+    def max_brightness():
+        raise NotImplementedError()
+
+    @staticmethod
+    def min_brightness():
+        raise NotImplementedError()
 
 
-def lower_brightness(degrees):
-    if DEBUG:
-        click.echo("lowering brightness {d} degrees".format(d=degrees))
-    prepped_degrees = str(abs(degrees))
-    subprocess.run(["light", "-U", prepped_degrees])
+def get_displays()
+    displays = []
+    built_in_display = LightDriver()
+    if built_in_display.is_available():
+        displays.append(LightDriver())
+    displays.append(USB_C_DisplayDriver())
+    return displays
 
+def increase_brightness(degrees):
+    for display in get_displays():
+        display.increase_brightness(degrees)
 
-def set_min_brightness():
-    click.echo("checking minimum brightness")
-    debug_print_brightness()
-    if get_bright() <= 1:
-        click.echo("not allowing <= 1 brightness")
-        subprocess.run(["light", "-S", ".1"])
-        debug_print_brightness()
+def decrease_brightness():
+    for display in get_displays():
+        display.decrease_brightness(degrees)
 
 
 @click.command()
 @click.argument('degrees', type=int)
 def change_brightness(degrees):
-    debug_print_brightness()
     if degrees > 0:
-        raise_brightness(degrees)
+        increase_brightness(degrees)
     else:
-        lower_brightness(degrees)
-    debug_print_brightness()
-    set_min_brightness()
+        decrease_brightness(degrees)
 
 
 if __name__ == "__main__":
