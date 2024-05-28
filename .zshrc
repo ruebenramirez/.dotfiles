@@ -166,8 +166,8 @@ fi
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # Nix
-export NIXPKGS_ALLOW_UNFREE=1
-#export PATH="$HOME/.nix-profile/bin:$PATH"
-if [ -e /home/rramirez/.nix-profile/etc/profile.d/nix.sh ]; then . /home/rramirez/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 
 export PATH=$PATH:/usr/local/go/bin
