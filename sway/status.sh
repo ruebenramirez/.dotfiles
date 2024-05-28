@@ -23,4 +23,4 @@ current_load=$(~/bin/display-current-load)
 
 volume=$(~/bin/volume-get.sh)
 
-echo  wifi $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" kernel v$linux_kernel_version 🐧 "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $volume "|" $date_formatted
+echo  net $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $volume "|" $date_formatted
