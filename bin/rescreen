@@ -5,8 +5,9 @@ set -x
 CONNECTED_DISPLAY=$(swaymsg -t get_outputs | jq '.[] | .name' | grep -v eDP-1)
 
 if [[ $CONNECTED_DISPLAY != "" ]]; then
-    swaymsg "output eDP-1 resolution 1920x1200 position 320 1600"
-    swaymsg "output $CONNECTED_DISPLAY resolution 2560x1600 position 0 0"
+    swaymsg "output eDP-1 resolution 1920x1200 position 100 1334"
+    swaymsg "output $CONNECTED_DISPLAY resolution 2560x1600 position 0 0 "
+    swaymsg "output $CONNECTED_DISPLAY scale 1.2"
     exit 0
 fi
 
