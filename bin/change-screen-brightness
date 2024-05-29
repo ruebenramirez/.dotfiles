@@ -4,8 +4,6 @@ from abc import ABC, abstractmethod
 import click
 import subprocess
 
-DEBUG = True
-
 class BrightnessDriver(ABC):
     @staticmethod
     @abstractmethod
@@ -39,6 +37,8 @@ class BrightnessDriver(ABC):
 
 
 class LightDriver(BrightnessDriver):
+'''Manages laptop's built in display brightness via the `light` utility.'''
+
     @staticmethod
     def is_available():
         return True
@@ -49,41 +49,45 @@ class LightDriver(BrightnessDriver):
         return degrees
 
     @staticmethod
+    def set_brightness(degrees):
+        subprocess.run(["light", "-S", degrees])
+
+
+    @staticmethod
     def print_brightness():
         degrees = LightDriver.get_brightness()
         click.echo("current brightness {d} degrees".format(d=degrees))
 
     @staticmethod
     def increase_brightness(degrees):
-        degrees = str(abs(degrees))
-        if DEBUG:
-            click.echo("increasing brightness {d} degrees".format(d=degrees))
-        subprocess.run(["light", "-A", str(degrees)])
-
-        if LightDriver.get_brightness() >= 100:
-            click.echo("not allowing >= 100 LightDriver brightness")
+        target_brightness = LightDriver.get_brightness() + degrees
+        if target_brightness > 100:
+            click.echo("not allowing > 100 LightDriver brightness")
             LightDriver.max_brightness()
+            return
+        LightDriver.set_brightness(target_brightness)
+
 
     @staticmethod
     def decrease_brightness(degrees):
-        if DEBUG:
-            click.echo("lowering LightDriver brightness {d} degrees".format(d=degrees))
-        subprocess.run(["light", "-U", degrees])
-
-        if LightDriver.get_brightness() <= 1:
-            click.echo("not allowing <= 1 LightDriver brightness")
+        target_brightness = LightDriver.get_brightness() - degrees
+        if target_brightness < 1:
+            click.echo("not allowing < 1 LightDriver brightness")
             LightDriver.min_brightness()
+            return
+        LightDriver.set_brightness(target_brightness)
 
     @staticmethod
     def max_brightness():
-        subprocess.run(["light", "-S", "100"])
+        LightDriver.set_brightness(100)
 
     @staticmethod
     def min_brightness():
-        subprocess.run(["light", "-S", "1"])
+        LightDriver.set_brightness(1)
 
 
-class USB_C_DisplayDriver(BrightnessDriver):
+class Ddcutil_Driver(BrightnessDriver):
+''' ddcutil controls external usb-c display brightness'''
     @staticmethod
     def is_available():
         # TODO: after implementing ddcutil, find a way to see if monitor is attached
@@ -91,19 +95,30 @@ class USB_C_DisplayDriver(BrightnessDriver):
 
     @staticmethod
     def get_brightness():
+        command = "ddcutil --display 1 getvcp 10 --brief"
+        ddcutil_response = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE)
+        return ddcutil_response.stdout.decode().strip().split()[3]
+
+    @staticmethod
+    def set_brightness(target_brightness):
         raise NotImplementedError()
-        # TODO: this isn't enough to get the value
-        #   - maybe there's a direct way to import the ddcutil library and run commands directly
-        subprocess.run(["sudo", "ddcutil", "getvcp", "0x10"])
+        subprocess.run(["ddcutil", "setvcp", "0x10", target_brightness])
 
     @staticmethod
     def increase_brightness(degrees):
-        raise NotImplementedError()
-        subprocess.run(["sudo", "ddcutil", "setvcp", "0x10", degrees])
+        target_brightness = Ddcutil_Driver.get_brightness() + degrees
+        if target_brightness < 1:
+            click.echo("not allowing < 1 ddcutil brightness")
+            Ddcutil_Driver.max_brightness()
+            return
+        Ddcutil_Driver.set_brightness(target_brightness)
 
     @staticmethod
     def decrease_brightness(degrees):
-        raise NotImplementedError()
+        current_brightness = Ddcutil_Driver.get_brightness()
+        target_brightness = current_brightness - degrees
+        if target_brightness < 1
+        subprocess.run(["ddcutil", "setvcp", "0x10", target_brightness])
 
     @staticmethod
     def max_brightness():
@@ -118,8 +133,8 @@ def get_displays():
     displays = []
     if LightDriver.is_available():
         displays.append(LightDriver)
-    if USB_C_DisplayDriver.is_available():
-        displays.append(USB_C_DisplayDriver)
+    if Ddcutil_Driver.is_available():
+        displays.append(Ddcutil_Driver)
     return displays
 
 def increase_brightness(degrees):
