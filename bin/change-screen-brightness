@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from ABC import ABC, abstractmethod
+from abc import ABC, abstractmethod
 import click
 import subprocess
 
@@ -50,29 +50,29 @@ class LightDriver(BrightnessDriver):
 
     @staticmethod
     def print_brightness():
-        degrees = get_brightness()
+        degrees = LightDriver.get_brightness()
         click.echo("current brightness {d} degrees".format(d=degrees))
 
     @staticmethod
-    def increase_brightness():
+    def increase_brightness(degrees):
         if DEBUG:
             click.echo("raising brightness {d} degrees".format(d=degrees))
         subprocess.run(["light", "-A", str(degrees)])
 
     @staticmethod
-    def decrease_brightness(self):
+    def decrease_brightness(degrees):
         if DEBUG:
-            click.echo("lowering brightness {d} degrees".format(d=degrees))
+            click.echo("lowering LightDriver brightness {d} degrees".format(d=degrees))
         prepped_degrees = str(abs(degrees))
         subprocess.run(["light", "-U", prepped_degrees])
 
         if DEBUG:
-            click.echo("checking minimum brightness")
-            print_brightness()
-        if get_bright() <= 1:
-            click.echo("not allowing <= 1 brightness")
-            subprocess.run(["light", "-S", ".1"])
-            _print_brightness()
+            click.echo("checking minimum LightDriver brightness")
+            LightDriver.print_brightness()
+        if LightDriver.get_brightness() <= 1:
+            click.echo("not allowing <= 1 LightDriver brightness")
+            subprocess.run(["light", "-S", "1"])
+            LightDriver.print_brightness()
 
     @staticmethod
     def max_brightness():
@@ -92,14 +92,18 @@ class USB_C_DisplayDriver(BrightnessDriver):
     @staticmethod
     def get_brightness():
         raise NotImplementedError()
+        # TODO: this isn't enough to get the value
+        #   - maybe there's a direct way to import the ddcutil library and run commands directly
+        subprocess.run(["sudo", "ddcutil", "getvcp", "0x10"])
 
     @staticmethod
-    def increase_brightness():
+    def increase_brightness(degrees):
         raise NotImplementedError()
+        subprocess.run(["sudo", "ddcutil", "setvcp", "0x10", degrees])
 
     @staticmethod
     def decrease_brightness(degrees):
-        subprocess.run(["sudo", "ddcutil", "setvcp", "0x10", degrees])
+        raise NotImplementedError()
 
     @staticmethod
     def max_brightness():
@@ -110,19 +114,19 @@ class USB_C_DisplayDriver(BrightnessDriver):
         raise NotImplementedError()
 
 
-def get_displays()
+def get_displays():
     displays = []
-    built_in_display = LightDriver()
-    if built_in_display.is_available():
-        displays.append(LightDriver())
-    displays.append(USB_C_DisplayDriver())
+    if LightDriver.is_available():
+        displays.append(LightDriver)
+    if USB_C_DisplayDriver.is_available():
+        displays.append(USB_C_DisplayDriver)
     return displays
 
 def increase_brightness(degrees):
     for display in get_displays():
         display.increase_brightness(degrees)
 
-def decrease_brightness():
+def decrease_brightness(degrees):
     for display in get_displays():
         display.decrease_brightness(degrees)
 
