@@ -55,32 +55,32 @@ class LightDriver(BrightnessDriver):
 
     @staticmethod
     def increase_brightness(degrees):
+        degrees = str(abs(degrees))
         if DEBUG:
-            click.echo("raising brightness {d} degrees".format(d=degrees))
+            click.echo("increasing brightness {d} degrees".format(d=degrees))
         subprocess.run(["light", "-A", str(degrees)])
+
+        if LightDriver.get_brightness() >= 100:
+            click.echo("not allowing >= 100 LightDriver brightness")
+            LightDriver.max_brightness()
 
     @staticmethod
     def decrease_brightness(degrees):
         if DEBUG:
             click.echo("lowering LightDriver brightness {d} degrees".format(d=degrees))
-        prepped_degrees = str(abs(degrees))
-        subprocess.run(["light", "-U", prepped_degrees])
+        subprocess.run(["light", "-U", degrees])
 
-        if DEBUG:
-            click.echo("checking minimum LightDriver brightness")
-            LightDriver.print_brightness()
         if LightDriver.get_brightness() <= 1:
             click.echo("not allowing <= 1 LightDriver brightness")
-            subprocess.run(["light", "-S", "1"])
-            LightDriver.print_brightness()
+            LightDriver.min_brightness()
 
     @staticmethod
     def max_brightness():
-        raise NotImplementedError()
+        subprocess.run(["light", "-S", "100"])
 
     @staticmethod
     def min_brightness():
-        raise NotImplementedError()
+        subprocess.run(["light", "-S", "1"])
 
 
 class USB_C_DisplayDriver(BrightnessDriver):
@@ -134,6 +134,8 @@ def decrease_brightness(degrees):
 @click.command()
 @click.argument('degrees', type=int)
 def change_brightness(degrees):
+    '''Change Brightness expects brightness increase as a positive integer of degrees or decrease as a negative integer of degrees.'''
+    degrees = str(abs(degrees))
     if degrees > 0:
         increase_brightness(degrees)
     else:
