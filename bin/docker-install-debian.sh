@@ -25,4 +25,4 @@ sudo docker run hello-world
 
 # add rramirez to the docker group
 
-usermod -aG docker rramirez
+sudo usermod -aG docker rramirez
