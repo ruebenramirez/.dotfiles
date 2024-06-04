@@ -113,12 +113,12 @@ input "type:touchpad" {
     bindsym $mod2+ctrl+Shift+l exec swaylock -f -c 000000
 
     # screen Brightness controls
-    bindsym --locked XF86MonBrightnessUp exec sudo ~/bin/change-screen-brightness -- 5
-    bindsym --locked XF86MonBrightnessDown exec sudo ~/bin/change-screen-brightness -- -5
+    bindsym --locked XF86MonBrightnessUp exec sudo light -A 5
+    bindsym --locked XF86MonBrightnessDown exec sudo light -U 5
     # min brightness
-    bindsym --locked Shift+XF86MonBrightnessDown exec ~/bin/min-brightness
+    bindsym --locked Shift+XF86MonBrightnessDown exec sudo light -S 1
     # max brightness
-    bindsym --locked Shift+XF86MonBrightnessUp exec ~/bin/max-brightness
+    bindsym --locked Shift+XF86MonBrightnessUp exec sudo light -S 100
 
 
     # VOLUME CONTROLS
