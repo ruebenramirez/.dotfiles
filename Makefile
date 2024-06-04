@@ -29,12 +29,12 @@ dev-laptop: power-management adobeSourceCodeProFont keychain
 	flatpak install https://downloads.1password.com/linux/flatpak/1Password.flatpakref
 
 1password-install:
-	#curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-	# echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
-	# sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-	# curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-	# sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-	# curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+	sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+	curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+	sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 	sudo apt update && sudo apt install 1password -y
 
 
@@ -352,6 +352,17 @@ flatpak-install:
 	sudo apt install flatpak
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+flatpak-apps:
+	sudo flatpak install -y md.obsidian.Obsidian
+	sudo flatpak install -y eu.betterbird.Betterbird
+	sudo flatpak install -y org.remmina.Remmina
+	sudo flatpak install -y im.riot.Riot
+	sudo flatpak install -y com.discordapp.Discord
+	sudo flatpak install -y com.slack.Slack
+	sudo flatpak install -y org.signal.Signal
+	sudo flatpak install -y org.telegram.desktop
+	sudo flatpak install -y org.torproject.torbrowser-launcher
+
 firefox-flatpak-install: flatpak-install
 	sudo flatpak install org.mozilla.firefox
 
@@ -422,5 +433,5 @@ fingerprint-reader-setup:
 
 
 sway-debian-setup:
-	sudo apt install -qy sway tofi waybar wdisplays wlsunset sway-notification-center grimshot swaylock swayimg
+	sudo apt install -qy sway rofi waybar wdisplays wlsunset sway-notification-center grimshot swaylock swayimg
 
