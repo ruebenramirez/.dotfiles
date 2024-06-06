@@ -435,3 +435,7 @@ fingerprint-reader-setup:
 sway-debian-setup:
 	sudo apt install -qy sway rofi waybar wdisplays wlsunset sway-notification-center grimshot swaylock swayimg
 
+
+
+wayland-setup:
+	sudo apt install -y sway swaybar swaylock rofi wtype wev
