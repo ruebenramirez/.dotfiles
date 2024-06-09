@@ -9,7 +9,7 @@ uptime_formatted=$(uptime | cut -d ',' -f1  | cut -d ' ' -f4,5)
 
 # The abbreviated weekday (e.g., "Sat"), followed by the ISO-formatted date
 # like 2018-10-06 and the time (e.g., 14:01)
-date_formatted=$(date "+%a %F %H:%M")
+date_formatted=$(date "+%b %F %a %H:%M")
 
 linux_kernel_version=$(uname -r)
 
