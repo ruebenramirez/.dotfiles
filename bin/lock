@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-swaylock -f -c 000000
+#swaylock -f -c 000000
+i3lock -f -c 000000
