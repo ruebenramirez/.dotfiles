@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-rescreen
+#rescreen
+xcalib -clear
