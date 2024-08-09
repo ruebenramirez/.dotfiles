@@ -125,3 +125,5 @@
 "~/bin/lock"
     m:0xd + c:46
     Control+Shift+Alt + l
+# the lock here says alt, but I think I remapped alt and windows keys elsewhere
+# 	https://github.com/ruebenramirez/.dotfiles/blob/master/bin/rekey#L21
