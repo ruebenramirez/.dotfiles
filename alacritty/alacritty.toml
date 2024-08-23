@@ -30,7 +30,7 @@ foreground = "#000000"
 TERM = "xterm-256color"
 
 [font]
-size = 16
+size = 12
 
 [font.bold]
 family = "SourceCodePro"
