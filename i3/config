@@ -190,6 +190,7 @@ bindsym $mod+$mod2+Shift+m mode "mouse"
 # startup apps
 exec --no-startup-id /home/rramirez/bin/re
 exec --no-startup-id flameshot
+exec --no-startup-id ~/.screenlayout/default.sh
 #exec --no-startup-id blueman-applet
 #exec --no-startup-id syncthingtray
 
