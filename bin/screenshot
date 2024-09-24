@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 
-FILENAME="screenshot-`date +%F-%T`"
-grim -g "$(slurp)" ~/Pictures/$FILENAME.png
+# wayland screenshots
+# FILENAME="screenshot-`date +%F-%T`"
+# grim -g "$(slurp)" ~/Photos/screenshots/$FILENAME.png
+
+
+# x11 screenshots
+flameshot gui
