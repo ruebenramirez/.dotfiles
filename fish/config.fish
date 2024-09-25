@@ -24,7 +24,7 @@ alias tre="tree"
 # shortcuts
 alias nup="nix-update"
 alias hf="hostname -f"
-alias vi="vim"
+alias vi="nvim"
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection clipboard -o"
 alias ll="ls -lah"
