@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-amixer sset Master toggle
+pactl set-sink-mute @DEFAULT_SINK@ toggle
