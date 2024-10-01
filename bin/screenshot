@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir -p ~/Photos/screenshots/
+
 # wayland screenshots
 FILENAME="screenshot-`date +%F-%T`"
 grim -g "$(slurp)" ~/Photos/screenshots/$FILENAME.png
