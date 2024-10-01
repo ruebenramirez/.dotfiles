@@ -13,6 +13,10 @@ set $down j
 set $up k
 set $right l
 
+font pango:Noto Sans Regular 8
+titlebar_padding 2
+titlebar_border_thickness 0
+
 # Your preferred terminal emulator
 set $term alacritty
 
@@ -26,7 +30,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -37,6 +41,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # output eDP-1 resolution 1920x1200 position 2270,1600
 # output DP-1 resolution 2560x1600 position 1920,0
 # output DP-2 resolution 2560x1600 position 1920,0
+
+output eDP-1 resolution 3840x2400 position 3840,0 scale 2.00
+output DP-2 resolution 2560x1600 position 3840,1200 scale 1.20
+output DP-4 resolution 3840x2160 position 0,0 scale 1.00
 
 
 ### Idle configuration
