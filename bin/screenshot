@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # wayland screenshots
-# FILENAME="screenshot-`date +%F-%T`"
-# grim -g "$(slurp)" ~/Photos/screenshots/$FILENAME.png
+FILENAME="screenshot-`date +%F-%T`"
+grim -g "$(slurp)" ~/Photos/screenshots/$FILENAME.png
+wl-copy < ~/Photos/screenshots/$FILENAME.png
 
 
 # x11 screenshots
-flameshot gui
+#flameshot gui
