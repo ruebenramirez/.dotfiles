@@ -6,7 +6,7 @@
 # Use Alt for Mod1.
 set $mod Mod1
 # Use Win for Mod2.
-set $mod2 Mod4
+set $super Mod4
 
 # Home row direction keys, like vim
 set $left h
@@ -116,7 +116,7 @@ input "type:touchpad" {
 # Custom keybindings
 #
     # LOCK SCREEN
-    bindsym $mod2+ctrl+Shift+l exec swaylock -f -c 000000
+    bindsym $super+ctrl+Shift+l exec swaylock -f -c 000000
 
     # SCREEN BRIGHTNESS CONTROLS
     bindsym --locked XF86MonBrightnessUp exec sudo light -A 5
