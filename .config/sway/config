@@ -298,8 +298,8 @@ exec swaymsg syncthingtray &
 exec_always swaymsg ~/bin/launch-apps.sh &
 exec_always systemctl --user restart kanshi &
 exec_always pkill swayidle; swayidle -w \
-	timeout 120 'swaylock -f -c 000000' \
-	timeout 120 'swaymsg "output * power off"' \
+	timeout 300 'swaylock -f -c 000000' \
+	timeout 300 'swaymsg "output * power off"' \
 		resume 'swaymsg "output * power on"' \
 	before-sleep 'swaylock -f -c 000000'
 
