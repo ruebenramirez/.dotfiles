@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-gammastep -O 3000 &
+pkill gammastep
+
+gammastep -O 1000 &
