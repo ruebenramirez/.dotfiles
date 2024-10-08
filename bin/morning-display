@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
 
-rescreen
+pkill gammastep
 
-xrandr --output eDP-1 --gamma 1.1:0.8:0.7 --brightness 0.55
-xcalib -clear
-
-# red color
-# xcalib \
-#     -red 1 10 100 \
-#     -blue 1 10 10 \
-#     -green 1 10 10 -alter
-
-
-# yellow color
-xcalib -blue 1 0 20 -alter
+gammastep -O 3000 &
