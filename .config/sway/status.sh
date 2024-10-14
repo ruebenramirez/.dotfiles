@@ -7,9 +7,6 @@ wifi_network=$(~/bin/display-connected-wifi-network)
 # Produces "21 days", for example
 uptime_formatted=$(uptime | cut -d ',' -f1  | cut -d ' ' -f4,5)
 
-# The abbreviated weekday (e.g., "Sat"), followed by the ISO-formatted date
-# like 2018-10-06 and the time (e.g., 14:01)
-date_formatted=$(date "+%b %F %a %H:%M")
 
 linux_kernel_version=$(uname -r)
 
@@ -23,4 +20,8 @@ current_load=$(~/bin/display-current-load)
 
 volume=$(~/bin/volume-get.sh)
 
-echo  net $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" $volume "|" $date_formatted
+# The abbreviated weekday (e.g., "Sat"), followed by the ISO-formatted date
+# like 2018-10-06 and the time (e.g., 14:01)
+date_formatted=$(date "+%b %F %a %H:%M")
+
+echo -e net $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" "\U0001F3B5" $volume "|" $date_formatted

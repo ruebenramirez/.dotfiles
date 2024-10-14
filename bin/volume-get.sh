@@ -1,5 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-VOL="$(amixer get Master | tail -1 | sed 's/.*\[\([0-9]*%\)\].*/\1/')"
-
-echo "vol. $VOL"
+pactl get-sink-volume $(pactl get-default-sink) | awk '{print $5}'
