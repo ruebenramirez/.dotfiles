@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 
-font pango:Noto Sans Regular 8
+font pango:Noto Sans Regular 10
 titlebar_padding 2
 titlebar_border_thickness 0
 
