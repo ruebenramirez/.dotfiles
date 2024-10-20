@@ -4,6 +4,7 @@ if status --is-interactive
 end
 
 set -gx EDITOR vim
+set -x TMUX_TMPDIR /tmp
 
 fish_add_path ~/bin
 
