@@ -133,7 +133,7 @@ input "type:touchpad" {
 
     # SCREENSHOT
     bindsym --locked Print exec ~/bin/screenshot
-    bindsym --locked ctrl+Print exec ~/bin/ocr-screenshot"
+    bindsym --locked ctrl+Print exec ~/bin/ocr-screenshot
 
     # TOGGLE TRACKPAD
     bindsym --locked ctrl+Escape exec swaymsg input type:touchpad events toggle
