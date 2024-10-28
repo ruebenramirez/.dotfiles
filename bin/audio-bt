@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Start a new tmux session named "audio" in detached mode
+tmux new-session -d -s audio
+
+# Split the window vertically
+tmux split-window -v
+
+# Send commands to the first pane (left)
+tmux send-keys -t audio:0.0 'pulsemixer' C-m
+
+# Send commands to the second pane (right)
+tmux send-keys -t audio:0.1 'bluetuith' C-m
+
+# Attach to the session
+tmux attach-session -t audio
