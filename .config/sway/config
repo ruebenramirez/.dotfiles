@@ -131,6 +131,12 @@ input "type:touchpad" {
     bindsym --locked XF86AudioRaiseVolume exec ~/bin/volume-up.sh
     bindsym --locked XF86AudioLowerVolume exec ~/bin/volume-down.sh
 
+    # MEDIA CONTROLS
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioStop exec playerctl stop
+
     # SCREENSHOT
     bindsym --locked Print exec ~/bin/screenshot
     bindsym --locked ctrl+Print exec ~/bin/ocr-screenshot
