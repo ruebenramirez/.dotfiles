@@ -5,13 +5,13 @@ TERM = "xterm-256color"
 size = 24
 
 [font.bold]
-family = "SourceCodePro"
+family = "SauceCodePro Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "SourceCodePro"
+family = "SauceCodePro Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "SourceCodePro"
+family = "SauceCodePro Nerd Font"
 style = "Regular"
