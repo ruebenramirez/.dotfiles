@@ -115,6 +115,9 @@ input "type:touchpad" {
 #
 # Custom keybindings
 #
+# use the `wev` utility to view key presses for the purposes of creating
+#   keybindings
+
     # LOCK SCREEN
     bindsym $super+ctrl+Shift+l exec swaylock -f -c 000000
 
