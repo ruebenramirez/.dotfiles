@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd ~/Sync/notes/
+
+nix develop -c nvim
