@@ -16,27 +16,34 @@ style = "Italic"
 family = "SauceCodePro Nerd Font"
 style = "Regular"
 
+# (Github Light) Colors for Alacritty
 
-[colors.primary]
-background = "#f1f1f1"
-foreground = "#424242"
+[colors]
+  [colors.primary]
+  background = "0xffffff"
+  foreground = "0x1F2328"
 
-[colors.normal]
-black = "#212121"
-red = "#c30771"
-green = "#10a778"
-yellow = "#a89c14"
-blue = "#008ec4"
-magenta = "#523c79"
-cyan = "#20a5ba"
-white = "#e0e0e0"
+  [colors.cursor]
+  text = "0xffffff"
+  cursor = "0x1f2328"
 
-[colors.bright]
-black = "#212121"
-red = "#fb007a"
-green = "#5fd7af"
-yellow = "#f3e430"
-blue = "#20bbfc"
-magenta = "#6855de"
-cyan = "#4fb8cc"
-white = "#f1f1f1"
+  [colors.normal]
+  black = "0x24292f"
+  red = "0xcf222e"
+  green = "0x116329"
+  yellow = "0x4d2d00"
+  blue = "0x0969da"
+  magenta = "0x8250df"
+  cyan = "0x1b7c83"
+  white = "0x6e7781"
+
+  [colors.bright]
+  black = "0x57606a"
+  red = "0xa40e26"
+  green = "0x1a7f37"
+  yellow = "0x633c01"
+  blue = "0x218bff"
+  magenta = "0x8250df"
+  cyan = "0x1b7c83"
+  white = "0x6e7781"
+
