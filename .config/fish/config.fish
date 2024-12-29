@@ -51,6 +51,8 @@ alias pbcopy="xclip -se c -i"
 alias discord="Discord"
 alias vido="cd ~/.dotfiles/ && vi Makefile"
 alias girn="grep -irn"
+alias vin="cd ~/Sync/notes && /nix/store/sd4l8b6kjwxghizc0cqsgxl4f14cmx0z-neovim-0.10.2/bin/vi"
+
 
 # make me a sandwhich
 alias wifi="sudo sh ~/bin/wifi $argv"
