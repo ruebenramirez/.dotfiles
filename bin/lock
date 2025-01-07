@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-killall -SIGUSR1 swayidle
+~/bin/setup-swayidle &
+swaylock -f -c 000000

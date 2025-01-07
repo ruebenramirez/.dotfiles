@@ -122,7 +122,7 @@ input "type:touchpad" {
 #   keybindings
 
     # LOCK SCREEN
-    bindsym $super+ctrl+Shift+l exec swaylock -f -c 000000
+    bindsym $super+ctrl+Shift+l exec /home/rramirez/bin/lock
 
     # SCREEN BRIGHTNESS CONTROLS
     bindsym --locked XF86MonBrightnessUp exec sudo light -A 5
@@ -308,11 +308,7 @@ bar {
 exec swaymsg syncthingtray &
 exec swaymsg blueman-applet &
 exec_always systemctl --user restart kanshi &
-exec_always pkill swayidle; swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 300 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000'
+exec_always /home/rramirez/bin/setup-swayidle &
 
 #
 # includes:
