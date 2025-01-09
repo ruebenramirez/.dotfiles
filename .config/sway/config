@@ -2,21 +2,13 @@
 
 
 ### Variables
-#
-# Use Alt for Mod1.
-set $mod Mod1
-# Use Win for Mod2.
-set $super Mod4
+set $mod Mod4
 
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-
-font pango:Noto Sans Regular 10
-titlebar_padding 2
-titlebar_border_thickness 0
 
 # Your preferred terminal emulator
 set $term alacritty
@@ -25,6 +17,10 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu "rofi -combi-modi window,drun,ssh,run -show combi -show-icons"
+
+font pango:Noto Sans Regular 10
+titlebar_padding 2
+titlebar_border_thickness 0
 
 include /etc/sway/config-vars.d/*
 
@@ -122,7 +118,7 @@ input "type:touchpad" {
 #   keybindings
 
     # LOCK SCREEN
-    bindsym $super+ctrl+Shift+l exec /home/rramirez/bin/lock
+    bindsym Ctrl+Alt+Shift+l exec /home/rramirez/bin/lock
 
     # SCREEN BRIGHTNESS CONTROLS
     bindsym --locked XF86MonBrightnessUp exec sudo light -A 5
