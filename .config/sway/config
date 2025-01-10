@@ -2,7 +2,9 @@
 
 
 ### Variables
-set $mod Mod4
+# alt key as modifier
+set $mod Mod1
+set $super Mod4
 
 # Home row direction keys, like vim
 set $left h
@@ -118,7 +120,7 @@ input "type:touchpad" {
 #   keybindings
 
     # LOCK SCREEN
-    bindsym Ctrl+Alt+Shift+l exec /home/rramirez/bin/lock
+    bindsym Ctrl+$super+Shift+l exec /home/rramirez/bin/lock
 
     # SCREEN BRIGHTNESS CONTROLS
     bindsym --locked XF86MonBrightnessUp exec sudo light -A 5
