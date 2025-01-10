@@ -2,16 +2,10 @@
 
 set -e -x
 
-SCREENSHOT_DIR="~/Photos/screenshots"
+SCREENSHOT_DIR="/home/rramirez/Photos/screenshots"
 mkdir -p $SCREENSHOT_DIR
 FILENAME="screenshot-`date +%F-%T`.png"
 SCREENSHOT_FILE_FULL_PATH="$SCREENSHOT_DIR/$FILENAME"
-
-# # satty markup screenshot tool
-# grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --output-filename ~/Photos/screenshots/$FILENAME.png
-
-# # copy new screenshot to the paste buffer
-# wl-copy < ~/Photos/screenshots/$FILENAME.png
 
 # satty markup screenshot tool
 grim -g "$(slurp)" -t ppm - | satty --early-exit --filename - --fullscreen --output-filename $SCREENSHOT_FILE_FULL_PATH
