@@ -2,6 +2,8 @@
 # You should see changes to the status bar after saving this script.
 # If not, do "killall swaybar" and $mod+Shift+c to reload the configuration.
 
+vpn_connection=$(~/bin/display-vpn-connection)
+
 wifi_network=$(~/bin/display-connected-wifi-network)
 
 # Produces "21 days", for example
@@ -24,4 +26,4 @@ volume=$(~/bin/volume-get.sh)
 # like 2018-10-06 and the time (e.g., 14:01)
 date_formatted=$(date "+%b %F %a @ %H:%M")
 
-echo -e net $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" "\U0001F3B5" $volume "|" $date_formatted
+echo -e "VPN" $vpn_connection "|" "net" $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" "\U0001F3B5" $volume "|" $date_formatted

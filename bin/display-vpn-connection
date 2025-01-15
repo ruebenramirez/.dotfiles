@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# display the wireguard network connection
+VPN=$(nmcli connection show --active | grep wireguard | head -1 | awk '{print $1}')
+
+if [[ -n "$VPN" ]]; then
+    echo "$VPN active"
+else
+    echo "disabled"
+fi
+
+
