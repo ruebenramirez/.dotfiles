@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# Target GitLab server IP
+GITLAB_IP="172.93.51.14"
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to get default gateway and interface
+get_default_route() {
+    # Try to get default route using ip command
+    if command_exists ip; then
+        DEFAULT_ROUTE=$(ip route show default | grep -m1 '^default')
+        if [ -n "$DEFAULT_ROUTE" ]; then
+            GATEWAY=$(echo "$DEFAULT_ROUTE" | awk '{print $3}')
+            INTERFACE=$(echo "$DEFAULT_ROUTE" | awk '{print $5}')
+            return 0
+        fi
+    fi
+
+    # Fallback to route command if ip fails
+    if command_exists route; then
+        DEFAULT_ROUTE=$(route -n | grep '^0.0.0.0')
+        if [ -n "$DEFAULT_ROUTE" ]; then
+            GATEWAY=$(echo "$DEFAULT_ROUTE" | awk '{print $2}')
+            INTERFACE=$(echo "$DEFAULT_ROUTE" | awk '{print $8}')
+            return 0
+        fi
+    fi
+
+    echo "Could not determine default gateway and interface"
+    return 1
+}
+
+# Function to test connectivity
+test_connection() {
+    local host="$GITLAB_IP"
+    local timeout=5
+    echo "Testing connectivity to $host..."
+    if ping -c 1 -W $timeout $host >/dev/null 2>&1; then
+        echo "Connection successful!"
+        return 0
+    else
+        echo "Connection failed"
+        return 1
+    fi
+}
+
+# Function to check if route already exists
+check_existing_route() {
+    if sudo ip route show | grep -q "^$GITLAB_IP"; then
+        echo "Removing existing route for $GITLAB_IP"
+        ip route del "$GITLAB_IP"
+    fi
+}
+
+# Main script
+main() {
+    echo "Testing initial connectivity..."
+    if test_connection; then
+        echo "Connection already working! No route changes needed."
+        exit 0
+    fi
+
+    echo "Connection failed. Attempting to add direct route..."
+
+    # Get default route information
+    if ! get_default_route; then
+        exit 1
+    fi
+
+    echo "Found default gateway: $GATEWAY"
+    echo "Found interface: $INTERFACE"
+
+    # Remove existing route if present
+    check_existing_route
+
+    # Add new route
+    echo "Adding route: $GITLAB_IP via $GATEWAY dev $INTERFACE"
+    if sudo ip route add "$GITLAB_IP/32" via "$GATEWAY" dev "$INTERFACE"; then
+        echo "Route added successfully"
+        if test_connection; then
+            echo "Success! Route and connectivity are working."
+        else
+            echo "Warning: Route added but connection test failed"
+            echo "You may need to check your network configuration"
+        fi
+    else
+        echo "Failed to add route"
+        exit 1
+    fi
+}
+
+main
