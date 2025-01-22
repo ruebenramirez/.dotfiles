@@ -13,7 +13,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term alacritty
+set $term ghostty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -91,8 +91,8 @@ input "type:touchpad" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec "alacritty -e tmux"
-    bindsym $mod+Shift+Return exec alacritty
+    bindsym $mod+Return exec "ghostty -e tmux"
+    bindsym $mod+Shift+Return exec ghostty
 
     # Kill focused window
     bindsym $mod+Shift+q kill
