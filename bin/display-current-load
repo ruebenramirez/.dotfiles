@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # display current load
-uptime | awk '{print $11}' | cut -d ',' -f 1
+uptime | awk '{print $8, $9, $10}'
