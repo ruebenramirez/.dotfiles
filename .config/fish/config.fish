@@ -104,6 +104,7 @@ alias jjnm="jj git fetch --all-remotes && jj new master@origin"
 alias jjgp="jj git push"
 alias jju="jj config set --user user.name \"Rueben Ramirez\" && jj config set --user user.email \"ruebenramirez@gmail.com\""
 alias jjds="jj describe"
+alias jja="jj abandon"
 
 # docker aliases
 alias d="nerdctl"
