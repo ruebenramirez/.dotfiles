@@ -7,7 +7,7 @@ vpn_connection=$(~/bin/display-vpn-connection)
 wifi_network=$(~/bin/display-connected-wifi-network)
 
 # Produces "21 days", for example
-uptime_formatted=$(uptime | cut -d ',' -f1  | cut -d ' ' -f4,5)
+uptime_formatted=$(uptime | cut -d ',' -f1  | cut -d ' ' -f6)
 
 
 linux_kernel_version=$(uname -r)
