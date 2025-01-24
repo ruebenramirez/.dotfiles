@@ -92,6 +92,18 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gri="git rebase -i"
 
+#jj aliases
+alias jjwl="watch --color jj log --color always"
+alias jjs="jj status"
+alias jjl="jj log --no-pager"
+alias jjlp="jj log --patch"
+alias jjd="jj diff"
+alias jjdr="jj diff -r"
+alias jjf="jj git fetch --all-remotes"
+alias jjnm="jj git fetch --all-remotes && jj new master@origin"
+alias jjgp="jj git push"
+alias jju="jj config set --user user.name \"Rueben Ramirez\" && jj config set --user user.email \"ruebenramirez@gmail.com\""
+
 # docker aliases
 alias d="nerdctl"
 alias dps="nerdctl ps -a"
