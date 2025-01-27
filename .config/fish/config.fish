@@ -93,7 +93,7 @@ alias gdc="git diff --cached"
 alias gri="git rebase -i"
 
 #jj aliases
-alias jjwl="watch --color jj log --color always"
+alias jjwl='watch --color -c "jj log -r \"all()\" --color always"'
 alias jjs="jj status"
 alias jjl="jj log -r \"all()\" --patch"
 alias jjd="jj diff"
