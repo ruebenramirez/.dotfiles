@@ -120,4 +120,7 @@ alias tfp="terraform plan -out tfplan"
 alias tfa="terraform apply tfplan"
 alias tfd="terraform destroy"
 
-
+# alias for timer and sounding alarm when finished
+function tmr
+    timer $argv; date; sound-alarm;
+end
