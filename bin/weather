@@ -4,7 +4,7 @@ import os
 import requests
 
 DEBUG = False
-s_state_abbrev = {
+state_lookup = {
     'Alabama': 'AL',
     'Alaska': 'AK',
     'American Samoa': 'AS',
@@ -69,7 +69,7 @@ data = r.json()
 
 IP = data["ip"]
 state = data["region"]
-state_abbreviation = s_state_abbrev[state]
+state_abbreviation = state_lookup[state]
 city = data["city"]
 country = data["country"]
 
@@ -81,4 +81,4 @@ if DEBUG:
 weather_url = "https://www.wunderground.com/forecast/us/{state}/{city}".format(
     state=state_abbreviation, city=city)
 
-os.system('google-chrome %s ' % weather_url)
+os.system('firefox %s ' % weather_url)
