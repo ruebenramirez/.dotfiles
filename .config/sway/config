@@ -150,6 +150,7 @@ input "type:touchpad" {
 
     # type current timestamp
     bindsym --locked XF86Favorites exec wtype $(~/bin/timestamp-hyphenated)
+    bindsym --locked Ctrl+Shift+F12 exec wtype $(~/bin/timestamp-hyphenated)
 
     # toggle notifications
     #bindsym XF86Messenger exec ~/bin/toggle-notifications.sh
