@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+
+/run/current-system/sw/bin/paplay /home/rramirez/.dotfiles/casio-alarm.ogg
