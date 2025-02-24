@@ -106,13 +106,15 @@ alias jjds="jj describe"
 alias jja="jj abandon"
 
 # docker aliases
-alias d="docker"
-alias dps="docker ps -a"
-alias di="docker images"
-alias dat="docker attach --sig-proxy=true"
-alias dci="docker images | grep none | awk '{print $3}' | xargs -I'{}' sudo docker rmi -f {}"
-alias dc="docker rm $(docker ps -q -a)"
-alias dcs="docker-compose"
+if command -v docker &>/dev/null
+    alias d="docker"
+    alias dps="docker ps -a"
+    alias di="docker images"
+    alias dat="docker attach --sig-proxy=true"
+    alias dci="docker images | grep none | awk '{print $3}' | xargs -I'{}' sudo docker rmi -f {}"
+    alias dc="docker rm $(docker ps -q -a)"
+    alias dcs="docker-compose"
+end
 
 # terraform aliases
 alias tf="terraform"
