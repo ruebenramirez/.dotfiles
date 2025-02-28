@@ -10,6 +10,12 @@ fish_add_path ~/bin
 
 # helpful aliases
 
+# nav up directories
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+
 # typos
 alias k="kubectl"
 alias eixt="exit"
