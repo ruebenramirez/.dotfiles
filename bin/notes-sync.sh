@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
-set -ex
-
 echo 'dynamically source $NOTES_DIR from $NOTES_ENV_FILE'
+##########################################################
+#
 # This is necessary because my notes are checked out into
-#   different directories on different machines:
-#   - NixOS: ~/Documents/notes,
+# different directories on different machines:
+#   - NixOS: ~/notes,
 #   - WSL2: /mnt/d/Documents/notes/
 #   - Termux: ~/storage/shared/notes-ssh/
+#
+#   $ cat ~/.notes-env
+#   export NOTES_DIR=~/notes/
+#
+##########################################################
 NOTES_ENV_FILE=~/.notes-env
 if [[ -z "$NOTES_ENV_FILE" ]]; then
     echo "We're missing a $NOTES_ENV_FILE file"
@@ -25,10 +30,10 @@ echo "git pull complete"
 NOTES_UPDATED="$(git status --porcelain | wc -l)"
 if [[ "$NOTES_UPDATED" -gt 0 ]]; then
     echo "local working copy changes being synced to remote repo"
-    GIT_COMMIT_MSG="Last Sync: $(date +"%Y-%m-%d %H:%M:%S") cron running from: $(hostname -f)"
+    GIT_COMMIT_MSG="Notes sync: $(date +"%Y-%m-%d %H:%M:%S") cron running from: $(hostname -f)"
     git add .
     git commit -q -m "$GIT_COMMIT_MSG"
 fi
 
-git push origin/master
+git push origin master
 echo "local notes synced to repo remote"
