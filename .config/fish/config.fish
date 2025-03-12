@@ -20,6 +20,9 @@ if status --is-interactive
   eval (direnv hook fish)
 end
 
+fish_add_path $HOME/.cargo/bin
+
+
 set -gx EDITOR vim
 set -x TMUX_TMPDIR /tmp
 
