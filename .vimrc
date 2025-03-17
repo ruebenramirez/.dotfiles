@@ -27,6 +27,7 @@ Plugin 'tpope/vim-endwise' " easily find end of if, do, and def blocks https://g
 "Plugin 'easymotion/vim-easymotion' "https://github.com/easymotion/vim-easymotion
 Plugin 'preservim/tagbar' " list outline of classes in file https://github.com/preservim/tagbar
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ojroques/vim-oscyank'
 
 " syntax highlight support
 Plugin 'tpope/vim-markdown'
@@ -62,6 +63,10 @@ set vi+=n
 
 set backspace=indent,eol,start
 
+"""""""""""""""""""""""""""""""""""""
+" oscyank setup
+"""""""""""""""""""""""""""""""""""""
+vmap <C-c> y:OSCYankVisual<cr>
 
 """""""""""""""""""""""""""""""""""""
 " file type associations
