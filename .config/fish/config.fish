@@ -117,6 +117,7 @@ alias gadd="git add"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gri="git rebase -i"
+alias gws="watch -n 2 'git log --pretty=format:\"%h - %s%d\" --decorate'"
 
 function git-push-tags-force
     if test (count $argv) -eq 0
