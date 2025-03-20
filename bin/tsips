@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+#tailscale status --json | jq -r '.Peer[] | select(.Tags == null or (.Tags | join(" ") | contains("exit-node") | not)) | .HostName + ": " + (.TailscaleIPs | join(", "))'
+
+
+echo -e "HOSTNAME\t\tIPv4\t\t\tIPv6"
+echo -e "--------\t\t----\t\t\t----"
+
+tailscale status --json | jq -r '.Peer[] | select(.Tags == null or (.Tags | join(" ") | contains("exit-node") | not)) | .HostName + "\t" + (.TailscaleIPs | join("\t"))'  | while read line; do
+  host=$(echo "$line" | cut -f1)
+  ip_list=$(echo "$line" | cut -f2-)
+
+  ipv4=$(echo "$ip_list" | grep -o "100\.[0-9]\+\.[0-9]\+\.[0-9]\+")
+  ipv6=$(echo "$ip_list" | grep -o "fd7a:[^[:space:]]*")
+
+  # Pad hostname for better alignment
+  if [ ${#host} -lt 8 ]; then
+    host="${host}\t"
+  fi
+
+  echo -e "${host}\t${ipv4}\t\t${ipv6}"
+done
