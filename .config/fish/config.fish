@@ -14,7 +14,7 @@ end
 if test -e /home/$USER/.nix-profile/bin
     fish_add_path /home/$USER/.nix-profile/bin
 end
-# End Nix on NixOS 
+# End Nix on NixOS
 
 if status --is-interactive
   eval (direnv hook fish)
@@ -118,6 +118,31 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gri="git rebase -i"
 
+function git-push-tags-force
+    if test (count $argv) -eq 0
+        set remote_name "origin"
+    else
+        set remote_name $argv[1]
+    end
+
+    set -l tags (git tag -l)
+
+    if test -z "$tags"
+        echo "No local tags found."
+        return 1
+    end
+
+    echo "Force pushing all tags to remote: $remote_name"
+
+    for tag in $tags
+        echo "Force pushing tag: $tag"
+        git push $remote_name refs/tags/$tag:refs/tags/$tag --force
+    end
+
+    echo "All tags have been force pushed to $remote_name."
+end
+
+
 #jj aliases
 alias jjwl='watch --color -c "jj log -r \"all()\" --color always"'
 alias jjs="jj status"
@@ -126,10 +151,43 @@ alias jjd="jj diff"
 alias jjdr="jj diff -r"
 alias jjf="jj git fetch --all-remotes"
 alias jjnm="jj git fetch --all-remotes && jj new master@origin"
-alias jjgp="jj git push"
+alias jjgp="jj git push --ignore-immutable"
 alias jju="jj config set --user user.name \"Rueben Ramirez\" && jj config set --user user.email \"ruebenramirez@gmail.com\""
-alias jjds="jj describe"
-alias jja="jj abandon"
+alias jjds="jj describe --ignore-immutable"
+alias jja="jj abandon --ignore-immutable"
+alias jjr="jj rebase --ignore-immutable"
+
+function jj-git-tag
+    if test (count $argv) -ne 2
+        echo "Usage: jj-git-tag <tag-name> <jj-revision>"
+        return 1
+    end
+
+    set tag_name $argv[1]
+    set jj_rev $argv[2]
+
+    # Export JJ revisions to Git
+    jj git export
+
+    # Get the Git commit hash for the JJ revision
+    set git_hash (jj show --no-pager -r $jj_rev --git | grep "Commit ID:" | cut -d " " -f 3)
+
+    if test -z "$git_hash"
+        echo "Error: Could not find Git hash for JJ revision $jj_rev"
+        return 1
+    end
+
+    # Create the Git tag
+    git tag $tag_name $git_hash
+
+    if test $status -eq 0
+        echo "Successfully created Git tag $tag_name for JJ revision $jj_rev (Git hash: $git_hash)"
+    else
+        echo "Error: Failed to create Git tag"
+        return 1
+    end
+end
+
 
 # docker aliases
 if command -v docker &>/dev/null

@@ -1,0 +1,6 @@
+[user]
+name = "Rueben Ramirez"
+email = "ruebenramirez@gmail.com"
+
+[ui]
+diff-editor = ":builtin"
