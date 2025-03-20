@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo bash -c 'for snapshot in $(zfs list -H -t snapshot -o name); do zfs destroy "$snapshot"; done'
