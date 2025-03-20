@@ -208,5 +208,15 @@ alias tfd="terraform destroy"
 
 # alias for timer and sounding alarm when finished
 function tmr
-    timer $argv; date; sound-alarm;
+    set -l duration $argv[1]
+
+    if test (count $argv) -lt 2
+        timer $duration; date; sound-alarm;
+    else
+        # Get all arguments after the first one (argv[2:])
+        set -l name_parts $argv[2..-1]
+        set -l name (string join " " $name_parts)
+
+        timer $duration --name "$name"; date; sound-alarm
+    end
 end
