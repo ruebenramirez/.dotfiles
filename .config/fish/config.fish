@@ -221,3 +221,7 @@ function tmr
         timer $duration --name "$name"; date; sound-alarm
     end
 end
+
+function rndm
+    cat /dev/random | tr -dc 'a-zA-Z0-9' | head -c $argv
+end
