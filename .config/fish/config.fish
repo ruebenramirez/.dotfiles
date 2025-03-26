@@ -222,6 +222,14 @@ function tmr
     end
 end
 
+# random alphanumeric output
+#   e.g. rndm 5: Gu4br
 function rndm
     cat /dev/random | tr -dc 'a-zA-Z0-9' | head -c $argv
+end
+
+# random output with symbols
+#   e.g. rndms 5: x1^3T
+function rndms
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9!@#$%^&*()_+-=[]{}|;:,.<>?/`~' | head -c $argv
 end
