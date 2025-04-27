@@ -164,6 +164,7 @@ git-config:
 	- git config --global pull.rebase true
 	- git config --global --replace-all core.pager "less -F -X"
 	- git config --global init.defaultBranch main
+	- git config --global credential.helper store
 
 customBins:
 	- sudo unlink ~/bin
