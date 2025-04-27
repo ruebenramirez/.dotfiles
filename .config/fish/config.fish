@@ -209,6 +209,8 @@ alias tfp="terraform plan -out tfplan"
 alias tfa="terraform apply tfplan"
 alias tfd="terraform destroy"
 
+alias pbedit="sudo /nix/store/*-samba-*/bin/pdbedit"
+
 # alias for timer and sounding alarm when finished
 function tmr
     set -l duration $argv[1]
