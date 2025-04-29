@@ -49,7 +49,8 @@ alias cleargs="clear && gs"
 alias tre="tree"
 
 # shortcuts
-alias tn="tmux new-session -c ~/notes"
+alias n="tmux new-session -c ~/notes"
+alias mn="mosh xps-nixos-ipv6 -- tmux new-session -c ~/notes"
 alias nup="nix-update"
 alias hf="hostname -f"
 alias setclip="xclip -selection c"
