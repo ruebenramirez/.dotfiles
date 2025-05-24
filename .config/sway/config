@@ -303,15 +303,14 @@ bar {
 
 #
 # Start Applications at login:
-#
-# I need sway to start some applications when I login.
 exec swaymsg syncthingtray &
 exec swaymsg blueman-applet &
+exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec gnome-keyring-daemon --start --daemonize --components=secrets
 exec_always systemctl --user restart kanshi &
 exec_always /home/rramirez/bin/setup-swayidle &
 
 #
 # includes:
-#
-# other default sway includes (nixos adds some magic here)
 include /etc/sway/config.d/*
+
