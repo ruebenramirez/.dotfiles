@@ -2,4 +2,4 @@
 
 pkill gammastep
 
-gammastep -O 1000 &
+gammastep -O 1300 &
