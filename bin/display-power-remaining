@@ -4,12 +4,4 @@
 
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [[ $battery_status == "Full" ]]; then
-    # display only the current power percentage remaining
-    acpi -b | grep "Battery 0" | cut -d ',' -f2
-else
-    # display power percent remaining and time remaining for charge/drain
-    acpi -b | grep "Battery 0" | cut -d ',' -f2,3
-fi
-
-
+acpi -b | grep "Battery 0" | cut -d ',' -f2
