@@ -1,20 +1,9 @@
 #!/usr/bin/env bash
 
 set -e -x
-
 # Dependencies: tesseract-ocr imagemagick scrot xsel
-
-# quick language menu, add more if you need other languages.
-#select tesseract_lang in eng rus equ ;do break;done
-
-# ls $XDG_RUNTIME_DIR/wayland-* >> ~/ocr-screenshot-log
-# echo $XDG_SESSION_TYPE >> ~/ocr-screenshot-log
-# echo $XDG_RUNTIME_DIR >> ~/ocr-screenshot-log
-# echo $WAYLAND_DISPLAY >> ~/ocr-screenshot-log
-
 SCR_IMG=`mktemp`
 trap "rm $SCR_IMG*" EXIT
-
 grim -g "$(slurp)" $SCR_IMG.png
 
 #should increase detection rate
@@ -22,6 +11,3 @@ mogrify -modulate 100,0 -resize 400% $SCR_IMG.png
 
 tesseract $SCR_IMG.png $SCR_IMG -l eng &> /dev/null
 cat $SCR_IMG.txt | wl-copy
-#cat $SCR_IMG.txt >> ~/ocr-screenshot-log
-
-exit
