@@ -85,6 +85,12 @@ input "type:touchpad" {
     dwt enabled
 }
 
+# hold the "back" button to use trackball for scrolling
+input "1133:45121:ERGO_M575S_Mouse" {
+    middle_emulation enabled
+    scroll_method on_button_down
+    scroll_button 275
+}
 
 ### Key bindings
 #
