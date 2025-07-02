@@ -20,7 +20,9 @@ if status --is-interactive
   eval (direnv hook fish)
 end
 
-fish_add_path $HOME/.cargo/bin
+if test -d $HOME/.cargo/bin
+    fish_add_path $HOME/.cargo/bin
+end
 
 
 set -gx EDITOR vim
