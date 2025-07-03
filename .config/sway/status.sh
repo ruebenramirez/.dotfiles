@@ -15,7 +15,7 @@ linux_kernel_version=$(uname -r)
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
 power_remaining=$(~/bin/display-power-remaining)
 
-disk_space_used=$(df -h / | tail -1 | awk '{print $5}')
+disk_space_used=$(~/bin/disk-used.sh)
 
 current_load=$(~/bin/display-current-load)
 
