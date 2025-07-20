@@ -50,41 +50,7 @@ alias cleawr="clear"
 alias cleargs="clear && gs"
 alias tre="tree"
 
-# shortcuts
-alias n="tmux new-session -c ~/notes"
-alias mn="mosh xps-nixos-ipv4 -- tmux new-session -c ~/notes"
-alias nup="nix-update"
-alias hf="hostname -f"
-alias setclip="xclip -selection c"
-alias getclip="xclip -selection clipboard -o"
-alias ll="ls -lah"
-alias lt="ls -lat"
-alias lth="ls -lat | head"
-alias os="cat /etc/*release*"
-alias visio="pencil"
-alias cb="xsel --clipboard"
-#alias curlperf="curl -w "\nperformance: %{time_connect} (conn) + %{time_starttransfer} (trans) = %{time_total} (total)\n""
-alias rc="rails console"
-alias rs="rails server"
-alias def="define"
-#alias psg="ps auxf | grep -v grep | grep -i $*"
-alias psg="ps auxf | grep -v grep | grep -i $argv"
-alias tmls="tmux ls"
-alias tmks="tmux kill-session -a"
-alias tma="tmux a"
-alias tmad="tmux a -d"
-alias lynx="lynx -vikeys -accept_all_cookies"
-alias writer="libreoffice --writer"
-alias sheets="libreoffice --calc"
-alias calc="sheets"
-alias pbcopy="xclip -se c -i"
-alias discord="Discord"
-alias vido="cd ~/.dotfiles/ && vi Makefile"
-alias girn="grep -irn"
-alias vin="cd ~/Sync/notes && /nix/store/sd4l8b6kjwxghizc0cqsgxl4f14cmx0z-neovim-0.10.2/bin/vi"
-
-
-# make me a sandwhich
+# make me a sandwhich https://xkcd.com/149/
 alias wifi="sudo sh ~/bin/wifi $argv"
 alias htop="sudo htop"
 alias light="sudo light"
@@ -98,12 +64,26 @@ alias lowpower="sudo pm-powersave true"
 alias highpower="sudo pm-powersave false"
 alias wifi="sudo systemctl restart networking NetworkManager && nm-applet &"
 
-# tmux aliases
+# aliases
+alias nup="nix-update"
+alias hf="hostname -f"
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection clipboard -o"
+alias ll="ls -lah"
+alias lt="ls -lat"
+alias lth="ls -lat | head"
+alias os="cat /etc/*release*"
+alias visio="pencil"
+alias def="define"
+alias psg="ps auxf | grep -v grep | grep -i $argv"
+alias lynx="lynx -vikeys -accept_all_cookies"
+alias calc="sheets"
+alias discord="Discord"
+alias vido="cd ~/.dotfiles/ && vi Makefile"
+alias girn="grep -irn"
 alias tls="tmux ls"
-alias tmls="tmux ls"
 alias tad="tmux a -d"
-alias tmad="tmux a -d"
-
+alias pbedit="sudo /nix/store/*-samba-*/bin/pdbedit"
 
 # git aliases
 alias gg="git grep"
@@ -122,7 +102,6 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gri="git rebase -i"
 alias gws="watch -n 2 'git log --pretty=format:\"%h - %s%d\" --decorate'"
-
 function git-push-tags-force
     if test (count $argv) -eq 0
         set remote_name "origin"
@@ -146,7 +125,6 @@ function git-push-tags-force
 
     echo "All tags have been force pushed to $remote_name."
 end
-
 
 #jj aliases
 alias jjwl='watch --color -c "jj log -r \"all()\" --color always"'
@@ -193,8 +171,7 @@ function jj-git-tag
     end
 end
 
-
-# docker aliases
+# docker aliases (if docker is available)
 if command -v docker &>/dev/null
     alias d="docker"
     alias dps="docker ps -a"
@@ -211,9 +188,7 @@ alias tfp="terraform plan -out tfplan"
 alias tfa="terraform apply tfplan"
 alias tfd="terraform destroy"
 
-alias pbedit="sudo /nix/store/*-samba-*/bin/pdbedit"
-
-# alias for timer and sounding alarm when finished
+# timer with alarm
 function tmr
     set -l duration $argv[1]
 
