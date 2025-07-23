@@ -215,3 +215,8 @@ end
 function rndms
     cat /dev/urandom | tr -dc 'a-zA-Z0-9!@#$%^&*()_+-=[]{}|;:,.<>?/`~' | head -c $argv
 end
+
+function hugopost
+    set -l title (string replace -a ' ' '-' $argv[1])
+    hugo new "posts/$(date --iso-8601)-$title/index.md"
+end
