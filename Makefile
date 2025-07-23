@@ -8,9 +8,7 @@ dev-cli-packages: update
 desktop-packages: update backlight power-management adobeSourceCodeProFont remove-gnome-header-bar
 	sudo apt install -qy flameshot xbindkeys libx11-dev libxinerama-dev suckless-tools bluez-tools blueman vlc ddcutil aria2
 
-#ubuntu: update dev_setup git vim dotFiles customBins omz backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
-#dev-laptop: backlight power-management adobeSourceCodeProFont keychain remove-gnome-header-bar
-dev-laptop: power-management adobeSourceCodeProFont keychain
+debian-dev-laptop: power-management adobeSourceCodeProFont keychain
 	sudo apt install -y mosh tmux flameshot xclip xbindkeys build-essential libx11-dev libxinerama-dev sharutils suckless-tools bluez-tools blueman vlc ddcutil aria2
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y acpi lm-sensors
@@ -36,15 +34,6 @@ dev-laptop: power-management adobeSourceCodeProFont keychain
 	sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
 	curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 	sudo apt update && sudo apt install 1password -y
-
-
-wsl-setup:
-	# TODO: install flatpak
-	# TODO: run .dotfiles
-	# TODO: link up bin
-	# TODO: configure nix
-	# TODO: configure i3wm
-	# TODO: configure fish shell
 
 keychain:
 	sudo apt install -y keychain
@@ -81,20 +70,7 @@ update:
 macbookpro_keyboard:
 	/usr/bin/env python3 /home/rramirez/bin/setup-apple-keyboard.py
 
-dotFiles:
-	#- unlink ~/.Xresources
-	#if [[ $$(~/bin/is-xps-17) -gt 0 ]]; then \
-	#		ln -sf $$(pwd)/Xresources/.Xresources-xps-17 ~/.Xresources; \
-	#	else \
-	#		ln -sf $$(pwd)/Xresources/.Xresources-xps-13 ~/.Xresources; \
-	#	fi;
-	- ln -sf $$(pwd)/i3 ~/.config/i3
-	- ln -sf $$(pwd)/fish/ ~/.config/fish
-	- ln -sf $$(pwd)/alacritty/ ~/.config/alacritty
-
-#dev_packages: update ruby-dev git pyenv go-install github-cli-install oracle-java
-#dev_packages: update ruby-dev git pyenv go-install github-cli-install
-dev_packages: update dev_packages_base ruby-dev git go-install github-cli-install
+dev_packages: update dev_packages_base ruby-dev git-deb-install git-config go-install github-cli-install
 
 dev_packages_base: update ruby-dev git go-install github-cli-install
 	- sudo apt-get install -qy git python python3-pip python3-dev curl xbindkeys vim vim-common subversion git-svn iotop iftop htop tree nethogs jq nmap dnsutils net-tools gnupg2 whois
@@ -102,7 +78,6 @@ dev_packages_base: update ruby-dev git go-install github-cli-install
 
 dev_setup: dev_packages sre_stuffs
 
-#sre_stuffs: sysdig kubectl helm-install tfenv-install aws-iam-k8s-auth helm-install azure-cli-install opa-install opa-conftest-install ansible_install
 sre_stuffs: sysdig kubectl helm-install tfenv-install aws-iam-k8s-auth helm-install opa-install opa-conftest-install ansible_install
 
 omz:
@@ -121,7 +96,6 @@ configure-fish-shell:
 	- ln -sf ~/.dotfiles/fish ~/.config/fish
 	- chsh -s /usr/bin/fish
 
-#vim: dotFiles customBins dev_packages
 vim: dotFiles customBins
 	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev fuse
 	- sudo modprobe fuse
@@ -135,7 +109,6 @@ vim: dotFiles customBins
 	- mkdir -p ~/.config/yamllint
 	- cp yamllint_config.yml ~/.config/yamllint/config
 
-
 vim-plugins:
 	- rm -fr ~/.vim
 	- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -143,27 +116,18 @@ vim-plugins:
 	- mkdir -p ~/.config/yamllint
 	- cp yamllint_config.yml ~/.config/yamllint/config
 
-git:
+git-deb-install:
 	- sudo apt-get install -y git git-lfs tig nodejs npm
 	- sudo npm install -g git-split-diffs
-	- git config --global user.name "Rueben Ramirez"
-	- git config --global user.email ruebenramirez@gmail.com
-	- git config --global core.editor vim
-	- git config --global color.ui true
-	- git config --global pull.rebase true
-	- git config --global --replace-all core.pager "less -F -X"
-	#- git config --global --replace-all core.pager "npx git-split-diffs --color | less -RFX"
-	#- git config --global --replace-all split-diffs.min-line-width 40
-	#- git config --global --replace-all split-diffs.theme-name github-light
 
 git-config:
 	- git config --global user.name "Rueben Ramirez"
 	- git config --global user.email ruebenramirez@gmail.com
-	- git config --global core.editor vim
+	- git config --global core.editor nvim
 	- git config --global color.ui true
 	- git config --global pull.rebase true
 	- git config --global --replace-all core.pager "less -F -X"
-	- git config --global init.defaultBranch main
+	- git config --global init.defaultBranch master
 	- git config --global credential.helper store
 
 customBins:
