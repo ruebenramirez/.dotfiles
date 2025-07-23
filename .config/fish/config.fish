@@ -220,3 +220,11 @@ function hugopost
     set -l title (string replace -a ' ' '-' $argv[1])
     hugo new "posts/$(date --iso-8601)-$title/index.md"
 end
+
+function jj
+    if test (count $argv) -eq 0
+        jjui
+    else
+        command jj $argv
+    end
+end
