@@ -1,32 +1,171 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-LAPTOP_OUTPUT="eDP-1"
-LID_STATE_FILE="/proc/acpi/button/lid/LID0/state"
+# Configuration
+LAPTOP_OUTPUT="eDP-1"  # Change this if your display name is different
+LOG_PREFIX="sway-clamshell"
 
-# Check if lid state file exists (path might vary)
-if [[ ! -f "$LID_STATE_FILE" ]]; then
-# Try alternative paths
-for lid_file in /proc/acpi/button/lid/*/state; do
-  if [[ -f "$lid_file" ]]; then
-    LID_STATE_FILE="$lid_file"
-    break
-  fi
-done
-fi
+# Logging function
+log() {
+    echo "[$LOG_PREFIX] $1" >&2
+    logger -t "$LOG_PREFIX" "$1" 2>/dev/null || true
+}
 
-if [[ -f "$LID_STATE_FILE" ]]; then
-read -r LS < "$LID_STATE_FILE"
-case "$LS" in
-  *open*)
-    ${pkgs.sway}/bin/swaymsg output "$LAPTOP_OUTPUT" enable
-    ;;
-  *closed*)
-    ${pkgs.sway}/bin/swaymsg output "$LAPTOP_OUTPUT" disable
-    ;;
-  *)
-    echo "Could not determine lid state from: $LS" >&2
-    ;;
+# Function to find lid state file
+find_lid_state_file() {
+    local lid_file
+    for lid_file in /proc/acpi/button/lid/*/state; do
+        if [[ -r "$lid_file" ]]; then
+            echo "$lid_file"
+            return 0
+        fi
+    done
+    return 1
+}
+
+# Function to get lid state
+get_lid_state() {
+    local lid_file="$1"
+    local state
+
+    if ! state=$(cat "$lid_file" 2>/dev/null); then
+        log "ERROR: Failed to read lid state from: $lid_file"
+        return 1
+    fi
+
+    case "$state" in
+        *open*)
+            echo "open"
+            ;;
+        *closed*)
+            echo "closed"
+            ;;
+        *)
+            log "WARNING: Unknown lid state format: $state"
+            return 1
+            ;;
+    esac
+}
+
+# Function to control display output
+control_display() {
+    local action="$1"
+    local output="$2"
+
+    if ! command -v swaymsg >/dev/null 2>&1; then
+        log "ERROR: swaymsg command not found"
+        return 1
+    fi
+
+    if swaymsg output "$output" "$action" >/dev/null 2>&1; then
+        log "SUCCESS: $action $output"
+        return 0
+    else
+        log "ERROR: Failed to $action $output"
+        return 1
+    fi
+}
+
+# Main function
+main() {
+    local lid_file lid_state
+
+    log "Starting clamshell state check"
+
+    # Find lid state file
+    if ! lid_file=$(find_lid_state_file); then
+        log "WARNING: No readable ACPI lid state file found"
+        # List available files for debugging
+        if ls /proc/acpi/button/lid/*/state >/dev/null 2>&1; then
+            log "Available lid files: $(ls /proc/acpi/button/lid/*/state 2>/dev/null | tr '\n' ' ')"
+        fi
+        exit 0  # Don't fail the config load
+    fi
+
+    log "Using lid state file: $lid_file"
+
+    # Get current lid state
+    if ! lid_state=$(get_lid_state "$lid_file"); then
+        log "ERROR: Could not determine lid state"
+        exit 0  # Don't fail the config load
+    fi
+
+    log "Current lid state: $lid_state"
+
+    # Control display based on lid state
+    case "$lid_state" in
+        open)
+            control_display "enable" "$LAPTOP_OUTPUT"
+            ;;
+        closed)
+            control_display "disable" "$LAPTOP_OUTPUT"
+            ;;
+        *)
+            log "ERROR: Unexpected lid state: $lid_state"
+            exit 1
+            ;;
+    esac
+
+    log "Clamshell state check completed"
+}
+
+# Handle script arguments
+case "${1:-}" in
+    --help|-h)
+        cat << EOF
+Usage: $0 [OPTIONS]
+
+A script to manage laptop display state based on lid position for Sway.
+
+OPTIONS:
+    --help, -h          Show this help message
+    --debug             Enable debug output
+    --output DISPLAY    Specify laptop display name (default: $LAPTOP_OUTPUT)
+    --test              Test mode - show what would be done without acting
+
+EXAMPLES:
+    $0                  # Normal operation
+    $0 --debug          # Run with debug output
+    $0 --output eDP-2   # Use different display name
+    $0 --test           # Test mode
+
+NOTES:
+    - This script should be called by Sway via exec_always
+    - Default display name is '$LAPTOP_OUTPUT' - change if needed
+    - Logs are sent to systemd journal with tag '$LOG_PREFIX'
+EOF
+        exit 0
+        ;;
+    --debug)
+        set -x
+        ;;
+    --output)
+        if [[ -n "${2:-}" ]]; then
+            LAPTOP_OUTPUT="$2"
+            shift 2
+        else
+            log "ERROR: --output requires a display name"
+            exit 1
+        fi
+        ;;
+    --test)
+        # Override control_display function for testing
+        control_display() {
+            local action="$1"
+            local output="$2"
+            log "TEST MODE: Would $action $output"
+            return 0
+        }
+        ;;
+    "")
+        # Normal operation
+        ;;
+    *)
+        log "ERROR: Unknown option: $1"
+        echo "Use --help for usage information"
+        exit 1
+        ;;
 esac
-else
-echo "Could not find lid state file" >&2
-fi
+
+# Run main function
+main "$@"
