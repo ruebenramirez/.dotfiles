@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+LAPTOP_OUTPUT="eDP-1"
+LID_STATE_FILE="/proc/acpi/button/lid/LID0/state"
+
+# Check if lid state file exists (path might vary)
+if [[ ! -f "$LID_STATE_FILE" ]]; then
+# Try alternative paths
+for lid_file in /proc/acpi/button/lid/*/state; do
+  if [[ -f "$lid_file" ]]; then
+    LID_STATE_FILE="$lid_file"
+    break
+  fi
+done
+fi
+
+if [[ -f "$LID_STATE_FILE" ]]; then
+read -r LS < "$LID_STATE_FILE"
+case "$LS" in
+  *open*)
+    ${pkgs.sway}/bin/swaymsg output "$LAPTOP_OUTPUT" enable
+    ;;
+  *closed*)
+    ${pkgs.sway}/bin/swaymsg output "$LAPTOP_OUTPUT" disable
+    ;;
+  *)
+    echo "Could not determine lid state from: $LS" >&2
+    ;;
+esac
+else
+echo "Could not find lid state file" >&2
+fi

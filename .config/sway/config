@@ -313,6 +313,17 @@ bar {
     # }
 }
 
+# Clamshell mode configuration
+# First, identify your laptop display name
+set $laptop eDP-1
+
+# Bind lid switch events to disable/enable laptop display
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+# Handle reload case - check lid state on startup/reload
+exec_always ~/bin/sway-clamshell-init
+
 #
 # Start Applications at login:
 exec swaymsg syncthingtray &
