@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+# vin - Launch wezterm with tmux and nix develop for note-taking
+# Author: User
+# Description: Opens a dedicated note-taking environment using nix flake
+
+set -euo pipefail
+
+# Configuration
+NOTES_DIR="$HOME/notes"
+TMUX_SESSION="notes"
+
+# Function to check if tmux session exists
+session_exists() {
+    tmux has-session -t "$TMUX_SESSION" 2>/dev/null
+}
+
+# Function to create new tmux session with direnv and neovim
+create_session() {
+    # Start tmux session in background, change to notes directory
+    # Unset direnv variables to prevent automatic loading
+    tmux new-session -d -s "$TMUX_SESSION" -c "$NOTES_DIR" \
+        'unset DIRENV_DIFF DIRENV_DIR DIRENV_WATCHES; exec "$SHELL"'
+
+    # Launch neovim using nix develop to load the flake environment
+    tmux send-keys -t "$TMUX_SESSION" 'nix develop --command nvim' C-m
+}
+
+# Function to attach to existing session
+attach_session() {
+    tmux attach-session -t "$TMUX_SESSION"
+}
+
+# Main execution
+main() {
+    # Ensure notes directory exists
+    if [[ ! -d "$NOTES_DIR" ]]; then
+        echo "Error: Notes directory $NOTES_DIR does not exist" >&2
+        exit 1
+    fi
+
+    # Check if flake.nix exists in notes directory
+    if [[ ! -f "$NOTES_DIR/flake.nix" ]]; then
+        echo "Warning: No flake.nix file found in $NOTES_DIR" >&2
+        echo "Note: Direnv will be disabled to prevent double-loading" >&2
+    fi
+
+    # Launch wezterm with the session
+    if session_exists; then
+        # Attach to existing session in new wezterm window
+        wezterm start --cwd "$NOTES_DIR" -- tmux attach-session -t "$TMUX_SESSION"
+    else
+        # Create new session and launch in wezterm
+        wezterm start --cwd "$NOTES_DIR" -- bash -c "
+            # Create tmux session with direnv disabled
+            tmux new-session -d -s '$TMUX_SESSION' -c '$NOTES_DIR' \\
+                'unset DIRENV_DIFF DIRENV_DIR DIRENV_WATCHES; exec \"\$SHELL\"'
+
+            # Launch neovim using nix develop
+            tmux send-keys -t '$TMUX_SESSION' 'nix develop --command nvim' C-m
+
+            # Attach to the session
+            tmux attach-session -t '$TMUX_SESSION'
+        "
+    fi
+}
+
+# Execute main function
+main "$@"
