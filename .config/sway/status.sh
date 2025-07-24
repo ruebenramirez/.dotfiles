@@ -26,4 +26,11 @@ sound_device=$(~/bin/sound-output-device-name.sh)
 # like 2018-10-06 and the time (e.g., 14:01)
 date_formatted=$(date "+%b %F %a @ %H:%M")
 
+
+# control gamma based on time of day
+~/bin/gamma_control.sh >/dev/null &
+
+# swaybar text displayed
 echo -e "VPN" $vpn_connection "|" "net" $wifi_network "|" disk used: $disk_space_used "|" uptime: $uptime_formatted ↑ "|" $battery_status 🔋 $power_remaining "|" load: $current_load "|" "\U0001F3B5" $volume $sound_device "|" $date_formatted
+
+
