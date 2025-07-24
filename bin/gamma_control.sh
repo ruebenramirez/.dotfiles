@@ -27,11 +27,18 @@ get_time_period() {
     local current_time
     current_time=$(get_current_time)
 
+    # Convert to numeric values for comparison (force base-10)
+    local current_num=$((10#$current_time))
+    local night_start_num=$((10#$NIGHT_START))
+    local night_end_num=$((10#$NIGHT_END))
+    local morning_start_num=$((10#$MORNING_START))
+    local morning_end_num=$((10#$MORNING_END))
+
     # Night time: 19:46 to 04:45 (crosses midnight)
-    if [[ "$current_time" -ge "$NIGHT_START" ]] || [[ "$current_time" -le "$NIGHT_END" ]]; then
+    if [[ $current_num -ge $night_start_num ]] || [[ $current_num -le $night_end_num ]]; then
         echo "night"
     # Morning time: 04:46 to 07:45
-    elif [[ "$current_time" -ge "$MORNING_START" ]] && [[ "$current_time" -le "$MORNING_END" ]]; then
+    elif [[ $current_num -ge $morning_start_num ]] && [[ $current_num -le $morning_end_num ]]; then
         echo "morning"
     # Day time: remainder
     else
